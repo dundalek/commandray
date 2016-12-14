@@ -1,0 +1,6 @@
+Usage: heroku pg:ps [DATABASE]
+
+ view active queries with execution time
+
+   -v,--verbose # also show idle connections
+

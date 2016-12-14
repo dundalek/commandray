@@ -1,0 +1,16 @@
+{
+  "name": "addons:upgrade",
+  "longname": "addons:upgrade ADDON_NAME ADDON_SERVICE:PLAN",
+  "desc": "upgrade an existing add-on resource to PLAN",
+  "params": [
+    {
+      "name": "-a, --app APP",
+      "desc": "app to run command against"
+    },
+    {
+      "name": "-r, --remote REMOTE",
+      "desc": "git remote of app to run command against"
+    }
+  ],
+  "subcommands": []
+}

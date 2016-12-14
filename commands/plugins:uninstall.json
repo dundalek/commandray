@@ -1,0 +1,7 @@
+{
+  "name": "plugins:uninstall",
+  "longname": "plugins:uninstall PLUGIN",
+  "desc": "uninstall a plugin",
+  "params": [],
+  "subcommands": []
+}

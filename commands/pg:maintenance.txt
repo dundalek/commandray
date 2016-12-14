@@ -1,0 +1,9 @@
+Usage: heroku pg:maintenance <info|run|window> <DATABASE>
+
+ manage maintenance for <DATABASE>
+ info               # show current maintenance information
+ run                # start maintenance
+   -f, --force      #   run pg:maintenance without entering application maintenance mode
+ window="<window>"  # set weekly UTC maintenance window for DATABASE
+                     # eg: `heroku pg:maintenance window="Sunday 14:30"`
+

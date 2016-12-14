@@ -1,0 +1,12 @@
+{
+  "name": "rake",
+  "longname": "rake test",
+  "desc": "run tests",
+  "params": [],
+  "subcommands": [
+    {
+      "name": "rake test",
+      "desc": "run tests"
+    }
+  ]
+}

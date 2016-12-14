@@ -1,0 +1,7 @@
+{
+  "name": "pg:push",
+  "longname": "pg:push <SOURCE_DATABASE> <REMOTE_TARGET_DATABASE>",
+  "desc": "push from SOURCE_DATABASE to REMOTE_TARGET_DATABASE",
+  "params": [],
+  "subcommands": []
+}

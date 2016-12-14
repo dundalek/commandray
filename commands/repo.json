@@ -1,0 +1,28 @@
+{
+  "name": "repo",
+  "longname": "repo",
+  "desc": "Slug manipulation",
+  "params": [],
+  "subcommands": [
+    {
+      "name": "repo:clone",
+      "desc": "Sets the bare repo for immediate consumption"
+    },
+    {
+      "name": "repo:download",
+      "desc": "Download the repository"
+    },
+    {
+      "name": "repo:gc",
+      "desc": "Run a git gc --agressive on the applications repository"
+    },
+    {
+      "name": "repo:purge-cache",
+      "desc": "Deletes the contents the build cache in the repository"
+    },
+    {
+      "name": "repo:reset",
+      "desc": "Reset the repo"
+    }
+  ]
+}

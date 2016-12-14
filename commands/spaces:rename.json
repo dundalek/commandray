@@ -1,0 +1,16 @@
+{
+  "name": "spaces:rename",
+  "longname": "spaces:rename",
+  "desc": "renames a space",
+  "params": [
+    {
+      "name": "--from FROM",
+      "desc": "current name of space"
+    },
+    {
+      "name": "--to TO",
+      "desc": "desired name of space"
+    }
+  ],
+  "subcommands": []
+}

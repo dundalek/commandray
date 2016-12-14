@@ -1,0 +1,37 @@
+{
+  "name": "spaces",
+  "longname": "spaces",
+  "desc": "manage heroku private spaces",
+  "params": [
+    {
+      "name": "-o, --org ORG",
+      "desc": "organization to use"
+    },
+    {
+      "name": "--json",
+      "desc": "output in json format"
+    }
+  ],
+  "subcommands": [
+    {
+      "name": "spaces:create",
+      "desc": "create a new space"
+    },
+    {
+      "name": "spaces:destroy",
+      "desc": "destroy a space"
+    },
+    {
+      "name": "spaces:info",
+      "desc": "show info about a space"
+    },
+    {
+      "name": "spaces:rename",
+      "desc": "renames a space"
+    },
+    {
+      "name": "spaces:wait",
+      "desc": "wait for a space to be created"
+    }
+  ]
+}

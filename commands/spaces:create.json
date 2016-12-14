@@ -1,0 +1,20 @@
+{
+  "name": "spaces:create",
+  "longname": "spaces:create",
+  "desc": "create a new space",
+  "params": [
+    {
+      "name": "-o, --org ORG",
+      "desc": "organization to use"
+    },
+    {
+      "name": "-s, --space SPACE",
+      "desc": "name of space to create"
+    },
+    {
+      "name": "--region REGION",
+      "desc": "region name"
+    }
+  ],
+  "subcommands": []
+}

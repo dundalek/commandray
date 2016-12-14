@@ -1,0 +1,14 @@
+Usage: heroku members
+
+list members of an organization
+
+ -o, --org ORG       # organization to use
+ -r, --role ROLE     # filter by role
+ --json              # output in json format
+
+Additional commands, type "heroku help COMMAND" for more details:
+
+  members:add EMAIL [--org ORG] [--role ROLE]  #  adds a new member to an org
+  members:remove EMAIL [--org ORG]             #  removes a member from an org
+  members:set NAME [--org ORG] [--role ROLE]   #  change role of member in org
+

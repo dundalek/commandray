@@ -1,0 +1,24 @@
+{
+  "name": "plugins",
+  "longname": "plugins",
+  "desc": "manage plugins to the heroku gem",
+  "params": [],
+  "subcommands": [
+    {
+      "name": "plugins:install NAME",
+      "desc": "install a plugin"
+    },
+    {
+      "name": "plugins:link [PATH]",
+      "desc": "This is useful when developing plugins locally."
+    },
+    {
+      "name": "plugins:uninstall PLUGIN",
+      "desc": "uninstall a plugin"
+    },
+    {
+      "name": "plugins:update [PLUGIN]",
+      "desc": "updates all plugins or a single plugin by name"
+    }
+  ]
+}

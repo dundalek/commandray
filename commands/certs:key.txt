@@ -1,0 +1,7 @@
+Usage: heroku certs:key CRT KEY [KEY ...]
+
+ Print the correct key for the given certificate.
+
+ You must pass one single certificate, and one or more keys.
+ The first key that signs the certificate will be printed back.
+

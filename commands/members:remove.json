@@ -1,0 +1,12 @@
+{
+  "name": "members:remove",
+  "longname": "members:remove EMAIL [--org ORG]",
+  "desc": "removes a member from an org",
+  "params": [
+    {
+      "name": "-o, --org ORG",
+      "desc": "organization to use"
+    }
+  ],
+  "subcommands": []
+}

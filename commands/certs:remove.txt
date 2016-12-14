@@ -1,0 +1,6 @@
+Usage: heroku certs:remove
+
+ Remove an SSL Endpoint from an app.
+
+   -e, --endpoint ENDPOINT  # name of the endpoint to remove
+

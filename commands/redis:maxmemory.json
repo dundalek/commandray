@@ -1,0 +1,45 @@
+{
+  "name": "redis:maxmemory",
+  "longname": "redis:maxmemory [DATABASE]",
+  "desc": "set the key eviction policy",
+  "params": [
+    {
+      "name": "-a, --app APP",
+      "desc": "app to run command against"
+    },
+    {
+      "name": "-p, --policy POLICY",
+      "desc": "set policy name"
+    },
+    {
+      "name": "-r, --remote REMOTE",
+      "desc": "git remote of app to run command against"
+    }
+  ],
+  "subcommands": [
+    {
+      "name": "noeviction",
+      "desc": "returns errors when memory limit is reached"
+    },
+    {
+      "name": "allkeys-lru",
+      "desc": "removes less recently used keys first"
+    },
+    {
+      "name": "volatile-lru",
+      "desc": "removes less recently used keys first that have an expiry set"
+    },
+    {
+      "name": "allkeys-random",
+      "desc": "evicts random keys"
+    },
+    {
+      "name": "volatile-random",
+      "desc": "evicts random keys but only those that have an expiry set"
+    },
+    {
+      "name": "volatile-ttl",
+      "desc": "only evicts keys with an expiry set and a short TTL"
+    }
+  ]
+}

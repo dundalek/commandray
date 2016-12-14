@@ -1,0 +1,24 @@
+{
+  "name": "apps:transfer",
+  "longname": "apps:transfer RECIPIENT",
+  "desc": "transfer applications to another user, organization or team",
+  "params": [
+    {
+      "name": "-a, --app APP",
+      "desc": "app to run command against"
+    },
+    {
+      "name": "-l, --locked",
+      "desc": "lock the app upon transfer"
+    },
+    {
+      "name": "-r, --remote REMOTE",
+      "desc": "git remote of app to run command against"
+    },
+    {
+      "name": "--bulk",
+      "desc": "transfer applications in bulk"
+    }
+  ],
+  "subcommands": []
+}

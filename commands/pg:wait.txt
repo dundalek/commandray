@@ -1,0 +1,6 @@
+Usage: heroku pg:wait [DATABASE]
+
+ -a, --app APP                 # app to run command against
+ -r, --remote REMOTE           # git remote of app to run command against
+ --wait-interval WAIT-INTERVAL # how frequently to poll in seconds (to avoid rate limiting)
+

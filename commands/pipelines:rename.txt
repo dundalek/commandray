@@ -1,0 +1,8 @@
+Usage: heroku pipelines:rename PIPELINE NAME
+
+rename a pipeline
+
+Example:
+  $ heroku pipelines:rename example www
+  Renaming example pipeline to www... done
+

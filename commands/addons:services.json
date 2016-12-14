@@ -1,0 +1,12 @@
+{
+  "name": "addons:services",
+  "longname": "addons:services",
+  "desc": "list all available add-on services",
+  "params": [
+    {
+      "name": "--json",
+      "desc": "output in json format"
+    }
+  ],
+  "subcommands": []
+}

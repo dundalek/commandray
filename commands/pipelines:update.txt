@@ -1,0 +1,12 @@
+Usage: heroku pipelines:update
+
+update this app's stage in a pipeline
+
+ -a, --app APP       # app to run command against
+ -r, --remote REMOTE # git remote of app to run command against
+ -s, --stage STAGE   # new stage of app
+
+Example:
+  $ heroku pipelines:update -s staging -a example-admin
+  Changing example-admin to staging... done
+

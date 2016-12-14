@@ -1,0 +1,16 @@
+{
+  "name": "apps:stacks",
+  "longname": "apps:stacks",
+  "desc": "show the list of available stacks",
+  "params": [
+    {
+      "name": "-a, --app APP",
+      "desc": "app to run command against"
+    },
+    {
+      "name": "-r, --remote REMOTE",
+      "desc": "git remote of app to run command against"
+    }
+  ],
+  "subcommands": []
+}

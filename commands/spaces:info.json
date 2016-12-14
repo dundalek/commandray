@@ -1,0 +1,16 @@
+{
+  "name": "spaces:info",
+  "longname": "spaces:info",
+  "desc": "show info about a space",
+  "params": [
+    {
+      "name": "-s, --space SPACE",
+      "desc": "space to get info of"
+    },
+    {
+      "name": "--json",
+      "desc": "output in json format"
+    }
+  ],
+  "subcommands": []
+}

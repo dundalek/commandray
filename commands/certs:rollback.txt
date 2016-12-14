@@ -1,0 +1,6 @@
+Usage: heroku certs:rollback
+
+ Rollback an SSL Endpoint for an app.
+
+   -e, --endpoint ENDPOINT  # name of the endpoint to rollback
+

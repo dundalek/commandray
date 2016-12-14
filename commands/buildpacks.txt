@@ -1,0 +1,17 @@
+Usage: heroku buildpacks
+
+display the buildpack_url(s) for an app
+
+ -a, --app APP       # app to run command against
+ -r, --remote REMOTE # git remote of app to run command against
+
+Examples:
+ $ heroku buildpacks
+
+Additional commands, type "heroku help COMMAND" for more details:
+
+  buildpacks:add BUILDPACK_URL       #  add new app buildpack, inserting into list of buildpacks if neccessary
+  buildpacks:clear                   #  clear all buildpacks set on the app
+  buildpacks:remove [BUILDPACK_URL]  #  remove a buildpack set on the app
+  buildpacks:set BUILDPACK_URL       #  set new app buildpack, overwriting into list of buildpacks if neccessary
+

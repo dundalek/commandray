@@ -1,0 +1,6 @@
+Usage: heroku addons:services
+
+list all available add-on services
+
+ --json              # output in json format
+

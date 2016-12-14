@@ -1,0 +1,61 @@
+{
+  "name": "pg:backups",
+  "longname": "pg:backups [subcommand]",
+  "desc": "interact with built-in backups. Without a subcommand, it lists all",
+  "params": [
+    {
+      "name": "--wait-interval SECONDS",
+      "desc": "how frequently to poll (to avoid rate-limiting)"
+    },
+    {
+      "name": "--wait-interval SECONDS",
+      "desc": "how frequently to poll (to avoid rate-limiting)"
+    },
+    {
+      "name": "-q, --quiet",
+      "desc": "Hide expiration message (for use in scripts)"
+    },
+    {
+      "name": "--at '<hour>:00 <timezone>'",
+      "desc": "at a specific (24h clock) hour in the given timezone"
+    }
+  ],
+  "subcommands": [
+    {
+      "name": "info BACKUP_ID",
+      "desc": "get information about a specific backup"
+    },
+    {
+      "name": "capture DATABASE",
+      "desc": "capture a new backup"
+    },
+    {
+      "name": "restore [[BACKUP_ID] DATABASE]",
+      "desc": "restore a backup (default latest) to a database (default DATABASE_URL)"
+    },
+    {
+      "name": "public-url BACKUP_ID",
+      "desc": "get secret but publicly accessible URL for BACKUP_ID to download it"
+    },
+    {
+      "name": "cancel [BACKUP_ID]",
+      "desc": "cancel an in-progress backup or restore (default newest)"
+    },
+    {
+      "name": "delete BACKUP_ID",
+      "desc": "delete an existing backup"
+    },
+    {
+      "name": "schedule DATABASE",
+      "desc": "schedule nightly backups for given database"
+    },
+    {
+      "name": "unschedule SCHEDULE",
+      "desc": "stop nightly backups on this schedule"
+    },
+    {
+      "name": "schedules",
+      "desc": "list backup schedule"
+    }
+  ]
+}

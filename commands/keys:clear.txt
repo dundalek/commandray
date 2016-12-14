@@ -1,0 +1,4 @@
+Usage: heroku keys:clear
+
+remove all SSH keys for current user
+

@@ -1,0 +1,25 @@
+{
+  "name": "pg:maintenance",
+  "longname": "pg:maintenance <info|run|window> <DATABASE>",
+  "desc": "manage maintenance for <DATABASE>",
+  "params": [
+    {
+      "name": "-f, --force",
+      "desc": "run pg:maintenance without entering application maintenance mode"
+    }
+  ],
+  "subcommands": [
+    {
+      "name": "info",
+      "desc": "show current maintenance information"
+    },
+    {
+      "name": "run",
+      "desc": "start maintenance"
+    },
+    {
+      "name": "window=\"<window>\"",
+      "desc": "set weekly UTC maintenance window for DATABASE"
+    }
+  ]
+}

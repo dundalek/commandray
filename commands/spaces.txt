@@ -1,0 +1,15 @@
+Usage: heroku spaces
+
+list available spaces
+
+ -o, --org ORG       # organization to use
+ --json              # output in json format
+
+Additional commands, type "heroku help COMMAND" for more details:
+
+  spaces:create   #  create a new space
+  spaces:destroy  #  destroy a space
+  spaces:info     #  show info about a space
+  spaces:rename   #  renames a space
+  spaces:wait     #  wait for a space to be created
+

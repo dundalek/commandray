@@ -1,0 +1,12 @@
+Usage: heroku buildpacks:set URL
+
+set new app buildpack, overwriting into list of buildpacks if necessary
+
+ -a, --app APP       # app to run command against
+ -i, --index INDEX   # the 1-based index of the URL in the list of URLs
+ -r, --remote REMOTE # git remote of app to run command against
+
+Example:
+
+ $ heroku buildpacks:set -i 1 https://github.com/heroku/heroku-buildpack-ruby
+

@@ -1,0 +1,9 @@
+Usage: heroku addons:attach ADDON_NAME
+
+attach add-on resource to a new app
+
+ -a, --app APP       # app to run command against
+ -r, --remote REMOTE # git remote of app to run command against
+ --as AS             # name for add-on attachment
+ --confirm CONFIRM   # overwrite existing add-on attachment with same name
+

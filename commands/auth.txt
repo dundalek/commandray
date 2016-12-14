@@ -1,0 +1,15 @@
+Usage: heroku auth
+
+ Authenticate, display token and current user
+
+Additional commands, type "heroku help COMMAND" for more details:
+
+  auth:2fa           #  check 2fa status
+  auth:2fa:disable   #  disable two-factor authentication for your account
+  auth:2fa:enable    #  enable 2fa on your account
+  auth:2fa:generate  #  generates and replaces recovery codes
+  auth:login         #  log in with your heroku credentials
+  auth:logout        #  clear local authentication credentials
+  auth:token         #  display your api token
+  auth:whoami        #  display your heroku email address
+

@@ -1,0 +1,22 @@
+Usage: heroku info
+
+show detailed app information
+
+ -a, --app APP       # app to run command against
+ -j, --json
+ -r, --remote REMOTE # git remote of app to run command against
+ -s, --shell         # output more shell friendly key/value pairs
+
+Examples:
+
+ $ heroku apps:info
+ === example
+ Git URL:   https://git.heroku.com/example.git
+ Repo Size: 5M
+ ...
+
+ $ heroku apps:info --shell
+ git_url=https://git.heroku.com/example.git
+ repo_size=5000000
+ ...
+

@@ -1,0 +1,20 @@
+{
+  "name": "git:remote",
+  "longname": "git:remote",
+  "desc": "adds a git remote to an app repo",
+  "params": [
+    {
+      "name": "-a, --app APP",
+      "desc": "the Heroku app to use"
+    },
+    {
+      "name": "-r, --remote REMOTE",
+      "desc": "the git remote to create"
+    },
+    {
+      "name": "--ssh-git",
+      "desc": "use SSH git protocol"
+    }
+  ],
+  "subcommands": []
+}

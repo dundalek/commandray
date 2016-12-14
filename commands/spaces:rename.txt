@@ -1,0 +1,11 @@
+Usage: heroku spaces:rename
+
+renames a space
+
+ --from FROM         # current name of space
+ --to TO             # desired name of space
+
+Example:
+  $ heroku spaces:rename --from old-space-name --to new-space-name
+  Renaming space old-space-name to new-space-name... done
+

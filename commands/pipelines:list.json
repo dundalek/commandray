@@ -1,0 +1,12 @@
+{
+  "name": "pipelines:list",
+  "longname": "pipelines:list",
+  "desc": "list pipelines you have access to",
+  "params": [
+    {
+      "name": "--json",
+      "desc": "output in json format"
+    }
+  ],
+  "subcommands": []
+}

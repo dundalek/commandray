@@ -1,0 +1,16 @@
+{
+  "name": "repo:purge-cache",
+  "longname": "repo:purge-cache",
+  "desc": "Deletes the contents the build cache in the repository",
+  "params": [
+    {
+      "name": "-a, --app APP",
+      "desc": "app to run command against"
+    },
+    {
+      "name": "-r, --remote REMOTE",
+      "desc": "git remote of app to run command against"
+    }
+  ],
+  "subcommands": []
+}

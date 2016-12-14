@@ -1,0 +1,20 @@
+{
+  "name": "addons:create",
+  "longname": "addons:create SERVICE:PLAN",
+  "desc": "create an add-on resource",
+  "params": [
+    {
+      "name": "--name ADDON_NAME",
+      "desc": "(optional) name for the add-on resource"
+    },
+    {
+      "name": "--as ATTACHMENT_NAME",
+      "desc": "(optional) name for the initial add-on attachment"
+    },
+    {
+      "name": "--confirm APP_NAME",
+      "desc": "(optional) ovewrite existing config vars or existing add-on attachments"
+    }
+  ],
+  "subcommands": []
+}

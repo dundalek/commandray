@@ -1,0 +1,8 @@
+Usage: heroku pg:psql [DATABASE]
+
+ open a psql shell to the database
+
+  -c, --command COMMAND      # optional SQL command to run
+
+ defaults to DATABASE_URL databases if no DATABASE is specified
+

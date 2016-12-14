@@ -1,0 +1,4 @@
+Usage: heroku auth:logout
+
+clear your local Heroku credentials
+

@@ -1,0 +1,24 @@
+{
+  "name": "apps:fork",
+  "longname": "apps:fork",
+  "desc": "fork an existing app into a new one",
+  "params": [
+    {
+      "name": "--from FROM",
+      "desc": "app to fork from"
+    },
+    {
+      "name": "--region REGION",
+      "desc": "specify a region"
+    },
+    {
+      "name": "--skip-pg",
+      "desc": "skip postgres databases"
+    },
+    {
+      "name": "--to TO",
+      "desc": "app to create"
+    }
+  ],
+  "subcommands": []
+}

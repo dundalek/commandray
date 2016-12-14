@@ -1,0 +1,12 @@
+{
+  "name": "certs:rollback",
+  "longname": "certs:rollback",
+  "desc": "Rollback an SSL Endpoint for an app.",
+  "params": [
+    {
+      "name": "-e, --endpoint ENDPOINT",
+      "desc": "name of the endpoint to rollback"
+    }
+  ],
+  "subcommands": []
+}

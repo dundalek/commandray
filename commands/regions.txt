@@ -1,0 +1,8 @@
+Usage: heroku regions
+
+list available regions for deployment
+
+ --common            # show regions for common runtime
+ --json              # output in json format
+ --private           # show regions for private spaces
+

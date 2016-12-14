@@ -1,0 +1,5 @@
+Additional commands, type "heroku help COMMAND" for more details:
+
+  git:clone [DIRECTORY]  #  clones a heroku app to your local machine at DIRECTORY (defaults to app name)
+  git:remote             #  adds a git remote to an app repo
+

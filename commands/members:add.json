@@ -1,0 +1,16 @@
+{
+  "name": "members:add",
+  "longname": "members:add EMAIL [--org ORG] [--role ROLE]",
+  "desc": "adds a new member to an org",
+  "params": [
+    {
+      "name": "-o, --org ORG",
+      "desc": "organization to use"
+    },
+    {
+      "name": "-r, --role ROLE",
+      "desc": "member role (admin, collaborator, member, owner)"
+    }
+  ],
+  "subcommands": []
+}

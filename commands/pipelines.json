@@ -1,0 +1,57 @@
+{
+  "name": "pipelines",
+  "longname": "pipelines",
+  "desc": "manage collections of apps in pipelines",
+  "params": [
+    {
+      "name": "--json",
+      "desc": "output in json format"
+    }
+  ],
+  "subcommands": [
+    {
+      "name": "pipelines:add PIPELINE",
+      "desc": "add this app to a pipeline"
+    },
+    {
+      "name": "pipelines:create [NAME]",
+      "desc": "create a new pipeline"
+    },
+    {
+      "name": "pipelines:destroy PIPELINE",
+      "desc": "destroy a pipeline"
+    },
+    {
+      "name": "pipelines:diff",
+      "desc": "compares the latest release of this app its downstream app(s)"
+    },
+    {
+      "name": "pipelines:info PIPELINE",
+      "desc": "show list of apps in a pipeline"
+    },
+    {
+      "name": "pipelines:list",
+      "desc": "list pipelines you have access to"
+    },
+    {
+      "name": "pipelines:open PIPELINE",
+      "desc": "open a pipeline in dashboard"
+    },
+    {
+      "name": "pipelines:promote",
+      "desc": "promote the latest release of this app to its downstream app(s)"
+    },
+    {
+      "name": "pipelines:remove",
+      "desc": "remove this app from its pipeline"
+    },
+    {
+      "name": "pipelines:rename PIPELINE NAME",
+      "desc": "rename a pipeline"
+    },
+    {
+      "name": "pipelines:update",
+      "desc": "update this app's stage in a pipeline"
+    }
+  ]
+}

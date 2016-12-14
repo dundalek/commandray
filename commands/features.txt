@@ -1,0 +1,14 @@
+Usage: heroku features
+
+list available app features
+
+ -a, --app APP       # app to run command against
+ -r, --remote REMOTE # git remote of app to run command against
+ --json              # output in json format
+
+Additional commands, type "heroku help COMMAND" for more details:
+
+  features:disable FEATURE  #  disables a feature
+  features:enable FEATURE   #  enables an feature
+  features:info FEATURE     #  displays additional information about FEATURE
+

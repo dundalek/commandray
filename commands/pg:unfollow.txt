@@ -1,0 +1,4 @@
+Usage: heroku pg:unfollow REPLICA
+
+ stop a replica from following and make it a read/write database
+

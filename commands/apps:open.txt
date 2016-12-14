@@ -1,0 +1,15 @@
+Usage: heroku apps:open [PATH]
+
+open the app in a web browser
+
+ -a, --app APP       # app to run command against
+ -r, --remote REMOTE # git remote of app to run command against
+
+Examples:
+
+  $ heroku open -a myapp
+  # opens https://myapp.herokuapp.com
+
+  $ heroku open -a myapp /foo
+  # opens https://myapp.herokuapp.com/foo
+

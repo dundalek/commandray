@@ -1,0 +1,16 @@
+Usage: heroku apps:fork
+
+fork an existing app into a new one
+
+ --from FROM         # app to fork from
+ --region REGION     # specify a region
+ --skip-pg           # skip postgres databases
+ --to TO             # app to create
+
+Copy config vars and Heroku Postgres data, and re-provision add-ons to a new app.
+New app name should not be an existing app. The new app will be created as part of the forking process.
+
+Example:
+
+  $ heroku fork --from my-production-app --to my-development-app
+

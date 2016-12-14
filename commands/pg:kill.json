@@ -1,0 +1,12 @@
+{
+  "name": "pg:kill",
+  "longname": "pg:kill pid [DATABASE]",
+  "desc": "kill a query",
+  "params": [
+    {
+      "name": "-f,--force",
+      "desc": "terminates the connection in addition to cancelling the query"
+    }
+  ],
+  "subcommands": []
+}

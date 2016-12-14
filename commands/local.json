@@ -1,0 +1,33 @@
+{
+  "name": "local",
+  "longname": "local",
+  "desc": "run heroku app locally",
+  "params": [
+    {
+      "name": "-e, --env ENV",
+      "desc": "location of env file (defaults to .env)"
+    },
+    {
+      "name": "-p, --port PORT",
+      "desc": "port to listen on"
+    },
+    {
+      "name": "-f, --procfile PROCFILE",
+      "desc": "use a different Procfile"
+    }
+  ],
+  "subcommands": [
+    {
+      "name": "local:run",
+      "desc": "run a one-off command"
+    },
+    {
+      "name": "local:start [PROCESSNAME]",
+      "desc": "run heroku app locally"
+    },
+    {
+      "name": "local:version",
+      "desc": "display node-foreman version"
+    }
+  ]
+}

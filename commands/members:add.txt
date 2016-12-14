@@ -1,0 +1,7 @@
+Usage: heroku members:add EMAIL
+
+adds a user to an organization
+
+ -o, --org ORG       # organization to use
+ -r, --role ROLE     # member role (admin, collaborator, member, owner)
+

@@ -1,0 +1,7 @@
+{
+  "name": "pg:killall",
+  "longname": "pg:killall [DATABASE]",
+  "desc": "terminates ALL connections",
+  "params": [],
+  "subcommands": []
+}

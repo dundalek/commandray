@@ -1,0 +1,18 @@
+Usage: heroku logs
+
+display recent log output
+
+ -a, --app APP       # app to run command against
+ -d, --dyno DYNO     # dyno to limit filter by
+ -n, --num NUM       # number of lines to display
+ -r, --remote REMOTE # git remote of app to run command against
+ -s, --source SOURCE # log source to limit filter by
+ -t, --tail          # continually stream logs
+ --force-colors      # force use of colors (even on non-tty output)
+
+Example:
+
+  $ heroku logs
+  2012-01-01T12:00:00+00:00 heroku[api]: Config add EXAMPLE by email@example.com
+  2012-01-01T12:00:01+00:00 heroku[api]: Release v1 created by email@example.com
+

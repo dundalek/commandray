@@ -1,0 +1,13 @@
+Usage: heroku keys
+
+display your SSH keys
+
+ -l, --long          # display full SSH keys
+ --json              # output in json format
+
+Additional commands, type "heroku help COMMAND" for more details:
+
+  keys:add [KEY]     #  add a key for the current user
+  keys:clear         #  remove all authentication keys from the current user
+  keys:remove [KEY]  #  remove a key from the current user
+

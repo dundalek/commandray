@@ -1,0 +1,7 @@
+Usage: heroku pg:copy SOURCE TARGET
+
+   --wait-interval SECONDS      # how frequently to poll (to avoid rate-limiting)
+
+ copy all data from source database to target. At least one of
+ these must be a Heroku Postgres database.
+

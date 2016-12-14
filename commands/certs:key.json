@@ -1,0 +1,7 @@
+{
+  "name": "certs:key",
+  "longname": "certs:key CRT KEY [KEY ...]",
+  "desc": "Print the correct key for the given certificate.",
+  "params": [],
+  "subcommands": []
+}

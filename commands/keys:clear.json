@@ -1,0 +1,7 @@
+{
+  "name": "keys:clear",
+  "longname": "keys:clear",
+  "desc": "remove all authentication keys from the current user",
+  "params": [],
+  "subcommands": []
+}

@@ -1,0 +1,16 @@
+{
+  "name": "ps:type",
+  "longname": "ps:type [TYPE | DYNO=TYPE [DYNO=TYPE ...]]",
+  "desc": "manage dyno types",
+  "params": [
+    {
+      "name": "-a, --app APP",
+      "desc": "app to run command against"
+    },
+    {
+      "name": "-r, --remote REMOTE",
+      "desc": "git remote of app to run command against"
+    }
+  ],
+  "subcommands": []
+}

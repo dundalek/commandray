@@ -1,0 +1,36 @@
+{
+  "name": "logs",
+  "longname": "logs",
+  "desc": "display logs for an app",
+  "params": [
+    {
+      "name": "-a, --app APP",
+      "desc": "app to run command against"
+    },
+    {
+      "name": "-d, --dyno DYNO",
+      "desc": "dyno to limit filter by"
+    },
+    {
+      "name": "-n, --num NUM",
+      "desc": "number of lines to display"
+    },
+    {
+      "name": "-r, --remote REMOTE",
+      "desc": "git remote of app to run command against"
+    },
+    {
+      "name": "-s, --source SOURCE",
+      "desc": "log source to limit filter by"
+    },
+    {
+      "name": "-t, --tail",
+      "desc": "continually stream logs"
+    },
+    {
+      "name": "--force-colors",
+      "desc": "force use of colors (even on non-tty output)"
+    }
+  ],
+  "subcommands": []
+}

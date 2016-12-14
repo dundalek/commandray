@@ -1,0 +1,7 @@
+{
+  "name": "pg:promote",
+  "longname": "pg:promote DATABASE",
+  "desc": "sets DATABASE as your DATABASE_URL",
+  "params": [],
+  "subcommands": []
+}

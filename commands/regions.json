@@ -1,0 +1,20 @@
+{
+  "name": "regions",
+  "longname": "regions",
+  "desc": "list available regions",
+  "params": [
+    {
+      "name": "--common",
+      "desc": "show regions for common runtime"
+    },
+    {
+      "name": "--json",
+      "desc": "output in json format"
+    },
+    {
+      "name": "--private",
+      "desc": "show regions for private spaces"
+    }
+  ],
+  "subcommands": []
+}

@@ -1,0 +1,7 @@
+{
+  "name": "pg:upgrade",
+  "longname": "pg:upgrade REPLICA",
+  "desc": "unfollow a database and upgrade it to the latest stable PostgreSQL version",
+  "params": [],
+  "subcommands": []
+}

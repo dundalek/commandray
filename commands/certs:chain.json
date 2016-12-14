@@ -1,0 +1,7 @@
+{
+  "name": "certs:chain",
+  "longname": "certs:chain CRT [CRT ...]",
+  "desc": "Print the ordered and complete chain for the given certificate.",
+  "params": [],
+  "subcommands": []
+}

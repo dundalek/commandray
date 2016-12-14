@@ -1,0 +1,7 @@
+{
+  "name": "keys:remove",
+  "longname": "keys:remove [KEY]",
+  "desc": "remove a key from the current user",
+  "params": [],
+  "subcommands": []
+}

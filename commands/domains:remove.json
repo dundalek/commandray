@@ -1,0 +1,16 @@
+{
+  "name": "domains:remove",
+  "longname": "domains:remove DOMAIN",
+  "desc": "remove a custom domain from an app",
+  "params": [
+    {
+      "name": "-a, --app APP",
+      "desc": "app to run command against"
+    },
+    {
+      "name": "-r, --remote REMOTE",
+      "desc": "git remote of app to run command against"
+    }
+  ],
+  "subcommands": []
+}

@@ -1,0 +1,7 @@
+Usage: heroku features:enable FEATURE
+
+enables an app feature
+
+ -a, --app APP       # app to run command against
+ -r, --remote REMOTE # git remote of app to run command against
+

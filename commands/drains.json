@@ -1,0 +1,29 @@
+{
+  "name": "drains",
+  "longname": "drains",
+  "desc": "list all log drains",
+  "params": [
+    {
+      "name": "-a, --app APP",
+      "desc": "app to run command against"
+    },
+    {
+      "name": "-r, --remote REMOTE",
+      "desc": "git remote of app to run command against"
+    },
+    {
+      "name": "--json",
+      "desc": "output in json format"
+    }
+  ],
+  "subcommands": [
+    {
+      "name": "drains:add URL",
+      "desc": "adds a log drain to an app"
+    },
+    {
+      "name": "drains:remove [URL|TOKEN]",
+      "desc": "adds a log drain to an app"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "name": "members:set",
+  "longname": "members:set NAME [--org ORG] [--role ROLE]",
+  "desc": "change role of member in org",
+  "params": [
+    {
+      "name": "-o, --org ORG",
+      "desc": "organization to use"
+    },
+    {
+      "name": "-r, --role ROLE",
+      "desc": "member role (admin, collaborator, member, owner)"
+    }
+  ],
+  "subcommands": []
+}

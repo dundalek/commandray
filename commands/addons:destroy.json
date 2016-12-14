@@ -1,0 +1,12 @@
+{
+  "name": "addons:destroy",
+  "longname": "addons:destroy ADDON_NAME [ADDON_NAME ...]",
+  "desc": "destroy add-on resources",
+  "params": [
+    {
+      "name": "-f, --force",
+      "desc": "allow destruction even if add-on is attached to other apps"
+    }
+  ],
+  "subcommands": []
+}

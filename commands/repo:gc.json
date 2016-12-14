@@ -1,0 +1,16 @@
+{
+  "name": "repo:gc",
+  "longname": "repo:gc",
+  "desc": "Run a git gc --agressive on the applications repository",
+  "params": [
+    {
+      "name": "-a, --app APP",
+      "desc": "app to run command against"
+    },
+    {
+      "name": "-r, --remote REMOTE",
+      "desc": "git remote of app to run command against"
+    }
+  ],
+  "subcommands": []
+}

@@ -1,0 +1,20 @@
+{
+  "name": "local:start",
+  "longname": "local:start [PROCESSNAME]",
+  "desc": "run heroku app locally",
+  "params": [
+    {
+      "name": "-e, --env ENV",
+      "desc": "location of env file (defaults to .env)"
+    },
+    {
+      "name": "-p, --port PORT",
+      "desc": "port to listen on"
+    },
+    {
+      "name": "-f, --procfile PROCFILE",
+      "desc": "use a different Procfile"
+    }
+  ],
+  "subcommands": []
+}

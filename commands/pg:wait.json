@@ -1,0 +1,20 @@
+{
+  "name": "pg:wait",
+  "longname": "pg:wait [DATABASE]",
+  "desc": "monitor database creation, exit when complete",
+  "params": [
+    {
+      "name": "-a, --app APP",
+      "desc": "app to run command against"
+    },
+    {
+      "name": "-r, --remote REMOTE",
+      "desc": "git remote of app to run command against"
+    },
+    {
+      "name": "--wait-interval WAIT-INTERVAL",
+      "desc": "how frequently to poll in seconds (to avoid rate limiting)"
+    }
+  ],
+  "subcommands": []
+}

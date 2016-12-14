@@ -1,0 +1,12 @@
+{
+  "name": "certs:remove",
+  "longname": "certs:remove",
+  "desc": "Remove an SSL Endpoint from an app.",
+  "params": [
+    {
+      "name": "-e, --endpoint ENDPOINT",
+      "desc": "name of the endpoint to remove"
+    }
+  ],
+  "subcommands": []
+}

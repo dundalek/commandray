@@ -1,0 +1,26 @@
+Usage: heroku pg [DATABASE]
+
+ -a, --app APP       # app to run command against
+ -r, --remote REMOTE # git remote of app to run command against
+
+Additional commands, type "heroku help COMMAND" for more details:
+
+  pg:backups [subcommand]                             #  interact with built-in backups. Without a subcommand, it lists all
+  pg:copy SOURCE TARGET                               # 
+  pg:credentials DATABASE                             #  display the DATABASE credentials.
+  pg:diagnose [DATABASE|REPORT_ID]                    #  run diagnostics report on DATABASE
+  pg:info [DATABASE]                                  #  display database information
+  pg:kill pid [DATABASE]                              #  kill a query
+  pg:killall [DATABASE]                               #  terminates ALL connections
+  pg:links <create|destroy>                           #  create links between data stores.  Without a subcommand, it lists all
+  pg:maintenance <info|run|window> <DATABASE>         #  manage maintenance for <DATABASE>
+  pg:promote DATABASE                                 #  sets DATABASE as your DATABASE_URL
+  pg:ps [DATABASE]                                    #  view active queries with execution time
+  pg:psql [DATABASE]                                  #  open a psql shell to the database
+  pg:pull <REMOTE_SOURCE_DATABASE> <TARGET_DATABASE>  #  pull from REMOTE_SOURCE_DATABASE to TARGET_DATABASE
+  pg:push <SOURCE_DATABASE> <REMOTE_TARGET_DATABASE>  #  push from SOURCE_DATABASE to REMOTE_TARGET_DATABASE
+  pg:reset DATABASE                                   #  delete all data in DATABASE
+  pg:unfollow REPLICA                                 #  stop a replica from following and make it a read/write database
+  pg:upgrade REPLICA                                  #  unfollow a database and upgrade it to the latest stable PostgreSQL version
+  pg:wait [DATABASE]                                  #  monitor database creation, exit when complete
+

@@ -1,0 +1,12 @@
+{
+  "name": "update",
+  "longname": "update",
+  "desc": "update the heroku client",
+  "params": [],
+  "subcommands": [
+    {
+      "name": "update:beta",
+      "desc": "update to the latest beta client"
+    }
+  ]
+}

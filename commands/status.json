@@ -1,0 +1,12 @@
+{
+  "name": "status",
+  "longname": "status",
+  "desc": "status of the Heroku platform",
+  "params": [
+    {
+      "name": "--json",
+      "desc": "output in json format"
+    }
+  ],
+  "subcommands": []
+}

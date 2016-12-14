@@ -1,0 +1,6 @@
+Usage: heroku certs:add CRT KEY
+
+ Add an ssl endpoint to an app.
+
+   --bypass                 # bypass the trust chain completion step
+

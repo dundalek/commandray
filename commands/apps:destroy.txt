@@ -1,0 +1,10 @@
+Usage: heroku apps:destroy
+
+permanently destroy an app
+
+ -a, --app APP         # app to run command against
+ -c, --confirm CONFIRM
+ -r, --remote REMOTE   # git remote of app to run command against
+
+This will also destroy all add-ons on the app.
+

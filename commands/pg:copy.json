@@ -1,0 +1,12 @@
+{
+  "name": "pg:copy",
+  "longname": "pg:copy SOURCE TARGET",
+  "desc": "pg:credentials DATABASE                             #  display the DATABASE credentials.",
+  "params": [
+    {
+      "name": "--wait-interval SECONDS",
+      "desc": "how frequently to poll (to avoid rate-limiting)"
+    }
+  ],
+  "subcommands": []
+}

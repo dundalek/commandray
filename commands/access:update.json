@@ -1,0 +1,20 @@
+{
+  "name": "access:update",
+  "longname": "access:update EMAIL",
+  "desc": "Update existing collaborators in an org app",
+  "params": [
+    {
+      "name": "-a, --app APP",
+      "desc": "app to run command against"
+    },
+    {
+      "name": "-r, --remote REMOTE",
+      "desc": "git remote of app to run command against"
+    },
+    {
+      "name": "--permissions PERMISSIONS",
+      "desc": "comma-delimited list of permissions to update (deploy,manage,operate)"
+    }
+  ],
+  "subcommands": []
+}

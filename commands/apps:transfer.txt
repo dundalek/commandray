@@ -1,0 +1,20 @@
+Usage: heroku apps:transfer RECIPIENT
+
+transfer applications to another user, organization or team
+
+ -a, --app APP       # app to run command against
+ -l, --locked        # lock the app upon transfer
+ -r, --remote REMOTE # git remote of app to run command against
+ --bulk              # transfer applications in bulk
+
+Examples:
+
+  $ heroku apps:transfer collaborator@example.com
+  Transferring example to collaborator@example.com... done
+
+  $ heroku apps:transfer acme-widgets
+  Transferring example to acme-widgets... done
+
+  $ heroku apps:transfer --bulk acme-widgets
+  ...
+

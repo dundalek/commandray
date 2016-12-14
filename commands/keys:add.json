@@ -1,0 +1,12 @@
+{
+  "name": "keys:add",
+  "longname": "keys:add [KEY]",
+  "desc": "add a key for the current user",
+  "params": [
+    {
+      "name": "-y, --yes",
+      "desc": "automatically answer yes for all prompts"
+    }
+  ],
+  "subcommands": []
+}

@@ -1,0 +1,12 @@
+Usage: heroku access:add EMAIL
+
+Add new users to your app
+
+ -a, --app APP             # app to run command against
+ -r, --remote REMOTE       # git remote of app to run command against
+ --permissions PERMISSIONS # list of permissions comma separated
+
+heroku access:add user@email.com --app APP # Add a collaborator to your app
+
+heroku access:add user@email.com --app APP --permissions deploy,manage,operate # permissions must be comma separated
+

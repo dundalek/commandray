@@ -1,0 +1,20 @@
+{
+  "name": "buildpacks:add",
+  "longname": "buildpacks:add BUILDPACK_URL",
+  "desc": "add new app buildpack, inserting into list of buildpacks if neccessary",
+  "params": [
+    {
+      "name": "-a, --app APP",
+      "desc": "app to run command against"
+    },
+    {
+      "name": "-i, --index INDEX",
+      "desc": "the 1-based index of the URL in the list of URLs"
+    },
+    {
+      "name": "-r, --remote REMOTE",
+      "desc": "git remote of app to run command against"
+    }
+  ],
+  "subcommands": []
+}

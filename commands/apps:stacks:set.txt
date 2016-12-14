@@ -1,0 +1,13 @@
+Usage: heroku apps:stacks:set STACK
+
+set the stack of an app
+
+ -a, --app APP       # app to run command against
+ -r, --remote REMOTE # git remote of app to run command against
+
+Example:
+
+  $ heroku stack:set cedar-14 -a myapp
+  Stack set. Next release on myapp will use cedar-14.
+  Run git push heroku master to create a new release on myapp.
+

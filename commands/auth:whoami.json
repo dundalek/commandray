@@ -1,0 +1,7 @@
+{
+  "name": "auth:whoami",
+  "longname": "auth:whoami",
+  "desc": "display your heroku email address",
+  "params": [],
+  "subcommands": []
+}

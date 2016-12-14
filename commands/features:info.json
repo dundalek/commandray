@@ -1,0 +1,20 @@
+{
+  "name": "features:info",
+  "longname": "features:info FEATURE",
+  "desc": "displays additional information about FEATURE",
+  "params": [
+    {
+      "name": "-a, --app APP",
+      "desc": "app to run command against"
+    },
+    {
+      "name": "-r, --remote REMOTE",
+      "desc": "git remote of app to run command against"
+    },
+    {
+      "name": "--json",
+      "desc": "output in json format"
+    }
+  ],
+  "subcommands": []
+}

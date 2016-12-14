@@ -1,0 +1,7 @@
+Usage: heroku apps:leave
+
+remove yourself from an organization app
+
+ -a, --app APP       # app to run command against
+ -r, --remote REMOTE # git remote of app to run command against
+

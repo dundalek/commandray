@@ -1,0 +1,73 @@
+{
+  "name": "addons",
+  "longname": "addons",
+  "desc": "manage add-on resources",
+  "params": [
+    {
+      "name": "-A, --all",
+      "desc": "show add-ons and attachments for all accessible apps"
+    },
+    {
+      "name": "-a, --app APP",
+      "desc": "app to run command against"
+    },
+    {
+      "name": "-r, --remote REMOTE",
+      "desc": "git remote of app to run command against"
+    },
+    {
+      "name": "--json",
+      "desc": "return add-ons in json format"
+    }
+  ],
+  "subcommands": [
+    {
+      "name": "addons:attach ADDON_NAME",
+      "desc": "attach add-on resource to an app"
+    },
+    {
+      "name": "addons:create SERVICE:PLAN",
+      "desc": "create an add-on resource"
+    },
+    {
+      "name": "addons:destroy ADDON_NAME [ADDON_NAME ...]",
+      "desc": "destroy add-on resources"
+    },
+    {
+      "name": "addons:detach ATTACHMENT_NAME",
+      "desc": "detach add-on resource from an app"
+    },
+    {
+      "name": "addons:docs ADDON_NAME",
+      "desc": "open an add-on's documentation in your browser"
+    },
+    {
+      "name": "addons:downgrade ADDON_NAME ADDON_SERVICE:PLAN",
+      "desc": "downgrade an existing add-on resource to PLAN"
+    },
+    {
+      "name": "addons:info ADDON",
+      "desc": "Show info about an add-on and its attachments."
+    },
+    {
+      "name": "addons:open ADDON_NAME",
+      "desc": "open an add-on's dashboard in your browser"
+    },
+    {
+      "name": "addons:plans SERVICE",
+      "desc": "list all available plans for an add-on service"
+    },
+    {
+      "name": "addons:rename ADDON NEW_NAME",
+      "desc": "Rename an add-on."
+    },
+    {
+      "name": "addons:services",
+      "desc": "list all available add-on services"
+    },
+    {
+      "name": "addons:upgrade ADDON_NAME ADDON_SERVICE:PLAN",
+      "desc": "upgrade an existing add-on resource to PLAN"
+    }
+  ]
+}

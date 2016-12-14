@@ -1,0 +1,13 @@
+Usage: heroku drains
+
+display the log drains of an app
+
+ -a, --app APP       # app to run command against
+ -r, --remote REMOTE # git remote of app to run command against
+ --json              # output in json format
+
+Additional commands, type "heroku help COMMAND" for more details:
+
+  drains:add URL             #  adds a log drain to an app
+  drains:remove [URL|TOKEN]  #  adds a log drain to an app
+

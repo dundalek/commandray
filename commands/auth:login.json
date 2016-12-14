@@ -1,0 +1,12 @@
+{
+  "name": "auth:login",
+  "longname": "auth:login",
+  "desc": "log in with your heroku credentials",
+  "params": [
+    {
+      "name": "--sso",
+      "desc": "login for enterprise users under SSO"
+    }
+  ],
+  "subcommands": []
+}

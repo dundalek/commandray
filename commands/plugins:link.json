@@ -1,0 +1,7 @@
+{
+  "name": "plugins:link",
+  "longname": "plugins:link [PATH]",
+  "desc": "This is useful when developing plugins locally.",
+  "params": [],
+  "subcommands": []
+}

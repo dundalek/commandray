@@ -1,0 +1,85 @@
+{
+  "name": "pg",
+  "longname": "pg",
+  "desc": "pgbackups      #  manage backups of heroku postgresql databases",
+  "params": [
+    {
+      "name": "-a, --app APP",
+      "desc": "app to run command against"
+    },
+    {
+      "name": "-r, --remote REMOTE",
+      "desc": "git remote of app to run command against"
+    }
+  ],
+  "subcommands": [
+    {
+      "name": "pg:backups [subcommand]",
+      "desc": "interact with built-in backups. Without a subcommand, it lists all"
+    },
+    {
+      "name": "pg:copy SOURCE TARGET",
+      "desc": "pg:credentials DATABASE                             #  display the DATABASE credentials."
+    },
+    {
+      "name": "pg:diagnose [DATABASE|REPORT_ID]",
+      "desc": "run diagnostics report on DATABASE"
+    },
+    {
+      "name": "pg:info [DATABASE]",
+      "desc": "display database information"
+    },
+    {
+      "name": "pg:kill pid [DATABASE]",
+      "desc": "kill a query"
+    },
+    {
+      "name": "pg:killall [DATABASE]",
+      "desc": "terminates ALL connections"
+    },
+    {
+      "name": "pg:links <create|destroy>",
+      "desc": "create links between data stores.  Without a subcommand, it lists all"
+    },
+    {
+      "name": "pg:maintenance <info|run|window> <DATABASE>",
+      "desc": "manage maintenance for <DATABASE>"
+    },
+    {
+      "name": "pg:promote DATABASE",
+      "desc": "sets DATABASE as your DATABASE_URL"
+    },
+    {
+      "name": "pg:ps [DATABASE]",
+      "desc": "view active queries with execution time"
+    },
+    {
+      "name": "pg:psql [DATABASE]",
+      "desc": "open a psql shell to the database"
+    },
+    {
+      "name": "pg:pull <REMOTE_SOURCE_DATABASE> <TARGET_DATABASE>",
+      "desc": "pull from REMOTE_SOURCE_DATABASE to TARGET_DATABASE"
+    },
+    {
+      "name": "pg:push <SOURCE_DATABASE> <REMOTE_TARGET_DATABASE>",
+      "desc": "push from SOURCE_DATABASE to REMOTE_TARGET_DATABASE"
+    },
+    {
+      "name": "pg:reset DATABASE",
+      "desc": "delete all data in DATABASE"
+    },
+    {
+      "name": "pg:unfollow REPLICA",
+      "desc": "stop a replica from following and make it a read/write database"
+    },
+    {
+      "name": "pg:upgrade REPLICA",
+      "desc": "unfollow a database and upgrade it to the latest stable PostgreSQL version"
+    },
+    {
+      "name": "pg:wait [DATABASE]",
+      "desc": "monitor database creation, exit when complete"
+    }
+  ]
+}

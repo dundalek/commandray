@@ -1,0 +1,22 @@
+Usage: heroku releases
+
+display the releases for an app
+
+ -a, --app APP       # app to run command against
+ -n, --num NUM       # number of releases to show
+ -r, --remote REMOTE # git remote of app to run command against
+ --json              # output releases in json format
+
+Example:
+
+ $ heroku releases
+ === example Releases
+ v1 Config add FOO_BAR email@example.com 2015/11/17 17:37:41 (~ 1h ago)
+ v2 Config add BAR_BAZ email@example.com 2015/11/17 17:37:41 (~ 1h ago)
+ v3 Config add BAZ_QUX email@example.com 2015/11/17 17:37:41 (~ 1h ago)
+
+Additional commands, type "heroku help COMMAND" for more details:
+
+  releases:info RELEASE        #  view detailed information for a release
+  releases:rollback [RELEASE]  #  roll back to an older release
+

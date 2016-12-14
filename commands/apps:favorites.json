@@ -1,0 +1,12 @@
+{
+  "name": "apps:favorites",
+  "longname": "apps:favorites",
+  "desc": "list favorited apps",
+  "params": [
+    {
+      "name": "--json",
+      "desc": "output in json format"
+    }
+  ],
+  "subcommands": []
+}

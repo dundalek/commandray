@@ -1,0 +1,4 @@
+Usage: heroku pg:killall [DATABASE]
+
+ terminates ALL connections
+

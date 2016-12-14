@@ -1,0 +1,8 @@
+Usage: heroku redis:cli [DATABASE]
+
+opens a redis prompt
+
+ -a, --app APP         # app to run command against
+ -c, --confirm CONFIRM
+ -r, --remote REMOTE   # git remote of app to run command against
+

@@ -1,0 +1,16 @@
+{
+  "name": "pipelines:remove",
+  "longname": "pipelines:remove",
+  "desc": "remove this app from its pipeline",
+  "params": [
+    {
+      "name": "-a, --app APP",
+      "desc": "app to run command against"
+    },
+    {
+      "name": "-r, --remote REMOTE",
+      "desc": "git remote of app to run command against"
+    }
+  ],
+  "subcommands": []
+}

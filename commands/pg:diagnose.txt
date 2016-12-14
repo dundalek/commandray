@@ -1,0 +1,7 @@
+Usage: heroku pg:diagnose [DATABASE|REPORT_ID]
+
+ run diagnostics report on DATABASE
+
+ defaults to DATABASE_URL databases if no DATABASE is specified
+ if REPORT_ID is specified instead, a previous report is displayed
+

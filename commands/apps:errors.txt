@@ -1,0 +1,11 @@
+Usage: heroku apps:errors
+
+view app errors
+
+ -a, --app APP       # app to run command against
+ -r, --remote REMOTE # git remote of app to run command against
+ --dyno              # show only dyno errors
+ --hours HOURS       # number of hours to look back (default 24)
+ --json              # output in json format
+ --router            # show only router errors
+

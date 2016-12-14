@@ -1,0 +1,7 @@
+{
+  "name": "pg:unfollow",
+  "longname": "pg:unfollow REPLICA",
+  "desc": "stop a replica from following and make it a read/write database",
+  "params": [],
+  "subcommands": []
+}

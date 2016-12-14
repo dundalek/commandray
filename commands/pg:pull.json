@@ -1,0 +1,7 @@
+{
+  "name": "pg:pull",
+  "longname": "pg:pull <REMOTE_SOURCE_DATABASE> <TARGET_DATABASE>",
+  "desc": "pull from REMOTE_SOURCE_DATABASE to TARGET_DATABASE",
+  "params": [],
+  "subcommands": []
+}

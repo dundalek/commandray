@@ -1,0 +1,16 @@
+{
+  "name": "spaces:destroy",
+  "longname": "spaces:destroy",
+  "desc": "destroy a space",
+  "params": [
+    {
+      "name": "-s, --space SPACE",
+      "desc": "space to destroy"
+    },
+    {
+      "name": "--confirm CONFIRM",
+      "desc": "set to space name to bypass confirm prompt"
+    }
+  ],
+  "subcommands": []
+}

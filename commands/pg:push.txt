@@ -1,0 +1,9 @@
+Usage: heroku pg:push <SOURCE_DATABASE> <REMOTE_TARGET_DATABASE>
+
+ push from SOURCE_DATABASE to REMOTE_TARGET_DATABASE
+ REMOTE_TARGET_DATABASE must be empty.
+
+ SOURCE_DATABASE must be either the name of a database
+ existing on your localhost or the fully qualified URL of
+ a remote database.
+

@@ -1,0 +1,8 @@
+Usage: heroku pg:pull <REMOTE_SOURCE_DATABASE> <TARGET_DATABASE>
+
+ pull from REMOTE_SOURCE_DATABASE to TARGET_DATABASE
+ TARGET_DATABASE must not already exist.
+
+ TARGET_DATABASE will be created locally if it's a database name
+ or remotely if it's a fully qualified URL.
+

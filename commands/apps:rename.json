@@ -1,0 +1,20 @@
+{
+  "name": "apps:rename",
+  "longname": "apps:rename NEWNAME --app APP",
+  "desc": "rename the app",
+  "params": [
+    {
+      "name": "-a, --app APP",
+      "desc": "app to run command against"
+    },
+    {
+      "name": "-r, --remote REMOTE",
+      "desc": "git remote of app to run command against"
+    },
+    {
+      "name": "--ssh-git",
+      "desc": "use ssh git protocol instead of https"
+    }
+  ],
+  "subcommands": []
+}

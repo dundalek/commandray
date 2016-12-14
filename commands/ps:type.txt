@@ -1,0 +1,14 @@
+Usage: heroku ps:type
+
+manage dyno sizes
+
+ -a, --app APP       # app to run command against
+ -r, --remote REMOTE # git remote of app to run command against
+
+Called with no arguments shows the current dyno size.
+
+Called with one argument sets the size.
+Where SIZE is one of free|hobby|standard-1x|standard-2x|performance
+
+Called with 1..n TYPE=SIZE arguments sets the quantity per type.
+

@@ -1,0 +1,20 @@
+{
+  "name": "info",
+  "longname": "info BACKUP_ID",
+  "desc": "get information about a specific backup",
+  "params": [
+    {
+      "name": "-a, --app APP",
+      "desc": "app to run command against"
+    },
+    {
+      "name": "-r, --remote REMOTE",
+      "desc": "git remote of app to run command against"
+    },
+    {
+      "name": "-s, --shell",
+      "desc": "output more shell friendly key/value pairs"
+    }
+  ],
+  "subcommands": []
+}

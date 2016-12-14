@@ -1,0 +1,9 @@
+Usage: heroku plugins:install
+
+Installs a plugin into the CLI
+
+Install a Heroku plugin
+
+  Example:
+  $ heroku plugins:install heroku-production-status
+

@@ -1,0 +1,7 @@
+Usage: heroku pipelines:diff
+
+compares the latest release of this app its downstream app(s)
+
+ -a, --app APP       # app to run command against
+ -r, --remote REMOTE # git remote of app to run command against
+

@@ -1,0 +1,26 @@
+Usage: heroku domains
+
+list domains for an app
+
+ -a, --app APP       # app to run command against
+ -r, --remote REMOTE # git remote of app to run command against
+ --json              # output in json format
+
+Example:
+
+  $ heroku domains
+  === example Heroku Domain
+  example.herokuapp.com
+
+  === example Custom Domains
+  Domain Name  DNS Target
+  ───────────  ─────────────────────
+  example.com  example.herokuapp.com
+
+Additional commands, type "heroku help COMMAND" for more details:
+
+  domains:add DOMAIN     #  add a custom domain to an app
+  domains:clear          #  remove all custom domains from an app
+  domains:remove DOMAIN  #  remove a custom domain from an app
+  domains:wait HOSTNAME  #  wait for domain to be active for an app
+

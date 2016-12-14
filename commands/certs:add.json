@@ -1,0 +1,12 @@
+{
+  "name": "certs:add",
+  "longname": "certs:add CRT KEY",
+  "desc": "Add an ssl endpoint to an app.",
+  "params": [
+    {
+      "name": "--bypass",
+      "desc": "bypass the trust chain completion step"
+    }
+  ],
+  "subcommands": []
+}

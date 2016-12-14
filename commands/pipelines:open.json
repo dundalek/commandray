@@ -1,0 +1,7 @@
+{
+  "name": "pipelines:open",
+  "longname": "pipelines:open PIPELINE",
+  "desc": "open a pipeline in dashboard",
+  "params": [],
+  "subcommands": []
+}

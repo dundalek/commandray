@@ -1,0 +1,16 @@
+{
+  "name": "destroy",
+  "longname": "destroy <LOCAL> <LINK>",
+  "desc": "Destroy a data link between a local and remote database",
+  "params": [
+    {
+      "name": "-a, --app APP",
+      "desc": "app to run command against"
+    },
+    {
+      "name": "-r, --remote REMOTE",
+      "desc": "git remote of app to run command against"
+    }
+  ],
+  "subcommands": []
+}

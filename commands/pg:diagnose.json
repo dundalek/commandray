@@ -1,0 +1,7 @@
+{
+  "name": "pg:diagnose",
+  "longname": "pg:diagnose [DATABASE|REPORT_ID]",
+  "desc": "run diagnostics report on DATABASE",
+  "params": [],
+  "subcommands": []
+}

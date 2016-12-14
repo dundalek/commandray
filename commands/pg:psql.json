@@ -1,0 +1,12 @@
+{
+  "name": "pg:psql",
+  "longname": "pg:psql [DATABASE]",
+  "desc": "open a psql shell to the database",
+  "params": [
+    {
+      "name": "-c, --command COMMAND",
+      "desc": "optional SQL command to run"
+    }
+  ],
+  "subcommands": []
+}

@@ -1,0 +1,93 @@
+{
+  "name": "apps",
+  "longname": "apps",
+  "desc": "manage apps (create, destroy)",
+  "params": [
+    {
+      "name": "-o, --org ORG",
+      "desc": "the org to list the apps for"
+    },
+    {
+      "name": "-A, --all",
+      "desc": "list all collaborated apps, including joined org apps in personal app list"
+    },
+    {
+      "name": "-p, --personal",
+      "desc": "list apps in personal account when a default org is set"
+    }
+  ],
+  "subcommands": [
+    {
+      "name": "apps:create [NAME]",
+      "desc": "create a new app"
+    },
+    {
+      "name": "apps:delete",
+      "desc": "permanently destroy an app"
+    },
+    {
+      "name": "apps:destroy --app APP",
+      "desc": "permanently destroy an app"
+    },
+    {
+      "name": "apps:errors",
+      "desc": "view app errors"
+    },
+    {
+      "name": "apps:favorites",
+      "desc": "list favorited apps"
+    },
+    {
+      "name": "apps:favorites:add",
+      "desc": "favorites an app"
+    },
+    {
+      "name": "apps:favorites:remove",
+      "desc": "unfavorites an app"
+    },
+    {
+      "name": "apps:fork",
+      "desc": "fork an existing app into a new one"
+    },
+    {
+      "name": "apps:info",
+      "desc": "show detailed app information"
+    },
+    {
+      "name": "apps:join --app APP",
+      "desc": "add yourself to an organization app"
+    },
+    {
+      "name": "apps:leave --app APP",
+      "desc": "remove yourself from an organization app"
+    },
+    {
+      "name": "apps:lock --app APP",
+      "desc": "lock an organization app to restrict access"
+    },
+    {
+      "name": "apps:open --app APP",
+      "desc": "open the app in a web browser"
+    },
+    {
+      "name": "apps:rename NEWNAME --app APP",
+      "desc": "rename the app"
+    },
+    {
+      "name": "apps:stacks",
+      "desc": "show the list of available stacks"
+    },
+    {
+      "name": "apps:stacks:set STACK",
+      "desc": "set the stack of an app"
+    },
+    {
+      "name": "apps:transfer RECIPIENT",
+      "desc": "transfer applications to another user, organization or team"
+    },
+    {
+      "name": "apps:unlock --app APP",
+      "desc": "unlock an organization app so that any org member can join it"
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+Usage: heroku certs:chain CRT [CRT ...]
+
+ Print the ordered and complete chain for the given certificate.
+
+ Optional intermediate certificates may be given too, and will
+ be used during chain resolution.
+

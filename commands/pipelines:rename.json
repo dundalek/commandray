@@ -1,0 +1,7 @@
+{
+  "name": "pipelines:rename",
+  "longname": "pipelines:rename PIPELINE NAME",
+  "desc": "rename a pipeline",
+  "params": [],
+  "subcommands": []
+}

@@ -1,0 +1,4 @@
+Usage: heroku pg:reset DATABASE
+
+ delete all data in DATABASE
+

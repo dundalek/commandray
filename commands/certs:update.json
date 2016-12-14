@@ -1,0 +1,16 @@
+{
+  "name": "certs:update",
+  "longname": "certs:update CRT KEY",
+  "desc": "Update an SSL Endpoint on an app.",
+  "params": [
+    {
+      "name": "--bypass",
+      "desc": "bypass the trust chain completion step"
+    },
+    {
+      "name": "-e, --endpoint ENDPOINT",
+      "desc": "name of the endpoint to update"
+    }
+  ],
+  "subcommands": []
+}

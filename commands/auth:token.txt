@@ -1,0 +1,4 @@
+Usage: heroku auth:token
+
+display your API token.
+

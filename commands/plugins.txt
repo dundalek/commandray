@@ -1,0 +1,15 @@
+Usage: heroku plugins
+
+Lists installed plugins
+
+
+Example:
+  $ heroku plugins
+
+Additional commands, type "heroku help COMMAND" for more details:
+
+  plugins:install NAME      #  install a plugin
+  plugins:link [PATH]       #  This is useful when developing plugins locally.
+  plugins:uninstall PLUGIN  #  uninstall a plugin
+  plugins:update [PLUGIN]   #  updates all plugins or a single plugin by name
+

@@ -1,0 +1,4 @@
+Usage: heroku pg:promote DATABASE
+
+ sets DATABASE as your DATABASE_URL
+

@@ -1,0 +1,17 @@
+Usage: heroku redis:maxmemory [DATABASE]
+
+set the key eviction policy
+
+ -a, --app APP       # app to run command against
+ -p, --policy POLICY # set policy name
+ -r, --remote REMOTE # git remote of app to run command against
+
+Set the key eviction policy when instance reaches its storage limit. Available policies for key eviction include:
+
+    noeviction      # returns errors when memory limit is reached
+    allkeys-lru     # removes less recently used keys first
+    volatile-lru    # removes less recently used keys first that have an expiry set
+    allkeys-random  # evicts random keys
+    volatile-random # evicts random keys but only those that have an expiry set
+    volatile-ttl    # only evicts keys with an expiry set and a short TTL
+

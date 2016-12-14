@@ -1,0 +1,4 @@
+Usage: heroku auth:2fa:disable
+
+disable two-factor authentication for your account
+

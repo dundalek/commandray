@@ -1,0 +1,8 @@
+Usage: heroku buildpacks:remove [URL]
+
+remove a buildpack set on the app
+
+ -a, --app APP       # app to run command against
+ -i, --index INDEX   # the 1-based index of the URL to remove from the list of URLs
+ -r, --remote REMOTE # git remote of app to run command against
+

@@ -1,0 +1,7 @@
+Usage: heroku redis:wait [DATABASE]
+
+wait for Redis instance to be available
+
+ -a, --app APP       # app to run command against
+ -r, --remote REMOTE # git remote of app to run command against
+

@@ -1,0 +1,12 @@
+{
+  "name": "orgs:open",
+  "longname": "orgs:open --org ORG",
+  "desc": "opens the org interface in a browser",
+  "params": [
+    {
+      "name": "-o, --org ORG",
+      "desc": "organization to use"
+    }
+  ],
+  "subcommands": []
+}

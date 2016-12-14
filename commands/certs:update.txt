@@ -1,0 +1,7 @@
+Usage: heroku certs:update CRT KEY
+
+ Update an SSL Endpoint on an app.
+
+   --bypass                 # bypass the trust chain completion step
+   -e, --endpoint ENDPOINT  # name of the endpoint to update
+

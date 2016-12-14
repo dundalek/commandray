@@ -1,0 +1,6 @@
+Usage: heroku addons:destroy ADDON_NAME [ADDON_NAME ...]
+
+ destroy add-on resources
+
+ -f, --force # allow destruction even if add-on is attached to other apps
+

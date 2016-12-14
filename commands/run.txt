@@ -1,0 +1,25 @@
+Usage: heroku run
+
+run a one-off process inside a heroku dyno
+
+ -a, --app APP       # app to run command against
+ -e, --env ENV       # environment variables to set (use ';' to split multiple vars)
+ -x, --exit-code     # passthrough the exit code of the remote command
+ -r, --remote REMOTE # git remote of app to run command against
+ -s, --size SIZE     # dyno size
+ --no-tty            # force the command to not run in a tty
+
+Examples:
+
+  $ heroku run bash
+  Running bash on app.... up, run.1
+  ~ $
+
+  $ heroku run -s hobby -- myscript.sh -a arg1 -s arg2
+  Running myscript.sh -a arg1 -s arg2 on app.... up, run.1
+
+Additional commands, type "heroku help COMMAND" for more details:
+
+  run:detached COMMAND           #  run a detached dyno, where output is sent to your logs
+  run:rake COMMAND               #  WARNING: `heroku run:rake` has been deprecated. Please use `heroku run rake` instead."
+

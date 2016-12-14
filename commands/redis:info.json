@@ -1,0 +1,16 @@
+{
+  "name": "redis:info",
+  "longname": "redis:info [DATABASE]",
+  "desc": "gets information about redis",
+  "params": [
+    {
+      "name": "-a, --app APP",
+      "desc": "app to run command against"
+    },
+    {
+      "name": "-r, --remote REMOTE",
+      "desc": "git remote of app to run command against"
+    }
+  ],
+  "subcommands": []
+}

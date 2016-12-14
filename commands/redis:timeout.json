@@ -1,0 +1,20 @@
+{
+  "name": "redis:timeout",
+  "longname": "redis:timeout [DATABASE]",
+  "desc": "set the number of seconds to wait before killing idle connections",
+  "params": [
+    {
+      "name": "-a, --app APP",
+      "desc": "app to run command against"
+    },
+    {
+      "name": "-r, --remote REMOTE",
+      "desc": "git remote of app to run command against"
+    },
+    {
+      "name": "-s, --seconds SECONDS",
+      "desc": "set timeout value"
+    }
+  ],
+  "subcommands": []
+}

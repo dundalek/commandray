@@ -1,0 +1,12 @@
+{
+  "name": "addons:plans",
+  "longname": "addons:plans SERVICE",
+  "desc": "list all available plans for an add-on service",
+  "params": [
+    {
+      "name": "--json",
+      "desc": "output in json format"
+    }
+  ],
+  "subcommands": []
+}

@@ -1,0 +1,17 @@
+{
+  "name": "orgs",
+  "longname": "orgs",
+  "desc": "manage organization accounts",
+  "params": [
+    {
+      "name": "--json",
+      "desc": "output in json format"
+    }
+  ],
+  "subcommands": [
+    {
+      "name": "orgs:open --org ORG",
+      "desc": "opens the org interface in a browser"
+    }
+  ]
+}

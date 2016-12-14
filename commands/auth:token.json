@@ -1,0 +1,7 @@
+{
+  "name": "auth:token",
+  "longname": "auth:token",
+  "desc": "display your api token",
+  "params": [],
+  "subcommands": []
+}

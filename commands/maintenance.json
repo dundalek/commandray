@@ -1,0 +1,25 @@
+{
+  "name": "maintenance",
+  "longname": "maintenance",
+  "desc": "manage maintenance mode for an app",
+  "params": [
+    {
+      "name": "-a, --app APP",
+      "desc": "app to run command against"
+    },
+    {
+      "name": "-r, --remote REMOTE",
+      "desc": "git remote of app to run command against"
+    }
+  ],
+  "subcommands": [
+    {
+      "name": "maintenance:off",
+      "desc": "take the app out of maintenance mode"
+    },
+    {
+      "name": "maintenance:on",
+      "desc": "put the app into maintenance mode"
+    }
+  ]
+}

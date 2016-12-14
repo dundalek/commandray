@@ -1,0 +1,20 @@
+{
+  "name": "pipelines:update",
+  "longname": "pipelines:update",
+  "desc": "update this app's stage in a pipeline",
+  "params": [
+    {
+      "name": "-a, --app APP",
+      "desc": "app to run command against"
+    },
+    {
+      "name": "-r, --remote REMOTE",
+      "desc": "git remote of app to run command against"
+    },
+    {
+      "name": "-s, --stage STAGE",
+      "desc": "new stage of app"
+    }
+  ],
+  "subcommands": []
+}

@@ -1,0 +1,16 @@
+{
+  "name": "apps:lock",
+  "longname": "apps:lock --app APP",
+  "desc": "lock an organization app to restrict access",
+  "params": [
+    {
+      "name": "-a, --app APP",
+      "desc": "app to run command against"
+    },
+    {
+      "name": "-r, --remote REMOTE",
+      "desc": "git remote of app to run command against"
+    }
+  ],
+  "subcommands": []
+}

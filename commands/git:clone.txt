@@ -1,0 +1,15 @@
+Usage: heroku git:clone [DIRECTORY]
+
+clones a heroku app to your local machine at DIRECTORY (defaults to app name)
+
+ -a, --app APP       # the Heroku app to use
+ -r, --remote REMOTE # the git remote to create, default "heroku"
+ --ssh-git           # use SSH git protocol
+
+Examples:
+
+  $ heroku git:clone -a example
+  Cloning into 'example'...
+  remote: Counting objects: 42, done.
+  ...
+

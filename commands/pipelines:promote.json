@@ -1,0 +1,20 @@
+{
+  "name": "pipelines:promote",
+  "longname": "pipelines:promote",
+  "desc": "promote the latest release of this app to its downstream app(s)",
+  "params": [
+    {
+      "name": "-a, --app APP",
+      "desc": "app to run command against"
+    },
+    {
+      "name": "-r, --remote REMOTE",
+      "desc": "git remote of app to run command against"
+    },
+    {
+      "name": "-t, --to TO",
+      "desc": "comma separated list of apps to promote to"
+    }
+  ],
+  "subcommands": []
+}

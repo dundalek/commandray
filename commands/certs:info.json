@@ -1,0 +1,12 @@
+{
+  "name": "certs:info",
+  "longname": "certs:info",
+  "desc": "Show certificate information for an ssl endpoint.",
+  "params": [
+    {
+      "name": "-e, --endpoint ENDPOINT",
+      "desc": "name of the endpoint to check info on"
+    }
+  ],
+  "subcommands": []
+}

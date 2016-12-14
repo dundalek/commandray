@@ -1,0 +1,6 @@
+Usage: heroku certs:info
+
+ Show certificate information for an ssl endpoint.
+
+   -e, --endpoint ENDPOINT  # name of the endpoint to check info on
+

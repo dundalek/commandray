@@ -1,0 +1,16 @@
+{
+  "name": "ps:scale",
+  "longname": "ps:scale [DYNO1=AMOUNT1 [DYNO2=AMOUNT2 ...]]",
+  "desc": "scale dynos by the given amount",
+  "params": [
+    {
+      "name": "-a, --app APP",
+      "desc": "app to run command against"
+    },
+    {
+      "name": "-r, --remote REMOTE",
+      "desc": "git remote of app to run command against"
+    }
+  ],
+  "subcommands": []
+}

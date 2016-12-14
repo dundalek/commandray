@@ -1,0 +1,12 @@
+{
+  "name": "pipelines:info",
+  "longname": "pipelines:info PIPELINE",
+  "desc": "show list of apps in a pipeline",
+  "params": [
+    {
+      "name": "--json",
+      "desc": "output in json format"
+    }
+  ],
+  "subcommands": []
+}

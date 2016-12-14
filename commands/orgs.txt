@@ -1,0 +1,10 @@
+Usage: heroku orgs
+
+list the organizations that you are a member of
+
+ --json              # output in json format
+
+Additional commands, type "heroku help COMMAND" for more details:
+
+  orgs:open --org ORG   #  opens the org interface in a browser
+

@@ -1,0 +1,8 @@
+Usage: heroku addons:docs ADDON
+
+open an add-on's Dev Center documentation in your browser
+
+ -a, --app APP       # app to run command against
+ -r, --remote REMOTE # git remote of app to run command against
+ --show-url          # show URL, do not open browser
+

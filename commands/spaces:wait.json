@@ -1,0 +1,24 @@
+{
+  "name": "spaces:wait",
+  "longname": "spaces:wait",
+  "desc": "wait for a space to be created",
+  "params": [
+    {
+      "name": "-i, --interval INTERVAL",
+      "desc": "seconds to wait between poll intervals"
+    },
+    {
+      "name": "-s, --space SPACE",
+      "desc": "space to get info of"
+    },
+    {
+      "name": "-t, --timeout TIMEOUT",
+      "desc": "maximum number of seconds to wait"
+    },
+    {
+      "name": "--json",
+      "desc": "output in json format"
+    }
+  ],
+  "subcommands": []
+}

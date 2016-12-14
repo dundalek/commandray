@@ -1,0 +1,12 @@
+{
+  "name": "pg:ps",
+  "longname": "pg:ps [DATABASE]",
+  "desc": "view active queries with execution time",
+  "params": [
+    {
+      "name": "-v,--verbose",
+      "desc": "also show idle connections"
+    }
+  ],
+  "subcommands": []
+}

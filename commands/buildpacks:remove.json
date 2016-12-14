@@ -1,0 +1,20 @@
+{
+  "name": "buildpacks:remove",
+  "longname": "buildpacks:remove [BUILDPACK_URL]",
+  "desc": "remove a buildpack set on the app",
+  "params": [
+    {
+      "name": "-a, --app APP",
+      "desc": "app to run command against"
+    },
+    {
+      "name": "-i, --index INDEX",
+      "desc": "the 1-based index of the URL to remove from the list of URLs"
+    },
+    {
+      "name": "-r, --remote REMOTE",
+      "desc": "git remote of app to run command against"
+    }
+  ],
+  "subcommands": []
+}

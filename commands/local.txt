@@ -1,0 +1,22 @@
+Usage: heroku local:start [PROCESSNAME]
+
+run heroku app locally
+
+ -e, --env ENV                 # location of env file (defaults to .env)
+ -p, --port PORT               # port to listen on
+ -f, --procfile PROCFILE       # use a different Procfile
+
+Start the application specified by a Procfile (defaults to ./Procfile)
+
+Examples:
+
+  heroku local
+  heroku local web
+  heroku local -f Procfile.test -e .env.test
+
+Additional commands, type "heroku help COMMAND" for more details:
+
+  local:run                  #  run a one-off command
+  local:start [PROCESSNAME]  #  run heroku app locally
+  local:version              #  display node-foreman version
+
