@@ -16,5 +16,6 @@
       "desc": "display as json"
     }
   ],
-  "subcommands": []
+  "subcommands": [],
+  "examples": []
 }

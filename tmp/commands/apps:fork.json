@@ -20,5 +20,8 @@
       "desc": "app to create"
     }
   ],
-  "subcommands": []
+  "subcommands": [],
+  "examples": [
+    "heroku fork --from my-production-app --to my-development-app"
+  ]
 }

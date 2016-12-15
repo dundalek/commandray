@@ -24,5 +24,6 @@
       "name": "pgbackups:url [BACKUP_ID]",
       "desc": "get a temporary URL for a backup"
     }
-  ]
+  ],
+  "examples": []
 }

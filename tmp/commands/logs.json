@@ -32,5 +32,8 @@
       "desc": "force use of colors (even on non-tty output)"
     }
   ],
-  "subcommands": []
+  "subcommands": [],
+  "examples": [
+    "heroku logs"
+  ]
 }

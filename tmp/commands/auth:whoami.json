@@ -3,5 +3,9 @@
   "usage": "auth:whoami",
   "desc": "display your heroku email address",
   "params": [],
-  "subcommands": []
+  "subcommands": [],
+  "examples": [
+    "heroku auth:whoami",
+    "echo $?"
+  ]
 }

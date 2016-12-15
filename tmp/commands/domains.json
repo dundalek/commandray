@@ -33,5 +33,8 @@
       "name": "domains:wait HOSTNAME",
       "desc": "wait for domain to be active for an app"
     }
+  ],
+  "examples": [
+    "heroku domains"
   ]
 }

@@ -73,5 +73,13 @@
       "name": "addons:wait ADDON",
       "desc": "Show provisioning status of the add-ons on the app"
     }
+  ],
+  "examples": [
+    "heroku addons --all",
+    "heroku addons --app acme-inc-www",
+    "heroku addons:create heroku-postgresql --app my-app",
+    "heroku addons --app my-app",
+    "heroku addons:create heroku-postgresql --app my-app --name main-db --as PRIMARY_DB",
+    "heroku addons:attach main-db --app my-app --as ANOTHER_NAME"
   ]
 }

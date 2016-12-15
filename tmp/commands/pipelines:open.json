@@ -3,5 +3,8 @@
   "usage": "pipelines:open PIPELINE",
   "desc": "open a pipeline in dashboard",
   "params": [],
-  "subcommands": []
+  "subcommands": [],
+  "examples": [
+    "heroku pipelines:open example"
+  ]
 }

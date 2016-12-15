@@ -45,5 +45,6 @@
       "name": "certs:update CRT KEY",
       "desc": "Update an SSL Endpoint on an app."
     }
-  ]
+  ],
+  "examples": []
 }

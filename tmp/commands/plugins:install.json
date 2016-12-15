@@ -3,5 +3,8 @@
   "usage": "plugins:install NAME",
   "desc": "install a plugin",
   "params": [],
-  "subcommands": []
+  "subcommands": [],
+  "examples": [
+    "heroku plugins:install heroku-production-status"
+  ]
 }

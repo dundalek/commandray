@@ -16,5 +16,6 @@
       "desc": "at a specific (24h) hour in the given timezone. Defaults to UTC. --at '[HOUR]:00 [TIMEZONE]'"
     }
   ],
-  "subcommands": []
+  "subcommands": [],
+  "examples": []
 }

@@ -16,5 +16,8 @@
       "desc": "region name"
     }
   ],
-  "subcommands": []
+  "subcommands": [],
+  "examples": [
+    "heroku spaces:create --space my-space --org my-org --region oregon"
+  ]
 }

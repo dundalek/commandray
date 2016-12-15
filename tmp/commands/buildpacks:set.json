@@ -16,5 +16,8 @@
       "desc": "git remote of app to run command against"
     }
   ],
-  "subcommands": []
+  "subcommands": [],
+  "examples": [
+    "heroku buildpacks:set -i 1 https://github.com/heroku/heroku-buildpack-ruby"
+  ]
 }

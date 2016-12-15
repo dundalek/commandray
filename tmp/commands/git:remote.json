@@ -16,5 +16,8 @@
       "desc": "use SSH git protocol"
     }
   ],
-  "subcommands": []
+  "subcommands": [],
+  "examples": [
+    "heroku git:remote -a example set git remote heroku to https://git.heroku.com/example.git"
+  ]
 }

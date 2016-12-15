@@ -29,5 +29,8 @@
       "name": "releases:rollback [RELEASE]",
       "desc": "roll back to an older release"
     }
+  ],
+  "examples": [
+    "heroku releases"
   ]
 }

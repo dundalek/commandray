@@ -8,5 +8,6 @@
       "desc": "login for enterprise users under SSO"
     }
   ],
-  "subcommands": []
+  "subcommands": [],
+  "examples": []
 }

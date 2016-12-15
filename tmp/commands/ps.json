@@ -37,5 +37,9 @@
       "name": "ps:type [TYPE | DYNO=TYPE [DYNO=TYPE ...]]",
       "desc": "manage dyno types"
     }
+  ],
+  "examples": [
+    "heroku ps",
+    "heroku ps run # specifying types"
   ]
 }

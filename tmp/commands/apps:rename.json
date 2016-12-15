@@ -16,5 +16,8 @@
       "desc": "use ssh git protocol instead of https"
     }
   ],
-  "subcommands": []
+  "subcommands": [],
+  "examples": [
+    "heroku apps:rename --app oldname newname"
+  ]
 }

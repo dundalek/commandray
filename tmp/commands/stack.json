@@ -17,5 +17,6 @@
       "name": "stack:set STACK",
       "desc": "set new app stack"
     }
-  ]
+  ],
+  "examples": []
 }

@@ -20,5 +20,10 @@
       "desc": "transfer applications in bulk"
     }
   ],
-  "subcommands": []
+  "subcommands": [],
+  "examples": [
+    "heroku apps:transfer collaborator@example.com",
+    "heroku apps:transfer acme-widgets",
+    "heroku apps:transfer --bulk acme-widgets"
+  ]
 }

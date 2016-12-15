@@ -12,5 +12,8 @@
       "desc": "output in json format"
     }
   ],
-  "subcommands": []
+  "subcommands": [],
+  "examples": [
+    "heroku spaces:peering:info example-space"
+  ]
 }

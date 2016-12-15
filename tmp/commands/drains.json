@@ -25,5 +25,6 @@
       "name": "drains:remove [URL|TOKEN]",
       "desc": "removes a log drain from an app"
     }
-  ]
+  ],
+  "examples": []
 }

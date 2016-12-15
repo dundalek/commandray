@@ -29,5 +29,6 @@
       "name": "access:update EMAIL",
       "desc": "Update existing collaborators in an org app"
     }
-  ]
+  ],
+  "examples": []
 }

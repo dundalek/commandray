@@ -12,5 +12,9 @@
       "desc": "git remote of app to run command against"
     }
   ],
-  "subcommands": []
+  "subcommands": [],
+  "examples": [
+    "heroku pg:push mylocaldb postgresql-swimmingly-100",
+    "heroku pg:push postgres://myhost/mydb postgresql-swimmingly-100"
+  ]
 }

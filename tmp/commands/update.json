@@ -8,5 +8,6 @@
       "name": "update:beta",
       "desc": "update to the latest beta client"
     }
-  ]
+  ],
+  "examples": []
 }

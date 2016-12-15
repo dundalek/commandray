@@ -12,5 +12,8 @@
       "desc": "git remote of app to run command against"
     }
   ],
-  "subcommands": []
+  "subcommands": [],
+  "examples": [
+    "heroku stack:set cedar-14 -a myapp"
+  ]
 }

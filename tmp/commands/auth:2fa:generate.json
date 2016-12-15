@@ -3,5 +3,6 @@
   "usage": "auth:2fa:generate",
   "desc": "generates and replaces recovery codes",
   "params": [],
-  "subcommands": []
+  "subcommands": [],
+  "examples": []
 }

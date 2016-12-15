@@ -29,5 +29,6 @@
       "name": "local:version",
       "desc": "display node-foreman version"
     }
-  ]
+  ],
+  "examples": []
 }

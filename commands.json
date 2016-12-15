@@ -75,6 +75,14 @@
         "name": "addons:wait ADDON",
         "desc": "Show provisioning status of the add-ons on the app"
       }
+    ],
+    "examples": [
+      "heroku addons --all",
+      "heroku addons --app acme-inc-www",
+      "heroku addons:create heroku-postgresql --app my-app",
+      "heroku addons --app my-app",
+      "heroku addons:create heroku-postgresql --app my-app --name main-db --as PRIMARY_DB",
+      "heroku addons:attach main-db --app my-app --as ANOTHER_NAME"
     ]
   },
   "addons:attach": {
@@ -100,7 +108,8 @@
         "desc": "overwrite existing add-on attachment with same name"
       }
     ],
-    "subcommands": []
+    "subcommands": [],
+    "examples": []
   },
   "addons:create": {
     "name": "addons:create",
@@ -133,7 +142,8 @@
         "desc": "watch add-on creation status and exit when complete"
       }
     ],
-    "subcommands": []
+    "subcommands": [],
+    "examples": []
   },
   "addons:destroy": {
     "name": "addons:destroy",
@@ -154,7 +164,8 @@
         "desc": "git remote of app to run command against"
       }
     ],
-    "subcommands": []
+    "subcommands": [],
+    "examples": []
   },
   "addons:detach": {
     "name": "addons:detach",
@@ -171,7 +182,8 @@
         "desc": "git remote of app to run command against"
       }
     ],
-    "subcommands": []
+    "subcommands": [],
+    "examples": []
   },
   "addons:docs": {
     "name": "addons:docs",
@@ -192,7 +204,8 @@
         "desc": "show URL, do not open browser"
       }
     ],
-    "subcommands": []
+    "subcommands": [],
+    "examples": []
   },
   "addons:downgrade": {
     "name": "addons:downgrade",
@@ -209,7 +222,11 @@
         "desc": "git remote of app to run command against"
       }
     ],
-    "subcommands": []
+    "subcommands": [],
+    "examples": [
+      "heroku addons:upgrade heroku-redis:premium-2",
+      "heroku addons:upgrade swimming-briskly-123 heroku-redis:premium-2"
+    ]
   },
   "addons:info": {
     "name": "addons:info",
@@ -226,7 +243,8 @@
         "desc": "git remote of app to run command against"
       }
     ],
-    "subcommands": []
+    "subcommands": [],
+    "examples": []
   },
   "addons:open": {
     "name": "addons:open",
@@ -247,7 +265,8 @@
         "desc": "show URL, do not open browser"
       }
     ],
-    "subcommands": []
+    "subcommands": [],
+    "examples": []
   },
   "addons:plans": {
     "name": "addons:plans",
@@ -260,7 +279,8 @@
         "desc": "output in json format"
       }
     ],
-    "subcommands": []
+    "subcommands": [],
+    "examples": []
   },
   "addons:rename": {
     "name": "addons:rename",
@@ -277,7 +297,8 @@
         "desc": "git remote of app to run command against"
       }
     ],
-    "subcommands": []
+    "subcommands": [],
+    "examples": []
   },
   "addons:services": {
     "name": "addons:services",
@@ -290,7 +311,8 @@
         "desc": "output in json format"
       }
     ],
-    "subcommands": []
+    "subcommands": [],
+    "examples": []
   },
   "addons:upgrade": {
     "name": "addons:upgrade",
@@ -307,7 +329,11 @@
         "desc": "git remote of app to run command against"
       }
     ],
-    "subcommands": []
+    "subcommands": [],
+    "examples": [
+      "heroku addons:upgrade heroku-redis:premium-2",
+      "heroku addons:upgrade swimming-briskly-123 heroku-redis:premium-2"
+    ]
   },
   "addons:wait": {
     "name": "addons:wait",
@@ -328,7 +354,8 @@
         "desc": "how frequently to poll in seconds"
       }
     ],
-    "subcommands": []
+    "subcommands": [],
+    "examples": []
   },
   "apps": {
     "name": "apps",
@@ -422,6 +449,9 @@
         "name": "apps:unlock --app APP",
         "desc": "unlock an organization app so that any org member can join it"
       }
+    ],
+    "examples": [
+      "heroku apps"
     ]
   },
   "apps:create": {
@@ -467,7 +497,15 @@
         "desc": "use SSH git protocol for local git remote"
       }
     ],
-    "subcommands": []
+    "subcommands": [],
+    "examples": [
+      "heroku apps:create",
+      "heroku create",
+      "heroku apps:create --buildpack https://github.com/some/buildpack.git",
+      "heroku apps:create example",
+      "heroku apps:create example-staging --remote staging",
+      "heroku apps:create --region eu"
+    ]
   },
   "apps:destroy": {
     "name": "apps:destroy",
@@ -484,7 +522,8 @@
         "desc": "git remote of app to run command against"
       }
     ],
-    "subcommands": []
+    "subcommands": [],
+    "examples": []
   },
   "apps:errors": {
     "name": "apps:errors",
@@ -517,7 +556,8 @@
         "desc": "show only router errors"
       }
     ],
-    "subcommands": []
+    "subcommands": [],
+    "examples": []
   },
   "apps:favorites": {
     "name": "apps:favorites",
@@ -530,7 +570,8 @@
         "desc": "output in json format"
       }
     ],
-    "subcommands": []
+    "subcommands": [],
+    "examples": []
   },
   "apps:favorites:add": {
     "name": "apps:favorites:add",
@@ -547,7 +588,8 @@
         "desc": "git remote of app to run command against"
       }
     ],
-    "subcommands": []
+    "subcommands": [],
+    "examples": []
   },
   "apps:favorites:remove": {
     "name": "apps:favorites:remove",
@@ -564,7 +606,8 @@
         "desc": "git remote of app to run command against"
       }
     ],
-    "subcommands": []
+    "subcommands": [],
+    "examples": []
   },
   "apps:fork": {
     "name": "apps:fork",
@@ -589,7 +632,10 @@
         "desc": "app to create"
       }
     ],
-    "subcommands": []
+    "subcommands": [],
+    "examples": [
+      "heroku fork --from my-production-app --to my-development-app"
+    ]
   },
   "apps:info": {
     "name": "apps:info",
@@ -610,7 +656,11 @@
         "desc": "output more shell friendly key/value pairs"
       }
     ],
-    "subcommands": []
+    "subcommands": [],
+    "examples": [
+      "heroku apps:info",
+      "heroku apps:info --shell"
+    ]
   },
   "apps:join": {
     "name": "apps:join",
@@ -627,7 +677,8 @@
         "desc": "git remote of app to run command against"
       }
     ],
-    "subcommands": []
+    "subcommands": [],
+    "examples": []
   },
   "apps:leave": {
     "name": "apps:leave",
@@ -644,7 +695,8 @@
         "desc": "git remote of app to run command against"
       }
     ],
-    "subcommands": []
+    "subcommands": [],
+    "examples": []
   },
   "apps:lock": {
     "name": "apps:lock",
@@ -661,7 +713,8 @@
         "desc": "git remote of app to run command against"
       }
     ],
-    "subcommands": []
+    "subcommands": [],
+    "examples": []
   },
   "apps:open": {
     "name": "apps:open",
@@ -678,7 +731,11 @@
         "desc": "git remote of app to run command against"
       }
     ],
-    "subcommands": []
+    "subcommands": [],
+    "examples": [
+      "heroku open -a myapp",
+      "heroku open -a myapp /foo"
+    ]
   },
   "apps:rename": {
     "name": "apps:rename",
@@ -699,7 +756,10 @@
         "desc": "use ssh git protocol instead of https"
       }
     ],
-    "subcommands": []
+    "subcommands": [],
+    "examples": [
+      "heroku apps:rename --app oldname newname"
+    ]
   },
   "apps:stacks": {
     "name": "apps:stacks",
@@ -716,7 +776,8 @@
         "desc": "git remote of app to run command against"
       }
     ],
-    "subcommands": []
+    "subcommands": [],
+    "examples": []
   },
   "apps:transfer": {
     "name": "apps:transfer",
@@ -741,7 +802,12 @@
         "desc": "transfer applications in bulk"
       }
     ],
-    "subcommands": []
+    "subcommands": [],
+    "examples": [
+      "heroku apps:transfer collaborator@example.com",
+      "heroku apps:transfer acme-widgets",
+      "heroku apps:transfer --bulk acme-widgets"
+    ]
   },
   "apps:unlock": {
     "name": "apps:unlock",
@@ -758,7 +824,8 @@
         "desc": "git remote of app to run command against"
       }
     ],
-    "subcommands": []
+    "subcommands": [],
+    "examples": []
   },
   "auth": {
     "name": "auth",
@@ -799,7 +866,8 @@
         "name": "auth:whoami",
         "desc": "display your heroku email address"
       }
-    ]
+    ],
+    "examples": []
   },
   "auth:2fa": {
     "name": "auth:2fa",
@@ -807,7 +875,8 @@
     "desc": "check 2fa status",
     "docs": "Usage: heroku auth:2fa\n\ncheck 2fa status\n\n",
     "params": [],
-    "subcommands": []
+    "subcommands": [],
+    "examples": []
   },
   "auth:2fa:disable": {
     "name": "auth:2fa:disable",
@@ -815,7 +884,8 @@
     "desc": "disable two-factor authentication for your account",
     "docs": "Usage: heroku auth:2fa:disable\n\ndisable two-factor authentication for your account\n\n",
     "params": [],
-    "subcommands": []
+    "subcommands": [],
+    "examples": []
   },
   "auth:2fa:enable": {
     "name": "auth:2fa:enable",
@@ -823,7 +893,8 @@
     "desc": "enable 2fa on your account",
     "docs": "Usage: heroku auth:2fa:enable\n\nenable 2fa on your account\n\n",
     "params": [],
-    "subcommands": []
+    "subcommands": [],
+    "examples": []
   },
   "auth:2fa:generate": {
     "name": "auth:2fa:generate",
@@ -831,7 +902,8 @@
     "desc": "generates and replaces recovery codes",
     "docs": "Usage: heroku auth:2fa:generate\n\ngenerates and replaces recovery codes\n\n",
     "params": [],
-    "subcommands": []
+    "subcommands": [],
+    "examples": []
   },
   "auth:login": {
     "name": "auth:login",
@@ -844,7 +916,8 @@
         "desc": "login for enterprise users under SSO"
       }
     ],
-    "subcommands": []
+    "subcommands": [],
+    "examples": []
   },
   "auth:logout": {
     "name": "auth:logout",
@@ -852,7 +925,8 @@
     "desc": "clear local authentication credentials",
     "docs": "Usage: heroku auth:logout\n\nclear your local Heroku credentials\n\n",
     "params": [],
-    "subcommands": []
+    "subcommands": [],
+    "examples": []
   },
   "auth:token": {
     "name": "auth:token",
@@ -860,7 +934,8 @@
     "desc": "display your api token",
     "docs": "Usage: heroku auth:token\n\ndisplay your API token.\n\n",
     "params": [],
-    "subcommands": []
+    "subcommands": [],
+    "examples": []
   },
   "auth:whoami": {
     "name": "auth:whoami",
@@ -868,7 +943,11 @@
     "desc": "display your heroku email address",
     "docs": "Usage: heroku auth:whoami\n\ndisplay your Heroku login\n\nExample:\n\n  $ heroku auth:whoami\n\temail@example.com\n\n\twhoami will return nonzero status if not logged in:\n\n  $ heroku auth:whoami\n\tnot logged in\n\t$ echo $?\n\t100\n\n",
     "params": [],
-    "subcommands": []
+    "subcommands": [],
+    "examples": [
+      "heroku auth:whoami",
+      "echo $?"
+    ]
   },
   "config": {
     "name": "config",
@@ -906,7 +985,8 @@
         "name": "config:unset KEY1 [KEY2 ...]",
         "desc": "unset one or more config vars"
       }
-    ]
+    ],
+    "examples": []
   },
   "config:get": {
     "name": "config:get",
@@ -927,7 +1007,10 @@
         "desc": "output config var in shell format"
       }
     ],
-    "subcommands": []
+    "subcommands": [],
+    "examples": [
+      "heroku config:get RAILS_ENV"
+    ]
   },
   "config:set": {
     "name": "config:set",
@@ -944,7 +1027,11 @@
         "desc": "git remote of app to run command against"
       }
     ],
-    "subcommands": []
+    "subcommands": [],
+    "examples": [
+      "heroku config:set RAILS_ENV=staging",
+      "heroku config:set RAILS_ENV=staging RACK_ENV=staging"
+    ]
   },
   "config:unset": {
     "name": "config:unset",
@@ -961,7 +1048,11 @@
         "desc": "git remote of app to run command against"
       }
     ],
-    "subcommands": []
+    "subcommands": [],
+    "examples": [
+      "heroku config:unset RAILS_ENV",
+      "heroku config:unset RAILS_ENV RACK_ENV"
+    ]
   },
   "domains": {
     "name": "domains",
@@ -999,6 +1090,9 @@
         "name": "domains:wait HOSTNAME",
         "desc": "wait for domain to be active for an app"
       }
+    ],
+    "examples": [
+      "heroku domains"
     ]
   },
   "domains:add": {
@@ -1016,7 +1110,8 @@
         "desc": "git remote of app to run command against"
       }
     ],
-    "subcommands": []
+    "subcommands": [],
+    "examples": []
   },
   "domains:clear": {
     "name": "domains:clear",
@@ -1033,7 +1128,8 @@
         "desc": "git remote of app to run command against"
       }
     ],
-    "subcommands": []
+    "subcommands": [],
+    "examples": []
   },
   "domains:remove": {
     "name": "domains:remove",
@@ -1050,7 +1146,8 @@
         "desc": "git remote of app to run command against"
       }
     ],
-    "subcommands": []
+    "subcommands": [],
+    "examples": []
   },
   "domains:wait": {
     "name": "domains:wait",
@@ -1067,7 +1164,8 @@
         "desc": "git remote of app to run command against"
       }
     ],
-    "subcommands": []
+    "subcommands": [],
+    "examples": []
   },
   "logs": {
     "name": "logs",
@@ -1104,7 +1202,10 @@
         "desc": "force use of colors (even on non-tty output)"
       }
     ],
-    "subcommands": []
+    "subcommands": [],
+    "examples": [
+      "heroku logs"
+    ]
   },
   "ps": {
     "name": "ps",
@@ -1146,6 +1247,10 @@
         "name": "ps:type [TYPE | DYNO=TYPE [DYNO=TYPE ...]]",
         "desc": "manage dyno types"
       }
+    ],
+    "examples": [
+      "heroku ps",
+      "heroku ps run # specifying types"
     ]
   },
   "ps:kill": {
@@ -1163,7 +1268,11 @@
         "desc": "git remote of app to run command against"
       }
     ],
-    "subcommands": []
+    "subcommands": [],
+    "examples": [
+      "heroku ps:stop run.1828",
+      "heroku ps:stop run"
+    ]
   },
   "ps:resize": {
     "name": "ps:resize",
@@ -1180,7 +1289,8 @@
         "desc": "git remote of app to run command against"
       }
     ],
-    "subcommands": []
+    "subcommands": [],
+    "examples": []
   },
   "ps:scale": {
     "name": "ps:scale",
@@ -1197,7 +1307,11 @@
         "desc": "git remote of app to run command against"
       }
     ],
-    "subcommands": []
+    "subcommands": [],
+    "examples": [
+      "heroku ps:scale web=3:Standard-2X worker+1",
+      "heroku ps:scale"
+    ]
   },
   "ps:stop": {
     "name": "ps:stop",
@@ -1214,7 +1328,11 @@
         "desc": "git remote of app to run command against"
       }
     ],
-    "subcommands": []
+    "subcommands": [],
+    "examples": [
+      "heroku ps:stop run.1828",
+      "heroku ps:stop run"
+    ]
   },
   "ps:type": {
     "name": "ps:type",
@@ -1231,7 +1349,8 @@
         "desc": "git remote of app to run command against"
       }
     ],
-    "subcommands": []
+    "subcommands": [],
+    "examples": []
   },
   "releases": {
     "name": "releases",
@@ -1265,6 +1384,9 @@
         "name": "releases:rollback [RELEASE]",
         "desc": "roll back to an older release"
       }
+    ],
+    "examples": [
+      "heroku releases"
     ]
   },
   "releases:info": {
@@ -1290,7 +1412,8 @@
         "desc": "output in json format"
       }
     ],
-    "subcommands": []
+    "subcommands": [],
+    "examples": []
   },
   "releases:rollback": {
     "name": "releases:rollback",
@@ -1307,7 +1430,8 @@
         "desc": "git remote of app to run command against"
       }
     ],
-    "subcommands": []
+    "subcommands": [],
+    "examples": []
   },
   "run": {
     "name": "run",
@@ -1349,6 +1473,10 @@
         "name": "run:rake COMMAND",
         "desc": "WARNING: `heroku run:rake` has been deprecated. Please use `heroku run rake` instead.\""
       }
+    ],
+    "examples": [
+      "heroku run bash",
+      "heroku run -s hobby -- myscript.sh -a arg1 -s arg2"
     ]
   },
   "run:detached": {
@@ -1378,7 +1506,10 @@
         "desc": "stream logs from the dyno"
       }
     ],
-    "subcommands": []
+    "subcommands": [],
+    "examples": [
+      "heroku run:detached ls"
+    ]
   },
   "run:rake": {
     "name": "run:rake",
@@ -1391,6 +1522,9 @@
         "name": "rake test",
         "desc": "run tests"
       }
+    ],
+    "examples": [
+      "heroku run:rake -T"
     ]
   },
   "rake": {
@@ -1404,6 +1538,9 @@
         "name": "rake test",
         "desc": "run tests"
       }
+    ],
+    "examples": [
+      "heroku run:rake -T"
     ]
   },
   "access": {
@@ -1438,7 +1575,8 @@
         "name": "access:update EMAIL",
         "desc": "Update existing collaborators in an org app"
       }
-    ]
+    ],
+    "examples": []
   },
   "access:add": {
     "name": "access:add",
@@ -1468,7 +1606,8 @@
         "name": "heroku access:add user@email.com --app APP --permissions deploy,manage,operate",
         "desc": "permissions must be comma separated"
       }
-    ]
+    ],
+    "examples": []
   },
   "access:remove": {
     "name": "access:remove",
@@ -1485,7 +1624,8 @@
         "desc": "git remote of app to run command against"
       }
     ],
-    "subcommands": []
+    "subcommands": [],
+    "examples": []
   },
   "access:update": {
     "name": "access:update",
@@ -1506,7 +1646,8 @@
         "desc": "comma-delimited list of permissions to update (deploy,manage,operate)"
       }
     ],
-    "subcommands": []
+    "subcommands": [],
+    "examples": []
   },
   "buildpacks": {
     "name": "buildpacks",
@@ -1540,6 +1681,9 @@
         "name": "buildpacks:set BUILDPACK_URL",
         "desc": "set new app buildpack, overwriting into list of buildpacks if neccessary"
       }
+    ],
+    "examples": [
+      "heroku buildpacks"
     ]
   },
   "buildpacks:add": {
@@ -1561,7 +1705,10 @@
         "desc": "git remote of app to run command against"
       }
     ],
-    "subcommands": []
+    "subcommands": [],
+    "examples": [
+      "heroku buildpacks:add -i 1 https://github.com/heroku/heroku-buildpack-ruby"
+    ]
   },
   "buildpacks:clear": {
     "name": "buildpacks:clear",
@@ -1578,7 +1725,8 @@
         "desc": "git remote of app to run command against"
       }
     ],
-    "subcommands": []
+    "subcommands": [],
+    "examples": []
   },
   "buildpacks:remove": {
     "name": "buildpacks:remove",
@@ -1599,7 +1747,8 @@
         "desc": "git remote of app to run command against"
       }
     ],
-    "subcommands": []
+    "subcommands": [],
+    "examples": []
   },
   "buildpacks:set": {
     "name": "buildpacks:set",
@@ -1620,7 +1769,10 @@
         "desc": "git remote of app to run command against"
       }
     ],
-    "subcommands": []
+    "subcommands": [],
+    "examples": [
+      "heroku buildpacks:set -i 1 https://github.com/heroku/heroku-buildpack-ruby"
+    ]
   },
   "certs": {
     "name": "certs",
@@ -1670,7 +1822,8 @@
         "name": "certs:update CRT KEY",
         "desc": "Update an SSL Endpoint on an app."
       }
-    ]
+    ],
+    "examples": []
   },
   "certs:add": {
     "name": "certs:add",
@@ -1699,7 +1852,10 @@
         "desc": "type to create, either 'sni' or 'endpoint'"
       }
     ],
-    "subcommands": []
+    "subcommands": [],
+    "examples": [
+      "heroku certs:add example.com.crt example.com.key"
+    ]
   },
   "certs:chain": {
     "name": "certs:chain",
@@ -1716,7 +1872,8 @@
         "desc": "git remote of app to run command against"
       }
     ],
-    "subcommands": []
+    "subcommands": [],
+    "examples": []
   },
   "certs:generate": {
     "name": "certs:generate",
@@ -1765,7 +1922,10 @@
         "desc": "specify entire certificate subject"
       }
     ],
-    "subcommands": []
+    "subcommands": [],
+    "examples": [
+      "heroku certs:generate example.com"
+    ]
   },
   "certs:info": {
     "name": "certs:info",
@@ -1790,7 +1950,8 @@
         "desc": "name to check info on"
       }
     ],
-    "subcommands": []
+    "subcommands": [],
+    "examples": []
   },
   "certs:key": {
     "name": "certs:key",
@@ -1807,7 +1968,10 @@
         "desc": "git remote of app to run command against"
       }
     ],
-    "subcommands": []
+    "subcommands": [],
+    "examples": [
+      "heroku certs:key example.com.crt example.com.key"
+    ]
   },
   "certs:remove": {
     "name": "certs:remove",
@@ -1832,7 +1996,8 @@
         "desc": "name to remove"
       }
     ],
-    "subcommands": []
+    "subcommands": [],
+    "examples": []
   },
   "certs:rollback": {
     "name": "certs:rollback",
@@ -1857,7 +2022,8 @@
         "desc": "name to rollback"
       }
     ],
-    "subcommands": []
+    "subcommands": [],
+    "examples": []
   },
   "certs:update": {
     "name": "certs:update",
@@ -1886,7 +2052,10 @@
         "desc": "name to update"
       }
     ],
-    "subcommands": []
+    "subcommands": [],
+    "examples": [
+      "heroku certs:update example.com.crt example.com.key"
+    ]
   },
   "drains": {
     "name": "drains",
@@ -1916,7 +2085,8 @@
         "name": "drains:remove [URL|TOKEN]",
         "desc": "removes a log drain from an app"
       }
-    ]
+    ],
+    "examples": []
   },
   "drains:add": {
     "name": "drains:add",
@@ -1933,7 +2103,8 @@
         "desc": "git remote of app to run command against"
       }
     ],
-    "subcommands": []
+    "subcommands": [],
+    "examples": []
   },
   "drains:remove": {
     "name": "drains:remove",
@@ -1950,7 +2121,8 @@
         "desc": "git remote of app to run command against"
       }
     ],
-    "subcommands": []
+    "subcommands": [],
+    "examples": []
   },
   "features": {
     "name": "features",
@@ -1984,7 +2156,8 @@
         "name": "features:info FEATURE",
         "desc": "displays additional information about FEATURE"
       }
-    ]
+    ],
+    "examples": []
   },
   "features:disable": {
     "name": "features:disable",
@@ -2001,7 +2174,8 @@
         "desc": "git remote of app to run command against"
       }
     ],
-    "subcommands": []
+    "subcommands": [],
+    "examples": []
   },
   "features:enable": {
     "name": "features:enable",
@@ -2018,7 +2192,8 @@
         "desc": "git remote of app to run command against"
       }
     ],
-    "subcommands": []
+    "subcommands": [],
+    "examples": []
   },
   "features:info": {
     "name": "features:info",
@@ -2039,7 +2214,8 @@
         "desc": "output in json format"
       }
     ],
-    "subcommands": []
+    "subcommands": [],
+    "examples": []
   },
   "git": {
     "name": "git",
@@ -2056,7 +2232,8 @@
         "name": "git:remote",
         "desc": "adds a git remote to an app repo"
       }
-    ]
+    ],
+    "examples": []
   },
   "git:clone": {
     "name": "git:clone",
@@ -2077,7 +2254,10 @@
         "desc": "use SSH git protocol"
       }
     ],
-    "subcommands": []
+    "subcommands": [],
+    "examples": [
+      "heroku git:clone -a example"
+    ]
   },
   "git:remote": {
     "name": "git:remote",
@@ -2098,7 +2278,10 @@
         "desc": "use SSH git protocol"
       }
     ],
-    "subcommands": []
+    "subcommands": [],
+    "examples": [
+      "heroku git:remote -a example set git remote heroku to https://git.heroku.com/example.git"
+    ]
   },
   "help": {
     "name": "help",
@@ -2106,7 +2289,8 @@
     "desc": "list commands and display help",
     "docs": "Usage: heroku help\n\n \n\n",
     "params": [],
-    "subcommands": []
+    "subcommands": [],
+    "examples": []
   },
   "keys": {
     "name": "keys",
@@ -2136,7 +2320,8 @@
         "name": "keys:remove [KEY]",
         "desc": "remove a key from the current user"
       }
-    ]
+    ],
+    "examples": []
   },
   "keys:add": {
     "name": "keys:add",
@@ -2149,7 +2334,11 @@
         "desc": "automatically answer yes for all prompts"
       }
     ],
-    "subcommands": []
+    "subcommands": [],
+    "examples": [
+      "heroku keys:add",
+      "heroku keys:add /my/key.pub"
+    ]
   },
   "keys:clear": {
     "name": "keys:clear",
@@ -2157,7 +2346,8 @@
     "desc": "remove all authentication keys from the current user",
     "docs": "Usage: heroku keys:clear\n\nremove all SSH keys for current user\n\n",
     "params": [],
-    "subcommands": []
+    "subcommands": [],
+    "examples": []
   },
   "keys:remove": {
     "name": "keys:remove",
@@ -2165,7 +2355,10 @@
     "desc": "remove a key from the current user",
     "docs": "Usage: heroku keys:remove KEY\n\nremove an SSH key from the user\n\nExample:\n\n  $ heroku keys:remove email@example.com\n  Removing email@example.com SSH key... done\n\n",
     "params": [],
-    "subcommands": []
+    "subcommands": [],
+    "examples": [
+      "heroku keys:remove email@example.com"
+    ]
   },
   "labs": {
     "name": "labs",
@@ -2199,7 +2392,8 @@
         "name": "labs:info FEATURE",
         "desc": "displays additional information about FEATURE"
       }
-    ]
+    ],
+    "examples": []
   },
   "labs:disable": {
     "name": "labs:disable",
@@ -2216,7 +2410,8 @@
         "desc": "git remote of app to run command against"
       }
     ],
-    "subcommands": []
+    "subcommands": [],
+    "examples": []
   },
   "labs:enable": {
     "name": "labs:enable",
@@ -2233,7 +2428,8 @@
         "desc": "git remote of app to run command against"
       }
     ],
-    "subcommands": []
+    "subcommands": [],
+    "examples": []
   },
   "labs:info": {
     "name": "labs:info",
@@ -2254,7 +2450,8 @@
         "desc": "display as json"
       }
     ],
-    "subcommands": []
+    "subcommands": [],
+    "examples": []
   },
   "local": {
     "name": "local",
@@ -2288,7 +2485,8 @@
         "name": "local:version",
         "desc": "display node-foreman version"
       }
-    ]
+    ],
+    "examples": []
   },
   "local:run": {
     "name": "local:run",
@@ -2296,7 +2494,8 @@
     "desc": "run a one-off command",
     "docs": "Usage: heroku local:run\n\nrun a one-off command\n\n -e, --env ENV\n -p, --port PORT\n\nExample:\n\n  heroku local:run bin/migrate\n\n",
     "params": [],
-    "subcommands": []
+    "subcommands": [],
+    "examples": []
   },
   "local:start": {
     "name": "local:start",
@@ -2317,7 +2516,8 @@
         "desc": "use a different Procfile"
       }
     ],
-    "subcommands": []
+    "subcommands": [],
+    "examples": []
   },
   "local:version": {
     "name": "local:version",
@@ -2325,7 +2525,8 @@
     "desc": "display node-foreman version",
     "docs": "Usage: heroku local:version\n\ndisplay node-foreman version\n\nDisplay node-foreman version\n\n",
     "params": [],
-    "subcommands": []
+    "subcommands": [],
+    "examples": []
   },
   "login": {
     "name": "login",
@@ -2338,7 +2539,8 @@
         "desc": "login for enterprise users under SSO"
       }
     ],
-    "subcommands": []
+    "subcommands": [],
+    "examples": []
   },
   "maintenance": {
     "name": "maintenance",
@@ -2364,7 +2566,8 @@
         "name": "maintenance:on",
         "desc": "put the app into maintenance mode"
       }
-    ]
+    ],
+    "examples": []
   },
   "maintenance:off": {
     "name": "maintenance:off",
@@ -2381,7 +2584,8 @@
         "desc": "git remote of app to run command against"
       }
     ],
-    "subcommands": []
+    "subcommands": [],
+    "examples": []
   },
   "maintenance:on": {
     "name": "maintenance:on",
@@ -2398,7 +2602,8 @@
         "desc": "git remote of app to run command against"
       }
     ],
-    "subcommands": []
+    "subcommands": [],
+    "examples": []
   },
   "members": {
     "name": "members",
@@ -2440,7 +2645,8 @@
         "name": "members:set NAME [--org ORG] [--role ROLE]",
         "desc": "change role of member in org"
       }
-    ]
+    ],
+    "examples": []
   },
   "members:add": {
     "name": "members:add",
@@ -2461,7 +2667,8 @@
         "desc": "team to use"
       }
     ],
-    "subcommands": []
+    "subcommands": [],
+    "examples": []
   },
   "members:remove": {
     "name": "members:remove",
@@ -2478,7 +2685,8 @@
         "desc": "team to use"
       }
     ],
-    "subcommands": []
+    "subcommands": [],
+    "examples": []
   },
   "members:set": {
     "name": "members:set",
@@ -2499,7 +2707,8 @@
         "desc": "team to use"
       }
     ],
-    "subcommands": []
+    "subcommands": [],
+    "examples": []
   },
   "notifications": {
     "name": "notifications",
@@ -2528,7 +2737,8 @@
         "desc": "show notifications already read"
       }
     ],
-    "subcommands": []
+    "subcommands": [],
+    "examples": []
   },
   "orgs": {
     "name": "orgs",
@@ -2554,7 +2764,8 @@
         "name": "orgs:open --org ORG",
         "desc": "opens the org interface in a browser"
       }
-    ]
+    ],
+    "examples": []
   },
   "orgs:open": {
     "name": "orgs:open",
@@ -2567,7 +2778,8 @@
         "desc": "organization to use"
       }
     ],
-    "subcommands": []
+    "subcommands": [],
+    "examples": []
   },
   "pg": {
     "name": "pg",
@@ -2705,7 +2917,8 @@
         "name": "pg:wait [DATABASE]",
         "desc": "monitor database creation, exit when complete"
       }
-    ]
+    ],
+    "examples": []
   },
   "pg:backups": {
     "name": "pg:backups",
@@ -2722,7 +2935,8 @@
         "desc": "git remote of app to run command against"
       }
     ],
-    "subcommands": []
+    "subcommands": [],
+    "examples": []
   },
   "pg:backups:cancel": {
     "name": "pg:backups:cancel",
@@ -2739,7 +2953,8 @@
         "desc": "git remote of app to run command against"
       }
     ],
-    "subcommands": []
+    "subcommands": [],
+    "examples": []
   },
   "pg:backups:capture": {
     "name": "pg:backups:capture",
@@ -2756,7 +2971,8 @@
         "desc": "git remote of app to run command against"
       }
     ],
-    "subcommands": []
+    "subcommands": [],
+    "examples": []
   },
   "pg:backups:delete": {
     "name": "pg:backups:delete",
@@ -2773,7 +2989,8 @@
         "desc": "git remote of app to run command against"
       }
     ],
-    "subcommands": []
+    "subcommands": [],
+    "examples": []
   },
   "pg:backups:download": {
     "name": "pg:backups:download",
@@ -2794,7 +3011,8 @@
         "desc": "git remote of app to run command against"
       }
     ],
-    "subcommands": []
+    "subcommands": [],
+    "examples": []
   },
   "pg:backups:info": {
     "name": "pg:backups:info",
@@ -2811,7 +3029,8 @@
         "desc": "git remote of app to run command against"
       }
     ],
-    "subcommands": []
+    "subcommands": [],
+    "examples": []
   },
   "pg:backups:restore": {
     "name": "pg:backups:restore",
@@ -2828,7 +3047,8 @@
         "desc": "git remote of app to run command against"
       }
     ],
-    "subcommands": []
+    "subcommands": [],
+    "examples": []
   },
   "pg:backups:schedule": {
     "name": "pg:backups:schedule",
@@ -2849,7 +3069,8 @@
         "desc": "at a specific (24h) hour in the given timezone. Defaults to UTC. --at '[HOUR]:00 [TIMEZONE]'"
       }
     ],
-    "subcommands": []
+    "subcommands": [],
+    "examples": []
   },
   "pg:backups:schedules": {
     "name": "pg:backups:schedules",
@@ -2866,7 +3087,8 @@
         "desc": "git remote of app to run command against"
       }
     ],
-    "subcommands": []
+    "subcommands": [],
+    "examples": []
   },
   "pg:backups:url": {
     "name": "pg:backups:url",
@@ -2883,7 +3105,8 @@
         "desc": "git remote of app to run command against"
       }
     ],
-    "subcommands": []
+    "subcommands": [],
+    "examples": []
   },
   "pg:copy": {
     "name": "pg:copy",
@@ -2900,7 +3123,8 @@
         "desc": "git remote of app to run command against"
       }
     ],
-    "subcommands": []
+    "subcommands": [],
+    "examples": []
   },
   "pg:diagnose": {
     "name": "pg:diagnose",
@@ -2917,7 +3141,8 @@
         "desc": "git remote of app to run command against"
       }
     ],
-    "subcommands": []
+    "subcommands": [],
+    "examples": []
   },
   "pg:info": {
     "name": "pg:info",
@@ -2934,7 +3159,8 @@
         "desc": "git remote of app to run command against"
       }
     ],
-    "subcommands": []
+    "subcommands": [],
+    "examples": []
   },
   "pg:kill": {
     "name": "pg:kill",
@@ -2951,7 +3177,8 @@
         "desc": "git remote of app to run command against"
       }
     ],
-    "subcommands": []
+    "subcommands": [],
+    "examples": []
   },
   "pg:killall": {
     "name": "pg:killall",
@@ -2968,7 +3195,8 @@
         "desc": "git remote of app to run command against"
       }
     ],
-    "subcommands": []
+    "subcommands": [],
+    "examples": []
   },
   "pg:links": {
     "name": "pg:links",
@@ -2985,7 +3213,8 @@
         "desc": "git remote of app to run command against"
       }
     ],
-    "subcommands": []
+    "subcommands": [],
+    "examples": []
   },
   "pg:links:create": {
     "name": "pg:links:create",
@@ -3006,7 +3235,8 @@
         "desc": "name of link to create"
       }
     ],
-    "subcommands": []
+    "subcommands": [],
+    "examples": []
   },
   "pg:links:destroy": {
     "name": "pg:links:destroy",
@@ -3023,7 +3253,8 @@
         "desc": "git remote of app to run command against"
       }
     ],
-    "subcommands": []
+    "subcommands": [],
+    "examples": []
   },
   "pg:maintenance": {
     "name": "pg:maintenance",
@@ -3040,7 +3271,8 @@
         "desc": "git remote of app to run command against"
       }
     ],
-    "subcommands": []
+    "subcommands": [],
+    "examples": []
   },
   "pg:maintenance:run": {
     "name": "pg:maintenance:run",
@@ -3057,7 +3289,8 @@
         "desc": "git remote of app to run command against"
       }
     ],
-    "subcommands": []
+    "subcommands": [],
+    "examples": []
   },
   "pg:maintenance:window": {
     "name": "pg:maintenance:window",
@@ -3074,7 +3307,8 @@
         "desc": "git remote of app to run command against"
       }
     ],
-    "subcommands": []
+    "subcommands": [],
+    "examples": []
   },
   "pg:promote": {
     "name": "pg:promote",
@@ -3091,7 +3325,8 @@
         "desc": "git remote of app to run command against"
       }
     ],
-    "subcommands": []
+    "subcommands": [],
+    "examples": []
   },
   "pg:ps": {
     "name": "pg:ps",
@@ -3108,7 +3343,8 @@
         "desc": "git remote of app to run command against"
       }
     ],
-    "subcommands": []
+    "subcommands": [],
+    "examples": []
   },
   "pg:psql": {
     "name": "pg:psql",
@@ -3129,7 +3365,8 @@
         "desc": "git remote of app to run command against"
       }
     ],
-    "subcommands": []
+    "subcommands": [],
+    "examples": []
   },
   "pg:pull": {
     "name": "pg:pull",
@@ -3146,7 +3383,11 @@
         "desc": "git remote of app to run command against"
       }
     ],
-    "subcommands": []
+    "subcommands": [],
+    "examples": [
+      "heroku pg:push postgresql-swimmingly-100 mylocaldb",
+      "heroku pg:push postgresql-swimmingly-100 postgres://myhost/mydb"
+    ]
   },
   "pg:push": {
     "name": "pg:push",
@@ -3163,7 +3404,11 @@
         "desc": "git remote of app to run command against"
       }
     ],
-    "subcommands": []
+    "subcommands": [],
+    "examples": [
+      "heroku pg:push mylocaldb postgresql-swimmingly-100",
+      "heroku pg:push postgres://myhost/mydb postgresql-swimmingly-100"
+    ]
   },
   "pg:reset": {
     "name": "pg:reset",
@@ -3180,7 +3425,8 @@
         "desc": "git remote of app to run command against"
       }
     ],
-    "subcommands": []
+    "subcommands": [],
+    "examples": []
   },
   "pg:unfollow": {
     "name": "pg:unfollow",
@@ -3197,7 +3443,8 @@
         "desc": "git remote of app to run command against"
       }
     ],
-    "subcommands": []
+    "subcommands": [],
+    "examples": []
   },
   "pg:upgrade": {
     "name": "pg:upgrade",
@@ -3214,7 +3461,8 @@
         "desc": "git remote of app to run command against"
       }
     ],
-    "subcommands": []
+    "subcommands": [],
+    "examples": []
   },
   "pg:wait": {
     "name": "pg:wait",
@@ -3235,7 +3483,8 @@
         "desc": "how frequently to poll in seconds (to avoid rate limiting)"
       }
     ],
-    "subcommands": []
+    "subcommands": [],
+    "examples": []
   },
   "pgbackups": {
     "name": "pgbackups",
@@ -3264,7 +3513,8 @@
         "name": "pgbackups:url [BACKUP_ID]",
         "desc": "get a temporary URL for a backup"
       }
-    ]
+    ],
+    "examples": []
   },
   "pgbackups:capture": {
     "name": "pgbackups:capture",
@@ -3277,7 +3527,8 @@
         "desc": "if no slots are available, destroy the oldest manual backup to make room"
       }
     ],
-    "subcommands": []
+    "subcommands": [],
+    "examples": []
   },
   "pgbackups:destroy": {
     "name": "pgbackups:destroy",
@@ -3285,7 +3536,8 @@
     "desc": "destroys a backup",
     "docs": "Usage: heroku pgbackups:destroy BACKUP_ID\n\n destroys a backup\n\n",
     "params": [],
-    "subcommands": []
+    "subcommands": [],
+    "examples": []
   },
   "pgbackups:restore": {
     "name": "pgbackups:restore",
@@ -3293,7 +3545,8 @@
     "desc": "restore a backup to a database",
     "docs": "Usage: heroku pgbackups:restore [<DATABASE> [BACKUP_ID|BACKUP_URL]]\n\n restore a backup to a database\n\n if no DATABASE is specified, defaults to DATABASE_URL and latest backup\n if DATABASE is specified, but no BACKUP_ID, defaults to latest backup\n\n",
     "params": [],
-    "subcommands": []
+    "subcommands": [],
+    "examples": []
   },
   "pgbackups:transfer": {
     "name": "pgbackups:transfer",
@@ -3301,7 +3554,11 @@
     "desc": "direct database-to-database transfer",
     "docs": "Usage: heroku pgbackups:transfer [SOURCE DATABASE] DESTINATION DATABASE\n\n direct database-to-database transfer\n\n If no DATABASE is specified, defaults to DATABASE_URL.\n The pgbackups add-on is required to use direct transfers\n\nExample:\n\n$ heroku pgbackups:transfer green teal --app example\n\n note that both the FROM and TO database must be accessible to the pgbackups service\n$ heroku pgbackups:transfer DATABASE postgres://user:password@host/dbname --app example\n\n",
     "params": [],
-    "subcommands": []
+    "subcommands": [],
+    "examples": [
+      "heroku pgbackups:transfer green teal --app example",
+      "heroku pgbackups:transfer DATABASE postgres://user:password@host/dbname --app example"
+    ]
   },
   "pgbackups:url": {
     "name": "pgbackups:url",
@@ -3309,7 +3566,8 @@
     "desc": "get a temporary URL for a backup",
     "docs": "Usage: heroku pgbackups:url [BACKUP_ID]\n\n get a temporary URL for a backup\n\n",
     "params": [],
-    "subcommands": []
+    "subcommands": [],
+    "examples": []
   },
   "pipelines": {
     "name": "pipelines",
@@ -3367,6 +3625,9 @@
         "name": "pipelines:update",
         "desc": "update this app's stage in a pipeline"
       }
+    ],
+    "examples": [
+      "heroku pipelines:list"
     ]
   },
   "pipelines:add": {
@@ -3388,7 +3649,10 @@
         "desc": "stage of first app in pipeline"
       }
     ],
-    "subcommands": []
+    "subcommands": [],
+    "examples": [
+      "heroku pipelines:add example -a example-admin -s production"
+    ]
   },
   "pipelines:create": {
     "name": "pipelines:create",
@@ -3409,7 +3673,10 @@
         "desc": "stage of first app in pipeline"
       }
     ],
-    "subcommands": []
+    "subcommands": [],
+    "examples": [
+      "heroku pipelines:create -a example-staging"
+    ]
   },
   "pipelines:destroy": {
     "name": "pipelines:destroy",
@@ -3417,7 +3684,10 @@
     "desc": "destroy a pipeline",
     "docs": "Usage: heroku pipelines:destroy PIPELINE\n\ndestroy a pipeline\n\nExample:\n  $ heroku pipelines:destroy example\n  Destroying example pipeline... done\n\n",
     "params": [],
-    "subcommands": []
+    "subcommands": [],
+    "examples": [
+      "heroku pipelines:destroy example"
+    ]
   },
   "pipelines:diff": {
     "name": "pipelines:diff",
@@ -3434,7 +3704,8 @@
         "desc": "git remote of app to run command against"
       }
     ],
-    "subcommands": []
+    "subcommands": [],
+    "examples": []
   },
   "pipelines:info": {
     "name": "pipelines:info",
@@ -3447,7 +3718,10 @@
         "desc": "output in json format"
       }
     ],
-    "subcommands": []
+    "subcommands": [],
+    "examples": [
+      "heroku pipelines:info example"
+    ]
   },
   "pipelines:list": {
     "name": "pipelines:list",
@@ -3460,7 +3734,10 @@
         "desc": "output in json format"
       }
     ],
-    "subcommands": []
+    "subcommands": [],
+    "examples": [
+      "heroku pipelines:list"
+    ]
   },
   "pipelines:open": {
     "name": "pipelines:open",
@@ -3468,7 +3745,10 @@
     "desc": "open a pipeline in dashboard",
     "docs": "Usage: heroku pipelines:open PIPELINE\n\nopen a pipeline in dashboard\n\nExample:\n  $ heroku pipelines:open example\n\n",
     "params": [],
-    "subcommands": []
+    "subcommands": [],
+    "examples": [
+      "heroku pipelines:open example"
+    ]
   },
   "pipelines:promote": {
     "name": "pipelines:promote",
@@ -3489,7 +3769,11 @@
         "desc": "comma separated list of apps to promote to"
       }
     ],
-    "subcommands": []
+    "subcommands": [],
+    "examples": [
+      "heroku pipelines:promote -a example-staging",
+      "heroku pipelines:promote -a example-staging --to my-production-app1,my-production-app2"
+    ]
   },
   "pipelines:remove": {
     "name": "pipelines:remove",
@@ -3506,7 +3790,10 @@
         "desc": "git remote of app to run command against"
       }
     ],
-    "subcommands": []
+    "subcommands": [],
+    "examples": [
+      "heroku pipelines:remove -a example-admin"
+    ]
   },
   "pipelines:rename": {
     "name": "pipelines:rename",
@@ -3514,7 +3801,10 @@
     "desc": "rename a pipeline",
     "docs": "Usage: heroku pipelines:rename PIPELINE NAME\n\nrename a pipeline\n\nExample:\n  $ heroku pipelines:rename example www\n  Renaming example pipeline to www... done\n\n",
     "params": [],
-    "subcommands": []
+    "subcommands": [],
+    "examples": [
+      "heroku pipelines:rename example www"
+    ]
   },
   "pipelines:update": {
     "name": "pipelines:update",
@@ -3535,7 +3825,10 @@
         "desc": "new stage of app"
       }
     ],
-    "subcommands": []
+    "subcommands": [],
+    "examples": [
+      "heroku pipelines:update -s staging -a example-admin"
+    ]
   },
   "plugins": {
     "name": "plugins",
@@ -3560,6 +3853,9 @@
         "name": "plugins:update [PLUGIN]",
         "desc": "updates all plugins or a single plugin by name"
       }
+    ],
+    "examples": [
+      "heroku plugins"
     ]
   },
   "plugins:install": {
@@ -3568,7 +3864,10 @@
     "desc": "install a plugin",
     "docs": "Usage: heroku plugins:install\n\nInstalls a plugin into the CLI\n\nInstall a Heroku plugin\n\n  Example:\n  $ heroku plugins:install heroku-production-status\n\n",
     "params": [],
-    "subcommands": []
+    "subcommands": [],
+    "examples": [
+      "heroku plugins:install heroku-production-status"
+    ]
   },
   "plugins:link": {
     "name": "plugins:link",
@@ -3576,7 +3875,10 @@
     "desc": "This is useful when developing plugins locally.",
     "docs": "Usage: heroku plugins:link [PATH]\n\nLinks a local plugin into CLI\n\nLinks a local plugin into CLI.\n\tThis is useful when developing plugins locally.\n\tIt simply symlinks the specified path into the plugins directory\n\tand parses the plugin.\n\n  Example:\n\t$ heroku plugins:link .\n\n",
     "params": [],
-    "subcommands": []
+    "subcommands": [],
+    "examples": [
+      "heroku plugins:link ."
+    ]
   },
   "plugins:uninstall": {
     "name": "plugins:uninstall",
@@ -3584,7 +3886,10 @@
     "desc": "uninstall a plugin",
     "docs": "Usage: heroku plugins:uninstall NAME\n\nUninstalls a plugin from the CLI\n\nUninstalls a Heroku plugin\n\n  Example:\n  $ heroku plugins:uninstall heroku-production-status\n\n",
     "params": [],
-    "subcommands": []
+    "subcommands": [],
+    "examples": [
+      "heroku plugins:uninstall heroku-production-status"
+    ]
   },
   "plugins:update": {
     "name": "plugins:update",
@@ -3592,7 +3897,11 @@
     "desc": "updates all plugins or a single plugin by name",
     "docs": "Usage: heroku plugins:update [PLUGIN]\n\n updates all plugins or a single plugin by name\n\nExample:\n\n $ heroku plugins:update\n Updating heroku-production-check... done\n\n $ heroku plugins:update heroku-production-check\n Updating heroku-production-check... done\n\n",
     "params": [],
-    "subcommands": []
+    "subcommands": [],
+    "examples": [
+      "heroku plugins:update",
+      "heroku plugins:update heroku-production-check"
+    ]
   },
   "redis": {
     "name": "redis",
@@ -3642,7 +3951,8 @@
         "name": "redis:wait [DATABASE]",
         "desc": "wait for Redis instance to be available"
       }
-    ]
+    ],
+    "examples": []
   },
   "redis:cli": {
     "name": "redis:cli",
@@ -3659,7 +3969,8 @@
         "desc": "git remote of app to run command against"
       }
     ],
-    "subcommands": []
+    "subcommands": [],
+    "examples": []
   },
   "redis:credentials": {
     "name": "redis:credentials",
@@ -3680,7 +3991,8 @@
         "desc": "reset credentials"
       }
     ],
-    "subcommands": []
+    "subcommands": [],
+    "examples": []
   },
   "redis:info": {
     "name": "redis:info",
@@ -3697,7 +4009,8 @@
         "desc": "git remote of app to run command against"
       }
     ],
-    "subcommands": []
+    "subcommands": [],
+    "examples": []
   },
   "redis:maintenance": {
     "name": "redis:maintenance",
@@ -3726,7 +4039,8 @@
         "desc": "start maintenance"
       }
     ],
-    "subcommands": []
+    "subcommands": [],
+    "examples": []
   },
   "redis:maxmemory": {
     "name": "redis:maxmemory",
@@ -3772,7 +4086,8 @@
         "name": "volatile-ttl",
         "desc": "only evicts keys with an expiry set and a short TTL"
       }
-    ]
+    ],
+    "examples": []
   },
   "redis:promote": {
     "name": "redis:promote",
@@ -3789,7 +4104,8 @@
         "desc": "git remote of app to run command against"
       }
     ],
-    "subcommands": []
+    "subcommands": [],
+    "examples": []
   },
   "redis:timeout": {
     "name": "redis:timeout",
@@ -3810,7 +4126,8 @@
         "desc": "set timeout value"
       }
     ],
-    "subcommands": []
+    "subcommands": [],
+    "examples": []
   },
   "redis:wait": {
     "name": "redis:wait",
@@ -3827,7 +4144,8 @@
         "desc": "git remote of app to run command against"
       }
     ],
-    "subcommands": []
+    "subcommands": [],
+    "examples": []
   },
   "regions": {
     "name": "regions",
@@ -3848,7 +4166,8 @@
         "desc": "show regions for private spaces"
       }
     ],
-    "subcommands": []
+    "subcommands": [],
+    "examples": []
   },
   "repo": {
     "name": "repo",
@@ -3877,7 +4196,8 @@
         "name": "repo:reset",
         "desc": "reset the repo"
       }
-    ]
+    ],
+    "examples": []
   },
   "repo:clone": {
     "name": "repo:clone",
@@ -3894,7 +4214,8 @@
         "desc": "git remote of app to run command against"
       }
     ],
-    "subcommands": []
+    "subcommands": [],
+    "examples": []
   },
   "repo:download": {
     "name": "repo:download",
@@ -3911,7 +4232,8 @@
         "desc": "git remote of app to run command against"
       }
     ],
-    "subcommands": []
+    "subcommands": [],
+    "examples": []
   },
   "repo:gc": {
     "name": "repo:gc",
@@ -3928,7 +4250,8 @@
         "desc": "git remote of app to run command against"
       }
     ],
-    "subcommands": []
+    "subcommands": [],
+    "examples": []
   },
   "repo:purge_cache": {
     "name": "repo:purge_cache",
@@ -3945,7 +4268,8 @@
         "desc": "git remote of app to run command against"
       }
     ],
-    "subcommands": []
+    "subcommands": [],
+    "examples": []
   },
   "repo:reset": {
     "name": "repo:reset",
@@ -3962,7 +4286,8 @@
         "desc": "git remote of app to run command against"
       }
     ],
-    "subcommands": []
+    "subcommands": [],
+    "examples": []
   },
   "spaces": {
     "name": "spaces",
@@ -4036,7 +4361,8 @@
         "name": "spaces:wait",
         "desc": "wait for a space to be created"
       }
-    ]
+    ],
+    "examples": []
   },
   "spaces:create": {
     "name": "spaces:create",
@@ -4057,7 +4383,10 @@
         "desc": "region name"
       }
     ],
-    "subcommands": []
+    "subcommands": [],
+    "examples": [
+      "heroku spaces:create --space my-space --org my-org --region oregon"
+    ]
   },
   "spaces:destroy": {
     "name": "spaces:destroy",
@@ -4074,7 +4403,10 @@
         "desc": "set to space name to bypass confirm prompt"
       }
     ],
-    "subcommands": []
+    "subcommands": [],
+    "examples": [
+      "heroku spaces:destroy --space my-space"
+    ]
   },
   "spaces:info": {
     "name": "spaces:info",
@@ -4091,7 +4423,8 @@
         "desc": "output in json format"
       }
     ],
-    "subcommands": []
+    "subcommands": [],
+    "examples": []
   },
   "spaces:peering:info": {
     "name": "spaces:peering:info",
@@ -4108,7 +4441,10 @@
         "desc": "output in json format"
       }
     ],
-    "subcommands": []
+    "subcommands": [],
+    "examples": [
+      "heroku spaces:peering:info example-space"
+    ]
   },
   "spaces:peerings": {
     "name": "spaces:peerings",
@@ -4125,7 +4461,8 @@
         "desc": "output in json format"
       }
     ],
-    "subcommands": []
+    "subcommands": [],
+    "examples": []
   },
   "spaces:peerings:accept": {
     "name": "spaces:peerings:accept",
@@ -4142,7 +4479,10 @@
         "desc": "space to get peering info from"
       }
     ],
-    "subcommands": []
+    "subcommands": [],
+    "examples": [
+      "heroku spaces:peerings:accept pcx-4bd27022 --space example-space"
+    ]
   },
   "spaces:peerings:destroy": {
     "name": "spaces:peerings:destroy",
@@ -4163,7 +4503,10 @@
         "desc": "set to PCX ID to bypass confirm prompt"
       }
     ],
-    "subcommands": []
+    "subcommands": [],
+    "examples": [
+      "heroku peerings:destroy pcx-4bd27022 --confirm pcx-4bd27022 --space example-space"
+    ]
   },
   "spaces:rename": {
     "name": "spaces:rename",
@@ -4180,7 +4523,10 @@
         "desc": "desired name of space"
       }
     ],
-    "subcommands": []
+    "subcommands": [],
+    "examples": [
+      "heroku spaces:rename --from old-space-name --to new-space-name"
+    ]
   },
   "spaces:vpn:config": {
     "name": "spaces:vpn:config",
@@ -4193,7 +4539,10 @@
         "desc": "space to get VPN config from"
       }
     ],
-    "subcommands": []
+    "subcommands": [],
+    "examples": [
+      "heroku spaces:vpn:config my-space"
+    ]
   },
   "spaces:vpn:create": {
     "name": "spaces:vpn:create",
@@ -4214,7 +4563,10 @@
         "desc": "space name"
       }
     ],
-    "subcommands": []
+    "subcommands": [],
+    "examples": [
+      "heroku spaces:vpn:create --ip 35.161.69.30 --cidrs 172.16.0.0/16,10.0.0.0/24 --space my-space"
+    ]
   },
   "spaces:vpn:destroy": {
     "name": "spaces:vpn:destroy",
@@ -4231,7 +4583,10 @@
         "desc": "set to space name bypass confirm prompt"
       }
     ],
-    "subcommands": []
+    "subcommands": [],
+    "examples": [
+      "heroku spaces:vpn:destroy --confirm --space my-space"
+    ]
   },
   "spaces:vpn:info": {
     "name": "spaces:vpn:info",
@@ -4248,7 +4603,10 @@
         "desc": "output in json format"
       }
     ],
-    "subcommands": []
+    "subcommands": [],
+    "examples": [
+      "heroku spaces:vpn:info my-space"
+    ]
   },
   "spaces:vpn:wait": {
     "name": "spaces:vpn:wait",
@@ -4273,7 +4631,8 @@
         "desc": "output in json format"
       }
     ],
-    "subcommands": []
+    "subcommands": [],
+    "examples": []
   },
   "spaces:wait": {
     "name": "spaces:wait",
@@ -4298,7 +4657,8 @@
         "desc": "output in json format"
       }
     ],
-    "subcommands": []
+    "subcommands": [],
+    "examples": []
   },
   "stack": {
     "name": "stack",
@@ -4320,7 +4680,8 @@
         "name": "stack:set STACK",
         "desc": "set new app stack"
       }
-    ]
+    ],
+    "examples": []
   },
   "stack:set": {
     "name": "stack:set",
@@ -4337,7 +4698,10 @@
         "desc": "git remote of app to run command against"
       }
     ],
-    "subcommands": []
+    "subcommands": [],
+    "examples": [
+      "heroku stack:set cedar-14 -a myapp"
+    ]
   },
   "status": {
     "name": "status",
@@ -4350,7 +4714,8 @@
         "desc": "output in json format"
       }
     ],
-    "subcommands": []
+    "subcommands": [],
+    "examples": []
   },
   "update": {
     "name": "update",
@@ -4363,7 +4728,8 @@
         "name": "update:beta",
         "desc": "update to the latest beta client"
       }
-    ]
+    ],
+    "examples": []
   },
   "update:beta": {
     "name": "update:beta",
@@ -4371,7 +4737,10 @@
     "desc": "update to the latest beta client",
     "docs": "Usage: heroku update:beta\n\n update to the latest beta client\n\n $ heroku update\n Updating... done, v1.2.3 updated to v2.3.4.pre\n\n",
     "params": [],
-    "subcommands": []
+    "subcommands": [],
+    "examples": [
+      "heroku update"
+    ]
   },
   "version": {
     "name": "version",
@@ -4379,6 +4748,9 @@
     "desc": "display version",
     "docs": "Usage: heroku version\n\nprint the version\n\nShows the Heroku CLI version.\n\nExample:\n\n  $ heroku version\n\theroku-cli/1.2.3 (x86_64-darwin11.2.0) ruby/1.9.3\n\n",
     "params": [],
-    "subcommands": []
+    "subcommands": [],
+    "examples": [
+      "heroku version"
+    ]
   }
 }

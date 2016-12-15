@@ -33,5 +33,6 @@
       "name": "config:unset KEY1 [KEY2 ...]",
       "desc": "unset one or more config vars"
     }
-  ]
+  ],
+  "examples": []
 }

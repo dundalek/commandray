@@ -3,5 +3,8 @@
   "usage": "version",
   "desc": "display version",
   "params": [],
-  "subcommands": []
+  "subcommands": [],
+  "examples": [
+    "heroku version"
+  ]
 }

@@ -16,5 +16,8 @@
       "desc": "output config var in shell format"
     }
   ],
-  "subcommands": []
+  "subcommands": [],
+  "examples": [
+    "heroku config:get RAILS_ENV"
+  ]
 }

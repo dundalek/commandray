@@ -16,5 +16,6 @@
       "desc": "use a different Procfile"
     }
   ],
-  "subcommands": []
+  "subcommands": [],
+  "examples": []
 }

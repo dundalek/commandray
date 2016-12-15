@@ -24,5 +24,6 @@
       "name": "repo:reset",
       "desc": "reset the repo"
     }
-  ]
+  ],
+  "examples": []
 }

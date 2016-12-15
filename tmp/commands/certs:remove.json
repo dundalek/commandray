@@ -20,5 +20,6 @@
       "desc": "name to remove"
     }
   ],
-  "subcommands": []
+  "subcommands": [],
+  "examples": []
 }

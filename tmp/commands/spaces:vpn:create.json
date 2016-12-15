@@ -16,5 +16,8 @@
       "desc": "space name"
     }
   ],
-  "subcommands": []
+  "subcommands": [],
+  "examples": [
+    "heroku spaces:vpn:create --ip 35.161.69.30 --cidrs 172.16.0.0/16,10.0.0.0/24 --space my-space"
+  ]
 }

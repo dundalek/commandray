@@ -16,5 +16,8 @@
       "desc": "new stage of app"
     }
   ],
-  "subcommands": []
+  "subcommands": [],
+  "examples": [
+    "heroku pipelines:update -s staging -a example-admin"
+  ]
 }

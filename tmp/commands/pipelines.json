@@ -53,5 +53,8 @@
       "name": "pipelines:update",
       "desc": "update this app's stage in a pipeline"
     }
+  ],
+  "examples": [
+    "heroku pipelines:list"
   ]
 }

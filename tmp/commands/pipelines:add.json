@@ -16,5 +16,8 @@
       "desc": "stage of first app in pipeline"
     }
   ],
-  "subcommands": []
+  "subcommands": [],
+  "examples": [
+    "heroku pipelines:add example -a example-admin -s production"
+  ]
 }

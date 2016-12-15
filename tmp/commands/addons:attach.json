@@ -20,5 +20,6 @@
       "desc": "overwrite existing add-on attachment with same name"
     }
   ],
-  "subcommands": []
+  "subcommands": [],
+  "examples": []
 }

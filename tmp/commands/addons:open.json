@@ -16,5 +16,6 @@
       "desc": "show URL, do not open browser"
     }
   ],
-  "subcommands": []
+  "subcommands": [],
+  "examples": []
 }

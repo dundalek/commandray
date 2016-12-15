@@ -24,5 +24,6 @@
       "desc": "show notifications already read"
     }
   ],
-  "subcommands": []
+  "subcommands": [],
+  "examples": []
 }

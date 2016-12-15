@@ -133,5 +133,6 @@
       "name": "pg:wait [DATABASE]",
       "desc": "monitor database creation, exit when complete"
     }
-  ]
+  ],
+  "examples": []
 }

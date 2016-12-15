@@ -69,5 +69,6 @@
       "name": "spaces:wait",
       "desc": "wait for a space to be created"
     }
-  ]
+  ],
+  "examples": []
 }

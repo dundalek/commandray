@@ -8,5 +8,8 @@
       "desc": "space to get VPN config from"
     }
   ],
-  "subcommands": []
+  "subcommands": [],
+  "examples": [
+    "heroku spaces:vpn:config my-space"
+  ]
 }

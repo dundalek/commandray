@@ -16,5 +16,8 @@
       "desc": "set to PCX ID to bypass confirm prompt"
     }
   ],
-  "subcommands": []
+  "subcommands": [],
+  "examples": [
+    "heroku peerings:destroy pcx-4bd27022 --confirm pcx-4bd27022 --space example-space"
+  ]
 }

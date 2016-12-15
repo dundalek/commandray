@@ -28,5 +28,6 @@
       "desc": "watch add-on creation status and exit when complete"
     }
   ],
-  "subcommands": []
+  "subcommands": [],
+  "examples": []
 }

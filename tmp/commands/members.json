@@ -37,5 +37,6 @@
       "name": "members:set NAME [--org ORG] [--role ROLE]",
       "desc": "change role of member in org"
     }
-  ]
+  ],
+  "examples": []
 }

@@ -12,5 +12,9 @@
       "desc": "git remote of app to run command against"
     }
   ],
-  "subcommands": []
+  "subcommands": [],
+  "examples": [
+    "heroku addons:upgrade heroku-redis:premium-2",
+    "heroku addons:upgrade swimming-briskly-123 heroku-redis:premium-2"
+  ]
 }

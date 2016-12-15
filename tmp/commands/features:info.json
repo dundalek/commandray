@@ -16,5 +16,6 @@
       "desc": "output in json format"
     }
   ],
-  "subcommands": []
+  "subcommands": [],
+  "examples": []
 }

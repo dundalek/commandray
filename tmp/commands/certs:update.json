@@ -24,5 +24,8 @@
       "desc": "name to update"
     }
   ],
-  "subcommands": []
+  "subcommands": [],
+  "examples": [
+    "heroku certs:update example.com.crt example.com.key"
+  ]
 }

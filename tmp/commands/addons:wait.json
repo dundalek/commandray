@@ -16,5 +16,6 @@
       "desc": "how frequently to poll in seconds"
     }
   ],
-  "subcommands": []
+  "subcommands": [],
+  "examples": []
 }

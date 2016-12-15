@@ -3,5 +3,8 @@
   "usage": "pipelines:destroy PIPELINE",
   "desc": "destroy a pipeline",
   "params": [],
-  "subcommands": []
+  "subcommands": [],
+  "examples": [
+    "heroku pipelines:destroy example"
+  ]
 }

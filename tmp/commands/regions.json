@@ -16,5 +16,6 @@
       "desc": "show regions for private spaces"
     }
   ],
-  "subcommands": []
+  "subcommands": [],
+  "examples": []
 }

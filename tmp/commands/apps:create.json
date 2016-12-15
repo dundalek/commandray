@@ -40,5 +40,13 @@
       "desc": "use SSH git protocol for local git remote"
     }
   ],
-  "subcommands": []
+  "subcommands": [],
+  "examples": [
+    "heroku apps:create",
+    "heroku create",
+    "heroku apps:create --buildpack https://github.com/some/buildpack.git",
+    "heroku apps:create example",
+    "heroku apps:create example-staging --remote staging",
+    "heroku apps:create --region eu"
+  ]
 }

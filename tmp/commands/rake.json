@@ -8,5 +8,8 @@
       "name": "rake test",
       "desc": "run tests"
     }
+  ],
+  "examples": [
+    "heroku run:rake -T"
   ]
 }

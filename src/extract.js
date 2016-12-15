@@ -3,7 +3,7 @@ import fs from 'fs';
 import _ from 'lodash';
 
 /* extracts commands/params from heroku help page */
-function parseHelpPage(stdout) {
+function extractPageCommands(stdout) {
   const commands = []
   const r = /^\s+([a-z-][^#\n]*)#\s+(.+)$/mg;
   let match;
@@ -18,6 +18,19 @@ function parseHelpPage(stdout) {
   return commands;
 }
 
+/* Extracts examples from help page  */
+function extractPageExamples(str) {
+  const examples = []
+  const r = /^\s*\$([^\n]+)$/mg;
+  let match;
+
+  while (match = r.exec(str)) {
+    examples.push(match[1].trim());
+  }
+
+  return _.uniq(examples);
+}
+
 /* parses and saves all heroku commands */
 function getHerokuCommands() {
   const commands = {};
@@ -27,11 +40,12 @@ function getHerokuCommands() {
     if (name in commands) {
       return;
     }
+    console.log(`Extracting ${name} ...`);
     const { stdout } = spawnSync('heroku', ['help', name], { encoding: 'utf-8' });
     if (!stdout) {
       return;
     }
-    const children = parseHelpPage(stdout);
+    const children = extractPageCommands(stdout);
     const subcommands = children.filter(({ name }) => name[0] !== '-');
 
     commands[name] = {
@@ -41,6 +55,7 @@ function getHerokuCommands() {
       docs: stdout,
       params: children.filter(({ name }) => name[0] === '-'),
       subcommands,
+      examples: extractPageExamples(stdout),
     };
     subcommands.forEach(loadCommand);
   }
@@ -48,7 +63,7 @@ function getHerokuCommands() {
   // TODO add list from `heroku commands` for completeness
 
   const { stdout } = spawnSync('heroku', ['help'], { encoding: 'utf-8' });
-  parseHelpPage(stdout).forEach(loadCommand);
+  extractPageCommands(stdout).forEach(loadCommand);
 
   return commands;
 }

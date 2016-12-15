@@ -12,5 +12,8 @@
       "desc": "set to space name to bypass confirm prompt"
     }
   ],
-  "subcommands": []
+  "subcommands": [],
+  "examples": [
+    "heroku spaces:destroy --space my-space"
+  ]
 }

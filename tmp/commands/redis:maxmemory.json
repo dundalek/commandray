@@ -41,5 +41,6 @@
       "name": "volatile-ttl",
       "desc": "only evicts keys with an expiry set and a short TTL"
     }
-  ]
+  ],
+  "examples": []
 }

@@ -12,5 +12,8 @@
       "desc": "space to get peering info from"
     }
   ],
-  "subcommands": []
+  "subcommands": [],
+  "examples": [
+    "heroku spaces:peerings:accept pcx-4bd27022 --space example-space"
+  ]
 }

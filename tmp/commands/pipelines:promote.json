@@ -16,5 +16,9 @@
       "desc": "comma separated list of apps to promote to"
     }
   ],
-  "subcommands": []
+  "subcommands": [],
+  "examples": [
+    "heroku pipelines:promote -a example-staging",
+    "heroku pipelines:promote -a example-staging --to my-production-app1,my-production-app2"
+  ]
 }

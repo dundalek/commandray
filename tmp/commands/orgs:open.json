@@ -8,5 +8,6 @@
       "desc": "organization to use"
     }
   ],
-  "subcommands": []
+  "subcommands": [],
+  "examples": []
 }

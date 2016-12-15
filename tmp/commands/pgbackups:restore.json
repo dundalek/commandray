@@ -3,5 +3,6 @@
   "usage": "pgbackups:restore [<DATABASE> [BACKUP_ID|BACKUP_URL]]",
   "desc": "restore a backup to a database",
   "params": [],
-  "subcommands": []
+  "subcommands": [],
+  "examples": []
 }

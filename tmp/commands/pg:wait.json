@@ -16,5 +16,6 @@
       "desc": "how frequently to poll in seconds (to avoid rate limiting)"
     }
   ],
-  "subcommands": []
+  "subcommands": [],
+  "examples": []
 }

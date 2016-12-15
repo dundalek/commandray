@@ -3,5 +3,6 @@
   "usage": "auth:token",
   "desc": "display your api token",
   "params": [],
-  "subcommands": []
+  "subcommands": [],
+  "examples": []
 }

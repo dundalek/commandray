@@ -8,5 +8,9 @@
       "desc": "automatically answer yes for all prompts"
     }
   ],
-  "subcommands": []
+  "subcommands": [],
+  "examples": [
+    "heroku keys:add",
+    "heroku keys:add /my/key.pub"
+  ]
 }

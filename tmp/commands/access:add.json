@@ -25,5 +25,6 @@
       "name": "heroku access:add user@email.com --app APP --permissions deploy,manage,operate",
       "desc": "permissions must be comma separated"
     }
-  ]
+  ],
+  "examples": []
 }

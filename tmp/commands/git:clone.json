@@ -16,5 +16,8 @@
       "desc": "use SSH git protocol"
     }
   ],
-  "subcommands": []
+  "subcommands": [],
+  "examples": [
+    "heroku git:clone -a example"
+  ]
 }

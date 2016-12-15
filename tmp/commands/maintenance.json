@@ -21,5 +21,6 @@
       "name": "maintenance:on",
       "desc": "put the app into maintenance mode"
     }
-  ]
+  ],
+  "examples": []
 }

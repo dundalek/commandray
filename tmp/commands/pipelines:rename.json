@@ -3,5 +3,8 @@
   "usage": "pipelines:rename PIPELINE NAME",
   "desc": "rename a pipeline",
   "params": [],
-  "subcommands": []
+  "subcommands": [],
+  "examples": [
+    "heroku pipelines:rename example www"
+  ]
 }

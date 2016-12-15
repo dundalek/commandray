@@ -12,5 +12,8 @@
       "desc": "git remote of app to run command against"
     }
   ],
-  "subcommands": []
+  "subcommands": [],
+  "examples": [
+    "heroku certs:key example.com.crt example.com.key"
+  ]
 }

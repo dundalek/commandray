@@ -29,5 +29,6 @@
       "name": "labs:info FEATURE",
       "desc": "displays additional information about FEATURE"
     }
-  ]
+  ],
+  "examples": []
 }

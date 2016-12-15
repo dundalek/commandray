@@ -3,5 +3,6 @@
   "usage": "auth:2fa:disable",
   "desc": "disable two-factor authentication for your account",
   "params": [],
-  "subcommands": []
+  "subcommands": [],
+  "examples": []
 }

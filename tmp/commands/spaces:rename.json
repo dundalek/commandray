@@ -12,5 +12,8 @@
       "desc": "desired name of space"
     }
   ],
-  "subcommands": []
+  "subcommands": [],
+  "examples": [
+    "heroku spaces:rename --from old-space-name --to new-space-name"
+  ]
 }

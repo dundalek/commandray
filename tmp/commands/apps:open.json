@@ -12,5 +12,9 @@
       "desc": "git remote of app to run command against"
     }
   ],
-  "subcommands": []
+  "subcommands": [],
+  "examples": [
+    "heroku open -a myapp",
+    "heroku open -a myapp /foo"
+  ]
 }

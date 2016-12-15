@@ -28,5 +28,6 @@
       "desc": "show only router errors"
     }
   ],
-  "subcommands": []
+  "subcommands": [],
+  "examples": []
 }

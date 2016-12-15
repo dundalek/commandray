@@ -20,5 +20,6 @@
       "desc": "name to rollback"
     }
   ],
-  "subcommands": []
+  "subcommands": [],
+  "examples": []
 }

@@ -44,5 +44,8 @@
       "desc": "specify entire certificate subject"
     }
   ],
-  "subcommands": []
+  "subcommands": [],
+  "examples": [
+    "heroku certs:generate example.com"
+  ]
 }

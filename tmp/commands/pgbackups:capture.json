@@ -8,5 +8,6 @@
       "desc": "if no slots are available, destroy the oldest manual backup to make room"
     }
   ],
-  "subcommands": []
+  "subcommands": [],
+  "examples": []
 }

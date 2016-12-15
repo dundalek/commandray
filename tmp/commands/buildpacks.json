@@ -29,5 +29,8 @@
       "name": "buildpacks:set BUILDPACK_URL",
       "desc": "set new app buildpack, overwriting into list of buildpacks if neccessary"
     }
+  ],
+  "examples": [
+    "heroku buildpacks"
   ]
 }

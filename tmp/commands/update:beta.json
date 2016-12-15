@@ -3,5 +3,8 @@
   "usage": "update:beta",
   "desc": "update to the latest beta client",
   "params": [],
-  "subcommands": []
+  "subcommands": [],
+  "examples": [
+    "heroku update"
+  ]
 }

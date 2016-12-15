@@ -3,5 +3,6 @@
   "usage": "auth:logout",
   "desc": "clear local authentication credentials",
   "params": [],
-  "subcommands": []
+  "subcommands": [],
+  "examples": []
 }

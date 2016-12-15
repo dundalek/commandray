@@ -45,5 +45,6 @@
       "name": "redis:wait [DATABASE]",
       "desc": "wait for Redis instance to be available"
     }
-  ]
+  ],
+  "examples": []
 }

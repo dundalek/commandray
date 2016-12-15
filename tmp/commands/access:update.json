@@ -16,5 +16,6 @@
       "desc": "comma-delimited list of permissions to update (deploy,manage,operate)"
     }
   ],
-  "subcommands": []
+  "subcommands": [],
+  "examples": []
 }

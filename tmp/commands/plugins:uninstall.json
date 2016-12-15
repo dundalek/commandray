@@ -3,5 +3,8 @@
   "usage": "plugins:uninstall PLUGIN",
   "desc": "uninstall a plugin",
   "params": [],
-  "subcommands": []
+  "subcommands": [],
+  "examples": [
+    "heroku plugins:uninstall heroku-production-status"
+  ]
 }

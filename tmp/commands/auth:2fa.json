@@ -3,5 +3,6 @@
   "usage": "auth:2fa",
   "desc": "check 2fa status",
   "params": [],
-  "subcommands": []
+  "subcommands": [],
+  "examples": []
 }

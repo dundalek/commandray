@@ -3,5 +3,6 @@
   "usage": "auth:2fa:enable",
   "desc": "enable 2fa on your account",
   "params": [],
-  "subcommands": []
+  "subcommands": [],
+  "examples": []
 }

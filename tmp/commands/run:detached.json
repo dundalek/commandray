@@ -24,5 +24,8 @@
       "desc": "stream logs from the dyno"
     }
   ],
-  "subcommands": []
+  "subcommands": [],
+  "examples": [
+    "heroku run:detached ls"
+  ]
 }

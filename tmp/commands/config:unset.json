@@ -12,5 +12,9 @@
       "desc": "git remote of app to run command against"
     }
   ],
-  "subcommands": []
+  "subcommands": [],
+  "examples": [
+    "heroku config:unset RAILS_ENV",
+    "heroku config:unset RAILS_ENV RACK_ENV"
+  ]
 }

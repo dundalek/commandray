@@ -20,5 +20,6 @@
       "desc": "name to check info on"
     }
   ],
-  "subcommands": []
+  "subcommands": [],
+  "examples": []
 }

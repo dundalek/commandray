@@ -89,5 +89,8 @@
       "name": "apps:unlock --app APP",
       "desc": "unlock an organization app so that any org member can join it"
     }
+  ],
+  "examples": [
+    "heroku apps"
   ]
 }

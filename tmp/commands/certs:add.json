@@ -24,5 +24,8 @@
       "desc": "type to create, either 'sni' or 'endpoint'"
     }
   ],
-  "subcommands": []
+  "subcommands": [],
+  "examples": [
+    "heroku certs:add example.com.crt example.com.key"
+  ]
 }
