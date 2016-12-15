@@ -177,7 +177,7 @@ export default class App extends Component {
     if (!this.state.showDetail) {
       let c;
       c = this.refs.mylist;
-      if (c) c.select(this.state.selected);
+      if (c && this.state.selected !== 1) c.select(this.state.selected);
       _.defer(() => {
         c = this.refs[elementList[this.state.focused]];
         if (c) c.focus();
@@ -203,14 +203,14 @@ export default class App extends Component {
     const item = filteredItems[this.state.selected] || filteredItems[1];
     let cmd = {};
     let doc = '';
-    if (item) {
+    if (item && item[0]) {
       cmd = commands[item[0]];
       // doc = cmd.docs;
       doc = JSON.stringify(_.omit(cmd, 'docs'), null, 2) + '\n\n' + cmd.docs;
     }
 
     return (
-      <box label={this.state.selected + ' ' + this.state.text}
+      <box label={`${this.state.selected} ${this.state.text}`}
            border={{type: 'line'}}
            style={{border: {fg: 'cyan'}}}>
         {/* <list ref="mylist" style={stylesheet.list} items={items} mouse={true} keys={true} interactive={true} vi={true} /> */}
@@ -264,14 +264,14 @@ export default class App extends Component {
   }
 
   _onSelect = (item, idx) => {
-    if (idx === 0 || idx === this.state.selected || this.preventEvent-- > 0) return;
+    if (idx === this.state.selected || (idx === 1 && this.preventEvent-- > 0)) return;
 
     // workaround skip next two events
     // first get fired when component is rerendered
     // second gets fired when we correct selection in componentDidUpdate
     this.preventEvent = 2;
     //
-     this.setState({ selected: idx });
+     this.setState({ selected: idx === 0 ? 1 : idx });
     //  this.refs.mylist.select(idx);
   }
 }
