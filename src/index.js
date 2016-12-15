@@ -1,3 +1,4 @@
+import robot from 'robotjs';
 import React from 'react';
 import blessed from 'blessed';
 import { render } from 'react-blessed';
@@ -12,11 +13,22 @@ const screen = blessed.screen({
 
 // Let user quit the app
 screen.key(['C-c'], function(ch, key) {
-  return process.exit(process.env.NODE_ENV === 'production' ? 0 : 2);
+  return exit();
 });
 
+function exit() {
+  return process.exit(process.env.NODE_ENV === 'production' ? 0 : 2)
+}
+
+function handleSelectCommand(text) {
+  screen.destroy();
+  robot.typeString(text);
+  // robot.keyTap('enter');
+  return exit();
+}
+
 // Render React component into screen
-render(<App />, screen);
+render(<App onSelectCommand={handleSelectCommand} />, screen);
 
 // Don't overwrite the screen
 // console.log = function () { };

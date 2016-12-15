@@ -1,7 +1,6 @@
-import React, { Component } from 'react';
 import _ from 'lodash';
-import robot from 'robotjs';
-import { parseParam, unparse } from '../parser';
+import React, { Component } from 'react';
+import CommandForm from './CommandForm';
 
 const commands = require('../../commands.json');
 const items = [['','']].concat(_.map(commands, cmd => [cmd.name, cmd.desc || '']));
@@ -23,126 +22,6 @@ const stylesheet = {
     }
   }
 };
-
-class Detail extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      text: '',
-    };
-  }
-
-  componentDidMount() {
-    this.refs.root.enableKeys();
-    this.refs.root.focus();
-  }
-
-  render() {
-    const options = this.props.cmd.params.map(parseParam);
-
-    const formOpts = {
-      keys: true,
-      left: 0,
-      top: 0,
-      width: '100%',
-      height: options.length + 5,
-      bg: 'green',
-    }
-
-    const submitOpts = {
-      mouse: true,
-      keys: true,
-      shrink: true,
-      // padding: {
-      //   left: 1,
-      //   right: 1
-      // },
-      top: options.length + 3,
-      shrink: true,
-      name: 'submit',
-      content: 'submit',
-      style: {
-        bg: 'blue',
-        focus: {
-          bg: 'red'
-        },
-        hover: {
-          bg: 'red'
-        }
-      }
-    }
-
-    return (
-      <form {...formOpts} ref="root" height="50%" onKeypress={this.props.onKeypress}>
-        {_.flatten(options.map((option, i) => {
-          const name = Object.keys(option)[0];
-          const obj = option[name];
-
-          let label = [];
-          if (obj.alias) {
-            label.push(`-${obj.alias}`);
-          }
-          label.push(`--${name}`);
-          label = label.join(', ');
-
-          return [
-            <box class={{
-              top: i + 1,
-            }} key={`${name}-label`}>{label}</box>,
-            obj.type === 'boolean'
-            ? <checkbox class={{
-              mouse: true,
-              top: i + 1,
-              left: '50%',
-            }} onSetContent={this._onSubmit} ref={name} key={`${name}-input-checkbox`} />
-            : <textbox class={{
-              mouse: true,
-              keys: true,
-              inputOnFocus: true,
-              top: i + 1,
-              left: '50%',
-              width: '50%-1',
-              underline: true,
-            }} value={name + '*'} onSetContent={this._onSubmit} ref={name} key={`${name}-input-textbox`} />
-          ];
-        }))}
-        <box top={options.length + 2}>{this.state.text}</box>
-        <button {...submitOpts} onPress={this._onExec}/>
-      </form>
-    );
-  }
-
-  getCommand() {
-    const options = this.props.cmd.params.map(parseParam);
-    const vals = {};
-    options.forEach(option => {
-      const name = Object.keys(option)[0];
-      const obj = option[name];
-
-      const val = this.refs[name].value;
-      vals[name] = val !== '' ? val : null;
-    });
-
-    const text = unparse(this.props.cmd, vals);
-    return ['heroku', this.props.cmd.name, text].join(' ');
-  }
-
-  _onSubmit = (ev) => {
-    const text = this.getCommand();
-    if (text !== this.state.text) {
-      this.setState({ text });
-    }
-
-  }
-
-  _onExec = (ev) => {
-    const text = this.getCommand();
-    screen.destroy();
-    robot.typeString(text);
-    // robot.keyTap('enter');
-    process.exit(0);
-  }
-}
 
 class InnerBox extends Component {
   constructor(props) {
@@ -215,7 +94,7 @@ export default class App extends Component {
            style={{border: {fg: 'cyan'}}}>
         {/* <list ref="mylist" style={stylesheet.list} items={items} mouse={true} keys={true} interactive={true} vi={true} /> */}
         {this.state.showDetail
-          ? <Detail onKeypress={this._onDetailKeypress} cmd={cmd} />
+          ? <CommandForm onKeypress={this._onDetailKeypress} onSelectCommand={this.props.onSelectCommand} cmd={cmd} />
           : <listtable ref="mylist" style={stylesheet.listtable} data={filteredItems} mouse={true} keys={true} interactive={true} align="left" height="20%"
            onSelect={this._onSelectEnter}
            onSelectItem={this._onSelect}
