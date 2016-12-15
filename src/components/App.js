@@ -94,7 +94,7 @@ class Detail extends Component {
               mouse: true,
               top: i + 1,
               left: '50%',
-            }} onSetContent={this._onSubmit} ref={name} key={`${name}-input`} />
+            }} onSetContent={this._onSubmit} ref={name} key={`${name}-input-checkbox`} />
             : <textbox class={{
               mouse: true,
               keys: true,
@@ -103,7 +103,7 @@ class Detail extends Component {
               left: '50%',
               width: '50%-1',
               underline: true,
-            }} onSetContent={this._onSubmit} ref={name} key={`${name}-input`} />
+            }} value={name + '*'} onSetContent={this._onSubmit} ref={name} key={`${name}-input-textbox`} />
           ];
         }))}
         <box top={options.length + 2}>{this.state.text}</box>
@@ -231,7 +231,6 @@ export default class App extends Component {
 
   _onDetailKeypress = (ch, key) => {
     if (key.name === 'escape') {
-      // this.preventEvent = 2;
       this.setState({ showDetail: false, focused: 0 });
     }
   }
@@ -264,14 +263,15 @@ export default class App extends Component {
   }
 
   _onSelect = (item, idx) => {
-    if (idx === this.state.selected || (idx === 1 && this.preventEvent-- > 0)) return;
+    // console.log('select', this.state.selected, idx);
+    if (idx === this.state.selected || idx === 0 || (idx === 1 && this.preventEvent-- > 0)) return;
 
     // workaround skip next two events
     // first get fired when component is rerendered
     // second gets fired when we correct selection in componentDidUpdate
     this.preventEvent = 2;
     //
-     this.setState({ selected: idx === 0 ? 1 : idx });
+     this.setState({ selected: idx });
     //  this.refs.mylist.select(idx);
   }
 }
