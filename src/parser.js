@@ -10,21 +10,17 @@ export function parseParam(cmd) {
   const longParts = parts.filter(x => x.match(/^--/))[0].replace(/^-+/, '').split(' ');
   const long = longParts[0];
 
-  const paramName = longParts[1] || '';
-
+  const paramName = longParts[1] || undefined;
   const type = (!!short && !long) || (long && !paramName) ? 'boolean' : 'string';
-
   const name = long || short;
 
   return {
     [name]: {
-      // ...cmd,
       alias: long ? short : undefined,
       type,
+      paramName,
       desc: cmd.desc,
       default: null,
-      // paramName,
-      //desc: (longParts ? `${longParts} ` : ' - ') + cmd.desc,
     }
   };
 }
@@ -33,11 +29,10 @@ export function parseParam(cmd) {
 //   .map(c => c.params)
 //   .flatten()
 //   .uniqBy(a => a.name)
-//   // .map(c => c.name.split(' ')[0])
-//   // .sort()
+//   .sortBy(a => a.name)
 //   .value();
-// // console.log(params);
 //
+// console.log(params);
 // console.log(params.map(parseParam));
 
 
