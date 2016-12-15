@@ -195,8 +195,13 @@ class App extends Component {
       filteredItems = [['','']].concat(_.map(matched, (cmd) => [cmd.name, cmd.desc || '']));
     }
     const item = filteredItems[this.state.selected] || filteredItems[1];
-    const doc = item ? commands[item[0]].docs : '';
-    const cmd = commands[item[0]];
+    let cmd = {};
+    let doc = '';
+    if (item) {
+      cmd = commands[item[0]];
+      // doc = cmd.docs;
+      doc = JSON.stringify(_.omit(cmd, 'docs'), null, 2) + '\n\n' + cmd.docs;
+    }
 
     return (
       <box label={this.state.selected + ' ' + this.state.text}
@@ -205,13 +210,15 @@ class App extends Component {
         {/* <list ref="mylist" style={stylesheet.list} items={items} mouse={true} keys={true} interactive={true} vi={true} /> */}
         {this.state.showDetail
           ? <Detail onKeypress={this._onDetailKeypress} cmd={cmd} />
-          : <listtable ref="mylist" style={stylesheet.listtable} data={filteredItems} mouse={true} keys={true} interactive={true} align="left" height="50%"
+          : <listtable ref="mylist" style={stylesheet.listtable} data={filteredItems} mouse={true} keys={true} interactive={true} align="left" height="20%"
            onSelect={this._onSelectEnter}
            onSelectItem={this._onSelect}
            onKeypress={this._onListKeypress}
         />}
 
-        <box ref="text" height="50%-2" top="50%" width="100%-2" border={{type: 'line'}} style={{border: {fg: 'cyan'}, track: {fg: 'cyan'}}} scrollable={true} mouse={true} keys={true} alwaysScroll={true} scrollbar={{}} onKeypress={this._onKeypress}>{doc}</box>
+        <box ref="text" height="80%-2" top="20%" width="100%-2" border={{type: 'line'}} style={{border: {fg: 'cyan'}, track: {fg: 'cyan'}}} scrollable={true} mouse={true} keys={true} alwaysScroll={true} scrollbar={{bg: 'blue'}} onKeypress={this._onKeypress}>
+        {doc}
+        </box>
       </box>
     );
   }
@@ -239,7 +246,9 @@ class App extends Component {
   _onListKeypress = (ch, key) => {
     this._onKeypress(ch, key);
 
-   if (key.name === 'delete' || key.name === 'backspace') {
+   if (key.name === 'backspace') {
+     this.setState({ text: this.state.text.slice(0, -1) });
+   } else if (key.name === 'delete') {
      this.setState({ text: '' });
    } else  if (ch && ch.trim()) {
       this.setState({
@@ -277,7 +286,7 @@ const screen = blessed.screen({
 });
 
 screen.key(['q', 'C-c'], function(ch, key) {
-  return process.exit(0);
+  process.exit(0);
 });
 
 const component = render(<App />, screen);
