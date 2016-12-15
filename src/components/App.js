@@ -178,8 +178,10 @@ export default class App extends Component {
       let c;
       c = this.refs.mylist;
       if (c) c.select(this.state.selected);
-      c = this.refs[elementList[this.state.focused]];
-      if (c) c.focus();
+      _.defer(() => {
+        c = this.refs[elementList[this.state.focused]];
+        if (c) c.focus();
+      });
     }
   }
 

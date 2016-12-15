@@ -11,7 +11,7 @@ const screen = blessed.screen({
 });
 
 // Let user quit the app
-screen.key(['escape', 'q', 'C-c'], function(ch, key) {
+screen.key(['C-c'], function(ch, key) {
   return process.exit(process.env.NODE_ENV === 'production' ? 0 : 2);
 });
 
