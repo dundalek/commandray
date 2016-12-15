@@ -18,6 +18,7 @@
     "lodash": "^4.14.1",
     "react": "^0.14.8",
     "react-blessed": "^0.1.7",
+    "robotjs": "^0.4.5",
     "yargs": "^4.8.1"
   },
   "yargs": {

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import blessed from 'blessed';
 import { render } from 'react-blessed';
 import _ from 'lodash';
+import robot from 'robotjs';
 import { parseUsage, parseParam, unparse } from './parser';
 
 // https://github.com/Yomguithereal/react-blessed/issues/24
@@ -57,11 +58,11 @@ class Detail extends Component {
       mouse: true,
       keys: true,
       shrink: true,
-      padding: {
-        left: 1,
-        right: 1
-      },
-      top: options.length + 1,
+      // padding: {
+      //   left: 1,
+      //   right: 1
+      // },
+      top: options.length + 3,
       shrink: true,
       name: 'submit',
       content: 'submit',
@@ -98,25 +99,25 @@ class Detail extends Component {
               mouse: true,
               top: i + 1,
               left: '50%',
-              onKeypress: this._onSubmit,
-            }} ref={name} key={`${name}-input`} />
+            }} onSetContent={this._onSubmit} ref={name} key={`${name}-input`} />
             : <textbox class={{
               mouse: true,
               keys: true,
               inputOnFocus: true,
               top: i + 1,
               left: '50%',
-              onKeypress: this._onSubmit,
-            }} ref={name} key={`${name}-input`} />
+              width: '50%-1',
+              underline: true,
+            }} onSetContent={this._onSubmit} ref={name} key={`${name}-input`} />
           ];
         }))}
-        <button {...submitOpts} onPress={this._onSubmit}/>
         <box top={options.length + 2}>{this.state.text}</box>
+        <button {...submitOpts} onPress={this._onExec}/>
       </form>
     );
   }
 
-  _onSubmit = (ev) => {
+  getCommand() {
     const options = this.props.cmd.params.map(parseParam);
     const vals = {};
     options.forEach(option => {
@@ -127,7 +128,24 @@ class Detail extends Component {
       vals[name] = val !== '' ? val : null;
     });
 
-    this.setState({ text: unparse(vals, options) });
+    const text = unparse(vals, options);
+    return ['heroku', this.props.cmd.name, text].join(' ');
+  }
+
+  _onSubmit = (ev) => {
+    const text = this.getCommand();
+    if (text !== this.state.text) {
+      this.setState({ text });
+    }
+
+  }
+
+  _onExec = (ev) => {
+    const text = this.getCommand();
+    screen.destroy();
+    robot.typeString(text);
+    // robot.keyTap('enter');
+    process.exit(0);
   }
 }
 
