@@ -19,8 +19,8 @@ screen.key(['C-c'], function(ch, key) {
 render(<App />, screen);
 
 // Don't overwrite the screen
-console.log = function () { };
-console.warn = function () { };
-console.error = function () { };
-console.info = function () { };
-console.debug = function () { };
+// console.log = function () { };
+// console.warn = function () { };
+// console.error = function () { };
+// console.info = function () { };
+// console.debug = function () { };

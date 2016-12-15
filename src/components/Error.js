@@ -6,7 +6,7 @@ export default class Error extends Component {
       <box label='!!! ERROR !!!'
            border={{type: 'line'}}
            style={{border: {fg: 'red'}}}>
-        {this.props.error.toString()}
+        {this.props.error.stack}
       </box>
     );
   }
