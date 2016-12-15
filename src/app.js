@@ -8,7 +8,7 @@ import { parseUsage, parseParam, unparse } from './parser';
 // https://github.com/Yomguithereal/react-blessed/issues/24
 // mouse and enableKeys
 
-const commands = require('./commands.json');
+const commands = require('../commands.json');
 const items = [['','']].concat(_.map(commands, cmd => [cmd.name, cmd.desc || '']));
 
 const stylesheet = {

@@ -1,7 +1,7 @@
 import _ from 'lodash';
 import yargs from 'yargs';
 
-const commands = require('./commands.json');
+const commands = require('../commands.json');
 
 /* returns option in yargs object format from geroku line example */
 export function parseParam(cmd) {
