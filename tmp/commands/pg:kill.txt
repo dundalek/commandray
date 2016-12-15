@@ -1,6 +1,8 @@
-Usage: heroku pg:kill pid [DATABASE]
+Usage: heroku pg:kill PID [DATABASE]
 
- kill a query
+kill a query
 
- -f,--force  # terminates the connection in addition to cancelling the query
+ -a, --app APP       # app to run command against
+ -f, --force
+ -r, --remote REMOTE # git remote of app to run command against
 

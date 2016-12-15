@@ -1,6 +1,6 @@
 {
   "name": "labs",
-  "longname": "labs",
+  "usage": "labs",
   "desc": "manage optional features",
   "params": [
     {

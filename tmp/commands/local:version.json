@@ -1,6 +1,6 @@
 {
   "name": "local:version",
-  "longname": "local:version",
+  "usage": "local:version",
   "desc": "display node-foreman version",
   "params": [],
   "subcommands": []

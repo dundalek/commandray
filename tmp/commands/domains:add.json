@@ -1,6 +1,6 @@
 {
   "name": "domains:add",
-  "longname": "domains:add DOMAIN",
+  "usage": "domains:add DOMAIN",
   "desc": "add a custom domain to an app",
   "params": [
     {

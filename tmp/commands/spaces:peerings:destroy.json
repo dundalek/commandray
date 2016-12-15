@@ -1,0 +1,20 @@
+{
+  "name": "spaces:peerings:destroy",
+  "usage": "spaces:peerings:destroy",
+  "desc": "destroys an active peering connection in a private space",
+  "params": [
+    {
+      "name": "-p, --pcxid PCXID",
+      "desc": "PCX ID of a pending peering"
+    },
+    {
+      "name": "-s, --space SPACE",
+      "desc": "space to get peering info from"
+    },
+    {
+      "name": "--confirm CONFIRM",
+      "desc": "set to PCX ID to bypass confirm prompt"
+    }
+  ],
+  "subcommands": []
+}

@@ -1,6 +1,6 @@
 {
   "name": "pipelines:list",
-  "longname": "pipelines:list",
+  "usage": "pipelines:list",
   "desc": "list pipelines you have access to",
   "params": [
     {

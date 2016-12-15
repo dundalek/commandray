@@ -1,6 +1,6 @@
 {
   "name": "spaces:create",
-  "longname": "spaces:create",
+  "usage": "spaces:create",
   "desc": "create a new space",
   "params": [
     {

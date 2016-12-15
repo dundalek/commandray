@@ -1,7 +1,7 @@
-Usage: heroku certs:chain CRT [CRT ...]
+Usage: heroku certs:chain
 
- Print the ordered and complete chain for the given certificate.
+print an ordered & complete chain for a certificate
 
- Optional intermediate certificates may be given too, and will
- be used during chain resolution.
+ -a, --app APP       # app to run command against
+ -r, --remote REMOTE # git remote of app to run command against
 

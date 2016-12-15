@@ -1,6 +1,6 @@
 {
   "name": "apps:errors",
-  "longname": "apps:errors",
+  "usage": "apps:errors",
   "desc": "view app errors",
   "params": [
     {

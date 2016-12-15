@@ -1,6 +1,6 @@
 {
   "name": "apps:info",
-  "longname": "apps:info",
+  "usage": "apps:info",
   "desc": "show detailed app information",
   "params": [
     {

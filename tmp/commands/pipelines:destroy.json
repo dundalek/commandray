@@ -1,6 +1,6 @@
 {
   "name": "pipelines:destroy",
-  "longname": "pipelines:destroy PIPELINE",
+  "usage": "pipelines:destroy PIPELINE",
   "desc": "destroy a pipeline",
   "params": [],
   "subcommands": []

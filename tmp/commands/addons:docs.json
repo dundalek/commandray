@@ -1,6 +1,6 @@
 {
   "name": "addons:docs",
-  "longname": "addons:docs ADDON_NAME",
+  "usage": "addons:docs ADDON_NAME",
   "desc": "open an add-on's documentation in your browser",
   "params": [
     {

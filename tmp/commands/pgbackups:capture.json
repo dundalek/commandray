@@ -1,0 +1,12 @@
+{
+  "name": "pgbackups:capture",
+  "usage": "pgbackups:capture [DATABASE]",
+  "desc": "capture a backup from a database id",
+  "params": [
+    {
+      "name": "-e, --expire",
+      "desc": "if no slots are available, destroy the oldest manual backup to make room"
+    }
+  ],
+  "subcommands": []
+}

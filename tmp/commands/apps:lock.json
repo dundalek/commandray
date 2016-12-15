@@ -1,6 +1,6 @@
 {
   "name": "apps:lock",
-  "longname": "apps:lock --app APP",
+  "usage": "apps:lock --app APP",
   "desc": "lock an organization app to restrict access",
   "params": [
     {

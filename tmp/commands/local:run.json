@@ -1,6 +1,6 @@
 {
   "name": "local:run",
-  "longname": "local:run",
+  "usage": "local:run",
   "desc": "run a one-off command",
   "params": [],
   "subcommands": []

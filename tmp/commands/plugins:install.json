@@ -1,6 +1,6 @@
 {
   "name": "plugins:install",
-  "longname": "plugins:install NAME",
+  "usage": "plugins:install NAME",
   "desc": "install a plugin",
   "params": [],
   "subcommands": []

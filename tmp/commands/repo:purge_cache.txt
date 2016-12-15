@@ -1,4 +1,3 @@
-Alias: repo:purge-cache redirects to repo:purge_cache
 Usage: heroku repo:purge_cache
 
 deletes the contents the build cache in the repository

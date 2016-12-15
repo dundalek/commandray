@@ -1,7 +1,7 @@
 {
   "name": "pg",
-  "longname": "pg",
-  "desc": "pgbackups      #  manage backups of heroku postgresql databases",
+  "usage": "pg",
+  "desc": "manage heroku-postgresql databases",
   "params": [
     {
       "name": "-a, --app APP",
@@ -16,6 +16,42 @@
     {
       "name": "pg:backups [subcommand]",
       "desc": "interact with built-in backups. Without a subcommand, it lists all"
+    },
+    {
+      "name": "pg:backups:cancel [BACKUP_ID]",
+      "desc": "cancel an in-progress backup or restore (default newest)"
+    },
+    {
+      "name": "pg:backups:capture [DATABASE]",
+      "desc": "capture a new backup"
+    },
+    {
+      "name": "pg:backups:delete BACKUP_ID",
+      "desc": "delete a backup"
+    },
+    {
+      "name": "pg:backups:download [BACKUP_ID]",
+      "desc": "downloads database backup"
+    },
+    {
+      "name": "pg:backups:info [BACKUP_ID]",
+      "desc": "get information about a specific backup"
+    },
+    {
+      "name": "pg:backups:restore [BACKUP] [DATABASE]",
+      "desc": "restore a backup (default latest) to a database"
+    },
+    {
+      "name": "pg:backups:schedule [DATABASE]",
+      "desc": "schedule daily backups for given database"
+    },
+    {
+      "name": "pg:backups:schedules",
+      "desc": "pg:backups:unschedule [DATABASE]                    #  stop daily backups"
+    },
+    {
+      "name": "pg:backups:url [BACKUP_ID]",
+      "desc": "get secret but publicly accessible URL of a backup"
     },
     {
       "name": "pg:copy SOURCE TARGET",
@@ -42,8 +78,24 @@
       "desc": "create links between data stores.  Without a subcommand, it lists all"
     },
     {
+      "name": "pg:links:create REMOTE DATABASE",
+      "desc": "create a link between data stores"
+    },
+    {
+      "name": "pg:links:destroy DATABASE LINK",
+      "desc": "destroys a link between data stores"
+    },
+    {
       "name": "pg:maintenance <info|run|window> <DATABASE>",
       "desc": "manage maintenance for <DATABASE>"
+    },
+    {
+      "name": "pg:maintenance:run [DATABASE]",
+      "desc": "start maintenance"
+    },
+    {
+      "name": "pg:maintenance:window DATABASE WINDOW",
+      "desc": "set weekly maintenance window"
     },
     {
       "name": "pg:promote DATABASE",

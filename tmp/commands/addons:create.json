@@ -1,19 +1,31 @@
 {
   "name": "addons:create",
-  "longname": "addons:create SERVICE:PLAN",
+  "usage": "addons:create SERVICE:PLAN",
   "desc": "create an add-on resource",
   "params": [
     {
-      "name": "--name ADDON_NAME",
-      "desc": "(optional) name for the add-on resource"
+      "name": "-a, --app APP",
+      "desc": "app to run command against"
     },
     {
-      "name": "--as ATTACHMENT_NAME",
-      "desc": "(optional) name for the initial add-on attachment"
+      "name": "-r, --remote REMOTE",
+      "desc": "git remote of app to run command against"
     },
     {
-      "name": "--confirm APP_NAME",
-      "desc": "(optional) ovewrite existing config vars or existing add-on attachments"
+      "name": "--as AS",
+      "desc": "name for the initial add-on attachment"
+    },
+    {
+      "name": "--confirm CONFIRM",
+      "desc": "overwrite existing config vars or existing add-on attachments"
+    },
+    {
+      "name": "--name NAME",
+      "desc": "name for the add-on resource"
+    },
+    {
+      "name": "--wait",
+      "desc": "watch add-on creation status and exit when complete"
     }
   ],
   "subcommands": []

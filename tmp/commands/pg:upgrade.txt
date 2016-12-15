@@ -1,6 +1,10 @@
-Usage: heroku pg:upgrade REPLICA
+Usage: heroku pg:upgrade [DATABASE]
 
- unfollow a database and upgrade it to the latest stable PostgreSQL version
+unfollow a database and upgrade it to the latest stable PostgreSQL version
 
- To upgrade to another PostgreSQL version, use pg:copy instead
+ -a, --app APP         # app to run command against
+ -c, --confirm CONFIRM
+ -r, --remote REMOTE   # git remote of app to run command against
+
+to upgrade to another PostgreSQL version, use pg:copy instead
 

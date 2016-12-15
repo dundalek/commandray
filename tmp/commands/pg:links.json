@@ -1,21 +1,16 @@
 {
   "name": "pg:links",
-  "longname": "pg:links <create|destroy>",
+  "usage": "pg:links <create|destroy>",
   "desc": "create links between data stores.  Without a subcommand, it lists all",
   "params": [
     {
-      "name": "--as <LINK>",
-      "desc": "override the default link name"
-    }
-  ],
-  "subcommands": [
-    {
-      "name": "create <REMOTE> <LOCAL>",
-      "desc": "Create a data link"
+      "name": "-a, --app APP",
+      "desc": "app to run command against"
     },
     {
-      "name": "destroy <LOCAL> <LINK>",
-      "desc": "Destroy a data link between a local and remote database"
+      "name": "-r, --remote REMOTE",
+      "desc": "git remote of app to run command against"
     }
-  ]
+  ],
+  "subcommands": []
 }

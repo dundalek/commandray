@@ -1,6 +1,6 @@
 {
   "name": "auth:2fa:generate",
-  "longname": "auth:2fa:generate",
+  "usage": "auth:2fa:generate",
   "desc": "generates and replaces recovery codes",
   "params": [],
   "subcommands": []

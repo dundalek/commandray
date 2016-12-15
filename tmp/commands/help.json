@@ -1,6 +1,6 @@
 {
   "name": "help",
-  "longname": "help",
+  "usage": "help",
   "desc": "list commands and display help",
   "params": [],
   "subcommands": []

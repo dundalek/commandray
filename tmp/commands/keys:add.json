@@ -1,6 +1,6 @@
 {
   "name": "keys:add",
-  "longname": "keys:add [KEY]",
+  "usage": "keys:add [KEY]",
   "desc": "add a key for the current user",
   "params": [
     {

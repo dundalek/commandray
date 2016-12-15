@@ -1,6 +1,6 @@
 {
   "name": "rake",
-  "longname": "rake test",
+  "usage": "rake test",
   "desc": "run tests",
   "params": [],
   "subcommands": [

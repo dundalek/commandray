@@ -1,6 +1,6 @@
 {
   "name": "stack:set",
-  "longname": "stack:set STACK",
+  "usage": "stack:set STACK",
   "desc": "set new app stack",
   "params": [
     {

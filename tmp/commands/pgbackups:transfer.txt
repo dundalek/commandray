@@ -1,0 +1,14 @@
+Usage: heroku pgbackups:transfer [SOURCE DATABASE] DESTINATION DATABASE
+
+ direct database-to-database transfer
+
+ If no DATABASE is specified, defaults to DATABASE_URL.
+ The pgbackups add-on is required to use direct transfers
+
+Example:
+
+$ heroku pgbackups:transfer green teal --app example
+
+ note that both the FROM and TO database must be accessible to the pgbackups service
+$ heroku pgbackups:transfer DATABASE postgres://user:password@host/dbname --app example
+

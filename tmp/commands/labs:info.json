@@ -1,6 +1,6 @@
 {
   "name": "labs:info",
-  "longname": "labs:info FEATURE",
+  "usage": "labs:info FEATURE",
   "desc": "displays additional information about FEATURE",
   "params": [
     {

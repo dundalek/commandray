@@ -1,6 +1,6 @@
 {
   "name": "ps:resize",
-  "longname": "ps:resize",
+  "usage": "ps:resize",
   "desc": "ps:restart [DYNO]                             #  restart an app dyno",
   "params": [
     {

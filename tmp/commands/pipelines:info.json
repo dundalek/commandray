@@ -1,6 +1,6 @@
 {
   "name": "pipelines:info",
-  "longname": "pipelines:info PIPELINE",
+  "usage": "pipelines:info PIPELINE",
   "desc": "show list of apps in a pipeline",
   "params": [
     {

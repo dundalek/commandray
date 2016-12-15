@@ -1,6 +1,6 @@
 {
   "name": "version",
-  "longname": "version",
+  "usage": "version",
   "desc": "display version",
   "params": [],
   "subcommands": []

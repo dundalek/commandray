@@ -1,0 +1,16 @@
+{
+  "name": "spaces:vpn:info",
+  "usage": "spaces:vpn:info",
+  "desc": "display the information for VPN",
+  "params": [
+    {
+      "name": "-s, --space SPACE",
+      "desc": "space to get VPN info from"
+    },
+    {
+      "name": "--json",
+      "desc": "output in json format"
+    }
+  ],
+  "subcommands": []
+}

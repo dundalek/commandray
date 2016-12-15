@@ -1,6 +1,6 @@
 {
   "name": "addons:services",
-  "longname": "addons:services",
+  "usage": "addons:services",
   "desc": "list all available add-on services",
   "params": [
     {

@@ -1,6 +1,6 @@
 {
   "name": "addons:plans",
-  "longname": "addons:plans SERVICE",
+  "usage": "addons:plans SERVICE",
   "desc": "list all available plans for an add-on service",
   "params": [
     {

@@ -1,7 +1,7 @@
 {
   "name": "drains:remove",
-  "longname": "drains:remove [URL|TOKEN]",
-  "desc": "adds a log drain to an app",
+  "usage": "drains:remove [URL|TOKEN]",
+  "desc": "removes a log drain from an app",
   "params": [
     {
       "name": "-a, --app APP",

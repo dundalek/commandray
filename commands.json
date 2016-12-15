@@ -3,7 +3,7 @@
     "name": "addons",
     "usage": "addons",
     "desc": "manage add-on resources",
-    "docs": "Usage: heroku addons [--all|--app APP]\n\nlists your add-ons and attachments\n\n -A, --all           # show add-ons and attachments for all accessible apps\n -a, --app APP       # app to run command against\n -r, --remote REMOTE # git remote of app to run command against\n --json              # return add-ons in json format\n\nThe default filter applied depends on whether you are in a Heroku app\ndirectory. If so, the --app flag is implied. If not, the default of --all\nis implied. Explicitly providing either flag overrides the default\nbehavior.\n\nExamples:\n\n  $ heroku addons --all\n  $ heroku addons --app acme-inc-www\n\nOverview of Add-ons:\n\n  Add-ons are created with the `addons:create` command, providing a reference\n  to an add-on service (such as `heroku-postgresql`) or a service and plan\n  (such as `heroku-postgresql:hobby-dev`).\n\n  At creation, each add-on is given a globally unique name. In addition, each\n  add-on has at least one attachment alias to each application which uses the\n  add-on. In all cases, the owning application will be attached to the add-on.\n  An attachment alias is unique to its application, and is used as a prefix to\n  any environment variables it exports to the application.\n\n  In this example, a `heroku-postgresql` add-on is created and its given name\n  is `postgresql-deep-6913` with a default attachment alias of `DATABASE`:\n\n    $ heroku addons:create heroku-postgresql --app my-app\n    Creating postgresql-deep-6913... done, (free)\n    Adding postgresql-deep-6913 to my-app... done\n    Setting DATABASE_URL and restarting my-app... done, v5\n    Database has been created and is available\n\n    $ heroku addons --app my-app\n    Add-on                                     Plan       Price\n    ─────────────────────────────────────────  ─────────  ─────\n    heroku-postgresql (postgresql-deep-6913)   hobby-dev  free\n    └─ as DATABASE\n\n  The add-on name and, in some cases, the attachment alias can be specified by\n  the user. For instance, we can add a second database to the app, specifying\n  both these identifiers:\n\n    $ heroku addons:create heroku-postgresql --app my-app --name main-db --as PRIMARY_DB\n    Creating main-db... done, (free)\n    Adding main-db to my-app... done\n    Setting PRIMARY_DB_URL and restarting my-app... done, v6\n    Database has been created and is available\n\n    $ heroku addons --app my-app\n    Add-on                                     Plan       Price\n    ─────────────────────────────────────────  ─────────  ─────\n    heroku-postgresql (main-db)                hobby-dev  free\n    └─ as PRIMARY_DB\n\n    heroku-postgresql (postgresql-deep-6913)   hobby-dev  free\n    └─ as DATABASE\n\n  Attachment aliases can also be specified when making attachments:\n\n    $ heroku addons:attach main-db --app my-app --as ANOTHER_NAME\n    Attaching main-db as ANOTHER_NAME to my-app... done\n    Setting ANOTHER_NAME vars and restarting my-app... done, v7\n\n    $ heroku addons --app my-app\n    Add-on                                     Plan       Price\n    ─────────────────────────────────────────  ─────────  ─────\n    heroku-postgresql (main-db)                hobby-dev  free\n    ├─ as PRIMARY_DB\n    └─ as ANOTHER_NAME\n\n    heroku-postgresql (postgresql-deep-6913)   hobby-dev  free\n    └─ as DATABASE\n\n  For more information, read https://devcenter.heroku.com/articles/add-ons.\n\nAdditional commands, type \"heroku help COMMAND\" for more details:\n\n  addons:attach ADDON_NAME                        #  attach add-on resource to an app\n  addons:create SERVICE:PLAN                      #  create an add-on resource\n  addons:destroy ADDON_NAME [ADDON_NAME ...]      #  destroy add-on resources\n  addons:detach ATTACHMENT_NAME                   #  detach add-on resource from an app\n  addons:docs ADDON_NAME                          #  open an add-on's documentation in your browser\n  addons:downgrade ADDON_NAME ADDON_SERVICE:PLAN  #  downgrade an existing add-on resource to PLAN\n  addons:info ADDON                               #  Show info about an add-on and its attachments.\n  addons:open ADDON_NAME                          #  open an add-on's dashboard in your browser\n  addons:plans SERVICE                            #  list all available plans for an add-on service\n  addons:remove                                   #  destroy add-on resources\n  addons:rename ADDON NEW_NAME                    #  Rename an add-on.\n  addons:services                                 #  list all available add-on services\n  addons:upgrade ADDON_NAME ADDON_SERVICE:PLAN    #  upgrade an existing add-on resource to PLAN\n\n",
+    "docs": "Usage: heroku addons [--all|--app APP]\n\nlists your add-ons and attachments\n\n -A, --all           # show add-ons and attachments for all accessible apps\n -a, --app APP       # app to run command against\n -r, --remote REMOTE # git remote of app to run command against\n --json              # return add-ons in json format\n\nThe default filter applied depends on whether you are in a Heroku app\ndirectory. If so, the --app flag is implied. If not, the default of --all\nis implied. Explicitly providing either flag overrides the default\nbehavior.\n\nExamples:\n\n  $ heroku addons --all\n  $ heroku addons --app acme-inc-www\n\nOverview of Add-ons:\n\n  Add-ons are created with the `addons:create` command, providing a reference\n  to an add-on service (such as `heroku-postgresql`) or a service and plan\n  (such as `heroku-postgresql:hobby-dev`).\n\n  At creation, each add-on is given a globally unique name. In addition, each\n  add-on has at least one attachment alias to each application which uses the\n  add-on. In all cases, the owning application will be attached to the add-on.\n  An attachment alias is unique to its application, and is used as a prefix to\n  any environment variables it exports to the application.\n\n  In this example, a `heroku-postgresql` add-on is created and its given name\n  is `postgresql-deep-6913` with a default attachment alias of `DATABASE`:\n\n    $ heroku addons:create heroku-postgresql --app my-app\n    Creating postgresql-deep-6913... done, (free)\n    Adding postgresql-deep-6913 to my-app... done\n    Setting DATABASE_URL and restarting my-app... done, v5\n    Database has been created and is available\n\n    $ heroku addons --app my-app\n    Add-on                                     Plan       Price\n    ─────────────────────────────────────────  ─────────  ─────\n    heroku-postgresql (postgresql-deep-6913)   hobby-dev  free\n    └─ as DATABASE\n\n  The add-on name and, in some cases, the attachment alias can be specified by\n  the user. For instance, we can add a second database to the app, specifying\n  both these identifiers:\n\n    $ heroku addons:create heroku-postgresql --app my-app --name main-db --as PRIMARY_DB\n    Creating main-db... done, (free)\n    Adding main-db to my-app... done\n    Setting PRIMARY_DB_URL and restarting my-app... done, v6\n    Database has been created and is available\n\n    $ heroku addons --app my-app\n    Add-on                                     Plan       Price\n    ─────────────────────────────────────────  ─────────  ─────\n    heroku-postgresql (main-db)                hobby-dev  free\n    └─ as PRIMARY_DB\n\n    heroku-postgresql (postgresql-deep-6913)   hobby-dev  free\n    └─ as DATABASE\n\n  Attachment aliases can also be specified when making attachments:\n\n    $ heroku addons:attach main-db --app my-app --as ANOTHER_NAME\n    Attaching main-db as ANOTHER_NAME to my-app... done\n    Setting ANOTHER_NAME vars and restarting my-app... done, v7\n\n    $ heroku addons --app my-app\n    Add-on                                     Plan       Price\n    ─────────────────────────────────────────  ─────────  ─────\n    heroku-postgresql (main-db)                hobby-dev  free\n    ├─ as PRIMARY_DB\n    └─ as ANOTHER_NAME\n\n    heroku-postgresql (postgresql-deep-6913)   hobby-dev  free\n    └─ as DATABASE\n\n  For more information, read https://devcenter.heroku.com/articles/add-ons.\n\nAdditional commands, type \"heroku help COMMAND\" for more details:\n\n  addons:attach ADDON_NAME                        #  attach add-on resource to an app\n  addons:create SERVICE:PLAN                      #  create an add-on resource\n  addons:destroy ADDON_NAME [ADDON_NAME ...]      #  destroy add-on resources\n  addons:detach ATTACHMENT_NAME                   #  detach add-on resource from an app\n  addons:docs ADDON_NAME                          #  open an add-on's documentation in your browser\n  addons:downgrade ADDON_NAME ADDON_SERVICE:PLAN  #  downgrade an existing add-on resource to PLAN\n  addons:info ADDON                               #  Show info about an add-on and its attachments.\n  addons:open ADDON_NAME                          #  open an add-on's dashboard in your browser\n  addons:plans SERVICE                            #  list all available plans for an add-on service\n  addons:rename ADDON NEW_NAME                    #  Rename an add-on.\n  addons:services                                 #  list all available add-on services\n  addons:upgrade ADDON_NAME ADDON_SERVICE:PLAN    #  upgrade an existing add-on resource to PLAN\n  addons:wait ADDON                               #  Show provisioning status of the add-ons on the app\n\n",
     "params": [
       {
         "name": "-A, --all",
@@ -60,10 +60,6 @@
         "desc": "list all available plans for an add-on service"
       },
       {
-        "name": "addons:remove",
-        "desc": "destroy add-on resources"
-      },
-      {
         "name": "addons:rename ADDON NEW_NAME",
         "desc": "Rename an add-on."
       },
@@ -74,6 +70,10 @@
       {
         "name": "addons:upgrade ADDON_NAME ADDON_SERVICE:PLAN",
         "desc": "upgrade an existing add-on resource to PLAN"
+      },
+      {
+        "name": "addons:wait ADDON",
+        "desc": "Show provisioning status of the add-ons on the app"
       }
     ]
   },
@@ -106,19 +106,31 @@
     "name": "addons:create",
     "usage": "addons:create SERVICE:PLAN",
     "desc": "create an add-on resource",
-    "docs": "Usage: heroku addons:create SERVICE:PLAN\n\n create an add-on resource\n\n --name ADDON_NAME       # (optional) name for the add-on resource\n --as ATTACHMENT_NAME    # (optional) name for the initial add-on attachment\n --confirm APP_NAME      # (optional) ovewrite existing config vars or existing add-on attachments\n\n",
+    "docs": "Usage: heroku addons:create SERVICE:PLAN\n\ncreate an add-on resource\n\n -a, --app APP       # app to run command against\n -r, --remote REMOTE # git remote of app to run command against\n --as AS             # name for the initial add-on attachment\n --confirm CONFIRM   # overwrite existing config vars or existing add-on attachments\n --name NAME         # name for the add-on resource\n --wait              # watch add-on creation status and exit when complete\n\n",
     "params": [
       {
-        "name": "--name ADDON_NAME",
-        "desc": "(optional) name for the add-on resource"
+        "name": "-a, --app APP",
+        "desc": "app to run command against"
       },
       {
-        "name": "--as ATTACHMENT_NAME",
-        "desc": "(optional) name for the initial add-on attachment"
+        "name": "-r, --remote REMOTE",
+        "desc": "git remote of app to run command against"
       },
       {
-        "name": "--confirm APP_NAME",
-        "desc": "(optional) ovewrite existing config vars or existing add-on attachments"
+        "name": "--as AS",
+        "desc": "name for the initial add-on attachment"
+      },
+      {
+        "name": "--confirm CONFIRM",
+        "desc": "overwrite existing config vars or existing add-on attachments"
+      },
+      {
+        "name": "--name NAME",
+        "desc": "name for the add-on resource"
+      },
+      {
+        "name": "--wait",
+        "desc": "watch add-on creation status and exit when complete"
       }
     ],
     "subcommands": []
@@ -250,27 +262,6 @@
     ],
     "subcommands": []
   },
-  "addons:remove": {
-    "name": "addons:remove",
-    "usage": "addons:remove",
-    "desc": "destroy add-on resources",
-    "docs": "Alias: addons:remove redirects to addons:destroy\nUsage: heroku addons:destroy\n\ndestroy add-on resources\n\n -a, --app APP         # app to run command against\n -c, --confirm CONFIRM\n -f, --force           # allow destruction even if connected to other apps\n -r, --remote REMOTE   # git remote of app to run command against\n\n",
-    "params": [
-      {
-        "name": "-a, --app APP",
-        "desc": "app to run command against"
-      },
-      {
-        "name": "-f, --force",
-        "desc": "allow destruction even if connected to other apps"
-      },
-      {
-        "name": "-r, --remote REMOTE",
-        "desc": "git remote of app to run command against"
-      }
-    ],
-    "subcommands": []
-  },
   "addons:rename": {
     "name": "addons:rename",
     "usage": "addons:rename ADDON NEW_NAME",
@@ -318,11 +309,32 @@
     ],
     "subcommands": []
   },
+  "addons:wait": {
+    "name": "addons:wait",
+    "usage": "addons:wait ADDON",
+    "desc": "Show provisioning status of the add-ons on the app",
+    "docs": "Usage: heroku addons:wait ADDON\n\nShow provisioning status of the add-ons on the app\n\n -a, --app APP                 # app to run command against\n -r, --remote REMOTE           # git remote of app to run command against\n --wait-interval WAIT-INTERVAL # how frequently to poll in seconds\n\n",
+    "params": [
+      {
+        "name": "-a, --app APP",
+        "desc": "app to run command against"
+      },
+      {
+        "name": "-r, --remote REMOTE",
+        "desc": "git remote of app to run command against"
+      },
+      {
+        "name": "--wait-interval WAIT-INTERVAL",
+        "desc": "how frequently to poll in seconds"
+      }
+    ],
+    "subcommands": []
+  },
   "apps": {
     "name": "apps",
     "usage": "apps",
     "desc": "manage apps (create, destroy)",
-    "docs": "Usage: heroku apps\n\nlist your apps\n\n -A, --all           # include apps in all organizations\n -o, --org ORG       # organization to use\n -p, --personal      # list apps in personal account when a default org is set\n --json              # output in json format\n\nExample:\n\n $ heroku apps\n === My Apps\n example\n example2\n\n === Collaborated Apps\n theirapp   other@owner.name\n\nAdditional commands, type \"heroku help COMMAND\" for more details:\n\n  apps:create [NAME]             #  create a new app\n  apps:destroy --app APP         #  permanently destroy an app\n  apps:errors                    #  view app errors\n  apps:favorites                 #  list favorited apps\n  apps:favorites:add             #  favorites an app\n  apps:favorites:remove          #  unfavorites an app\n  apps:fork                      #  fork an existing app into a new one\n  apps:info                      #  show detailed app information\n  apps:join --app APP            #  add yourself to an organization app\n  apps:leave --app APP           #  remove yourself from an organization app\n  apps:lock --app APP            #  lock an organization app to restrict access\n  apps:open --app APP            #  open the app in a web browser\n  apps:rename NEWNAME --app APP  #  rename the app\n  apps:stacks                    #  show the list of available stacks\n  apps:transfer RECIPIENT        #  transfer applications to another user, organization or team\n  apps:unlock --app APP          #  unlock an organization app so that any org member can join it\n\n",
+    "docs": "Usage: heroku apps\n\nlist your apps\n\n -A, --all           # include apps in all organizations\n -o, --org ORG       # organization to use\n -p, --personal      # list apps in personal account when a default org is set\n -s, --space SPACE   # filter by space\n --json              # output in json format\n\nExample:\n\n $ heroku apps\n === My Apps\n example\n example2\n\n === Collaborated Apps\n theirapp   other@owner.name\n\nAdditional commands, type \"heroku help COMMAND\" for more details:\n\n  apps:create [NAME]             #  create a new app\n  apps:destroy --app APP         #  permanently destroy an app\n  apps:errors                    #  view app errors\n  apps:favorites                 #  list favorited apps\n  apps:favorites:add             #  favorites an app\n  apps:favorites:remove          #  unfavorites an app\n  apps:fork                      #  fork an existing app into a new one\n  apps:info                      #  show detailed app information\n  apps:join --app APP            #  add yourself to an organization app\n  apps:leave --app APP           #  remove yourself from an organization app\n  apps:lock --app APP            #  lock an organization app to restrict access\n  apps:open --app APP            #  open the app in a web browser\n  apps:rename NEWNAME --app APP  #  rename the app\n  apps:stacks                    #  show the list of available stacks\n  apps:transfer RECIPIENT        #  transfer applications to another user, organization or team\n  apps:unlock --app APP          #  unlock an organization app so that any org member can join it\n\n",
     "params": [
       {
         "name": "-A, --all",
@@ -335,6 +347,10 @@
       {
         "name": "-p, --personal",
         "desc": "list apps in personal account when a default org is set"
+      },
+      {
+        "name": "-s, --space SPACE",
+        "desc": "filter by space"
       },
       {
         "name": "--json",
@@ -748,7 +764,7 @@
     "name": "auth",
     "usage": "auth",
     "desc": "authentication (login, logout)",
-    "docs": "Usage: heroku auth\n\n Authenticate, display token and current user\n\nAdditional commands, type \"heroku help COMMAND\" for more details:\n\n  auth:2fa           #  check 2fa status\n  auth:2fa:disable   #  disable two-factor authentication for your account\n  auth:2fa:enable    #  enable 2fa on your account\n  auth:2fa:generate  #  generates and replaces recovery codes\n  auth:login         #  log in with your heroku credentials\n  auth:logout        #  clear local authentication credentials\n  auth:token         #  display your api token\n  auth:whoami        #  display your heroku email address\n\n",
+    "docs": "Additional commands, type \"heroku help COMMAND\" for more details:\n\n  auth:2fa           #  check 2fa status\n  auth:2fa:disable   #  disable two-factor authentication for your account\n  auth:2fa:enable    #  enable 2fa on your account\n  auth:2fa:generate  #  generates and replaces recovery codes\n  auth:login         #  log in with your heroku credentials\n  auth:logout        #  clear local authentication credentials\n  auth:token         #  display your api token\n  auth:whoami        #  display your heroku email address\n\n",
     "params": [],
     "subcommands": [
       {
@@ -1610,8 +1626,17 @@
     "name": "certs",
     "usage": "certs",
     "desc": "manage ssl endpoints for an app",
-    "docs": "Usage: heroku certs\n\n List ssl endpoints for an app.\n\nAdditional commands, type \"heroku help COMMAND\" for more details:\n\n  certs:add CRT KEY            #  Add an ssl endpoint to an app.\n  certs:chain CRT [CRT ...]    #  Print the ordered and complete chain for the given certificate.\n  certs:generate DOMAIN        #  Generate a key and certificate signing request (or self-signed certificate)\n  certs:info                   #  Show certificate information for an ssl endpoint.\n  certs:key CRT KEY [KEY ...]  #  Print the correct key for the given certificate.\n  certs:remove                 #  Remove an SSL Endpoint from an app.\n  certs:rollback               #  Rollback an SSL Endpoint for an app.\n  certs:update CRT KEY         #  Update an SSL Endpoint on an app.\n\n",
-    "params": [],
+    "docs": "Usage: heroku certs\n\nList SSL certificates for an app.\n\n -a, --app APP       # app to run command against\n -r, --remote REMOTE # git remote of app to run command against\n\nAdditional commands, type \"heroku help COMMAND\" for more details:\n\n  certs:add CRT KEY            #  Add an ssl endpoint to an app.\n  certs:chain CRT [CRT ...]    #  Print the ordered and complete chain for the given certificate.\n  certs:generate DOMAIN        #  Generate a key and certificate signing request (or self-signed certificate)\n  certs:info                   #  Show certificate information for an ssl endpoint.\n  certs:key CRT KEY [KEY ...]  #  Print the correct key for the given certificate.\n  certs:remove                 #  Remove an SSL Endpoint from an app.\n  certs:rollback               #  Rollback an SSL Endpoint for an app.\n  certs:update CRT KEY         #  Update an SSL Endpoint on an app.\n\n",
+    "params": [
+      {
+        "name": "-a, --app APP",
+        "desc": "app to run command against"
+      },
+      {
+        "name": "-r, --remote REMOTE",
+        "desc": "git remote of app to run command against"
+      }
+    ],
     "subcommands": [
       {
         "name": "certs:add CRT KEY",
@@ -1651,11 +1676,27 @@
     "name": "certs:add",
     "usage": "certs:add CRT KEY",
     "desc": "Add an ssl endpoint to an app.",
-    "docs": "Usage: heroku certs:add CRT KEY\n\n Add an ssl endpoint to an app.\n\n   --bypass                 # bypass the trust chain completion step\n\n",
+    "docs": "Usage: heroku certs:add CRT KEY\n\nadd an SSL certificate to an app\n\n -a, --app APP       # app to run command against\n -r, --remote REMOTE # git remote of app to run command against\n --bypass            # bypass the trust chain completion step\n --domains DOMAINS   # domains to create after certificate upload\n --type TYPE         # type to create, either 'sni' or 'endpoint'\n\nExample:\n\n $ heroku certs:add example.com.crt example.com.key\n\n",
     "params": [
+      {
+        "name": "-a, --app APP",
+        "desc": "app to run command against"
+      },
+      {
+        "name": "-r, --remote REMOTE",
+        "desc": "git remote of app to run command against"
+      },
       {
         "name": "--bypass",
         "desc": "bypass the trust chain completion step"
+      },
+      {
+        "name": "--domains DOMAINS",
+        "desc": "domains to create after certificate upload"
+      },
+      {
+        "name": "--type TYPE",
+        "desc": "type to create, either 'sni' or 'endpoint'"
       }
     ],
     "subcommands": []
@@ -1664,31 +1705,32 @@
     "name": "certs:chain",
     "usage": "certs:chain CRT [CRT ...]",
     "desc": "Print the ordered and complete chain for the given certificate.",
-    "docs": "Usage: heroku certs:chain CRT [CRT ...]\n\n Print the ordered and complete chain for the given certificate.\n\n Optional intermediate certificates may be given too, and will\n be used during chain resolution.\n\n",
-    "params": [],
+    "docs": "Usage: heroku certs:chain\n\nprint an ordered & complete chain for a certificate\n\n -a, --app APP       # app to run command against\n -r, --remote REMOTE # git remote of app to run command against\n\n",
+    "params": [
+      {
+        "name": "-a, --app APP",
+        "desc": "app to run command against"
+      },
+      {
+        "name": "-r, --remote REMOTE",
+        "desc": "git remote of app to run command against"
+      }
+    ],
     "subcommands": []
   },
   "certs:generate": {
     "name": "certs:generate",
     "usage": "certs:generate DOMAIN",
     "desc": "Generate a key and certificate signing request (or self-signed certificate)",
-    "docs": "Usage: heroku certs:generate DOMAIN\n\n Generate a key and certificate signing request (or self-signed certificate)\n for an app. Prompts for information to put in the certificate unless --now\n is used, or at least one of the --subject, --owner, --country, --area, or\n --city options is specified.\n\n   --selfsigned              # generate a self-signed certificate instead of a CSR\n   --keysize BITSIZE         # RSA key size in bits (default: 2048)\n   --owner NAME              # name of organization certificate belongs to\n   --country COUNTRY         # country of owner, as a two-letter ISO country code\n   --area AREA               # sub-country area (state, province, etc.) of owner\n   --city CITY               # city of owner\n   --subject SUBJECT         # specify entire certificate subject\n   --now                     # do not prompt for any owner information\n\n",
+    "docs": "Usage: heroku certs:generate DOMAIN\n\ngenerate a key and a CSR or self-signed certificate\n\n -a, --app APP       # app to run command against\n -r, --remote REMOTE # git remote of app to run command against\n --area AREA         # sub-country area (state, province, etc.) of owner\n --city CITY         # city of owner\n --country COUNTRY   # country of owner, as a two-letter ISO country code\n --keysize KEYSIZE   # RSA key size in bits (default: 2048)\n --now               # do not prompt for any owner information\n --owner OWNER       # name of organization certificate belongs to\n --selfsigned        # generate a self-signed certificate instead of a CSR\n --subject SUBJECT   # specify entire certificate subject\n\nGenerate a key and certificate signing request (or self-signed certificate)\nfor an app. Prompts for information to put in the certificate unless --now\nis used, or at least one of the --subject, --owner, --country, --area, or\n--city options is specified.\n\nExample:\n\n $ heroku certs:generate example.com\n\n",
     "params": [
       {
-        "name": "--selfsigned",
-        "desc": "generate a self-signed certificate instead of a CSR"
+        "name": "-a, --app APP",
+        "desc": "app to run command against"
       },
       {
-        "name": "--keysize BITSIZE",
-        "desc": "RSA key size in bits (default: 2048)"
-      },
-      {
-        "name": "--owner NAME",
-        "desc": "name of organization certificate belongs to"
-      },
-      {
-        "name": "--country COUNTRY",
-        "desc": "country of owner, as a two-letter ISO country code"
+        "name": "-r, --remote REMOTE",
+        "desc": "git remote of app to run command against"
       },
       {
         "name": "--area AREA",
@@ -1699,12 +1741,28 @@
         "desc": "city of owner"
       },
       {
-        "name": "--subject SUBJECT",
-        "desc": "specify entire certificate subject"
+        "name": "--country COUNTRY",
+        "desc": "country of owner, as a two-letter ISO country code"
+      },
+      {
+        "name": "--keysize KEYSIZE",
+        "desc": "RSA key size in bits (default: 2048)"
       },
       {
         "name": "--now",
         "desc": "do not prompt for any owner information"
+      },
+      {
+        "name": "--owner OWNER",
+        "desc": "name of organization certificate belongs to"
+      },
+      {
+        "name": "--selfsigned",
+        "desc": "generate a self-signed certificate instead of a CSR"
+      },
+      {
+        "name": "--subject SUBJECT",
+        "desc": "specify entire certificate subject"
       }
     ],
     "subcommands": []
@@ -1713,11 +1771,23 @@
     "name": "certs:info",
     "usage": "certs:info",
     "desc": "Show certificate information for an ssl endpoint.",
-    "docs": "Usage: heroku certs:info\n\n Show certificate information for an ssl endpoint.\n\n   -e, --endpoint ENDPOINT  # name of the endpoint to check info on\n\n",
+    "docs": "Usage: heroku certs:info\n\nshow certificate information for an SSL certificate\n\n -a, --app APP       # app to run command against\n -r, --remote REMOTE # git remote of app to run command against\n --endpoint ENDPOINT # endpoint to check info on\n --name NAME         # name to check info on\n\n",
     "params": [
       {
-        "name": "-e, --endpoint ENDPOINT",
-        "desc": "name of the endpoint to check info on"
+        "name": "-a, --app APP",
+        "desc": "app to run command against"
+      },
+      {
+        "name": "-r, --remote REMOTE",
+        "desc": "git remote of app to run command against"
+      },
+      {
+        "name": "--endpoint ENDPOINT",
+        "desc": "endpoint to check info on"
+      },
+      {
+        "name": "--name NAME",
+        "desc": "name to check info on"
       }
     ],
     "subcommands": []
@@ -1726,19 +1796,40 @@
     "name": "certs:key",
     "usage": "certs:key CRT KEY [KEY ...]",
     "desc": "Print the correct key for the given certificate.",
-    "docs": "Usage: heroku certs:key CRT KEY [KEY ...]\n\n Print the correct key for the given certificate.\n\n You must pass one single certificate, and one or more keys.\n The first key that signs the certificate will be printed back.\n\n",
-    "params": [],
+    "docs": "Usage: heroku certs:key\n\nprint the correct key for the given certificate\n\n -a, --app APP       # app to run command against\n -r, --remote REMOTE # git remote of app to run command against\n\nYou must pass one single certificate, and one or more keys.\nThe first key that signs the certificate will be printed back.\n\nExample:\n\n $ heroku certs:key example.com.crt example.com.key\n\n",
+    "params": [
+      {
+        "name": "-a, --app APP",
+        "desc": "app to run command against"
+      },
+      {
+        "name": "-r, --remote REMOTE",
+        "desc": "git remote of app to run command against"
+      }
+    ],
     "subcommands": []
   },
   "certs:remove": {
     "name": "certs:remove",
     "usage": "certs:remove",
     "desc": "Remove an SSL Endpoint from an app.",
-    "docs": "Usage: heroku certs:remove\n\n Remove an SSL Endpoint from an app.\n\n   -e, --endpoint ENDPOINT  # name of the endpoint to remove\n\n",
+    "docs": "Usage: heroku certs:remove\n\nremove an SSL certificate from an app\n\n -a, --app APP       # app to run command against\n -r, --remote REMOTE # git remote of app to run command against\n --endpoint ENDPOINT # endpoint to remove\n --name NAME         # name to remove\n\n",
     "params": [
       {
-        "name": "-e, --endpoint ENDPOINT",
-        "desc": "name of the endpoint to remove"
+        "name": "-a, --app APP",
+        "desc": "app to run command against"
+      },
+      {
+        "name": "-r, --remote REMOTE",
+        "desc": "git remote of app to run command against"
+      },
+      {
+        "name": "--endpoint ENDPOINT",
+        "desc": "endpoint to remove"
+      },
+      {
+        "name": "--name NAME",
+        "desc": "name to remove"
       }
     ],
     "subcommands": []
@@ -1747,11 +1838,23 @@
     "name": "certs:rollback",
     "usage": "certs:rollback",
     "desc": "Rollback an SSL Endpoint for an app.",
-    "docs": "Usage: heroku certs:rollback\n\n Rollback an SSL Endpoint for an app.\n\n   -e, --endpoint ENDPOINT  # name of the endpoint to rollback\n\n",
+    "docs": "Usage: heroku certs:rollback\n\nrollback an SSL certificate from an app\n\n -a, --app APP       # app to run command against\n -r, --remote REMOTE # git remote of app to run command against\n --endpoint ENDPOINT # endpoint to rollback\n --name NAME         # name to rollback\n\n",
     "params": [
       {
-        "name": "-e, --endpoint ENDPOINT",
-        "desc": "name of the endpoint to rollback"
+        "name": "-a, --app APP",
+        "desc": "app to run command against"
+      },
+      {
+        "name": "-r, --remote REMOTE",
+        "desc": "git remote of app to run command against"
+      },
+      {
+        "name": "--endpoint ENDPOINT",
+        "desc": "endpoint to rollback"
+      },
+      {
+        "name": "--name NAME",
+        "desc": "name to rollback"
       }
     ],
     "subcommands": []
@@ -1760,15 +1863,27 @@
     "name": "certs:update",
     "usage": "certs:update CRT KEY",
     "desc": "Update an SSL Endpoint on an app.",
-    "docs": "Usage: heroku certs:update CRT KEY\n\n Update an SSL Endpoint on an app.\n\n   --bypass                 # bypass the trust chain completion step\n   -e, --endpoint ENDPOINT  # name of the endpoint to update\n\n",
+    "docs": "Usage: heroku certs:update CRT KEY\n\nupdate an SSL certificate on an app\n\n -a, --app APP       # app to run command against\n -r, --remote REMOTE # git remote of app to run command against\n --bypass            # bypass the trust chain completion step\n --endpoint ENDPOINT # endpoint to update\n --name NAME         # name to update\n\nExample:\n\n $ heroku certs:update example.com.crt example.com.key\n\n",
     "params": [
+      {
+        "name": "-a, --app APP",
+        "desc": "app to run command against"
+      },
+      {
+        "name": "-r, --remote REMOTE",
+        "desc": "git remote of app to run command against"
+      },
       {
         "name": "--bypass",
         "desc": "bypass the trust chain completion step"
       },
       {
-        "name": "-e, --endpoint ENDPOINT",
-        "desc": "name of the endpoint to update"
+        "name": "--endpoint ENDPOINT",
+        "desc": "endpoint to update"
+      },
+      {
+        "name": "--name NAME",
+        "desc": "name to update"
       }
     ],
     "subcommands": []
@@ -1777,7 +1892,7 @@
     "name": "drains",
     "usage": "drains",
     "desc": "list all log drains",
-    "docs": "Usage: heroku drains\n\ndisplay the log drains of an app\n\n -a, --app APP       # app to run command against\n -r, --remote REMOTE # git remote of app to run command against\n --json              # output in json format\n\nAdditional commands, type \"heroku help COMMAND\" for more details:\n\n  drains:add URL             #  adds a log drain to an app\n  drains:remove [URL|TOKEN]  #  adds a log drain to an app\n\n",
+    "docs": "Usage: heroku drains\n\ndisplay the log drains of an app\n\n -a, --app APP       # app to run command against\n -r, --remote REMOTE # git remote of app to run command against\n --json              # output in json format\n\nAdditional commands, type \"heroku help COMMAND\" for more details:\n\n  drains:add URL             #  adds a log drain to an app\n  drains:remove [URL|TOKEN]  #  removes a log drain from an app\n\n",
     "params": [
       {
         "name": "-a, --app APP",
@@ -1799,7 +1914,7 @@
       },
       {
         "name": "drains:remove [URL|TOKEN]",
-        "desc": "adds a log drain to an app"
+        "desc": "removes a log drain from an app"
       }
     ]
   },
@@ -1823,8 +1938,8 @@
   "drains:remove": {
     "name": "drains:remove",
     "usage": "drains:remove [URL|TOKEN]",
-    "desc": "adds a log drain to an app",
-    "docs": "Usage: heroku drains:remove [URL|TOKEN]\n\nadds a log drain to an app\n\n -a, --app APP       # app to run command against\n -r, --remote REMOTE # git remote of app to run command against\n\n",
+    "desc": "removes a log drain from an app",
+    "docs": "Usage: heroku drains:remove [URL|TOKEN]\n\nremoves a log drain from an app\n\n -a, --app APP       # app to run command against\n -r, --remote REMOTE # git remote of app to run command against\n\n",
     "params": [
       {
         "name": "-a, --app APP",
@@ -2289,7 +2404,7 @@
     "name": "members",
     "usage": "members",
     "desc": "manage membership in organization accounts",
-    "docs": "Usage: heroku members\n\nlist members of an organization\n\n -o, --org ORG       # organization to use\n -r, --role ROLE     # filter by role\n --json              # output in json format\n\nAdditional commands, type \"heroku help COMMAND\" for more details:\n\n  members:add EMAIL [--org ORG] [--role ROLE]  #  adds a new member to an org\n  members:remove EMAIL [--org ORG]             #  removes a member from an org\n  members:set NAME [--org ORG] [--role ROLE]   #  change role of member in org\n\n",
+    "docs": "Usage: heroku members\n\nlist members of an organization or a team\n\n -o, --org ORG       # organization to use\n -r, --role ROLE     # filter by role\n -t, --team TEAM     # team to use\n --json              # output in json format\n --pending           # filter by pending team invitations\n\nAdditional commands, type \"heroku help COMMAND\" for more details:\n\n  members:add EMAIL [--org ORG] [--role ROLE]  #  adds a new member to an org\n  members:remove EMAIL [--org ORG]             #  removes a member from an org\n  members:set NAME [--org ORG] [--role ROLE]   #  change role of member in org\n\n",
     "params": [
       {
         "name": "-o, --org ORG",
@@ -2300,8 +2415,16 @@
         "desc": "filter by role"
       },
       {
+        "name": "-t, --team TEAM",
+        "desc": "team to use"
+      },
+      {
         "name": "--json",
         "desc": "output in json format"
+      },
+      {
+        "name": "--pending",
+        "desc": "filter by pending team invitations"
       }
     ],
     "subcommands": [
@@ -2323,7 +2446,7 @@
     "name": "members:add",
     "usage": "members:add EMAIL [--org ORG] [--role ROLE]",
     "desc": "adds a new member to an org",
-    "docs": "Usage: heroku members:add EMAIL\n\nadds a user to an organization\n\n -o, --org ORG       # organization to use\n -r, --role ROLE     # member role (admin, collaborator, member, owner)\n\n",
+    "docs": "Usage: heroku members:add EMAIL\n\nadds a user to an organization or a team\n\n -o, --org ORG       # organization to use\n -r, --role ROLE     # member role (admin, collaborator, member, owner)\n -t, --team TEAM     # team to use\n\n",
     "params": [
       {
         "name": "-o, --org ORG",
@@ -2332,6 +2455,10 @@
       {
         "name": "-r, --role ROLE",
         "desc": "member role (admin, collaborator, member, owner)"
+      },
+      {
+        "name": "-t, --team TEAM",
+        "desc": "team to use"
       }
     ],
     "subcommands": []
@@ -2340,11 +2467,15 @@
     "name": "members:remove",
     "usage": "members:remove EMAIL [--org ORG]",
     "desc": "removes a member from an org",
-    "docs": "Usage: heroku members:remove EMAIL\n\nremoves a user from an organization\n\n -o, --org ORG       # organization to use\n\n",
+    "docs": "Usage: heroku members:remove EMAIL\n\nremoves a user from an organization or a team\n\n -o, --org ORG       # organization to use\n -t, --team TEAM     # team to use\n\n",
     "params": [
       {
         "name": "-o, --org ORG",
         "desc": "organization to use"
+      },
+      {
+        "name": "-t, --team TEAM",
+        "desc": "team to use"
       }
     ],
     "subcommands": []
@@ -2353,7 +2484,7 @@
     "name": "members:set",
     "usage": "members:set NAME [--org ORG] [--role ROLE]",
     "desc": "change role of member in org",
-    "docs": "Usage: heroku members:set EMAIL\n\nsets a members role in an organization\n\n -o, --org ORG       # organization to use\n -r, --role ROLE     # member role (admin, collaborator, member, owner)\n\n",
+    "docs": "Usage: heroku members:set EMAIL\n\nsets a members role in an organization or a team\n\n -o, --org ORG       # organization to use\n -r, --role ROLE     # member role (admin, collaborator, member, owner)\n -t, --team TEAM     # team to use\n\n",
     "params": [
       {
         "name": "-o, --org ORG",
@@ -2362,6 +2493,10 @@
       {
         "name": "-r, --role ROLE",
         "desc": "member role (admin, collaborator, member, owner)"
+      },
+      {
+        "name": "-t, --team TEAM",
+        "desc": "team to use"
       }
     ],
     "subcommands": []
@@ -2399,11 +2534,19 @@
     "name": "orgs",
     "usage": "orgs",
     "desc": "manage organization accounts",
-    "docs": "Usage: heroku orgs\n\nlist the organizations that you are a member of\n\n --json              # output in json format\n\nAdditional commands, type \"heroku help COMMAND\" for more details:\n\n  orgs:open --org ORG   #  opens the org interface in a browser\n\n",
+    "docs": "Usage: heroku orgs\n\nlist the organizations that you are a member of\n\n --enterprise        # filter by enterprise orgs\n --json              # output in json format\n --teams             # filter by teams\n\nAdditional commands, type \"heroku help COMMAND\" for more details:\n\n  orgs:open --org ORG   #  opens the org interface in a browser\n\n",
     "params": [
+      {
+        "name": "--enterprise",
+        "desc": "filter by enterprise orgs"
+      },
       {
         "name": "--json",
         "desc": "output in json format"
+      },
+      {
+        "name": "--teams",
+        "desc": "filter by teams"
       }
     ],
     "subcommands": [
@@ -2429,8 +2572,8 @@
   "pg": {
     "name": "pg",
     "usage": "pg",
-    "desc": "pgbackups      #  manage backups of heroku postgresql databases",
-    "docs": "Usage: heroku pg [DATABASE]\n\n -a, --app APP       # app to run command against\n -r, --remote REMOTE # git remote of app to run command against\n\nAdditional commands, type \"heroku help COMMAND\" for more details:\n\n  pg:backups [subcommand]                             #  interact with built-in backups. Without a subcommand, it lists all\n  pg:copy SOURCE TARGET                               # \n  pg:credentials DATABASE                             #  display the DATABASE credentials.\n  pg:diagnose [DATABASE|REPORT_ID]                    #  run diagnostics report on DATABASE\n  pg:info [DATABASE]                                  #  display database information\n  pg:kill pid [DATABASE]                              #  kill a query\n  pg:killall [DATABASE]                               #  terminates ALL connections\n  pg:links <create|destroy>                           #  create links between data stores.  Without a subcommand, it lists all\n  pg:maintenance <info|run|window> <DATABASE>         #  manage maintenance for <DATABASE>\n  pg:promote DATABASE                                 #  sets DATABASE as your DATABASE_URL\n  pg:ps [DATABASE]                                    #  view active queries with execution time\n  pg:psql [DATABASE]                                  #  open a psql shell to the database\n  pg:pull <REMOTE_SOURCE_DATABASE> <TARGET_DATABASE>  #  pull from REMOTE_SOURCE_DATABASE to TARGET_DATABASE\n  pg:push <SOURCE_DATABASE> <REMOTE_TARGET_DATABASE>  #  push from SOURCE_DATABASE to REMOTE_TARGET_DATABASE\n  pg:reset DATABASE                                   #  delete all data in DATABASE\n  pg:unfollow REPLICA                                 #  stop a replica from following and make it a read/write database\n  pg:upgrade REPLICA                                  #  unfollow a database and upgrade it to the latest stable PostgreSQL version\n  pg:wait [DATABASE]                                  #  monitor database creation, exit when complete\n\n",
+    "desc": "manage heroku-postgresql databases",
+    "docs": "Usage: heroku pg [DATABASE]\n\n -a, --app APP       # app to run command against\n -r, --remote REMOTE # git remote of app to run command against\n\nAdditional commands, type \"heroku help COMMAND\" for more details:\n\n  pg:backups [subcommand]                             #  interact with built-in backups. Without a subcommand, it lists all\n  pg:backups:cancel [BACKUP_ID]                       #  cancel an in-progress backup or restore (default newest)\n  pg:backups:capture [DATABASE]                       #  capture a new backup\n  pg:backups:delete BACKUP_ID                         #  delete a backup\n  pg:backups:download [BACKUP_ID]                     #  downloads database backup\n  pg:backups:info [BACKUP_ID]                         #  get information about a specific backup\n  pg:backups:restore [BACKUP] [DATABASE]              #  restore a backup (default latest) to a database\n  pg:backups:schedule [DATABASE]                      #  schedule daily backups for given database\n  pg:backups:schedules                                #  \n  pg:backups:unschedule [DATABASE]                    #  stop daily backups\n  pg:backups:url [BACKUP_ID]                          #  get secret but publicly accessible URL of a backup\n  pg:copy SOURCE TARGET                               # \n  pg:credentials DATABASE                             #  display the DATABASE credentials.\n  pg:diagnose [DATABASE|REPORT_ID]                    #  run diagnostics report on DATABASE\n  pg:info [DATABASE]                                  #  display database information\n  pg:kill pid [DATABASE]                              #  kill a query\n  pg:killall [DATABASE]                               #  terminates ALL connections\n  pg:links <create|destroy>                           #  create links between data stores.  Without a subcommand, it lists all\n  pg:links:create REMOTE DATABASE                     #  create a link between data stores\n  pg:links:destroy DATABASE LINK                      #  destroys a link between data stores\n  pg:maintenance <info|run|window> <DATABASE>         #  manage maintenance for <DATABASE>\n  pg:maintenance:run [DATABASE]                       #  start maintenance\n  pg:maintenance:window DATABASE WINDOW               #  set weekly maintenance window\n  pg:promote DATABASE                                 #  sets DATABASE as your DATABASE_URL\n  pg:ps [DATABASE]                                    #  view active queries with execution time\n  pg:psql [DATABASE]                                  #  open a psql shell to the database\n  pg:pull <REMOTE_SOURCE_DATABASE> <TARGET_DATABASE>  #  pull from REMOTE_SOURCE_DATABASE to TARGET_DATABASE\n  pg:push <SOURCE_DATABASE> <REMOTE_TARGET_DATABASE>  #  push from SOURCE_DATABASE to REMOTE_TARGET_DATABASE\n  pg:reset DATABASE                                   #  delete all data in DATABASE\n  pg:unfollow REPLICA                                 #  stop a replica from following and make it a read/write database\n  pg:upgrade REPLICA                                  #  unfollow a database and upgrade it to the latest stable PostgreSQL version\n  pg:wait [DATABASE]                                  #  monitor database creation, exit when complete\n\n",
     "params": [
       {
         "name": "-a, --app APP",
@@ -2445,6 +2588,42 @@
       {
         "name": "pg:backups [subcommand]",
         "desc": "interact with built-in backups. Without a subcommand, it lists all"
+      },
+      {
+        "name": "pg:backups:cancel [BACKUP_ID]",
+        "desc": "cancel an in-progress backup or restore (default newest)"
+      },
+      {
+        "name": "pg:backups:capture [DATABASE]",
+        "desc": "capture a new backup"
+      },
+      {
+        "name": "pg:backups:delete BACKUP_ID",
+        "desc": "delete a backup"
+      },
+      {
+        "name": "pg:backups:download [BACKUP_ID]",
+        "desc": "downloads database backup"
+      },
+      {
+        "name": "pg:backups:info [BACKUP_ID]",
+        "desc": "get information about a specific backup"
+      },
+      {
+        "name": "pg:backups:restore [BACKUP] [DATABASE]",
+        "desc": "restore a backup (default latest) to a database"
+      },
+      {
+        "name": "pg:backups:schedule [DATABASE]",
+        "desc": "schedule daily backups for given database"
+      },
+      {
+        "name": "pg:backups:schedules",
+        "desc": "pg:backups:unschedule [DATABASE]                    #  stop daily backups"
+      },
+      {
+        "name": "pg:backups:url [BACKUP_ID]",
+        "desc": "get secret but publicly accessible URL of a backup"
       },
       {
         "name": "pg:copy SOURCE TARGET",
@@ -2471,8 +2650,24 @@
         "desc": "create links between data stores.  Without a subcommand, it lists all"
       },
       {
+        "name": "pg:links:create REMOTE DATABASE",
+        "desc": "create a link between data stores"
+      },
+      {
+        "name": "pg:links:destroy DATABASE LINK",
+        "desc": "destroys a link between data stores"
+      },
+      {
         "name": "pg:maintenance <info|run|window> <DATABASE>",
         "desc": "manage maintenance for <DATABASE>"
+      },
+      {
+        "name": "pg:maintenance:run [DATABASE]",
+        "desc": "start maintenance"
+      },
+      {
+        "name": "pg:maintenance:window DATABASE WINDOW",
+        "desc": "set weekly maintenance window"
       },
       {
         "name": "pg:promote DATABASE",
@@ -2516,69 +2711,130 @@
     "name": "pg:backups",
     "usage": "pg:backups [subcommand]",
     "desc": "interact with built-in backups. Without a subcommand, it lists all",
-    "docs": "Usage: heroku pg:backups [subcommand]\n\n interact with built-in backups. Without a subcommand, it lists all\n available backups. The subcommands available are:\n\n  info BACKUP_ID                 # get information about a specific backup\n  capture DATABASE               # capture a new backup\n    --wait-interval SECONDS      # how frequently to poll (to avoid rate-limiting)\n  restore [[BACKUP_ID] DATABASE] # restore a backup (default latest) to a database (default DATABASE_URL)\n    --wait-interval SECONDS      # how frequently to poll (to avoid rate-limiting)\n  public-url BACKUP_ID           # get secret but publicly accessible URL for BACKUP_ID to download it\n    -q, --quiet                  #   Hide expiration message (for use in scripts)\n  cancel [BACKUP_ID]             # cancel an in-progress backup or restore (default newest)\n  delete BACKUP_ID               # delete an existing backup\n  schedule DATABASE              # schedule nightly backups for given database\n    --at '<hour>:00 <timezone>'  #   at a specific (24h clock) hour in the given timezone\n  unschedule SCHEDULE            # stop nightly backups on this schedule\n  schedules                      # list backup schedule\n\n",
+    "docs": "Usage: heroku pg:backups\n\n -a, --app APP                 # app to run command against\n -r, --remote REMOTE           # git remote of app to run command against\n\n",
     "params": [
       {
-        "name": "--wait-interval SECONDS",
-        "desc": "how frequently to poll (to avoid rate-limiting)"
+        "name": "-a, --app APP",
+        "desc": "app to run command against"
       },
       {
-        "name": "--wait-interval SECONDS",
-        "desc": "how frequently to poll (to avoid rate-limiting)"
-      },
-      {
-        "name": "-q, --quiet",
-        "desc": "Hide expiration message (for use in scripts)"
-      },
-      {
-        "name": "--at '<hour>:00 <timezone>'",
-        "desc": "at a specific (24h clock) hour in the given timezone"
+        "name": "-r, --remote REMOTE",
+        "desc": "git remote of app to run command against"
       }
     ],
-    "subcommands": [
-      {
-        "name": "info BACKUP_ID",
-        "desc": "get information about a specific backup"
-      },
-      {
-        "name": "capture DATABASE",
-        "desc": "capture a new backup"
-      },
-      {
-        "name": "restore [[BACKUP_ID] DATABASE]",
-        "desc": "restore a backup (default latest) to a database (default DATABASE_URL)"
-      },
-      {
-        "name": "public-url BACKUP_ID",
-        "desc": "get secret but publicly accessible URL for BACKUP_ID to download it"
-      },
-      {
-        "name": "cancel [BACKUP_ID]",
-        "desc": "cancel an in-progress backup or restore (default newest)"
-      },
-      {
-        "name": "delete BACKUP_ID",
-        "desc": "delete an existing backup"
-      },
-      {
-        "name": "schedule DATABASE",
-        "desc": "schedule nightly backups for given database"
-      },
-      {
-        "name": "unschedule SCHEDULE",
-        "desc": "stop nightly backups on this schedule"
-      },
-      {
-        "name": "schedules",
-        "desc": "list backup schedule"
-      }
-    ]
+    "subcommands": []
   },
-  "info": {
-    "name": "info",
-    "usage": "info BACKUP_ID",
+  "pg:backups:cancel": {
+    "name": "pg:backups:cancel",
+    "usage": "pg:backups:cancel [BACKUP_ID]",
+    "desc": "cancel an in-progress backup or restore (default newest)",
+    "docs": "Usage: heroku pg:backups:cancel [BACKUP_ID]\n\ncancel an in-progress backup or restore (default newest)\n\n -a, --app APP       # app to run command against\n -r, --remote REMOTE # git remote of app to run command against\n\n",
+    "params": [
+      {
+        "name": "-a, --app APP",
+        "desc": "app to run command against"
+      },
+      {
+        "name": "-r, --remote REMOTE",
+        "desc": "git remote of app to run command against"
+      }
+    ],
+    "subcommands": []
+  },
+  "pg:backups:capture": {
+    "name": "pg:backups:capture",
+    "usage": "pg:backups:capture [DATABASE]",
+    "desc": "capture a new backup",
+    "docs": "Usage: heroku pg:backups:capture [DATABASE]\n\ncapture a new backup\n\n -a, --app APP                 # app to run command against\n -r, --remote REMOTE           # git remote of app to run command against\n -v, --verbose\n --wait-interval WAIT-INTERVAL\n\n",
+    "params": [
+      {
+        "name": "-a, --app APP",
+        "desc": "app to run command against"
+      },
+      {
+        "name": "-r, --remote REMOTE",
+        "desc": "git remote of app to run command against"
+      }
+    ],
+    "subcommands": []
+  },
+  "pg:backups:delete": {
+    "name": "pg:backups:delete",
+    "usage": "pg:backups:delete BACKUP_ID",
+    "desc": "delete a backup",
+    "docs": "Usage: heroku pg:backups:delete BACKUP_ID\n\ndelete a backup\n\n -a, --app APP         # app to run command against\n -c, --confirm CONFIRM\n -r, --remote REMOTE   # git remote of app to run command against\n\n",
+    "params": [
+      {
+        "name": "-a, --app APP",
+        "desc": "app to run command against"
+      },
+      {
+        "name": "-r, --remote REMOTE",
+        "desc": "git remote of app to run command against"
+      }
+    ],
+    "subcommands": []
+  },
+  "pg:backups:download": {
+    "name": "pg:backups:download",
+    "usage": "pg:backups:download [BACKUP_ID]",
+    "desc": "downloads database backup",
+    "docs": "Usage: heroku pg:backups:download [BACKUP_ID]\n\ndownloads database backup\n\n -a, --app APP       # app to run command against\n -o, --output OUTPUT # location to download to. Defaults to latest.dump\n -r, --remote REMOTE # git remote of app to run command against\n\n",
+    "params": [
+      {
+        "name": "-a, --app APP",
+        "desc": "app to run command against"
+      },
+      {
+        "name": "-o, --output OUTPUT",
+        "desc": "location to download to. Defaults to latest.dump"
+      },
+      {
+        "name": "-r, --remote REMOTE",
+        "desc": "git remote of app to run command against"
+      }
+    ],
+    "subcommands": []
+  },
+  "pg:backups:info": {
+    "name": "pg:backups:info",
+    "usage": "pg:backups:info [BACKUP_ID]",
     "desc": "get information about a specific backup",
-    "docs": "Usage: heroku info\n\nshow detailed app information\n\n -a, --app APP       # app to run command against\n -j, --json\n -r, --remote REMOTE # git remote of app to run command against\n -s, --shell         # output more shell friendly key/value pairs\n\nExamples:\n\n $ heroku apps:info\n === example\n Git URL:   https://git.heroku.com/example.git\n Repo Size: 5M\n ...\n\n $ heroku apps:info --shell\n git_url=https://git.heroku.com/example.git\n repo_size=5000000\n ...\n\n",
+    "docs": "Usage: heroku pg:backups:info [BACKUP_ID]\n\nget information about a specific backup\n\n -a, --app APP       # app to run command against\n -r, --remote REMOTE # git remote of app to run command against\n\n",
+    "params": [
+      {
+        "name": "-a, --app APP",
+        "desc": "app to run command against"
+      },
+      {
+        "name": "-r, --remote REMOTE",
+        "desc": "git remote of app to run command against"
+      }
+    ],
+    "subcommands": []
+  },
+  "pg:backups:restore": {
+    "name": "pg:backups:restore",
+    "usage": "pg:backups:restore [BACKUP] [DATABASE]",
+    "desc": "restore a backup (default latest) to a database",
+    "docs": "Usage: heroku pg:backups:restore [BACKUP] [DATABASE]\n\nrestore a backup (default latest) to a database\n\n -a, --app APP                 # app to run command against\n -c, --confirm CONFIRM\n -r, --remote REMOTE           # git remote of app to run command against\n -v, --verbose\n --wait-interval WAIT-INTERVAL\n\ndefaults to saving the latest database to DATABASE_URL\n\n",
+    "params": [
+      {
+        "name": "-a, --app APP",
+        "desc": "app to run command against"
+      },
+      {
+        "name": "-r, --remote REMOTE",
+        "desc": "git remote of app to run command against"
+      }
+    ],
+    "subcommands": []
+  },
+  "pg:backups:schedule": {
+    "name": "pg:backups:schedule",
+    "usage": "pg:backups:schedule [DATABASE]",
+    "desc": "schedule daily backups for given database",
+    "docs": "Usage: heroku pg:backups:schedule [DATABASE]\n\nschedule daily backups for given database\n\n -a, --app APP       # app to run command against\n -r, --remote REMOTE # git remote of app to run command against\n --at AT             # at a specific (24h) hour in the given timezone. Defaults to UTC. --at '[HOUR]:00 [TIMEZONE]'\n\n",
     "params": [
       {
         "name": "-a, --app APP",
@@ -2589,8 +2845,42 @@
         "desc": "git remote of app to run command against"
       },
       {
-        "name": "-s, --shell",
-        "desc": "output more shell friendly key/value pairs"
+        "name": "--at AT",
+        "desc": "at a specific (24h) hour in the given timezone. Defaults to UTC. --at '[HOUR]:00 [TIMEZONE]'"
+      }
+    ],
+    "subcommands": []
+  },
+  "pg:backups:schedules": {
+    "name": "pg:backups:schedules",
+    "usage": "pg:backups:schedules",
+    "desc": "pg:backups:unschedule [DATABASE]                    #  stop daily backups",
+    "docs": "Usage: heroku pg:backups:schedules\n\n -a, --app APP       # app to run command against\n -r, --remote REMOTE # git remote of app to run command against\n\n",
+    "params": [
+      {
+        "name": "-a, --app APP",
+        "desc": "app to run command against"
+      },
+      {
+        "name": "-r, --remote REMOTE",
+        "desc": "git remote of app to run command against"
+      }
+    ],
+    "subcommands": []
+  },
+  "pg:backups:url": {
+    "name": "pg:backups:url",
+    "usage": "pg:backups:url [BACKUP_ID]",
+    "desc": "get secret but publicly accessible URL of a backup",
+    "docs": "Usage: heroku pg:backups:url [BACKUP_ID]\n\nget secret but publicly accessible URL of a backup\n\n -a, --app APP       # app to run command against\n -r, --remote REMOTE # git remote of app to run command against\n\n",
+    "params": [
+      {
+        "name": "-a, --app APP",
+        "desc": "app to run command against"
+      },
+      {
+        "name": "-r, --remote REMOTE",
+        "desc": "git remote of app to run command against"
       }
     ],
     "subcommands": []
@@ -2599,11 +2889,15 @@
     "name": "pg:copy",
     "usage": "pg:copy SOURCE TARGET",
     "desc": "pg:credentials DATABASE                             #  display the DATABASE credentials.",
-    "docs": "Usage: heroku pg:copy SOURCE TARGET\n\n   --wait-interval SECONDS      # how frequently to poll (to avoid rate-limiting)\n\n copy all data from source database to target. At least one of\n these must be a Heroku Postgres database.\n\n",
+    "docs": "Usage: heroku pg:copy SOURCE TARGET\n\ncopy all data from source db to target\n\n -a, --app APP                 # app to run command against\n -r, --remote REMOTE           # git remote of app to run command against\n --confirm CONFIRM\n --verbose\n --wait-interval WAIT-INTERVAL\n\nat least one of the databases must be a Heroku PostgreSQL DB\n\n",
     "params": [
       {
-        "name": "--wait-interval SECONDS",
-        "desc": "how frequently to poll (to avoid rate-limiting)"
+        "name": "-a, --app APP",
+        "desc": "app to run command against"
+      },
+      {
+        "name": "-r, --remote REMOTE",
+        "desc": "git remote of app to run command against"
       }
     ],
     "subcommands": []
@@ -2612,8 +2906,17 @@
     "name": "pg:diagnose",
     "usage": "pg:diagnose [DATABASE|REPORT_ID]",
     "desc": "run diagnostics report on DATABASE",
-    "docs": "Usage: heroku pg:diagnose [DATABASE|REPORT_ID]\n\n run diagnostics report on DATABASE\n\n defaults to DATABASE_URL databases if no DATABASE is specified\n if REPORT_ID is specified instead, a previous report is displayed\n\n",
-    "params": [],
+    "docs": "Usage: heroku pg:diagnose [DATABASE|REPORT_ID]\n\nrun or view diagnostics report\n\n -a, --app APP       # app to run command against\n -r, --remote REMOTE # git remote of app to run command against\n\ndefaults to DATABASE_URL database if no DATABASE is specified\nif REPORT_ID is specified instead, a previous report is displayed\n\n",
+    "params": [
+      {
+        "name": "-a, --app APP",
+        "desc": "app to run command against"
+      },
+      {
+        "name": "-r, --remote REMOTE",
+        "desc": "git remote of app to run command against"
+      }
+    ],
     "subcommands": []
   },
   "pg:info": {
@@ -2637,11 +2940,15 @@
     "name": "pg:kill",
     "usage": "pg:kill pid [DATABASE]",
     "desc": "kill a query",
-    "docs": "Usage: heroku pg:kill pid [DATABASE]\n\n kill a query\n\n -f,--force  # terminates the connection in addition to cancelling the query\n\n",
+    "docs": "Usage: heroku pg:kill PID [DATABASE]\n\nkill a query\n\n -a, --app APP       # app to run command against\n -f, --force\n -r, --remote REMOTE # git remote of app to run command against\n\n",
     "params": [
       {
-        "name": "-f,--force",
-        "desc": "terminates the connection in addition to cancelling the query"
+        "name": "-a, --app APP",
+        "desc": "app to run command against"
+      },
+      {
+        "name": "-r, --remote REMOTE",
+        "desc": "git remote of app to run command against"
       }
     ],
     "subcommands": []
@@ -2650,82 +2957,62 @@
     "name": "pg:killall",
     "usage": "pg:killall [DATABASE]",
     "desc": "terminates ALL connections",
-    "docs": "Usage: heroku pg:killall [DATABASE]\n\n terminates ALL connections\n\n",
-    "params": [],
+    "docs": "Usage: heroku pg:killall [DATABASE]\n\nterminates all connections\n\n -a, --app APP       # app to run command against\n -r, --remote REMOTE # git remote of app to run command against\n\n",
+    "params": [
+      {
+        "name": "-a, --app APP",
+        "desc": "app to run command against"
+      },
+      {
+        "name": "-r, --remote REMOTE",
+        "desc": "git remote of app to run command against"
+      }
+    ],
     "subcommands": []
   },
   "pg:links": {
     "name": "pg:links",
     "usage": "pg:links <create|destroy>",
     "desc": "create links between data stores.  Without a subcommand, it lists all",
-    "docs": "Usage: heroku pg:links <create|destroy>\n\n create links between data stores.  Without a subcommand, it lists all\n databases and information on the link.\n\n create <REMOTE> <LOCAL>   # Create a data link\n   --as <LINK>              # override the default link name\n destroy <LOCAL> <LINK>    # Destroy a data link between a local and remote database\n\n",
+    "docs": "Usage: heroku pg:links [DATABASE]\n\nlists all datbases and information on link\n\n -a, --app APP       # app to run command against\n -r, --remote REMOTE # git remote of app to run command against\n\n",
     "params": [
       {
-        "name": "--as <LINK>",
-        "desc": "override the default link name"
-      }
-    ],
-    "subcommands": [
-      {
-        "name": "create <REMOTE> <LOCAL>",
-        "desc": "Create a data link"
-      },
-      {
-        "name": "destroy <LOCAL> <LINK>",
-        "desc": "Destroy a data link between a local and remote database"
-      }
-    ]
-  },
-  "create": {
-    "name": "create",
-    "usage": "create <REMOTE> <LOCAL>",
-    "desc": "Create a data link",
-    "docs": "Alias: create redirects to apps:create\nUsage: heroku apps:create [APP]\n\ncreate a new app\n\n -b, --buildpack BUILDPACK # buildpack url to use for this app\n -n, --no-remote           # do not create a git remote\n -o, --org ORG             # organization to use\n -r, --remote REMOTE       # the git remote to create, default \"heroku\"\n -s, --stack STACK         # the stack to create the app on\n --addons ADDONS           # comma-delimited list of addons to install\n --region REGION           # specify region for the app to run in\n --space SPACE             # the private space to create the app in\n --ssh-git                 # use SSH git protocol for local git remote\n\nExamples:\n\n $ heroku apps:create\n Creating app... done, stack is cedar-14\n https://floating-dragon-42.heroku.com/ | https://git.heroku.com/floating-dragon-42.git\n\n # or just\n $ heroku create\n\n # specify a buildpack\n $ heroku apps:create --buildpack https://github.com/some/buildpack.git\n\n # specify a name\n $ heroku apps:create example\n\n # create a staging app\n $ heroku apps:create example-staging --remote staging\n\n # create an app in the eu region\n $ heroku apps:create --region eu\n\n",
-    "params": [
-      {
-        "name": "-b, --buildpack BUILDPACK",
-        "desc": "buildpack url to use for this app"
-      },
-      {
-        "name": "-n, --no-remote",
-        "desc": "do not create a git remote"
-      },
-      {
-        "name": "-o, --org ORG",
-        "desc": "organization to use"
+        "name": "-a, --app APP",
+        "desc": "app to run command against"
       },
       {
         "name": "-r, --remote REMOTE",
-        "desc": "the git remote to create, default \"heroku\""
-      },
-      {
-        "name": "-s, --stack STACK",
-        "desc": "the stack to create the app on"
-      },
-      {
-        "name": "--addons ADDONS",
-        "desc": "comma-delimited list of addons to install"
-      },
-      {
-        "name": "--region REGION",
-        "desc": "specify region for the app to run in"
-      },
-      {
-        "name": "--space SPACE",
-        "desc": "the private space to create the app in"
-      },
-      {
-        "name": "--ssh-git",
-        "desc": "use SSH git protocol for local git remote"
+        "desc": "git remote of app to run command against"
       }
     ],
     "subcommands": []
   },
-  "destroy": {
-    "name": "destroy",
-    "usage": "destroy <LOCAL> <LINK>",
-    "desc": "Destroy a data link between a local and remote database",
-    "docs": "Alias: destroy redirects to apps:destroy\nUsage: heroku apps:destroy\n\npermanently destroy an app\n\n -a, --app APP         # app to run command against\n -c, --confirm CONFIRM\n -r, --remote REMOTE   # git remote of app to run command against\n\nThis will also destroy all add-ons on the app.\n\n",
+  "pg:links:create": {
+    "name": "pg:links:create",
+    "usage": "pg:links:create REMOTE DATABASE",
+    "desc": "create a link between data stores",
+    "docs": "Usage: heroku pg:links:create REMOTE DATABASE\n\ncreate a link between data stores\n\n -a, --app APP       # app to run command against\n -r, --remote REMOTE # git remote of app to run command against\n --as AS             # name of link to create\n\nExample:\n  heroku pg:links:create HEROKU_REDIS_RED HEROKU_POSTGRESQL_CERULEAN\n\n",
+    "params": [
+      {
+        "name": "-a, --app APP",
+        "desc": "app to run command against"
+      },
+      {
+        "name": "-r, --remote REMOTE",
+        "desc": "git remote of app to run command against"
+      },
+      {
+        "name": "--as AS",
+        "desc": "name of link to create"
+      }
+    ],
+    "subcommands": []
+  },
+  "pg:links:destroy": {
+    "name": "pg:links:destroy",
+    "usage": "pg:links:destroy DATABASE LINK",
+    "desc": "destroys a link between data stores",
+    "docs": "Usage: heroku pg:links:destroy DATABASE LINK\n\ndestroys a link between data stores\n\n -a, --app APP         # app to run command against\n -c, --confirm CONFIRM\n -r, --remote REMOTE   # git remote of app to run command against\n\nExample:\n  heroku pg:links:destroy HEROKU_POSTGRESQL_CERULEAN redis-symmetrical-100\n\n",
     "params": [
       {
         "name": "-a, --app APP",
@@ -2742,45 +3029,83 @@
     "name": "pg:maintenance",
     "usage": "pg:maintenance <info|run|window> <DATABASE>",
     "desc": "manage maintenance for <DATABASE>",
-    "docs": "Usage: heroku pg:maintenance <info|run|window> <DATABASE>\n\n manage maintenance for <DATABASE>\n info               # show current maintenance information\n run                # start maintenance\n   -f, --force      #   run pg:maintenance without entering application maintenance mode\n window=\"<window>\"  # set weekly UTC maintenance window for DATABASE\n                     # eg: `heroku pg:maintenance window=\"Sunday 14:30\"`\n\n",
+    "docs": "Usage: heroku pg:maintenance [DATABASE]\n\nshow current maintenance information\n\n -a, --app APP       # app to run command against\n -r, --remote REMOTE # git remote of app to run command against\n\n",
     "params": [
       {
-        "name": "-f, --force",
-        "desc": "run pg:maintenance without entering application maintenance mode"
+        "name": "-a, --app APP",
+        "desc": "app to run command against"
+      },
+      {
+        "name": "-r, --remote REMOTE",
+        "desc": "git remote of app to run command against"
       }
     ],
-    "subcommands": [
+    "subcommands": []
+  },
+  "pg:maintenance:run": {
+    "name": "pg:maintenance:run",
+    "usage": "pg:maintenance:run [DATABASE]",
+    "desc": "start maintenance",
+    "docs": "Usage: heroku pg:maintenance:run [DATABASE]\n\nstart maintenance\n\n -a, --app APP       # app to run command against\n -f, --force\n -r, --remote REMOTE # git remote of app to run command against\n\n",
+    "params": [
       {
-        "name": "info",
-        "desc": "show current maintenance information"
+        "name": "-a, --app APP",
+        "desc": "app to run command against"
       },
       {
-        "name": "run",
-        "desc": "start maintenance"
-      },
-      {
-        "name": "window=\"<window>\"",
-        "desc": "set weekly UTC maintenance window for DATABASE"
+        "name": "-r, --remote REMOTE",
+        "desc": "git remote of app to run command against"
       }
-    ]
+    ],
+    "subcommands": []
+  },
+  "pg:maintenance:window": {
+    "name": "pg:maintenance:window",
+    "usage": "pg:maintenance:window DATABASE WINDOW",
+    "desc": "set weekly maintenance window",
+    "docs": "Usage: heroku pg:maintenance:window DATABASE WINDOW\n\nset weekly maintenance window\n\n -a, --app APP       # app to run command against\n -r, --remote REMOTE # git remote of app to run command against\n\nAll times are in UTC.\n\nExample:\n  heroku pg:maintenance:window postgres-slippery-100 \"Sunday 06:00\"\n\n",
+    "params": [
+      {
+        "name": "-a, --app APP",
+        "desc": "app to run command against"
+      },
+      {
+        "name": "-r, --remote REMOTE",
+        "desc": "git remote of app to run command against"
+      }
+    ],
+    "subcommands": []
   },
   "pg:promote": {
     "name": "pg:promote",
     "usage": "pg:promote DATABASE",
     "desc": "sets DATABASE as your DATABASE_URL",
-    "docs": "Usage: heroku pg:promote DATABASE\n\n sets DATABASE as your DATABASE_URL\n\n",
-    "params": [],
+    "docs": "Usage: heroku pg:promote DATABASE\n\nsets DATABASE as your DATABASE_URL\n\n -a, --app APP       # app to run command against\n -r, --remote REMOTE # git remote of app to run command against\n\n",
+    "params": [
+      {
+        "name": "-a, --app APP",
+        "desc": "app to run command against"
+      },
+      {
+        "name": "-r, --remote REMOTE",
+        "desc": "git remote of app to run command against"
+      }
+    ],
     "subcommands": []
   },
   "pg:ps": {
     "name": "pg:ps",
     "usage": "pg:ps [DATABASE]",
     "desc": "view active queries with execution time",
-    "docs": "Usage: heroku pg:ps [DATABASE]\n\n view active queries with execution time\n\n   -v,--verbose # also show idle connections\n\n",
+    "docs": "Usage: heroku pg:ps [DATABASE]\n\nview active queries with execution time\n\n -a, --app APP       # app to run command against\n -r, --remote REMOTE # git remote of app to run command against\n -v, --verbose\n\n",
     "params": [
       {
-        "name": "-v,--verbose",
-        "desc": "also show idle connections"
+        "name": "-a, --app APP",
+        "desc": "app to run command against"
+      },
+      {
+        "name": "-r, --remote REMOTE",
+        "desc": "git remote of app to run command against"
       }
     ],
     "subcommands": []
@@ -2789,11 +3114,19 @@
     "name": "pg:psql",
     "usage": "pg:psql [DATABASE]",
     "desc": "open a psql shell to the database",
-    "docs": "Usage: heroku pg:psql [DATABASE]\n\n open a psql shell to the database\n\n  -c, --command COMMAND      # optional SQL command to run\n\n defaults to DATABASE_URL databases if no DATABASE is specified\n\n",
+    "docs": "Usage: heroku pg:psql [DATABASE]\n\nopen a psql shell to the database\n\n -a, --app APP         # app to run command against\n -c, --command COMMAND # SQL command to run\n -r, --remote REMOTE   # git remote of app to run command against\n\n",
     "params": [
       {
+        "name": "-a, --app APP",
+        "desc": "app to run command against"
+      },
+      {
         "name": "-c, --command COMMAND",
-        "desc": "optional SQL command to run"
+        "desc": "SQL command to run"
+      },
+      {
+        "name": "-r, --remote REMOTE",
+        "desc": "git remote of app to run command against"
       }
     ],
     "subcommands": []
@@ -2802,40 +3135,85 @@
     "name": "pg:pull",
     "usage": "pg:pull <REMOTE_SOURCE_DATABASE> <TARGET_DATABASE>",
     "desc": "pull from REMOTE_SOURCE_DATABASE to TARGET_DATABASE",
-    "docs": "Usage: heroku pg:pull <REMOTE_SOURCE_DATABASE> <TARGET_DATABASE>\n\n pull from REMOTE_SOURCE_DATABASE to TARGET_DATABASE\n TARGET_DATABASE must not already exist.\n\n TARGET_DATABASE will be created locally if it's a database name\n or remotely if it's a fully qualified URL.\n\n",
-    "params": [],
+    "docs": "Usage: heroku pg:pull SOURCE TARGET\n\npull Heroku database into local or remote database\n\n -a, --app APP       # app to run command against\n -r, --remote REMOTE # git remote of app to run command against\n\nPull from SOURCE into TARGET. TARGET must not already exist.\n\nTo delete a local database run `dropdb TARGET`\n\nTARGET will be created locally if it's a database name or remotely if it's a fully qualified URL.\n\nExamples:\n\n  # pull Heroku DB named postgresql-swimmingly-100 into local DB mylocaldb\n  $ heroku pg:push postgresql-swimmingly-100 mylocaldb\n\n  # pull Heroku DB named postgresql-swimmingly-100 into remote DB at postgres://myhost/mydb\n  $ heroku pg:push postgresql-swimmingly-100 postgres://myhost/mydb\n\n",
+    "params": [
+      {
+        "name": "-a, --app APP",
+        "desc": "app to run command against"
+      },
+      {
+        "name": "-r, --remote REMOTE",
+        "desc": "git remote of app to run command against"
+      }
+    ],
     "subcommands": []
   },
   "pg:push": {
     "name": "pg:push",
     "usage": "pg:push <SOURCE_DATABASE> <REMOTE_TARGET_DATABASE>",
     "desc": "push from SOURCE_DATABASE to REMOTE_TARGET_DATABASE",
-    "docs": "Usage: heroku pg:push <SOURCE_DATABASE> <REMOTE_TARGET_DATABASE>\n\n push from SOURCE_DATABASE to REMOTE_TARGET_DATABASE\n REMOTE_TARGET_DATABASE must be empty.\n\n SOURCE_DATABASE must be either the name of a database\n existing on your localhost or the fully qualified URL of\n a remote database.\n\n",
-    "params": [],
+    "docs": "Usage: heroku pg:push SOURCE TARGET\n\npush local or remote into Heroku database\n\n -a, --app APP       # app to run command against\n -r, --remote REMOTE # git remote of app to run command against\n\nPush from SOURCE into TARGET. TARGET must not already exist.\n\nTo empty a Heroku database for import run 'heroku pg:reset'\n\nSOURCE must be either the name of a database existing on your localhost or the\nfully qualified URL of a remote database.\n\nExamples:\n\n  # push mylocaldb into a Heroku DB named postgresql-swimmingly-100\n  $ heroku pg:push mylocaldb postgresql-swimmingly-100\n\n  # push remote DB at postgres://myhost/mydb into a Heroku DB named postgresql-swimmingly-100\n  $ heroku pg:push postgres://myhost/mydb postgresql-swimmingly-100\n\n",
+    "params": [
+      {
+        "name": "-a, --app APP",
+        "desc": "app to run command against"
+      },
+      {
+        "name": "-r, --remote REMOTE",
+        "desc": "git remote of app to run command against"
+      }
+    ],
     "subcommands": []
   },
   "pg:reset": {
     "name": "pg:reset",
     "usage": "pg:reset DATABASE",
     "desc": "delete all data in DATABASE",
-    "docs": "Usage: heroku pg:reset DATABASE\n\n delete all data in DATABASE\n\n",
-    "params": [],
+    "docs": "Usage: heroku pg:reset [DATABASE]\n\ndelete all data in DATABASE\n\n -a, --app APP         # app to run command against\n -c, --confirm CONFIRM\n -r, --remote REMOTE   # git remote of app to run command against\n\n",
+    "params": [
+      {
+        "name": "-a, --app APP",
+        "desc": "app to run command against"
+      },
+      {
+        "name": "-r, --remote REMOTE",
+        "desc": "git remote of app to run command against"
+      }
+    ],
     "subcommands": []
   },
   "pg:unfollow": {
     "name": "pg:unfollow",
     "usage": "pg:unfollow REPLICA",
     "desc": "stop a replica from following and make it a read/write database",
-    "docs": "Usage: heroku pg:unfollow REPLICA\n\n stop a replica from following and make it a read/write database\n\n",
-    "params": [],
+    "docs": "Usage: heroku pg:unfollow DATABASE\n\nstop a replica from following and make it a writeable database\n\n -a, --app APP         # app to run command against\n -c, --confirm CONFIRM\n -r, --remote REMOTE   # git remote of app to run command against\n\n",
+    "params": [
+      {
+        "name": "-a, --app APP",
+        "desc": "app to run command against"
+      },
+      {
+        "name": "-r, --remote REMOTE",
+        "desc": "git remote of app to run command against"
+      }
+    ],
     "subcommands": []
   },
   "pg:upgrade": {
     "name": "pg:upgrade",
     "usage": "pg:upgrade REPLICA",
     "desc": "unfollow a database and upgrade it to the latest stable PostgreSQL version",
-    "docs": "Usage: heroku pg:upgrade REPLICA\n\n unfollow a database and upgrade it to the latest stable PostgreSQL version\n\n To upgrade to another PostgreSQL version, use pg:copy instead\n\n",
-    "params": [],
+    "docs": "Usage: heroku pg:upgrade [DATABASE]\n\nunfollow a database and upgrade it to the latest stable PostgreSQL version\n\n -a, --app APP         # app to run command against\n -c, --confirm CONFIRM\n -r, --remote REMOTE   # git remote of app to run command against\n\nto upgrade to another PostgreSQL version, use pg:copy instead\n\n",
+    "params": [
+      {
+        "name": "-a, --app APP",
+        "desc": "app to run command against"
+      },
+      {
+        "name": "-r, --remote REMOTE",
+        "desc": "git remote of app to run command against"
+      }
+    ],
     "subcommands": []
   },
   "pg:wait": {
@@ -2857,6 +3235,80 @@
         "desc": "how frequently to poll in seconds (to avoid rate limiting)"
       }
     ],
+    "subcommands": []
+  },
+  "pgbackups": {
+    "name": "pgbackups",
+    "usage": "pgbackups",
+    "desc": "manage backups of heroku postgresql databases",
+    "docs": "Usage: heroku pgbackups\n\n list captured backups\n\nAdditional commands, type \"heroku help COMMAND\" for more details:\n\n  pgbackups:capture [DATABASE]                               #  capture a backup from a database id\n  pgbackups:destroy BACKUP_ID                                #  destroys a backup\n  pgbackups:restore [<DATABASE> [BACKUP_ID|BACKUP_URL]]      #  restore a backup to a database\n  pgbackups:transfer [SOURCE DATABASE] DESTINATION DATABASE  #  direct database-to-database transfer\n  pgbackups:url [BACKUP_ID]                                  #  get a temporary URL for a backup\n\n",
+    "params": [],
+    "subcommands": [
+      {
+        "name": "pgbackups:capture [DATABASE]",
+        "desc": "capture a backup from a database id"
+      },
+      {
+        "name": "pgbackups:destroy BACKUP_ID",
+        "desc": "destroys a backup"
+      },
+      {
+        "name": "pgbackups:restore [<DATABASE> [BACKUP_ID|BACKUP_URL]]",
+        "desc": "restore a backup to a database"
+      },
+      {
+        "name": "pgbackups:transfer [SOURCE DATABASE] DESTINATION DATABASE",
+        "desc": "direct database-to-database transfer"
+      },
+      {
+        "name": "pgbackups:url [BACKUP_ID]",
+        "desc": "get a temporary URL for a backup"
+      }
+    ]
+  },
+  "pgbackups:capture": {
+    "name": "pgbackups:capture",
+    "usage": "pgbackups:capture [DATABASE]",
+    "desc": "capture a backup from a database id",
+    "docs": "Usage: heroku pgbackups:capture [DATABASE]\n\n capture a backup from a database id\n\n if no DATABASE is specified, defaults to DATABASE_URL\n\n -e, --expire  # if no slots are available, destroy the oldest manual backup to make room\n\n",
+    "params": [
+      {
+        "name": "-e, --expire",
+        "desc": "if no slots are available, destroy the oldest manual backup to make room"
+      }
+    ],
+    "subcommands": []
+  },
+  "pgbackups:destroy": {
+    "name": "pgbackups:destroy",
+    "usage": "pgbackups:destroy BACKUP_ID",
+    "desc": "destroys a backup",
+    "docs": "Usage: heroku pgbackups:destroy BACKUP_ID\n\n destroys a backup\n\n",
+    "params": [],
+    "subcommands": []
+  },
+  "pgbackups:restore": {
+    "name": "pgbackups:restore",
+    "usage": "pgbackups:restore [<DATABASE> [BACKUP_ID|BACKUP_URL]]",
+    "desc": "restore a backup to a database",
+    "docs": "Usage: heroku pgbackups:restore [<DATABASE> [BACKUP_ID|BACKUP_URL]]\n\n restore a backup to a database\n\n if no DATABASE is specified, defaults to DATABASE_URL and latest backup\n if DATABASE is specified, but no BACKUP_ID, defaults to latest backup\n\n",
+    "params": [],
+    "subcommands": []
+  },
+  "pgbackups:transfer": {
+    "name": "pgbackups:transfer",
+    "usage": "pgbackups:transfer [SOURCE DATABASE] DESTINATION DATABASE",
+    "desc": "direct database-to-database transfer",
+    "docs": "Usage: heroku pgbackups:transfer [SOURCE DATABASE] DESTINATION DATABASE\n\n direct database-to-database transfer\n\n If no DATABASE is specified, defaults to DATABASE_URL.\n The pgbackups add-on is required to use direct transfers\n\nExample:\n\n$ heroku pgbackups:transfer green teal --app example\n\n note that both the FROM and TO database must be accessible to the pgbackups service\n$ heroku pgbackups:transfer DATABASE postgres://user:password@host/dbname --app example\n\n",
+    "params": [],
+    "subcommands": []
+  },
+  "pgbackups:url": {
+    "name": "pgbackups:url",
+    "usage": "pgbackups:url [BACKUP_ID]",
+    "desc": "get a temporary URL for a backup",
+    "docs": "Usage: heroku pgbackups:url [BACKUP_ID]\n\n get a temporary URL for a backup\n\n",
+    "params": [],
     "subcommands": []
   },
   "pipelines": {
@@ -3401,36 +3853,36 @@
   "repo": {
     "name": "repo",
     "usage": "repo",
-    "desc": "Slug manipulation",
-    "docs": "Additional commands, type \"heroku help COMMAND\" for more details:\n\n  repo:clone        #  Sets the bare repo for immediate consumption\n  repo:download     #  Download the repository\n  repo:gc           #  Run a git gc --agressive on the applications repository\n  repo:purge-cache  #  Deletes the contents the build cache in the repository\n  repo:reset        #  Reset the repo\n\n",
+    "desc": "repository manipulation",
+    "docs": "Additional commands, type \"heroku help COMMAND\" for more details:\n\n  repo:clone                #  sets the bare repo for immediate consumption\n  repo:download [FILENAME]  #  download the repo\n  repo:gc                   #  run a git gc --aggressive on an application's repository\n  repo:purge_cache          #  deletes the contents the build cache in the repository\n  repo:reset                #  reset the repo\n\n",
     "params": [],
     "subcommands": [
       {
         "name": "repo:clone",
-        "desc": "Sets the bare repo for immediate consumption"
+        "desc": "sets the bare repo for immediate consumption"
       },
       {
-        "name": "repo:download",
-        "desc": "Download the repository"
+        "name": "repo:download [FILENAME]",
+        "desc": "download the repo"
       },
       {
         "name": "repo:gc",
-        "desc": "Run a git gc --agressive on the applications repository"
+        "desc": "run a git gc --aggressive on an application's repository"
       },
       {
-        "name": "repo:purge-cache",
-        "desc": "Deletes the contents the build cache in the repository"
+        "name": "repo:purge_cache",
+        "desc": "deletes the contents the build cache in the repository"
       },
       {
         "name": "repo:reset",
-        "desc": "Reset the repo"
+        "desc": "reset the repo"
       }
     ]
   },
   "repo:clone": {
     "name": "repo:clone",
     "usage": "repo:clone",
-    "desc": "Sets the bare repo for immediate consumption",
+    "desc": "sets the bare repo for immediate consumption",
     "docs": "Usage: heroku repo:clone\n\nsets the bare repo for immediate consumption\n\n -a, --app APP       # app to run command against\n -r, --remote REMOTE # git remote of app to run command against\n\n",
     "params": [
       {
@@ -3446,8 +3898,8 @@
   },
   "repo:download": {
     "name": "repo:download",
-    "usage": "repo:download",
-    "desc": "Download the repository",
+    "usage": "repo:download [FILENAME]",
+    "desc": "download the repo",
     "docs": "Usage: heroku repo:download [FILENAME]\n\ndownload the repo\n\n -a, --app APP       # app to run command against\n -r, --remote REMOTE # git remote of app to run command against\n\n",
     "params": [
       {
@@ -3464,7 +3916,7 @@
   "repo:gc": {
     "name": "repo:gc",
     "usage": "repo:gc",
-    "desc": "Run a git gc --agressive on the applications repository",
+    "desc": "run a git gc --aggressive on an application's repository",
     "docs": "Usage: heroku repo:gc\n\nrun a git gc --aggressive on an application's repository\n\n -a, --app APP       # app to run command against\n -r, --remote REMOTE # git remote of app to run command against\n\n",
     "params": [
       {
@@ -3478,11 +3930,11 @@
     ],
     "subcommands": []
   },
-  "repo:purge-cache": {
-    "name": "repo:purge-cache",
-    "usage": "repo:purge-cache",
-    "desc": "Deletes the contents the build cache in the repository",
-    "docs": "Alias: repo:purge-cache redirects to repo:purge_cache\nUsage: heroku repo:purge_cache\n\ndeletes the contents the build cache in the repository\n\n -a, --app APP       # app to run command against\n -r, --remote REMOTE # git remote of app to run command against\n\n",
+  "repo:purge_cache": {
+    "name": "repo:purge_cache",
+    "usage": "repo:purge_cache",
+    "desc": "deletes the contents the build cache in the repository",
+    "docs": "Usage: heroku repo:purge_cache\n\ndeletes the contents the build cache in the repository\n\n -a, --app APP       # app to run command against\n -r, --remote REMOTE # git remote of app to run command against\n\n",
     "params": [
       {
         "name": "-a, --app APP",
@@ -3498,7 +3950,7 @@
   "repo:reset": {
     "name": "repo:reset",
     "usage": "repo:reset",
-    "desc": "Reset the repo",
+    "desc": "reset the repo",
     "docs": "Usage: heroku repo:reset\n\nreset the repo\n\n -a, --app APP       # app to run command against\n -r, --remote REMOTE # git remote of app to run command against\n\n",
     "params": [
       {
@@ -3516,7 +3968,7 @@
     "name": "spaces",
     "usage": "spaces",
     "desc": "manage heroku private spaces",
-    "docs": "Usage: heroku spaces\n\nlist available spaces\n\n -o, --org ORG       # organization to use\n --json              # output in json format\n\nAdditional commands, type \"heroku help COMMAND\" for more details:\n\n  spaces:create   #  create a new space\n  spaces:destroy  #  destroy a space\n  spaces:info     #  show info about a space\n  spaces:rename   #  renames a space\n  spaces:wait     #  wait for a space to be created\n\n",
+    "docs": "Usage: heroku spaces\n\nlist available spaces\n\n -o, --org ORG       # organization to use\n --json              # output in json format\n\nAdditional commands, type \"heroku help COMMAND\" for more details:\n\n  spaces:create            #  create a new space\n  spaces:destroy           #  destroy a space\n  spaces:info              #  show info about a space\n  spaces:peering:info      #  display the information necessary to initiate a peering connection\n  spaces:peerings          #  list peering connections for a space\n  spaces:peerings:accept   #  accepts a pending peering request for a private space\n  spaces:peerings:destroy  #  destroys an active peering connection in a private space\n  spaces:rename            #  renames a space\n  spaces:vpn:config        #  display the configuration information for VPN\n  spaces:vpn:create        #  create VPN\n  spaces:vpn:destroy       #  destroys VPN in a private space\n  spaces:vpn:info          #  display the information for VPN\n  spaces:vpn:wait          #  wait for VPN to be created\n  spaces:wait              #  wait for a space to be created\n\n",
     "params": [
       {
         "name": "-o, --org ORG",
@@ -3541,8 +3993,44 @@
         "desc": "show info about a space"
       },
       {
+        "name": "spaces:peering:info",
+        "desc": "display the information necessary to initiate a peering connection"
+      },
+      {
+        "name": "spaces:peerings",
+        "desc": "list peering connections for a space"
+      },
+      {
+        "name": "spaces:peerings:accept",
+        "desc": "accepts a pending peering request for a private space"
+      },
+      {
+        "name": "spaces:peerings:destroy",
+        "desc": "destroys an active peering connection in a private space"
+      },
+      {
         "name": "spaces:rename",
         "desc": "renames a space"
+      },
+      {
+        "name": "spaces:vpn:config",
+        "desc": "display the configuration information for VPN"
+      },
+      {
+        "name": "spaces:vpn:create",
+        "desc": "create VPN"
+      },
+      {
+        "name": "spaces:vpn:destroy",
+        "desc": "destroys VPN in a private space"
+      },
+      {
+        "name": "spaces:vpn:info",
+        "desc": "display the information for VPN"
+      },
+      {
+        "name": "spaces:vpn:wait",
+        "desc": "wait for VPN to be created"
       },
       {
         "name": "spaces:wait",
@@ -3605,6 +4093,78 @@
     ],
     "subcommands": []
   },
+  "spaces:peering:info": {
+    "name": "spaces:peering:info",
+    "usage": "spaces:peering:info",
+    "desc": "display the information necessary to initiate a peering connection",
+    "docs": "Usage: heroku spaces:peering:info\n\ndisplay the information necessary to initiate a peering connection\n\n -s, --space SPACE   # space to get peering info from\n --json              # output in json format\n\nExample:\n  $ heroku spaces:peering:info example-space\n  === example-space Peering Info\n  AWS Account ID:    012345678910\n  AWS Region:        us-west-2\n  AWS VPC ID:        vpc-baadf00d\n  AWS VPC CIDR:      10.0.0.0/16\n  Dyno CIDRs:        10.0.128.0/20, 10.0.144.0/20\n  Unavailable CIDRs: 10.1.0.0/16\n\nYou will use the information provied by this command to establish a peering connection request from your AWS VPC to your private space.\n\nTo start the peering process, go into your AWS console for the VPC you would like peered with your Private Space,\nnavigate to the VPC service, choose the \"Peering Connections\" option and click the \"Create peering connection\" button.\n\n- The AWS Account ID and VPC ID are necessary for the AWS VPC Peering connection wizard.\n- You will also need to configure your VPC route table to route the Dyno CIDRs through the peering connection.\n\nOnce you've established the peering connection request, you can use the spaces:peerings:accept command to accept and\nconfigure the peering connection for the space.\n\n",
+    "params": [
+      {
+        "name": "-s, --space SPACE",
+        "desc": "space to get peering info from"
+      },
+      {
+        "name": "--json",
+        "desc": "output in json format"
+      }
+    ],
+    "subcommands": []
+  },
+  "spaces:peerings": {
+    "name": "spaces:peerings",
+    "usage": "spaces:peerings",
+    "desc": "list peering connections for a space",
+    "docs": "Usage: heroku spaces:peerings\n\nlist peering connections for a space\n\n -s, --space SPACE   # space to get peer list from\n --json              # output in json format\n\n",
+    "params": [
+      {
+        "name": "-s, --space SPACE",
+        "desc": "space to get peer list from"
+      },
+      {
+        "name": "--json",
+        "desc": "output in json format"
+      }
+    ],
+    "subcommands": []
+  },
+  "spaces:peerings:accept": {
+    "name": "spaces:peerings:accept",
+    "usage": "spaces:peerings:accept",
+    "desc": "accepts a pending peering request for a private space",
+    "docs": "Usage: heroku spaces:peerings:accept\n\naccepts a pending peering request for a private space\n\n -p, --pcxid PCXID   # PCX ID of a pending peering\n -s, --space SPACE   # space to get peering info from\n\nExample:\n  $ heroku spaces:peerings:accept pcx-4bd27022 --space example-space\n  Accepting and configuring peering connection pcx-4bd27022\n\n",
+    "params": [
+      {
+        "name": "-p, --pcxid PCXID",
+        "desc": "PCX ID of a pending peering"
+      },
+      {
+        "name": "-s, --space SPACE",
+        "desc": "space to get peering info from"
+      }
+    ],
+    "subcommands": []
+  },
+  "spaces:peerings:destroy": {
+    "name": "spaces:peerings:destroy",
+    "usage": "spaces:peerings:destroy",
+    "desc": "destroys an active peering connection in a private space",
+    "docs": "Usage: heroku spaces:peerings:destroy\n\ndestroys an active peering connection in a private space\n\n -p, --pcxid PCXID   # PCX ID of a pending peering\n -s, --space SPACE   # space to get peering info from\n --confirm CONFIRM   # set to PCX ID to bypass confirm prompt\n\nExample:\n  $ heroku peerings:destroy pcx-4bd27022 --confirm pcx-4bd27022 --space example-space\n  Tearing down peering connection pcx-4bd27022\n\n",
+    "params": [
+      {
+        "name": "-p, --pcxid PCXID",
+        "desc": "PCX ID of a pending peering"
+      },
+      {
+        "name": "-s, --space SPACE",
+        "desc": "space to get peering info from"
+      },
+      {
+        "name": "--confirm CONFIRM",
+        "desc": "set to PCX ID to bypass confirm prompt"
+      }
+    ],
+    "subcommands": []
+  },
   "spaces:rename": {
     "name": "spaces:rename",
     "usage": "spaces:rename",
@@ -3618,6 +4178,99 @@
       {
         "name": "--to TO",
         "desc": "desired name of space"
+      }
+    ],
+    "subcommands": []
+  },
+  "spaces:vpn:config": {
+    "name": "spaces:vpn:config",
+    "usage": "spaces:vpn:config",
+    "desc": "display the configuration information for VPN",
+    "docs": "Usage: heroku spaces:vpn:config\n\ndisplay the configuration information for VPN\n\n -s, --space SPACE   # space to get VPN config from\n\nExample:\n  $ heroku spaces:vpn:config my-space\n\n",
+    "params": [
+      {
+        "name": "-s, --space SPACE",
+        "desc": "space to get VPN config from"
+      }
+    ],
+    "subcommands": []
+  },
+  "spaces:vpn:create": {
+    "name": "spaces:vpn:create",
+    "usage": "spaces:vpn:create",
+    "desc": "create VPN",
+    "docs": "Usage: heroku spaces:vpn:create\n\ncreate VPN\n\n -c, --cidrs CIDRS   # a list of routable CIDRs separated by commas\n -i, --ip IP         # public IP of customer gateway\n -s, --space SPACE   # space name\n\nExample:\n  $ heroku spaces:vpn:create --ip 35.161.69.30 --cidrs 172.16.0.0/16,10.0.0.0/24 --space my-space\n  Creating VPN in space my-space... done\n  ▸    Use spaces:vpn:wait to track allocation.\n\n",
+    "params": [
+      {
+        "name": "-c, --cidrs CIDRS",
+        "desc": "a list of routable CIDRs separated by commas"
+      },
+      {
+        "name": "-i, --ip IP",
+        "desc": "public IP of customer gateway"
+      },
+      {
+        "name": "-s, --space SPACE",
+        "desc": "space name"
+      }
+    ],
+    "subcommands": []
+  },
+  "spaces:vpn:destroy": {
+    "name": "spaces:vpn:destroy",
+    "usage": "spaces:vpn:destroy",
+    "desc": "destroys VPN in a private space",
+    "docs": "Usage: heroku spaces:vpn:destroy\n\ndestroys VPN in a private space\n\n -s, --space SPACE   # space to get peering info from\n --confirm CONFIRM   # set to space name bypass confirm prompt\n\nExample:\n  $ heroku spaces:vpn:destroy --confirm --space my-space\n  Tearing down VPN in space my-space\n\n",
+    "params": [
+      {
+        "name": "-s, --space SPACE",
+        "desc": "space to get peering info from"
+      },
+      {
+        "name": "--confirm CONFIRM",
+        "desc": "set to space name bypass confirm prompt"
+      }
+    ],
+    "subcommands": []
+  },
+  "spaces:vpn:info": {
+    "name": "spaces:vpn:info",
+    "usage": "spaces:vpn:info",
+    "desc": "display the information for VPN",
+    "docs": "Usage: heroku spaces:vpn:info\n\ndisplay the information for VPN\n\n -s, --space SPACE   # space to get VPN info from\n --json              # output in json format\n\nExample:\n  $ heroku spaces:vpn:info my-space\n  === my-space VPN Info\n  ID:             123456789012\n  Public IP:      35.161.69.30\n  Routable CIDRs: 172.16.0.0/16\n  State:          available\n  === my-space Tunnel Info\n  VPN Tunnel  IP Address     Status  Status Last Changed   Details\n  ──────────  ─────────────  ──────  ────────────────────  ──────────────\n  Tunnel 1    52.44.146.197  UP      2016-10-25T22:09:05Z  status message\n  Tunnel 2    52.44.146.197  UP      2016-10-25T22:09:05Z  status message\n\n",
+    "params": [
+      {
+        "name": "-s, --space SPACE",
+        "desc": "space to get VPN info from"
+      },
+      {
+        "name": "--json",
+        "desc": "output in json format"
+      }
+    ],
+    "subcommands": []
+  },
+  "spaces:vpn:wait": {
+    "name": "spaces:vpn:wait",
+    "usage": "spaces:vpn:wait",
+    "desc": "wait for VPN to be created",
+    "docs": "Usage: heroku spaces:vpn:wait\n\nwait for VPN to be created\n\n -i, --interval INTERVAL # seconds to wait between poll intervals\n -s, --space SPACE       # space to wait for VPN from\n -t, --timeout TIMEOUT   # maximum number of seconds to wait\n --json                  # output in json format\n\n",
+    "params": [
+      {
+        "name": "-i, --interval INTERVAL",
+        "desc": "seconds to wait between poll intervals"
+      },
+      {
+        "name": "-s, --space SPACE",
+        "desc": "space to wait for VPN from"
+      },
+      {
+        "name": "-t, --timeout TIMEOUT",
+        "desc": "maximum number of seconds to wait"
+      },
+      {
+        "name": "--json",
+        "desc": "output in json format"
       }
     ],
     "subcommands": []

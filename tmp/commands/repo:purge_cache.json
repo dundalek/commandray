@@ -1,7 +1,7 @@
 {
-  "name": "apps:stacks:set",
-  "longname": "apps:stacks:set STACK",
-  "desc": "set the stack of an app",
+  "name": "repo:purge_cache",
+  "usage": "repo:purge_cache",
+  "desc": "deletes the contents the build cache in the repository",
   "params": [
     {
       "name": "-a, --app APP",

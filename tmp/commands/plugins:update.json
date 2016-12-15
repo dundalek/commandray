@@ -1,6 +1,6 @@
 {
   "name": "plugins:update",
-  "longname": "plugins:update [PLUGIN]",
+  "usage": "plugins:update [PLUGIN]",
   "desc": "updates all plugins or a single plugin by name",
   "params": [],
   "subcommands": []

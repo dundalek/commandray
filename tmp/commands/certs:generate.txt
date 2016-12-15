@@ -1,16 +1,24 @@
 Usage: heroku certs:generate DOMAIN
 
- Generate a key and certificate signing request (or self-signed certificate)
- for an app. Prompts for information to put in the certificate unless --now
- is used, or at least one of the --subject, --owner, --country, --area, or
- --city options is specified.
+generate a key and a CSR or self-signed certificate
 
-   --selfsigned              # generate a self-signed certificate instead of a CSR
-   --keysize BITSIZE         # RSA key size in bits (default: 2048)
-   --owner NAME              # name of organization certificate belongs to
-   --country COUNTRY         # country of owner, as a two-letter ISO country code
-   --area AREA               # sub-country area (state, province, etc.) of owner
-   --city CITY               # city of owner
-   --subject SUBJECT         # specify entire certificate subject
-   --now                     # do not prompt for any owner information
+ -a, --app APP       # app to run command against
+ -r, --remote REMOTE # git remote of app to run command against
+ --area AREA         # sub-country area (state, province, etc.) of owner
+ --city CITY         # city of owner
+ --country COUNTRY   # country of owner, as a two-letter ISO country code
+ --keysize KEYSIZE   # RSA key size in bits (default: 2048)
+ --now               # do not prompt for any owner information
+ --owner OWNER       # name of organization certificate belongs to
+ --selfsigned        # generate a self-signed certificate instead of a CSR
+ --subject SUBJECT   # specify entire certificate subject
+
+Generate a key and certificate signing request (or self-signed certificate)
+for an app. Prompts for information to put in the certificate unless --now
+is used, or at least one of the --subject, --owner, --country, --area, or
+--city options is specified.
+
+Example:
+
+ $ heroku certs:generate example.com
 

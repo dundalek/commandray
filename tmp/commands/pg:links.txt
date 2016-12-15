@@ -1,9 +1,7 @@
-Usage: heroku pg:links <create|destroy>
+Usage: heroku pg:links [DATABASE]
 
- create links between data stores.  Without a subcommand, it lists all
- databases and information on the link.
+lists all datbases and information on link
 
- create <REMOTE> <LOCAL>   # Create a data link
-   --as <LINK>              # override the default link name
- destroy <LOCAL> <LINK>    # Destroy a data link between a local and remote database
+ -a, --app APP       # app to run command against
+ -r, --remote REMOTE # git remote of app to run command against
 

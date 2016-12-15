@@ -1,6 +1,6 @@
 {
   "name": "redis:maintenance",
-  "longname": "redis:maintenance [DATABASE]",
+  "usage": "redis:maintenance [DATABASE]",
   "desc": "manage maintenance windows",
   "params": [
     {

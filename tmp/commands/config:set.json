@@ -1,6 +1,6 @@
 {
   "name": "config:set",
-  "longname": "config:set KEY1=VALUE1 [KEY2=VALUE2 ...]",
+  "usage": "config:set KEY1=VALUE1 [KEY2=VALUE2 ...]",
   "desc": "set one or more config vars",
   "params": [
     {

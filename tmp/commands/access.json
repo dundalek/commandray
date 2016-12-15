@@ -1,6 +1,6 @@
 {
   "name": "access",
-  "longname": "access",
+  "usage": "access",
   "desc": "CLI to manage access in Heroku Applications",
   "params": [
     {

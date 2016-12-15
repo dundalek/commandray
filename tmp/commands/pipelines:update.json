@@ -1,6 +1,6 @@
 {
   "name": "pipelines:update",
-  "longname": "pipelines:update",
+  "usage": "pipelines:update",
   "desc": "update this app's stage in a pipeline",
   "params": [
     {

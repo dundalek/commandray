@@ -1,6 +1,6 @@
 {
   "name": "auth:login",
-  "longname": "auth:login",
+  "usage": "auth:login",
   "desc": "log in with your heroku credentials",
   "params": [
     {

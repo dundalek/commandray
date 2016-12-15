@@ -1,6 +1,6 @@
 {
   "name": "apps:stacks",
-  "longname": "apps:stacks",
+  "usage": "apps:stacks",
   "desc": "show the list of available stacks",
   "params": [
     {

@@ -1,0 +1,13 @@
+Usage: heroku spaces:vpn:create
+
+create VPN
+
+ -c, --cidrs CIDRS   # a list of routable CIDRs separated by commas
+ -i, --ip IP         # public IP of customer gateway
+ -s, --space SPACE   # space name
+
+Example:
+  $ heroku spaces:vpn:create --ip 35.161.69.30 --cidrs 172.16.0.0/16,10.0.0.0/24 --space my-space
+  Creating VPN in space my-space... done
+  ▸    Use spaces:vpn:wait to track allocation.
+

@@ -1,6 +1,6 @@
 {
   "name": "releases:rollback",
-  "longname": "releases:rollback [RELEASE]",
+  "usage": "releases:rollback [RELEASE]",
   "desc": "roll back to an older release",
   "params": [
     {

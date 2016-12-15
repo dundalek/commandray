@@ -1,6 +1,6 @@
 {
   "name": "pipelines:diff",
-  "longname": "pipelines:diff",
+  "usage": "pipelines:diff",
   "desc": "compares the latest release of this app its downstream app(s)",
   "params": [
     {

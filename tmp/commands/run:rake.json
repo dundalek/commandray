@@ -1,6 +1,6 @@
 {
   "name": "run:rake",
-  "longname": "run:rake COMMAND",
+  "usage": "run:rake COMMAND",
   "desc": "WARNING: `heroku run:rake` has been deprecated. Please use `heroku run rake` instead.\"",
   "params": [],
   "subcommands": [

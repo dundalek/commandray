@@ -1,6 +1,6 @@
 {
   "name": "apps:fork",
-  "longname": "apps:fork",
+  "usage": "apps:fork",
   "desc": "fork an existing app into a new one",
   "params": [
     {

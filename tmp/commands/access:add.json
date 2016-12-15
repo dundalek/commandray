@@ -1,6 +1,6 @@
 {
   "name": "access:add",
-  "longname": "access:add EMAIL",
+  "usage": "access:add EMAIL",
   "desc": "Add new users to your app",
   "params": [
     {

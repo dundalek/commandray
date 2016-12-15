@@ -1,6 +1,6 @@
 {
   "name": "ps:kill",
-  "longname": "ps:kill DYNO",
+  "usage": "ps:kill DYNO",
   "desc": "stop app dyno",
   "params": [
     {

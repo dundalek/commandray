@@ -1,0 +1,12 @@
+{
+  "name": "spaces:vpn:config",
+  "usage": "spaces:vpn:config",
+  "desc": "display the configuration information for VPN",
+  "params": [
+    {
+      "name": "-s, --space SPACE",
+      "desc": "space to get VPN config from"
+    }
+  ],
+  "subcommands": []
+}

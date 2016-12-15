@@ -1,7 +1,16 @@
 {
   "name": "pg:unfollow",
-  "longname": "pg:unfollow REPLICA",
+  "usage": "pg:unfollow REPLICA",
   "desc": "stop a replica from following and make it a read/write database",
-  "params": [],
+  "params": [
+    {
+      "name": "-a, --app APP",
+      "desc": "app to run command against"
+    },
+    {
+      "name": "-r, --remote REMOTE",
+      "desc": "git remote of app to run command against"
+    }
+  ],
   "subcommands": []
 }

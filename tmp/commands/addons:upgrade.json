@@ -1,6 +1,6 @@
 {
   "name": "addons:upgrade",
-  "longname": "addons:upgrade ADDON_NAME ADDON_SERVICE:PLAN",
+  "usage": "addons:upgrade ADDON_NAME ADDON_SERVICE:PLAN",
   "desc": "upgrade an existing add-on resource to PLAN",
   "params": [
     {

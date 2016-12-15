@@ -1,6 +1,6 @@
 {
   "name": "git:remote",
-  "longname": "git:remote",
+  "usage": "git:remote",
   "desc": "adds a git remote to an app repo",
   "params": [
     {

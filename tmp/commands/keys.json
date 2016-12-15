@@ -1,6 +1,6 @@
 {
   "name": "keys",
-  "longname": "keys",
+  "usage": "keys",
   "desc": "manage authentication keys",
   "params": [
     {

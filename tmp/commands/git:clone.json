@@ -1,6 +1,6 @@
 {
   "name": "git:clone",
-  "longname": "git:clone [DIRECTORY]",
+  "usage": "git:clone [DIRECTORY]",
   "desc": "clones a heroku app to your local machine at DIRECTORY (defaults to app name)",
   "params": [
     {

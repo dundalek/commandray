@@ -1,6 +1,6 @@
 {
   "name": "redis:info",
-  "longname": "redis:info [DATABASE]",
+  "usage": "redis:info [DATABASE]",
   "desc": "gets information about redis",
   "params": [
     {

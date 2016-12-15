@@ -3,7 +3,7 @@ import fs from 'fs';
 import _ from 'lodash';
 
 /* extracts commands/params from heroku help page */
-function match(stdout) {
+function parseHelpPage(stdout) {
   const commands = []
   const r = /^\s+([a-z-][^#\n]*)#\s+(.+)$/mg;
   let match;
@@ -19,7 +19,7 @@ function match(stdout) {
 }
 
 /* parses and saves all heroku commands */
-function main() {
+function getHerokuCommands() {
   const commands = {};
 
   function loadCommand({ name : usage, desc }) {
@@ -31,7 +31,7 @@ function main() {
     if (!stdout) {
       return;
     }
-    const children = match(stdout);
+    const children = parseHelpPage(stdout);
     const subcommands = children.filter(({ name }) => name[0] !== '-');
 
     commands[name] = {
@@ -45,20 +45,20 @@ function main() {
     subcommands.forEach(loadCommand);
   }
 
-  // TODO add list from `heroku commands` for completens
+  // TODO add list from `heroku commands` for completeness
 
   const { stdout } = spawnSync('heroku', ['help'], { encoding: 'utf-8' });
-  match(stdout).forEach(loadCommand);
+  parseHelpPage(stdout).forEach(loadCommand);
 
-  fs.writeFileSync('commands.json', JSON.stringify(commands, null, 2));
+  return commands;
 }
 
-// main()
-//.then(x => console.log(x), x => console.log('error', x));
+const commands = getHerokuCommands();
+fs.writeFileSync('./commands.json', JSON.stringify(commands, null, 2));
+// const commands = require('../commands.json');
 
-// const commands = require('./commands.json');
-//
-// _(commands).each((cmd, name) => {
-//   fs.writeFileSync(`commands/${name}.txt`, cmd.docs);
-//   fs.writeFileSync(`commands/${name}.json`, JSON.stringify({ ...cmd, docs: undefined }, null, 2));
-// });
+// write out copy as separate files for easier exploration
+_(commands).each((cmd, name) => {
+  fs.writeFileSync(`./tmp/commands/${name}.txt`, cmd.docs);
+  fs.writeFileSync(`./tmp/commands/${name}.json`, JSON.stringify({ ...cmd, docs: undefined }, null, 2));
+});

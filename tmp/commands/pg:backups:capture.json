@@ -1,7 +1,7 @@
 {
-  "name": "apps:delete",
-  "longname": "apps:delete",
-  "desc": "permanently destroy an app",
+  "name": "pg:backups:capture",
+  "usage": "pg:backups:capture [DATABASE]",
+  "desc": "capture a new backup",
   "params": [
     {
       "name": "-a, --app APP",

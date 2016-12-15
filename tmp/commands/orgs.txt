@@ -2,7 +2,9 @@ Usage: heroku orgs
 
 list the organizations that you are a member of
 
+ --enterprise        # filter by enterprise orgs
  --json              # output in json format
+ --teams             # filter by teams
 
 Additional commands, type "heroku help COMMAND" for more details:
 

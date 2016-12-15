@@ -1,6 +1,6 @@
 {
   "name": "maintenance",
-  "longname": "maintenance",
+  "usage": "maintenance",
   "desc": "manage maintenance mode for an app",
   "params": [
     {

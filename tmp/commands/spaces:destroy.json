@@ -1,6 +1,6 @@
 {
   "name": "spaces:destroy",
-  "longname": "spaces:destroy",
+  "usage": "spaces:destroy",
   "desc": "destroy a space",
   "params": [
     {

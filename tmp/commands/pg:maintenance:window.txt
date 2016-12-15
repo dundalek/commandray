@@ -1,0 +1,12 @@
+Usage: heroku pg:maintenance:window DATABASE WINDOW
+
+set weekly maintenance window
+
+ -a, --app APP       # app to run command against
+ -r, --remote REMOTE # git remote of app to run command against
+
+All times are in UTC.
+
+Example:
+  heroku pg:maintenance:window postgres-slippery-100 "Sunday 06:00"
+

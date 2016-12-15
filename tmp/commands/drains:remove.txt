@@ -1,6 +1,6 @@
 Usage: heroku drains:remove [URL|TOKEN]
 
-adds a log drain to an app
+removes a log drain from an app
 
  -a, --app APP       # app to run command against
  -r, --remote REMOTE # git remote of app to run command against

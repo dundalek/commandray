@@ -1,6 +1,6 @@
 {
   "name": "features",
-  "longname": "features",
+  "usage": "features",
   "desc": "manage optional features",
   "params": [
     {

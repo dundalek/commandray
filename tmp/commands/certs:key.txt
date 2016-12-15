@@ -1,7 +1,14 @@
-Usage: heroku certs:key CRT KEY [KEY ...]
+Usage: heroku certs:key
 
- Print the correct key for the given certificate.
+print the correct key for the given certificate
 
- You must pass one single certificate, and one or more keys.
- The first key that signs the certificate will be printed back.
+ -a, --app APP       # app to run command against
+ -r, --remote REMOTE # git remote of app to run command against
+
+You must pass one single certificate, and one or more keys.
+The first key that signs the certificate will be printed back.
+
+Example:
+
+ $ heroku certs:key example.com.crt example.com.key
 

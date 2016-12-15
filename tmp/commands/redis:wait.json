@@ -1,6 +1,6 @@
 {
   "name": "redis:wait",
-  "longname": "redis:wait [DATABASE]",
+  "usage": "redis:wait [DATABASE]",
   "desc": "wait for Redis instance to be available",
   "params": [
     {

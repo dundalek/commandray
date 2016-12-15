@@ -1,6 +1,6 @@
 {
   "name": "members",
-  "longname": "members",
+  "usage": "members",
   "desc": "manage membership in organization accounts",
   "params": [
     {
@@ -12,8 +12,16 @@
       "desc": "filter by role"
     },
     {
+      "name": "-t, --team TEAM",
+      "desc": "team to use"
+    },
+    {
       "name": "--json",
       "desc": "output in json format"
+    },
+    {
+      "name": "--pending",
+      "desc": "filter by pending team invitations"
     }
   ],
   "subcommands": [

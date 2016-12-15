@@ -1,6 +1,6 @@
 {
   "name": "pipelines:create",
-  "longname": "pipelines:create [NAME]",
+  "usage": "pipelines:create [NAME]",
   "desc": "create a new pipeline",
   "params": [
     {

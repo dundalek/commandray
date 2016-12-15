@@ -1,6 +1,6 @@
 {
   "name": "releases",
-  "longname": "releases",
+  "usage": "releases",
   "desc": "manage app releases",
   "params": [
     {

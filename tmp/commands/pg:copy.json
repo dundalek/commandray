@@ -1,11 +1,15 @@
 {
   "name": "pg:copy",
-  "longname": "pg:copy SOURCE TARGET",
+  "usage": "pg:copy SOURCE TARGET",
   "desc": "pg:credentials DATABASE                             #  display the DATABASE credentials.",
   "params": [
     {
-      "name": "--wait-interval SECONDS",
-      "desc": "how frequently to poll (to avoid rate-limiting)"
+      "name": "-a, --app APP",
+      "desc": "app to run command against"
+    },
+    {
+      "name": "-r, --remote REMOTE",
+      "desc": "git remote of app to run command against"
     }
   ],
   "subcommands": []

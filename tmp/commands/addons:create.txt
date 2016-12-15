@@ -1,8 +1,11 @@
 Usage: heroku addons:create SERVICE:PLAN
 
- create an add-on resource
+create an add-on resource
 
- --name ADDON_NAME       # (optional) name for the add-on resource
- --as ATTACHMENT_NAME    # (optional) name for the initial add-on attachment
- --confirm APP_NAME      # (optional) ovewrite existing config vars or existing add-on attachments
+ -a, --app APP       # app to run command against
+ -r, --remote REMOTE # git remote of app to run command against
+ --as AS             # name for the initial add-on attachment
+ --confirm CONFIRM   # overwrite existing config vars or existing add-on attachments
+ --name NAME         # name for the add-on resource
+ --wait              # watch add-on creation status and exit when complete
 

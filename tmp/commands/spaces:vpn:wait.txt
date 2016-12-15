@@ -1,0 +1,9 @@
+Usage: heroku spaces:vpn:wait
+
+wait for VPN to be created
+
+ -i, --interval INTERVAL # seconds to wait between poll intervals
+ -s, --space SPACE       # space to wait for VPN from
+ -t, --timeout TIMEOUT   # maximum number of seconds to wait
+ --json                  # output in json format
+

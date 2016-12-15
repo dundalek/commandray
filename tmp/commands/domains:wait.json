@@ -1,6 +1,6 @@
 {
   "name": "domains:wait",
-  "longname": "domains:wait HOSTNAME",
+  "usage": "domains:wait HOSTNAME",
   "desc": "wait for domain to be active for an app",
   "params": [
     {

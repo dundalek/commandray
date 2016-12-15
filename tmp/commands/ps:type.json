@@ -1,6 +1,6 @@
 {
   "name": "ps:type",
-  "longname": "ps:type [TYPE | DYNO=TYPE [DYNO=TYPE ...]]",
+  "usage": "ps:type [TYPE | DYNO=TYPE [DYNO=TYPE ...]]",
   "desc": "manage dyno types",
   "params": [
     {

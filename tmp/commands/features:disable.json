@@ -1,6 +1,6 @@
 {
   "name": "features:disable",
-  "longname": "features:disable FEATURE",
+  "usage": "features:disable FEATURE",
   "desc": "disables a feature",
   "params": [
     {

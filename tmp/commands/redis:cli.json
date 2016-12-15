@@ -1,6 +1,6 @@
 {
   "name": "redis:cli",
-  "longname": "redis:cli [DATABASE]",
+  "usage": "redis:cli [DATABASE]",
   "desc": "opens a redis prompt",
   "params": [
     {

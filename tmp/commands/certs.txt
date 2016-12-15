@@ -1,6 +1,9 @@
 Usage: heroku certs
 
- List ssl endpoints for an app.
+List SSL certificates for an app.
+
+ -a, --app APP       # app to run command against
+ -r, --remote REMOTE # git remote of app to run command against
 
 Additional commands, type "heroku help COMMAND" for more details:
 

@@ -1,7 +1,3 @@
-Usage: heroku auth
-
- Authenticate, display token and current user
-
 Additional commands, type "heroku help COMMAND" for more details:
 
   auth:2fa           #  check 2fa status

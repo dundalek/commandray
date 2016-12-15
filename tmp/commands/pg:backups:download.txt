@@ -1,0 +1,8 @@
+Usage: heroku pg:backups:download [BACKUP_ID]
+
+downloads database backup
+
+ -a, --app APP       # app to run command against
+ -o, --output OUTPUT # location to download to. Defaults to latest.dump
+ -r, --remote REMOTE # git remote of app to run command against
+

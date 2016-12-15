@@ -1,6 +1,6 @@
 {
   "name": "features:enable",
-  "longname": "features:enable FEATURE",
+  "usage": "features:enable FEATURE",
   "desc": "enables an feature",
   "params": [
     {

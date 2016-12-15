@@ -1,6 +1,9 @@
 Usage: heroku certs:info
 
- Show certificate information for an ssl endpoint.
+show certificate information for an SSL certificate
 
-   -e, --endpoint ENDPOINT  # name of the endpoint to check info on
+ -a, --app APP       # app to run command against
+ -r, --remote REMOTE # git remote of app to run command against
+ --endpoint ENDPOINT # endpoint to check info on
+ --name NAME         # name to check info on
 

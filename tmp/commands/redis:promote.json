@@ -1,6 +1,6 @@
 {
   "name": "redis:promote",
-  "longname": "redis:promote DATABASE",
+  "usage": "redis:promote DATABASE",
   "desc": "sets DATABASE as your REDIS_URL",
   "params": [
     {

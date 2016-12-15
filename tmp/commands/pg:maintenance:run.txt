@@ -1,0 +1,8 @@
+Usage: heroku pg:maintenance:run [DATABASE]
+
+start maintenance
+
+ -a, --app APP       # app to run command against
+ -f, --force
+ -r, --remote REMOTE # git remote of app to run command against
+

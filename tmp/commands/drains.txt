@@ -9,5 +9,5 @@ display the log drains of an app
 Additional commands, type "heroku help COMMAND" for more details:
 
   drains:add URL             #  adds a log drain to an app
-  drains:remove [URL|TOKEN]  #  adds a log drain to an app
+  drains:remove [URL|TOKEN]  #  removes a log drain from an app
 

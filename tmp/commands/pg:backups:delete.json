@@ -1,7 +1,7 @@
 {
-  "name": "repo:purge-cache",
-  "longname": "repo:purge-cache",
-  "desc": "Deletes the contents the build cache in the repository",
+  "name": "pg:backups:delete",
+  "usage": "pg:backups:delete BACKUP_ID",
+  "desc": "delete a backup",
   "params": [
     {
       "name": "-a, --app APP",

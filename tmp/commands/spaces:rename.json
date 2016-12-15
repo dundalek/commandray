@@ -1,6 +1,6 @@
 {
   "name": "spaces:rename",
-  "longname": "spaces:rename",
+  "usage": "spaces:rename",
   "desc": "renames a space",
   "params": [
     {

@@ -1,6 +1,6 @@
 {
   "name": "redis:maxmemory",
-  "longname": "redis:maxmemory [DATABASE]",
+  "usage": "redis:maxmemory [DATABASE]",
   "desc": "set the key eviction policy",
   "params": [
     {

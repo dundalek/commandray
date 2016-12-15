@@ -95,4 +95,5 @@ Additional commands, type "heroku help COMMAND" for more details:
   addons:rename ADDON NEW_NAME                    #  Rename an add-on.
   addons:services                                 #  list all available add-on services
   addons:upgrade ADDON_NAME ADDON_SERVICE:PLAN    #  upgrade an existing add-on resource to PLAN
+  addons:wait ADDON                               #  Show provisioning status of the add-ons on the app
 

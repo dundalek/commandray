@@ -1,6 +1,6 @@
 {
   "name": "apps:unlock",
-  "longname": "apps:unlock --app APP",
+  "usage": "apps:unlock --app APP",
   "desc": "unlock an organization app so that any org member can join it",
   "params": [
     {

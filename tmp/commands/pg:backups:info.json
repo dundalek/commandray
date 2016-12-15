@@ -1,7 +1,7 @@
 {
-  "name": "destroy",
-  "longname": "destroy <LOCAL> <LINK>",
-  "desc": "Destroy a data link between a local and remote database",
+  "name": "pg:backups:info",
+  "usage": "pg:backups:info [BACKUP_ID]",
+  "desc": "get information about a specific backup",
   "params": [
     {
       "name": "-a, --app APP",

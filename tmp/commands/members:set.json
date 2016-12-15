@@ -1,6 +1,6 @@
 {
   "name": "members:set",
-  "longname": "members:set NAME [--org ORG] [--role ROLE]",
+  "usage": "members:set NAME [--org ORG] [--role ROLE]",
   "desc": "change role of member in org",
   "params": [
     {
@@ -10,6 +10,10 @@
     {
       "name": "-r, --role ROLE",
       "desc": "member role (admin, collaborator, member, owner)"
+    },
+    {
+      "name": "-t, --team TEAM",
+      "desc": "team to use"
     }
   ],
   "subcommands": []

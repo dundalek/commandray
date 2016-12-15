@@ -1,6 +1,6 @@
 {
   "name": "notifications",
-  "longname": "notifications",
+  "usage": "notifications",
   "desc": "display notifications",
   "params": [
     {

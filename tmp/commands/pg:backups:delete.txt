@@ -1,11 +1,8 @@
-Alias: destroy redirects to apps:destroy
-Usage: heroku apps:destroy
+Usage: heroku pg:backups:delete BACKUP_ID
 
-permanently destroy an app
+delete a backup
 
  -a, --app APP         # app to run command against
  -c, --confirm CONFIRM
  -r, --remote REMOTE   # git remote of app to run command against
-
-This will also destroy all add-ons on the app.
 

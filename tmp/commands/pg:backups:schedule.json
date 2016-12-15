@@ -1,0 +1,20 @@
+{
+  "name": "pg:backups:schedule",
+  "usage": "pg:backups:schedule [DATABASE]",
+  "desc": "schedule daily backups for given database",
+  "params": [
+    {
+      "name": "-a, --app APP",
+      "desc": "app to run command against"
+    },
+    {
+      "name": "-r, --remote REMOTE",
+      "desc": "git remote of app to run command against"
+    },
+    {
+      "name": "--at AT",
+      "desc": "at a specific (24h) hour in the given timezone. Defaults to UTC. --at '[HOUR]:00 [TIMEZONE]'"
+    }
+  ],
+  "subcommands": []
+}

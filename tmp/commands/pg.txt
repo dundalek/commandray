@@ -6,6 +6,16 @@ Usage: heroku pg [DATABASE]
 Additional commands, type "heroku help COMMAND" for more details:
 
   pg:backups [subcommand]                             #  interact with built-in backups. Without a subcommand, it lists all
+  pg:backups:cancel [BACKUP_ID]                       #  cancel an in-progress backup or restore (default newest)
+  pg:backups:capture [DATABASE]                       #  capture a new backup
+  pg:backups:delete BACKUP_ID                         #  delete a backup
+  pg:backups:download [BACKUP_ID]                     #  downloads database backup
+  pg:backups:info [BACKUP_ID]                         #  get information about a specific backup
+  pg:backups:restore [BACKUP] [DATABASE]              #  restore a backup (default latest) to a database
+  pg:backups:schedule [DATABASE]                      #  schedule daily backups for given database
+  pg:backups:schedules                                #  
+  pg:backups:unschedule [DATABASE]                    #  stop daily backups
+  pg:backups:url [BACKUP_ID]                          #  get secret but publicly accessible URL of a backup
   pg:copy SOURCE TARGET                               # 
   pg:credentials DATABASE                             #  display the DATABASE credentials.
   pg:diagnose [DATABASE|REPORT_ID]                    #  run diagnostics report on DATABASE
@@ -13,7 +23,11 @@ Additional commands, type "heroku help COMMAND" for more details:
   pg:kill pid [DATABASE]                              #  kill a query
   pg:killall [DATABASE]                               #  terminates ALL connections
   pg:links <create|destroy>                           #  create links between data stores.  Without a subcommand, it lists all
+  pg:links:create REMOTE DATABASE                     #  create a link between data stores
+  pg:links:destroy DATABASE LINK                      #  destroys a link between data stores
   pg:maintenance <info|run|window> <DATABASE>         #  manage maintenance for <DATABASE>
+  pg:maintenance:run [DATABASE]                       #  start maintenance
+  pg:maintenance:window DATABASE WINDOW               #  set weekly maintenance window
   pg:promote DATABASE                                 #  sets DATABASE as your DATABASE_URL
   pg:ps [DATABASE]                                    #  view active queries with execution time
   pg:psql [DATABASE]                                  #  open a psql shell to the database

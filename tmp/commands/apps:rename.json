@@ -1,6 +1,6 @@
 {
   "name": "apps:rename",
-  "longname": "apps:rename NEWNAME --app APP",
+  "usage": "apps:rename NEWNAME --app APP",
   "desc": "rename the app",
   "params": [
     {

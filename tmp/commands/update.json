@@ -1,6 +1,6 @@
 {
   "name": "update",
-  "longname": "update",
+  "usage": "update",
   "desc": "update the heroku client",
   "params": [],
   "subcommands": [

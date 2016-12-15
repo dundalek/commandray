@@ -1,6 +1,6 @@
 {
   "name": "ps:scale",
-  "longname": "ps:scale [DYNO1=AMOUNT1 [DYNO2=AMOUNT2 ...]]",
+  "usage": "ps:scale [DYNO1=AMOUNT1 [DYNO2=AMOUNT2 ...]]",
   "desc": "scale dynos by the given amount",
   "params": [
     {

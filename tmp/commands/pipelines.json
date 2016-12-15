@@ -1,6 +1,6 @@
 {
   "name": "pipelines",
-  "longname": "pipelines",
+  "usage": "pipelines",
   "desc": "manage collections of apps in pipelines",
   "params": [
     {

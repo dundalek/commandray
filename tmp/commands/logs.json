@@ -1,6 +1,6 @@
 {
   "name": "logs",
-  "longname": "logs",
+  "usage": "logs",
   "desc": "display logs for an app",
   "params": [
     {

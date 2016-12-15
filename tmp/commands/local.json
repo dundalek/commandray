@@ -1,6 +1,6 @@
 {
   "name": "local",
-  "longname": "local",
+  "usage": "local",
   "desc": "run heroku app locally",
   "params": [
     {

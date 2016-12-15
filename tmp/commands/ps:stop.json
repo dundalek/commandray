@@ -1,6 +1,6 @@
 {
   "name": "ps:stop",
-  "longname": "ps:stop DYNOS",
+  "usage": "ps:stop DYNOS",
   "desc": "stop an app dyno",
   "params": [
     {

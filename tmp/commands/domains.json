@@ -1,6 +1,6 @@
 {
   "name": "domains",
-  "longname": "domains",
+  "usage": "domains",
   "desc": "manage domains",
   "params": [
     {

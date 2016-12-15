@@ -1,6 +1,6 @@
 {
   "name": "apps:join",
-  "longname": "apps:join --app APP",
+  "usage": "apps:join --app APP",
   "desc": "add yourself to an organization app",
   "params": [
     {

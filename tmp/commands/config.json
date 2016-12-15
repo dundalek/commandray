@@ -1,6 +1,6 @@
 {
   "name": "config",
-  "longname": "config",
+  "usage": "config",
   "desc": "manage app config vars",
   "params": [
     {
@@ -22,16 +22,8 @@
   ],
   "subcommands": [
     {
-      "name": "config:add",
-      "desc": "set one or more config vars"
-    },
-    {
       "name": "config:get KEY",
       "desc": "display a config value for an app"
-    },
-    {
-      "name": "config:remove",
-      "desc": "unset one or more config vars"
     },
     {
       "name": "config:set KEY1=VALUE1 [KEY2=VALUE2 ...]",

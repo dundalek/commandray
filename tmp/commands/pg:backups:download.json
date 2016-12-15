@@ -1,11 +1,15 @@
 {
-  "name": "config:remove",
-  "longname": "config:remove",
-  "desc": "unset one or more config vars",
+  "name": "pg:backups:download",
+  "usage": "pg:backups:download [BACKUP_ID]",
+  "desc": "downloads database backup",
   "params": [
     {
       "name": "-a, --app APP",
       "desc": "app to run command against"
+    },
+    {
+      "name": "-o, --output OUTPUT",
+      "desc": "location to download to. Defaults to latest.dump"
     },
     {
       "name": "-r, --remote REMOTE",

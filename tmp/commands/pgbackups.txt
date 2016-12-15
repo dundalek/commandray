@@ -1,0 +1,12 @@
+Usage: heroku pgbackups
+
+ list captured backups
+
+Additional commands, type "heroku help COMMAND" for more details:
+
+  pgbackups:capture [DATABASE]                               #  capture a backup from a database id
+  pgbackups:destroy BACKUP_ID                                #  destroys a backup
+  pgbackups:restore [<DATABASE> [BACKUP_ID|BACKUP_URL]]      #  restore a backup to a database
+  pgbackups:transfer [SOURCE DATABASE] DESTINATION DATABASE  #  direct database-to-database transfer
+  pgbackups:url [BACKUP_ID]                                  #  get a temporary URL for a backup
+

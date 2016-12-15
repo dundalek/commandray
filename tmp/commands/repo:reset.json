@@ -1,7 +1,7 @@
 {
   "name": "repo:reset",
-  "longname": "repo:reset",
-  "desc": "Reset the repo",
+  "usage": "repo:reset",
+  "desc": "reset the repo",
   "params": [
     {
       "name": "-a, --app APP",

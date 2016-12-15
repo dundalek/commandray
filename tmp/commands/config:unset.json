@@ -1,6 +1,6 @@
 {
   "name": "config:unset",
-  "longname": "config:unset KEY1 [KEY2 ...]",
+  "usage": "config:unset KEY1 [KEY2 ...]",
   "desc": "unset one or more config vars",
   "params": [
     {

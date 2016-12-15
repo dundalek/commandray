@@ -1,10 +1,12 @@
 Usage: heroku apps
 
- list your apps
+list your apps
 
- -o, --org ORG     # the org to list the apps for
- -A, --all         # list all collaborated apps, including joined org apps in personal app list
- -p, --personal    # list apps in personal account when a default org is set
+ -A, --all           # include apps in all organizations
+ -o, --org ORG       # organization to use
+ -p, --personal      # list apps in personal account when a default org is set
+ -s, --space SPACE   # filter by space
+ --json              # output in json format
 
 Example:
 
@@ -19,7 +21,6 @@ Example:
 Additional commands, type "heroku help COMMAND" for more details:
 
   apps:create [NAME]             #  create a new app
-  apps:delete                    #  permanently destroy an app
   apps:destroy --app APP         #  permanently destroy an app
   apps:errors                    #  view app errors
   apps:favorites                 #  list favorited apps
@@ -33,7 +34,6 @@ Additional commands, type "heroku help COMMAND" for more details:
   apps:open --app APP            #  open the app in a web browser
   apps:rename NEWNAME --app APP  #  rename the app
   apps:stacks                    #  show the list of available stacks
-  apps:stacks:set STACK          #  set the stack of an app
   apps:transfer RECIPIENT        #  transfer applications to another user, organization or team
   apps:unlock --app APP          #  unlock an organization app so that any org member can join it
 

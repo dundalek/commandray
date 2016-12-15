@@ -1,6 +1,6 @@
 {
   "name": "drains:add",
-  "longname": "drains:add URL",
+  "usage": "drains:add URL",
   "desc": "adds a log drain to an app",
   "params": [
     {

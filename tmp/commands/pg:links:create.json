@@ -1,0 +1,20 @@
+{
+  "name": "pg:links:create",
+  "usage": "pg:links:create REMOTE DATABASE",
+  "desc": "create a link between data stores",
+  "params": [
+    {
+      "name": "-a, --app APP",
+      "desc": "app to run command against"
+    },
+    {
+      "name": "-r, --remote REMOTE",
+      "desc": "git remote of app to run command against"
+    },
+    {
+      "name": "--as AS",
+      "desc": "name of link to create"
+    }
+  ],
+  "subcommands": []
+}

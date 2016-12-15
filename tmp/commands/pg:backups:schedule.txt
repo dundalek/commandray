@@ -1,0 +1,8 @@
+Usage: heroku pg:backups:schedule [DATABASE]
+
+schedule daily backups for given database
+
+ -a, --app APP       # app to run command against
+ -r, --remote REMOTE # git remote of app to run command against
+ --at AT             # at a specific (24h) hour in the given timezone. Defaults to UTC. --at '[HOUR]:00 [TIMEZONE]'
+

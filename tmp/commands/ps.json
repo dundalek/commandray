@@ -1,6 +1,6 @@
 {
   "name": "ps",
-  "longname": "ps",
+  "usage": "ps",
   "desc": "manage dynos (dynos, workers)",
   "params": [
     {

@@ -1,7 +1,7 @@
 {
   "name": "repo:clone",
-  "longname": "repo:clone",
-  "desc": "Sets the bare repo for immediate consumption",
+  "usage": "repo:clone",
+  "desc": "sets the bare repo for immediate consumption",
   "params": [
     {
       "name": "-a, --app APP",

@@ -1,0 +1,7 @@
+Usage: heroku pg:backups:info [BACKUP_ID]
+
+get information about a specific backup
+
+ -a, --app APP       # app to run command against
+ -r, --remote REMOTE # git remote of app to run command against
+

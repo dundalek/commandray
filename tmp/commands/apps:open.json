@@ -1,6 +1,6 @@
 {
   "name": "apps:open",
-  "longname": "apps:open --app APP",
+  "usage": "apps:open --app APP",
   "desc": "open the app in a web browser",
   "params": [
     {

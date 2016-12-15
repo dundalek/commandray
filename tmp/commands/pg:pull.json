@@ -1,7 +1,16 @@
 {
   "name": "pg:pull",
-  "longname": "pg:pull <REMOTE_SOURCE_DATABASE> <TARGET_DATABASE>",
+  "usage": "pg:pull <REMOTE_SOURCE_DATABASE> <TARGET_DATABASE>",
   "desc": "pull from REMOTE_SOURCE_DATABASE to TARGET_DATABASE",
-  "params": [],
+  "params": [
+    {
+      "name": "-a, --app APP",
+      "desc": "app to run command against"
+    },
+    {
+      "name": "-r, --remote REMOTE",
+      "desc": "git remote of app to run command against"
+    }
+  ],
   "subcommands": []
 }

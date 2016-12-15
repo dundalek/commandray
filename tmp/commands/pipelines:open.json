@@ -1,6 +1,6 @@
 {
   "name": "pipelines:open",
-  "longname": "pipelines:open PIPELINE",
+  "usage": "pipelines:open PIPELINE",
   "desc": "open a pipeline in dashboard",
   "params": [],
   "subcommands": []

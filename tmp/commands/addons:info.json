@@ -1,6 +1,6 @@
 {
   "name": "addons:info",
-  "longname": "addons:info ADDON",
+  "usage": "addons:info ADDON",
   "desc": "Show info about an add-on and its attachments.",
   "params": [
     {

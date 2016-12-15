@@ -1,0 +1,16 @@
+{
+  "name": "spaces:peerings:accept",
+  "usage": "spaces:peerings:accept",
+  "desc": "accepts a pending peering request for a private space",
+  "params": [
+    {
+      "name": "-p, --pcxid PCXID",
+      "desc": "PCX ID of a pending peering"
+    },
+    {
+      "name": "-s, --space SPACE",
+      "desc": "space to get peering info from"
+    }
+  ],
+  "subcommands": []
+}

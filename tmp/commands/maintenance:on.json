@@ -1,6 +1,6 @@
 {
   "name": "maintenance:on",
-  "longname": "maintenance:on",
+  "usage": "maintenance:on",
   "desc": "put the app into maintenance mode",
   "params": [
     {

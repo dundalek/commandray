@@ -1,6 +1,6 @@
 {
   "name": "addons:rename",
-  "longname": "addons:rename ADDON NEW_NAME",
+  "usage": "addons:rename ADDON NEW_NAME",
   "desc": "Rename an add-on.",
   "params": [
     {

@@ -1,7 +1,7 @@
 {
   "name": "repo:gc",
-  "longname": "repo:gc",
-  "desc": "Run a git gc --agressive on the applications repository",
+  "usage": "repo:gc",
+  "desc": "run a git gc --aggressive on an application's repository",
   "params": [
     {
       "name": "-a, --app APP",

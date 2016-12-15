@@ -1,6 +1,6 @@
 {
   "name": "pipelines:remove",
-  "longname": "pipelines:remove",
+  "usage": "pipelines:remove",
   "desc": "remove this app from its pipeline",
   "params": [
     {

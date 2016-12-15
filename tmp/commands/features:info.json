@@ -1,6 +1,6 @@
 {
   "name": "features:info",
-  "longname": "features:info FEATURE",
+  "usage": "features:info FEATURE",
   "desc": "displays additional information about FEATURE",
   "params": [
     {

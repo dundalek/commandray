@@ -1,23 +1,15 @@
 {
   "name": "certs:generate",
-  "longname": "certs:generate DOMAIN",
+  "usage": "certs:generate DOMAIN",
   "desc": "Generate a key and certificate signing request (or self-signed certificate)",
   "params": [
     {
-      "name": "--selfsigned",
-      "desc": "generate a self-signed certificate instead of a CSR"
+      "name": "-a, --app APP",
+      "desc": "app to run command against"
     },
     {
-      "name": "--keysize BITSIZE",
-      "desc": "RSA key size in bits (default: 2048)"
-    },
-    {
-      "name": "--owner NAME",
-      "desc": "name of organization certificate belongs to"
-    },
-    {
-      "name": "--country COUNTRY",
-      "desc": "country of owner, as a two-letter ISO country code"
+      "name": "-r, --remote REMOTE",
+      "desc": "git remote of app to run command against"
     },
     {
       "name": "--area AREA",
@@ -28,12 +20,28 @@
       "desc": "city of owner"
     },
     {
-      "name": "--subject SUBJECT",
-      "desc": "specify entire certificate subject"
+      "name": "--country COUNTRY",
+      "desc": "country of owner, as a two-letter ISO country code"
+    },
+    {
+      "name": "--keysize KEYSIZE",
+      "desc": "RSA key size in bits (default: 2048)"
     },
     {
       "name": "--now",
       "desc": "do not prompt for any owner information"
+    },
+    {
+      "name": "--owner OWNER",
+      "desc": "name of organization certificate belongs to"
+    },
+    {
+      "name": "--selfsigned",
+      "desc": "generate a self-signed certificate instead of a CSR"
+    },
+    {
+      "name": "--subject SUBJECT",
+      "desc": "specify entire certificate subject"
     }
   ],
   "subcommands": []

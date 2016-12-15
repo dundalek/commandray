@@ -1,6 +1,6 @@
 {
   "name": "pipelines:promote",
-  "longname": "pipelines:promote",
+  "usage": "pipelines:promote",
   "desc": "promote the latest release of this app to its downstream app(s)",
   "params": [
     {

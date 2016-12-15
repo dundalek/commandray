@@ -1,6 +1,6 @@
 {
   "name": "buildpacks:remove",
-  "longname": "buildpacks:remove [BUILDPACK_URL]",
+  "usage": "buildpacks:remove [BUILDPACK_URL]",
   "desc": "remove a buildpack set on the app",
   "params": [
     {

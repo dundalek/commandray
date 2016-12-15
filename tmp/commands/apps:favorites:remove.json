@@ -1,6 +1,6 @@
 {
   "name": "apps:favorites:remove",
-  "longname": "apps:favorites:remove",
+  "usage": "apps:favorites:remove",
   "desc": "unfavorites an app",
   "params": [
     {

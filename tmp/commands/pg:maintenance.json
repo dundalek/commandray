@@ -1,25 +1,16 @@
 {
   "name": "pg:maintenance",
-  "longname": "pg:maintenance <info|run|window> <DATABASE>",
+  "usage": "pg:maintenance <info|run|window> <DATABASE>",
   "desc": "manage maintenance for <DATABASE>",
   "params": [
     {
-      "name": "-f, --force",
-      "desc": "run pg:maintenance without entering application maintenance mode"
+      "name": "-a, --app APP",
+      "desc": "app to run command against"
+    },
+    {
+      "name": "-r, --remote REMOTE",
+      "desc": "git remote of app to run command against"
     }
   ],
-  "subcommands": [
-    {
-      "name": "info",
-      "desc": "show current maintenance information"
-    },
-    {
-      "name": "run",
-      "desc": "start maintenance"
-    },
-    {
-      "name": "window=\"<window>\"",
-      "desc": "set weekly UTC maintenance window for DATABASE"
-    }
-  ]
+  "subcommands": []
 }

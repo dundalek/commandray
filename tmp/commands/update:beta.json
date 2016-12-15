@@ -1,6 +1,6 @@
 {
   "name": "update:beta",
-  "longname": "update:beta",
+  "usage": "update:beta",
   "desc": "update to the latest beta client",
   "params": [],
   "subcommands": []

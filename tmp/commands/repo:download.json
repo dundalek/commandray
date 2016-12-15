@@ -1,7 +1,7 @@
 {
   "name": "repo:download",
-  "longname": "repo:download",
-  "desc": "Download the repository",
+  "usage": "repo:download [FILENAME]",
+  "desc": "download the repo",
   "params": [
     {
       "name": "-a, --app APP",

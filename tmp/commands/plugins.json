@@ -1,6 +1,6 @@
 {
   "name": "plugins",
-  "longname": "plugins",
+  "usage": "plugins",
   "desc": "manage plugins to the heroku gem",
   "params": [],
   "subcommands": [

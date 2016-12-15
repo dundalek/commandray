@@ -1,0 +1,7 @@
+Usage: heroku spaces:peerings
+
+list peering connections for a space
+
+ -s, --space SPACE   # space to get peer list from
+ --json              # output in json format
+

@@ -1,6 +1,6 @@
 {
   "name": "spaces:info",
-  "longname": "spaces:info",
+  "usage": "spaces:info",
   "desc": "show info about a space",
   "params": [
     {

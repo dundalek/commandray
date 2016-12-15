@@ -1,6 +1,6 @@
 {
   "name": "apps:leave",
-  "longname": "apps:leave --app APP",
+  "usage": "apps:leave --app APP",
   "desc": "remove yourself from an organization app",
   "params": [
     {

@@ -1,6 +1,6 @@
 {
   "name": "auth:2fa:enable",
-  "longname": "auth:2fa:enable",
+  "usage": "auth:2fa:enable",
   "desc": "enable 2fa on your account",
   "params": [],
   "subcommands": []

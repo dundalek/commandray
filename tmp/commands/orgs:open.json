@@ -1,6 +1,6 @@
 {
   "name": "orgs:open",
-  "longname": "orgs:open --org ORG",
+  "usage": "orgs:open --org ORG",
   "desc": "opens the org interface in a browser",
   "params": [
     {

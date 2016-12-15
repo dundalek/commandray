@@ -1,6 +1,6 @@
 {
   "name": "run:detached",
-  "longname": "run:detached COMMAND",
+  "usage": "run:detached COMMAND",
   "desc": "run a detached dyno, where output is sent to your logs",
   "params": [
     {

@@ -1,6 +1,6 @@
 {
   "name": "pg:info",
-  "longname": "pg:info [DATABASE]",
+  "usage": "pg:info [DATABASE]",
   "desc": "display database information",
   "params": [
     {

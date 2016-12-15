@@ -1,7 +1,12 @@
 Usage: heroku pg:copy SOURCE TARGET
 
-   --wait-interval SECONDS      # how frequently to poll (to avoid rate-limiting)
+copy all data from source db to target
 
- copy all data from source database to target. At least one of
- these must be a Heroku Postgres database.
+ -a, --app APP                 # app to run command against
+ -r, --remote REMOTE           # git remote of app to run command against
+ --confirm CONFIRM
+ --verbose
+ --wait-interval WAIT-INTERVAL
+
+at least one of the databases must be a Heroku PostgreSQL DB
 

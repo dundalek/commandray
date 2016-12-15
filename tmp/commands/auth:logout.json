@@ -1,6 +1,6 @@
 {
   "name": "auth:logout",
-  "longname": "auth:logout",
+  "usage": "auth:logout",
   "desc": "clear local authentication credentials",
   "params": [],
   "subcommands": []

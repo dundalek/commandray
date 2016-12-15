@@ -1,6 +1,14 @@
 Usage: heroku certs:add CRT KEY
 
- Add an ssl endpoint to an app.
+add an SSL certificate to an app
 
-   --bypass                 # bypass the trust chain completion step
+ -a, --app APP       # app to run command against
+ -r, --remote REMOTE # git remote of app to run command against
+ --bypass            # bypass the trust chain completion step
+ --domains DOMAINS   # domains to create after certificate upload
+ --type TYPE         # type to create, either 'sni' or 'endpoint'
+
+Example:
+
+ $ heroku certs:add example.com.crt example.com.key
 

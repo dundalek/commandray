@@ -1,11 +1,23 @@
 {
   "name": "certs:info",
-  "longname": "certs:info",
+  "usage": "certs:info",
   "desc": "Show certificate information for an ssl endpoint.",
   "params": [
     {
-      "name": "-e, --endpoint ENDPOINT",
-      "desc": "name of the endpoint to check info on"
+      "name": "-a, --app APP",
+      "desc": "app to run command against"
+    },
+    {
+      "name": "-r, --remote REMOTE",
+      "desc": "git remote of app to run command against"
+    },
+    {
+      "name": "--endpoint ENDPOINT",
+      "desc": "endpoint to check info on"
+    },
+    {
+      "name": "--name NAME",
+      "desc": "name to check info on"
     }
   ],
   "subcommands": []

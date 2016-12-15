@@ -1,6 +1,6 @@
 {
   "name": "domains:remove",
-  "longname": "domains:remove DOMAIN",
+  "usage": "domains:remove DOMAIN",
   "desc": "remove a custom domain from an app",
   "params": [
     {

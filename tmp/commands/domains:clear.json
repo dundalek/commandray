@@ -1,6 +1,6 @@
 {
   "name": "domains:clear",
-  "longname": "domains:clear",
+  "usage": "domains:clear",
   "desc": "remove all custom domains from an app",
   "params": [
     {

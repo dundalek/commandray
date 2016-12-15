@@ -1,19 +1,5 @@
-Usage: heroku pg:backups [subcommand]
+Usage: heroku pg:backups
 
- interact with built-in backups. Without a subcommand, it lists all
- available backups. The subcommands available are:
-
-  info BACKUP_ID                 # get information about a specific backup
-  capture DATABASE               # capture a new backup
-    --wait-interval SECONDS      # how frequently to poll (to avoid rate-limiting)
-  restore [[BACKUP_ID] DATABASE] # restore a backup (default latest) to a database (default DATABASE_URL)
-    --wait-interval SECONDS      # how frequently to poll (to avoid rate-limiting)
-  public-url BACKUP_ID           # get secret but publicly accessible URL for BACKUP_ID to download it
-    -q, --quiet                  #   Hide expiration message (for use in scripts)
-  cancel [BACKUP_ID]             # cancel an in-progress backup or restore (default newest)
-  delete BACKUP_ID               # delete an existing backup
-  schedule DATABASE              # schedule nightly backups for given database
-    --at '<hour>:00 <timezone>'  #   at a specific (24h clock) hour in the given timezone
-  unschedule SCHEDULE            # stop nightly backups on this schedule
-  schedules                      # list backup schedule
+ -a, --app APP                 # app to run command against
+ -r, --remote REMOTE           # git remote of app to run command against
 

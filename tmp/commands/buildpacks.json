@@ -1,6 +1,6 @@
 {
   "name": "buildpacks",
-  "longname": "buildpacks",
+  "usage": "buildpacks",
   "desc": "manage the buildpack for an app",
   "params": [
     {

@@ -1,6 +1,6 @@
 {
   "name": "buildpacks:clear",
-  "longname": "buildpacks:clear",
+  "usage": "buildpacks:clear",
   "desc": "clear all buildpacks set on the app",
   "params": [
     {

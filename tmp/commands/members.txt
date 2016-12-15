@@ -1,10 +1,12 @@
 Usage: heroku members
 
-list members of an organization
+list members of an organization or a team
 
  -o, --org ORG       # organization to use
  -r, --role ROLE     # filter by role
+ -t, --team TEAM     # team to use
  --json              # output in json format
+ --pending           # filter by pending team invitations
 
 Additional commands, type "heroku help COMMAND" for more details:
 

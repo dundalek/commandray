@@ -1,11 +1,19 @@
 {
   "name": "orgs",
-  "longname": "orgs",
+  "usage": "orgs",
   "desc": "manage organization accounts",
   "params": [
     {
+      "name": "--enterprise",
+      "desc": "filter by enterprise orgs"
+    },
+    {
       "name": "--json",
       "desc": "output in json format"
+    },
+    {
+      "name": "--teams",
+      "desc": "filter by teams"
     }
   ],
   "subcommands": [

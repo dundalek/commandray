@@ -1,7 +1,10 @@
 Usage: heroku pg:diagnose [DATABASE|REPORT_ID]
 
- run diagnostics report on DATABASE
+run or view diagnostics report
 
- defaults to DATABASE_URL databases if no DATABASE is specified
- if REPORT_ID is specified instead, a previous report is displayed
+ -a, --app APP       # app to run command against
+ -r, --remote REMOTE # git remote of app to run command against
+
+defaults to DATABASE_URL database if no DATABASE is specified
+if REPORT_ID is specified instead, a previous report is displayed
 

@@ -1,7 +1,7 @@
 {
-  "name": "info",
-  "longname": "info BACKUP_ID",
-  "desc": "get information about a specific backup",
+  "name": "pg:backups:url",
+  "usage": "pg:backups:url [BACKUP_ID]",
+  "desc": "get secret but publicly accessible URL of a backup",
   "params": [
     {
       "name": "-a, --app APP",
@@ -10,10 +10,6 @@
     {
       "name": "-r, --remote REMOTE",
       "desc": "git remote of app to run command against"
-    },
-    {
-      "name": "-s, --shell",
-      "desc": "output more shell friendly key/value pairs"
     }
   ],
   "subcommands": []

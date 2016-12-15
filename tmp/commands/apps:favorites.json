@@ -1,6 +1,6 @@
 {
   "name": "apps:favorites",
-  "longname": "apps:favorites",
+  "usage": "apps:favorites",
   "desc": "list favorited apps",
   "params": [
     {

@@ -1,6 +1,6 @@
 {
   "name": "redis",
-  "longname": "redis",
+  "usage": "redis",
   "desc": "manage heroku redis instances",
   "params": [
     {

@@ -1,6 +1,6 @@
 {
   "name": "pg:wait",
-  "longname": "pg:wait [DATABASE]",
+  "usage": "pg:wait [DATABASE]",
   "desc": "monitor database creation, exit when complete",
   "params": [
     {

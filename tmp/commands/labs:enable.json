@@ -1,6 +1,6 @@
 {
   "name": "labs:enable",
-  "longname": "labs:enable FEATURE",
+  "usage": "labs:enable FEATURE",
   "desc": "enables an experimental feature",
   "params": [
     {

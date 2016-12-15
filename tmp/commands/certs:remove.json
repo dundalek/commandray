@@ -1,11 +1,23 @@
 {
   "name": "certs:remove",
-  "longname": "certs:remove",
+  "usage": "certs:remove",
   "desc": "Remove an SSL Endpoint from an app.",
   "params": [
     {
-      "name": "-e, --endpoint ENDPOINT",
-      "desc": "name of the endpoint to remove"
+      "name": "-a, --app APP",
+      "desc": "app to run command against"
+    },
+    {
+      "name": "-r, --remote REMOTE",
+      "desc": "git remote of app to run command against"
+    },
+    {
+      "name": "--endpoint ENDPOINT",
+      "desc": "endpoint to remove"
+    },
+    {
+      "name": "--name NAME",
+      "desc": "name to remove"
     }
   ],
   "subcommands": []

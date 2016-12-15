@@ -1,29 +1,33 @@
 {
   "name": "apps",
-  "longname": "apps",
+  "usage": "apps",
   "desc": "manage apps (create, destroy)",
   "params": [
     {
-      "name": "-o, --org ORG",
-      "desc": "the org to list the apps for"
+      "name": "-A, --all",
+      "desc": "include apps in all organizations"
     },
     {
-      "name": "-A, --all",
-      "desc": "list all collaborated apps, including joined org apps in personal app list"
+      "name": "-o, --org ORG",
+      "desc": "organization to use"
     },
     {
       "name": "-p, --personal",
       "desc": "list apps in personal account when a default org is set"
+    },
+    {
+      "name": "-s, --space SPACE",
+      "desc": "filter by space"
+    },
+    {
+      "name": "--json",
+      "desc": "output in json format"
     }
   ],
   "subcommands": [
     {
       "name": "apps:create [NAME]",
       "desc": "create a new app"
-    },
-    {
-      "name": "apps:delete",
-      "desc": "permanently destroy an app"
     },
     {
       "name": "apps:destroy --app APP",
@@ -76,10 +80,6 @@
     {
       "name": "apps:stacks",
       "desc": "show the list of available stacks"
-    },
-    {
-      "name": "apps:stacks:set STACK",
-      "desc": "set the stack of an app"
     },
     {
       "name": "apps:transfer RECIPIENT",

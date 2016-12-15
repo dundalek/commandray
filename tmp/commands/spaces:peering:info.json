@@ -1,0 +1,16 @@
+{
+  "name": "spaces:peering:info",
+  "usage": "spaces:peering:info",
+  "desc": "display the information necessary to initiate a peering connection",
+  "params": [
+    {
+      "name": "-s, --space SPACE",
+      "desc": "space to get peering info from"
+    },
+    {
+      "name": "--json",
+      "desc": "output in json format"
+    }
+  ],
+  "subcommands": []
+}

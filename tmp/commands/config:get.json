@@ -1,6 +1,6 @@
 {
   "name": "config:get",
-  "longname": "config:get KEY",
+  "usage": "config:get KEY",
   "desc": "display a config value for an app",
   "params": [
     {

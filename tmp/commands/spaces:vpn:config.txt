@@ -1,0 +1,9 @@
+Usage: heroku spaces:vpn:config
+
+display the configuration information for VPN
+
+ -s, --space SPACE   # space to get VPN config from
+
+Example:
+  $ heroku spaces:vpn:config my-space
+

@@ -1,6 +1,6 @@
 {
   "name": "apps:create",
-  "longname": "apps:create [NAME]",
+  "usage": "apps:create [NAME]",
   "desc": "create a new app",
   "params": [
     {

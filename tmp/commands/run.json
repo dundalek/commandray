@@ -1,6 +1,6 @@
 {
   "name": "run",
-  "longname": "run",
+  "usage": "run",
   "desc": "run one-off commands (console, rake)",
   "params": [
     {

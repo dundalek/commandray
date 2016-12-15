@@ -1,8 +1,17 @@
 {
   "name": "certs",
-  "longname": "certs",
+  "usage": "certs",
   "desc": "manage ssl endpoints for an app",
-  "params": [],
+  "params": [
+    {
+      "name": "-a, --app APP",
+      "desc": "app to run command against"
+    },
+    {
+      "name": "-r, --remote REMOTE",
+      "desc": "git remote of app to run command against"
+    }
+  ],
   "subcommands": [
     {
       "name": "certs:add CRT KEY",

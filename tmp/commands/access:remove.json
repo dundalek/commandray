@@ -1,6 +1,6 @@
 {
   "name": "access:remove",
-  "longname": "access:remove EMAIL",
+  "usage": "access:remove EMAIL",
   "desc": "Remove users from your app",
   "params": [
     {

@@ -1,0 +1,7 @@
+{
+  "name": "pgbackups:transfer",
+  "usage": "pgbackups:transfer [SOURCE DATABASE] DESTINATION DATABASE",
+  "desc": "direct database-to-database transfer",
+  "params": [],
+  "subcommands": []
+}

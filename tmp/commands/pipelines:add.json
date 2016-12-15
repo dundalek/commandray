@@ -1,6 +1,6 @@
 {
   "name": "pipelines:add",
-  "longname": "pipelines:add PIPELINE",
+  "usage": "pipelines:add PIPELINE",
   "desc": "add this app to a pipeline",
   "params": [
     {

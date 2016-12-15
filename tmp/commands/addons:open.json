@@ -1,6 +1,6 @@
 {
   "name": "addons:open",
-  "longname": "addons:open ADDON_NAME",
+  "usage": "addons:open ADDON_NAME",
   "desc": "open an add-on's dashboard in your browser",
   "params": [
     {

@@ -1,7 +1,7 @@
 {
-  "name": "config:add",
-  "longname": "config:add",
-  "desc": "set one or more config vars",
+  "name": "pg:backups:cancel",
+  "usage": "pg:backups:cancel [BACKUP_ID]",
+  "desc": "cancel an in-progress backup or restore (default newest)",
   "params": [
     {
       "name": "-a, --app APP",

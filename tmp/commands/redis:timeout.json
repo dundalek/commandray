@@ -1,6 +1,6 @@
 {
   "name": "redis:timeout",
-  "longname": "redis:timeout [DATABASE]",
+  "usage": "redis:timeout [DATABASE]",
   "desc": "set the number of seconds to wait before killing idle connections",
   "params": [
     {

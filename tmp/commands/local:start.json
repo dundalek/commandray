@@ -1,6 +1,6 @@
 {
   "name": "local:start",
-  "longname": "local:start [PROCESSNAME]",
+  "usage": "local:start [PROCESSNAME]",
   "desc": "run heroku app locally",
   "params": [
     {

@@ -1,6 +1,6 @@
 {
   "name": "apps:destroy",
-  "longname": "apps:destroy --app APP",
+  "usage": "apps:destroy --app APP",
   "desc": "permanently destroy an app",
   "params": [
     {

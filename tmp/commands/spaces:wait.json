@@ -1,6 +1,6 @@
 {
   "name": "spaces:wait",
-  "longname": "spaces:wait",
+  "usage": "spaces:wait",
   "desc": "wait for a space to be created",
   "params": [
     {

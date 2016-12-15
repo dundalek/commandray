@@ -1,6 +1,6 @@
 {
   "name": "labs:disable",
-  "longname": "labs:disable FEATURE",
+  "usage": "labs:disable FEATURE",
   "desc": "disables an experimental feature",
   "params": [
     {

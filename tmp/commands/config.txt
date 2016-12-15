@@ -9,9 +9,7 @@ display the config vars for an app
 
 Additional commands, type "heroku help COMMAND" for more details:
 
-  config:add                                #  set one or more config vars
   config:get KEY                            #  display a config value for an app
-  config:remove                             #  unset one or more config vars
   config:set KEY1=VALUE1 [KEY2=VALUE2 ...]  #  set one or more config vars
   config:unset KEY1 [KEY2 ...]              #  unset one or more config vars
 

@@ -1,6 +1,6 @@
 {
   "name": "regions",
-  "longname": "regions",
+  "usage": "regions",
   "desc": "list available regions",
   "params": [
     {

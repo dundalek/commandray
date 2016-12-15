@@ -1,6 +1,6 @@
 {
   "name": "drains",
-  "longname": "drains",
+  "usage": "drains",
   "desc": "list all log drains",
   "params": [
     {
@@ -23,7 +23,7 @@
     },
     {
       "name": "drains:remove [URL|TOKEN]",
-      "desc": "adds a log drain to an app"
+      "desc": "removes a log drain from an app"
     }
   ]
 }

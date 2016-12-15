@@ -1,0 +1,11 @@
+Usage: heroku pg:links:destroy DATABASE LINK
+
+destroys a link between data stores
+
+ -a, --app APP         # app to run command against
+ -c, --confirm CONFIRM
+ -r, --remote REMOTE   # git remote of app to run command against
+
+Example:
+  heroku pg:links:destroy HEROKU_POSTGRESQL_CERULEAN redis-symmetrical-100
+
