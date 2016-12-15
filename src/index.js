@@ -12,7 +12,7 @@ const screen = blessed.screen({
 
 // Let user quit the app
 screen.key(['escape', 'q', 'C-c'], function(ch, key) {
-  return process.exit(2);
+  return process.exit(process.env.NODE_ENV === 'production' ? 0 : 2);
 });
 
 // Render React component into screen
@@ -24,10 +24,3 @@ console.warn = function () { };
 console.error = function () { };
 console.info = function () { };
 console.debug = function () { };
-
-// Listen to SIGUSR2 indicating hot updates:
-import './signal';
-
-// This is dumb but I don't understand how else to prevent process from exiting.
-// If it exits, it will get restarted by nodemon, but then hot reloading won't work.
-setInterval(() => {}, 1000);

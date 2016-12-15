@@ -5,14 +5,15 @@
   "main": "index.js",
   "scripts": {
     "test": "mocha --compilers babel-core/register --require src/test-helper.js **/*.test.js",
-    "start": "node server.js",
+    "start": "NODE_ENV=production babel-node src/index.js",
     "extract": "babel-node ./src/extract.js",
     "clean": "rimraf build",
-    "dev": "npm run clean && npm start"
+    "dev": "npm run clean && node server.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "babel": "^5.8.38",
     "blessed": "^0.1.81",
     "chai": "^3.5.0",
     "json-loader": "^0.5.4",
