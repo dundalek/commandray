@@ -12,14 +12,19 @@ export function parseParam(cmd) {
   const type = (!!short && !long) || (long && !paramName) ? 'boolean' : 'string';
   const name = long || short;
 
+  const obj = {
+    alias: long ? short : undefined,
+    type,
+    desc: cmd.desc,
+    default: null,
+  };
+
+  if (paramName) {
+    obj.paramName = paramName;
+  }
+
   return {
-    [name]: {
-      alias: long ? short : undefined,
-      type,
-      paramName,
-      desc: cmd.desc,
-      default: null,
-    }
+    [name]: obj,
   };
 }
 
