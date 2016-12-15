@@ -1,9 +1,7 @@
 import _ from 'lodash';
-import yargs from 'yargs';
+import yargs from 'yargs/yargs';
 
-const commands = require('../commands.json');
-
-/* returns option in yargs object format from geroku line example */
+/* Returns option in yargs object format from geroku line example */
 export function parseParam(cmd) {
   const parts = cmd.name.split(',').map(x => x.trim());
   const short = (parts.filter(x => x.match(/^-[^-]/))[0] || '').replace(/^-+/, '');
@@ -25,50 +23,27 @@ export function parseParam(cmd) {
   };
 }
 
-// const params = _(commands)
-//   .map(c => c.params)
-//   .flatten()
-//   .uniqBy(a => a.name)
-//   .sortBy(a => a.name)
-//   .value();
-//
-// console.log(params);
-// console.log(params.map(parseParam));
-
-/* Transform command's usage line to a yargs format */
+/* Transforms command's usage line to a yargs format */
 export function transformUsage(usage) {
   return usage
     .replace(/[<\[=]?([A-Z][A-Z_0-9]*)[>\]=]?/g, (a, b) => a === b ? `<${b}>` : a)
     .replace(/\s*\.\.\.\]/g, '..]');
 }
 
-// const params = _(commands)
-//   .map(c => ({
-//     usage: c.usage,
-//     parsed: transformUsage(c.usage),
-//   }))
-//   .filter(c => c.usage !== c.parsed)
-//   .value();
-//
-// console.log(JSON.stringify(params, null, 2));
-
-function matchExamples(str) {
-  const examples = []
-  const r = /^\s*\$([^\n]+)$/mg;
-  let match;
-
-  while (match = r.exec(str)) {
-    examples.push(match[1].trim());
-  }
-
-  return examples;
-}
-
 function formatOption(key) {
   return (key.length === 1 ? '-' : '--') + key;
 }
 
-export function unparse(parsed, options) {
+export function parse(cmd, example) {
+  const usage = transformUsage(cmd.usage);
+  const options = cmd.params.map(parseParam).reduce(_.assign, {});
+  const parsed = yargs().usage(usage, options).parse(example);
+  return parsed;
+}
+
+/* Serializes parsed command back into string */
+export function unparse(cmd, parsed) {
+  const options = cmd.params.map(parseParam).reduce(_.assign, {});
   const aliases = _.reduce(options, (result, val, key) => {
     if (val.alias) {
       result[val.alias] = key;
@@ -96,82 +71,3 @@ export function unparse(parsed, options) {
   });
   return (parsed._ || []).concat(tokens).join(' ');
 }
-
-
-// let count = 0;
-//
-// const examples = _(commands)
-//   .map(c => ({
-//     ...c,
-//     examples: matchExamples(c.docs),
-//   }))
-//   .filter(c => c.examples.length > 0)
-//   .map(cmd => {
-//     console.log('-- ' + cmd.name);
-//     const usage = transformUsage(cmd.usage);
-//     const options = cmd.params.map(parseParam).reduce(_.assign, {});
-//     const examples = matchExamples(cmd.docs);
-//
-//     examples.forEach(e => {
-//       const parsed = yargs.usage(usage, options).parse(e);
-//       const unparsed = unparse(parsed, options);
-//       if (e !== unparsed) {
-//         console.log(e);
-//         console.log(unparsed);
-//         // console.log(parsed);
-//       } else {
-//         count += 1;
-//       }
-//     });
-//   })
-//   .value();
-//
-// console.log(count);
-
-
-
-
-
-// maybe just use yargs-parser
-
-// Required positional arguments take the form <foo>, and optional arguments take the form [bar].
-//
-// completions
-//
-// .options()
-
-// yargs.usage('Usage: $0 -w [num] -h [num]')
-// console.log(yargs.parse([ '-x', '1', '-y', '2' ]));
-
-// yargs.usage(message, [opts])
-
-// Arrays
-// 'config:set KEY1=VALUE1 [KEY2=VALUE2 ...]',
-// 'config:unset KEY1 [KEY2 ...]',
-
-
-// 'drains:remove [URL|TOKEN]',
-
-
-// const cmd = commands['apps:create'];
-// const usage = transformUsage(cmd.usage);
-// const options = cmd.params.map(parseParam).reduce(_.assign, {});
-// const examples = matchExamples(cmd.docs);
-//
-// // examples.forEach(e => {
-// //   const parsed = yargs.usage(usage, options).parse(e);
-// //   const unparsed = unparse(parsed, options);
-// //   if (e !== unparsed) {
-// //     console.log(e);
-// //     console.log(unparsed);
-// //   }
-// // });
-//
-// // const parsed = yargs.usage(usage, options).parse('heroku apps:create example-staging --ssh-git --remote staging');
-//
-// const parsed = yargs.options(options).parse('example-staging x --ssh-git --remote staging');
-//
-// console.log(usage);
-// console.log(options);
-// console.log(parsed);
-// console.log(unparse(parsed, options));

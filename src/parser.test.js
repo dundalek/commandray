@@ -1,4 +1,14 @@
-import { parseParam, transformUsage } from './parser';
+import _ from 'lodash';
+import { parseParam, transformUsage, parse, unparse } from './parser';
+import commands from '../commands.json';
+
+function testCommandUnparsing(name, example) {
+  const cmd = commands[name];
+  const parsed = parse(cmd, example);
+  const unparsed = unparse(cmd, parsed);
+
+  return unparsed;
+}
 
 describe('parser', () => {
   describe('parseParam', () => {
@@ -71,4 +81,38 @@ describe('parser', () => {
     //   expect(transformUsage('ps:type [TYPE | DYNO=TYPE [DYNO=TYPE ...]]')).toEqual('ps:type [TYPE | DYNO=<TYPE> [DYNO=<TYPE>..]]');
     // });
   });
+
+  describe('unparse', () => {
+    it('handles standard command', () => {
+      const example = 'heroku addons:create heroku-postgresql --app my-app --name main-db --as PRIMARY_DB';
+      expect(testCommandUnparsing('addons:create', example)).toEqual(example);
+    });
+
+    // this is not a desired behavior but it works like this for now due to yargs limitations
+    it('puts positional params first', () => {
+      expect(testCommandUnparsing('apps:open', 'heroku open -a myapp /foo')).toEqual('heroku open /foo -a myapp');
+    });
+
+    it('handles command without positional args', () => {
+      const example = 'heroku spaces:create --space my-space --org my-org --region oregon';
+      expect(testCommandUnparsing('spaces:create', example)).toEqual(example);
+    });
+
+    it('handles short options', () => {
+      const example = 'heroku pipelines:update -s staging -a example-admin';
+      expect(testCommandUnparsing('pipelines:update', example)).toEqual(example);
+    });
+
+    it('handles boolean options', () => {
+      const example = 'heroku apps:info --shell';
+      expect(testCommandUnparsing('apps:info', example)).toEqual(example);
+    });
+
+    // gets messed up now due to yargs limitation
+    // it('handles parsing stop', () => {
+    //   const example = 'heroku run -s hobby -- myscript.sh -a arg1 -s arg2';
+    //   expect(testCommandUnparsing('run', example)).toEqual(example);
+    // });
+
+  })
 });

@@ -3,7 +3,7 @@ import blessed from 'blessed';
 import { render } from 'react-blessed';
 import _ from 'lodash';
 import robot from 'robotjs';
-import { transformUsage, parseParam, unparse } from './parser';
+import { parseParam, unparse } from './parser';
 
 // https://github.com/Yomguithereal/react-blessed/issues/24
 // mouse and enableKeys
@@ -128,7 +128,7 @@ class Detail extends Component {
       vals[name] = val !== '' ? val : null;
     });
 
-    const text = unparse(vals, options);
+    const text = unparse(this.props.cmd, vals);
     return ['heroku', this.props.cmd.name, text].join(' ');
   }
 
