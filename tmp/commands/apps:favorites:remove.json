@@ -1,6 +1,6 @@
 {
   "name": "apps:favorites:remove",
-  "usage": "apps:favorites:remove",
+  "usage": "heroku apps:favorites:remove",
   "desc": "unfavorites an app",
   "params": [
     {

@@ -1,6 +1,6 @@
 {
   "name": "labs:disable",
-  "usage": "labs:disable FEATURE",
+  "usage": "heroku labs:disable FEATURE",
   "desc": "disables an experimental feature",
   "params": [
     {

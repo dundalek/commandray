@@ -1,6 +1,6 @@
 {
   "name": "features:info",
-  "usage": "features:info FEATURE",
+  "usage": "heroku features:info FEATURE",
   "desc": "displays additional information about FEATURE",
   "params": [
     {

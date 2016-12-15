@@ -1,6 +1,6 @@
 {
   "name": "ps:type",
-  "usage": "ps:type [TYPE | DYNO=TYPE [DYNO=TYPE ...]]",
+  "usage": "heroku ps:type",
   "desc": "manage dyno types",
   "params": [
     {

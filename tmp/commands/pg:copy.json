@@ -1,6 +1,6 @@
 {
   "name": "pg:copy",
-  "usage": "pg:copy SOURCE TARGET",
+  "usage": "heroku pg:copy SOURCE TARGET",
   "desc": "pg:credentials DATABASE                             #  display the DATABASE credentials.",
   "params": [
     {

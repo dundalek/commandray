@@ -1,6 +1,6 @@
 {
   "name": "pg:ps",
-  "usage": "pg:ps [DATABASE]",
+  "usage": "heroku pg:ps [DATABASE]",
   "desc": "view active queries with execution time",
   "params": [
     {

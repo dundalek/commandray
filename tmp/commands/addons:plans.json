@@ -1,6 +1,6 @@
 {
   "name": "addons:plans",
-  "usage": "addons:plans SERVICE",
+  "usage": "heroku addons:plans SERVICE",
   "desc": "list all available plans for an add-on service",
   "params": [
     {

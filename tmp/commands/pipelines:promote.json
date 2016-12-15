@@ -1,6 +1,6 @@
 {
   "name": "pipelines:promote",
-  "usage": "pipelines:promote",
+  "usage": "heroku pipelines:promote",
   "desc": "promote the latest release of this app to its downstream app(s)",
   "params": [
     {

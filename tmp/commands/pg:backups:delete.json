@@ -1,6 +1,6 @@
 {
   "name": "pg:backups:delete",
-  "usage": "pg:backups:delete BACKUP_ID",
+  "usage": "heroku pg:backups:delete BACKUP_ID",
   "desc": "delete a backup",
   "params": [
     {

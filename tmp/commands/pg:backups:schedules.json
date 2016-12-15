@@ -1,6 +1,6 @@
 {
   "name": "pg:backups:schedules",
-  "usage": "pg:backups:schedules",
+  "usage": "heroku pg:backups:schedules",
   "desc": "pg:backups:unschedule [DATABASE]                    #  stop daily backups",
   "params": [
     {

@@ -1,6 +1,6 @@
 {
   "name": "apps:destroy",
-  "usage": "apps:destroy --app APP",
+  "usage": "heroku apps:destroy",
   "desc": "permanently destroy an app",
   "params": [
     {

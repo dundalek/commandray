@@ -1,6 +1,6 @@
 {
   "name": "apps:info",
-  "usage": "apps:info",
+  "usage": "heroku apps:info",
   "desc": "show detailed app information",
   "params": [
     {

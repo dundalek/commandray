@@ -1,6 +1,6 @@
 {
   "name": "pipelines:add",
-  "usage": "pipelines:add PIPELINE",
+  "usage": "heroku pipelines:add PIPELINE",
   "desc": "add this app to a pipeline",
   "params": [
     {

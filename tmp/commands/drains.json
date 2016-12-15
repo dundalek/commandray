@@ -1,6 +1,6 @@
 {
   "name": "drains",
-  "usage": "drains",
+  "usage": "heroku drains",
   "desc": "list all log drains",
   "params": [
     {

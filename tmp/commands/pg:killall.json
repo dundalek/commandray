@@ -1,6 +1,6 @@
 {
   "name": "pg:killall",
-  "usage": "pg:killall [DATABASE]",
+  "usage": "heroku pg:killall [DATABASE]",
   "desc": "terminates ALL connections",
   "params": [
     {

@@ -1,6 +1,6 @@
 {
   "name": "redis:info",
-  "usage": "redis:info [DATABASE]",
+  "usage": "heroku redis:info [DATABASE]",
   "desc": "gets information about redis",
   "params": [
     {

@@ -1,6 +1,6 @@
 {
   "name": "spaces:destroy",
-  "usage": "spaces:destroy",
+  "usage": "heroku spaces:destroy",
   "desc": "destroy a space",
   "params": [
     {

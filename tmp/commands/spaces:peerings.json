@@ -1,6 +1,6 @@
 {
   "name": "spaces:peerings",
-  "usage": "spaces:peerings",
+  "usage": "heroku spaces:peerings",
   "desc": "list peering connections for a space",
   "params": [
     {

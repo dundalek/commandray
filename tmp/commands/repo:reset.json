@@ -1,6 +1,6 @@
 {
   "name": "repo:reset",
-  "usage": "repo:reset",
+  "usage": "heroku repo:reset",
   "desc": "reset the repo",
   "params": [
     {

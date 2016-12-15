@@ -1,6 +1,6 @@
 {
   "name": "update:beta",
-  "usage": "update:beta",
+  "usage": "heroku update:beta",
   "desc": "update to the latest beta client",
   "params": [],
   "subcommands": [],

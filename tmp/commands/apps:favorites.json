@@ -1,6 +1,6 @@
 {
   "name": "apps:favorites",
-  "usage": "apps:favorites",
+  "usage": "heroku apps:favorites",
   "desc": "list favorited apps",
   "params": [
     {

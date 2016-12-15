@@ -1,6 +1,6 @@
 {
   "name": "apps:unlock",
-  "usage": "apps:unlock --app APP",
+  "usage": "heroku apps:unlock",
   "desc": "unlock an organization app so that any org member can join it",
   "params": [
     {

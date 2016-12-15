@@ -48,6 +48,11 @@ function getHerokuCommands() {
     const children = extractPageCommands(stdout);
     const subcommands = children.filter(({ name }) => name[0] !== '-');
 
+    const firstLine = stdout.split(/\n\s*\n/)[0];
+    if (firstLine && firstLine.startsWith('Usage:')) {
+      usage = firstLine.replace(/^Usage:/, '').trim();
+    }
+
     commands[name] = {
       name,
       usage,

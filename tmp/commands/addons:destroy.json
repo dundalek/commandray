@@ -1,6 +1,6 @@
 {
   "name": "addons:destroy",
-  "usage": "addons:destroy ADDON_NAME [ADDON_NAME ...]",
+  "usage": "heroku addons:destroy",
   "desc": "destroy add-on resources",
   "params": [
     {

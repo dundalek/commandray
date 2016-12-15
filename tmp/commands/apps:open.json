@@ -1,6 +1,6 @@
 {
   "name": "apps:open",
-  "usage": "apps:open --app APP",
+  "usage": "heroku apps:open [PATH]",
   "desc": "open the app in a web browser",
   "params": [
     {

@@ -1,6 +1,6 @@
 {
   "name": "regions",
-  "usage": "regions",
+  "usage": "heroku regions",
   "desc": "list available regions",
   "params": [
     {

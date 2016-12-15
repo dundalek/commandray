@@ -1,6 +1,6 @@
 {
   "name": "pg:backups:info",
-  "usage": "pg:backups:info [BACKUP_ID]",
+  "usage": "heroku pg:backups:info [BACKUP_ID]",
   "desc": "get information about a specific backup",
   "params": [
     {

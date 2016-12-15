@@ -1,6 +1,6 @@
 {
   "name": "members:remove",
-  "usage": "members:remove EMAIL [--org ORG]",
+  "usage": "heroku members:remove EMAIL",
   "desc": "removes a member from an org",
   "params": [
     {

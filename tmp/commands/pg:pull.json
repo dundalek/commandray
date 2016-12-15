@@ -1,6 +1,6 @@
 {
   "name": "pg:pull",
-  "usage": "pg:pull <REMOTE_SOURCE_DATABASE> <TARGET_DATABASE>",
+  "usage": "heroku pg:pull SOURCE TARGET",
   "desc": "pull from REMOTE_SOURCE_DATABASE to TARGET_DATABASE",
   "params": [
     {

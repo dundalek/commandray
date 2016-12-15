@@ -1,6 +1,6 @@
 {
   "name": "pipelines:open",
-  "usage": "pipelines:open PIPELINE",
+  "usage": "heroku pipelines:open PIPELINE",
   "desc": "open a pipeline in dashboard",
   "params": [],
   "subcommands": [],

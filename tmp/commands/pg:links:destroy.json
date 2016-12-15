@@ -1,6 +1,6 @@
 {
   "name": "pg:links:destroy",
-  "usage": "pg:links:destroy DATABASE LINK",
+  "usage": "heroku pg:links:destroy DATABASE LINK",
   "desc": "destroys a link between data stores",
   "params": [
     {

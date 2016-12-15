@@ -1,6 +1,6 @@
 {
   "name": "pipelines:destroy",
-  "usage": "pipelines:destroy PIPELINE",
+  "usage": "heroku pipelines:destroy PIPELINE",
   "desc": "destroy a pipeline",
   "params": [],
   "subcommands": [],

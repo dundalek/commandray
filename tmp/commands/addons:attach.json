@@ -1,6 +1,6 @@
 {
   "name": "addons:attach",
-  "usage": "addons:attach ADDON_NAME",
+  "usage": "heroku addons:attach ADDON_NAME",
   "desc": "attach add-on resource to an app",
   "params": [
     {

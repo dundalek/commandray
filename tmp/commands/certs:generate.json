@@ -1,6 +1,6 @@
 {
   "name": "certs:generate",
-  "usage": "certs:generate DOMAIN",
+  "usage": "heroku certs:generate DOMAIN",
   "desc": "Generate a key and certificate signing request (or self-signed certificate)",
   "params": [
     {

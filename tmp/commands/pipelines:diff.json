@@ -1,6 +1,6 @@
 {
   "name": "pipelines:diff",
-  "usage": "pipelines:diff",
+  "usage": "heroku pipelines:diff",
   "desc": "compares the latest release of this app its downstream app(s)",
   "params": [
     {

@@ -1,6 +1,6 @@
 {
   "name": "pg",
-  "usage": "pg",
+  "usage": "heroku pg [DATABASE]",
   "desc": "manage heroku-postgresql databases",
   "params": [
     {

@@ -1,6 +1,6 @@
 {
   "name": "redis:timeout",
-  "usage": "redis:timeout [DATABASE]",
+  "usage": "heroku redis:timeout [DATABASE]",
   "desc": "set the number of seconds to wait before killing idle connections",
   "params": [
     {

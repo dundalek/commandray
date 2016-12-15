@@ -1,6 +1,6 @@
 {
   "name": "apps:create",
-  "usage": "apps:create [NAME]",
+  "usage": "heroku apps:create [APP]",
   "desc": "create a new app",
   "params": [
     {

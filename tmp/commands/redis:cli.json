@@ -1,6 +1,6 @@
 {
   "name": "redis:cli",
-  "usage": "redis:cli [DATABASE]",
+  "usage": "heroku redis:cli [DATABASE]",
   "desc": "opens a redis prompt",
   "params": [
     {

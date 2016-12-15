@@ -1,6 +1,6 @@
 {
   "name": "pipelines:list",
-  "usage": "pipelines:list",
+  "usage": "heroku pipelines:list",
   "desc": "list pipelines you have access to",
   "params": [
     {

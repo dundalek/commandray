@@ -1,6 +1,6 @@
 {
   "name": "certs:rollback",
-  "usage": "certs:rollback",
+  "usage": "heroku certs:rollback",
   "desc": "Rollback an SSL Endpoint for an app.",
   "params": [
     {

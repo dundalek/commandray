@@ -1,6 +1,6 @@
 {
   "name": "certs:key",
-  "usage": "certs:key CRT KEY [KEY ...]",
+  "usage": "heroku certs:key",
   "desc": "Print the correct key for the given certificate.",
   "params": [
     {

@@ -1,6 +1,6 @@
 {
   "name": "spaces:vpn:info",
-  "usage": "spaces:vpn:info",
+  "usage": "heroku spaces:vpn:info",
   "desc": "display the information for VPN",
   "params": [
     {

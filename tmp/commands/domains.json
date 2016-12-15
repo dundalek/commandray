@@ -1,6 +1,6 @@
 {
   "name": "domains",
-  "usage": "domains",
+  "usage": "heroku domains",
   "desc": "manage domains",
   "params": [
     {

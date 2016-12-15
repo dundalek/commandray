@@ -1,6 +1,6 @@
 {
   "name": "config",
-  "usage": "config",
+  "usage": "heroku config",
   "desc": "manage app config vars",
   "params": [
     {

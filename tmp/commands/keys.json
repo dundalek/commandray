@@ -1,6 +1,6 @@
 {
   "name": "keys",
-  "usage": "keys",
+  "usage": "heroku keys",
   "desc": "manage authentication keys",
   "params": [
     {

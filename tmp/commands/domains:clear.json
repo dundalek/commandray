@@ -1,6 +1,6 @@
 {
   "name": "domains:clear",
-  "usage": "domains:clear",
+  "usage": "heroku domains:clear",
   "desc": "remove all custom domains from an app",
   "params": [
     {

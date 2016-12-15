@@ -1,6 +1,6 @@
 {
   "name": "pipelines:rename",
-  "usage": "pipelines:rename PIPELINE NAME",
+  "usage": "heroku pipelines:rename PIPELINE NAME",
   "desc": "rename a pipeline",
   "params": [],
   "subcommands": [],

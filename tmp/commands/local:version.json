@@ -1,6 +1,6 @@
 {
   "name": "local:version",
-  "usage": "local:version",
+  "usage": "heroku local:version",
   "desc": "display node-foreman version",
   "params": [],
   "subcommands": [],

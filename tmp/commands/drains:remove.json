@@ -1,6 +1,6 @@
 {
   "name": "drains:remove",
-  "usage": "drains:remove [URL|TOKEN]",
+  "usage": "heroku drains:remove [URL|TOKEN]",
   "desc": "removes a log drain from an app",
   "params": [
     {

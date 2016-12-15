@@ -1,6 +1,6 @@
 {
   "name": "members:add",
-  "usage": "members:add EMAIL [--org ORG] [--role ROLE]",
+  "usage": "heroku members:add EMAIL",
   "desc": "adds a new member to an org",
   "params": [
     {

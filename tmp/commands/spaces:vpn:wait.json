@@ -1,6 +1,6 @@
 {
   "name": "spaces:vpn:wait",
-  "usage": "spaces:vpn:wait",
+  "usage": "heroku spaces:vpn:wait",
   "desc": "wait for VPN to be created",
   "params": [
     {

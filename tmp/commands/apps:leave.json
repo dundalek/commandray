@@ -1,6 +1,6 @@
 {
   "name": "apps:leave",
-  "usage": "apps:leave --app APP",
+  "usage": "heroku apps:leave",
   "desc": "remove yourself from an organization app",
   "params": [
     {

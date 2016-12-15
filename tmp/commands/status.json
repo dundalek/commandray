@@ -1,6 +1,6 @@
 {
   "name": "status",
-  "usage": "status",
+  "usage": "heroku status",
   "desc": "status of the Heroku platform",
   "params": [
     {

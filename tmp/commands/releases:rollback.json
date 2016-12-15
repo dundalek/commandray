@@ -1,6 +1,6 @@
 {
   "name": "releases:rollback",
-  "usage": "releases:rollback [RELEASE]",
+  "usage": "heroku releases:rollback [RELEASE]",
   "desc": "roll back to an older release",
   "params": [
     {

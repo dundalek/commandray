@@ -1,6 +1,6 @@
 {
   "name": "run",
-  "usage": "run",
+  "usage": "heroku run",
   "desc": "run one-off commands (console, rake)",
   "params": [
     {

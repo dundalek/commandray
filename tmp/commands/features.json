@@ -1,6 +1,6 @@
 {
   "name": "features",
-  "usage": "features",
+  "usage": "heroku features",
   "desc": "manage optional features",
   "params": [
     {

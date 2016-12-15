@@ -1,6 +1,6 @@
 {
   "name": "pg:psql",
-  "usage": "pg:psql [DATABASE]",
+  "usage": "heroku pg:psql [DATABASE]",
   "desc": "open a psql shell to the database",
   "params": [
     {

@@ -1,6 +1,6 @@
 {
   "name": "repo:purge_cache",
-  "usage": "repo:purge_cache",
+  "usage": "heroku repo:purge_cache",
   "desc": "deletes the contents the build cache in the repository",
   "params": [
     {

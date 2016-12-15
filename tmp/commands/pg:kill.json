@@ -1,6 +1,6 @@
 {
   "name": "pg:kill",
-  "usage": "pg:kill pid [DATABASE]",
+  "usage": "heroku pg:kill PID [DATABASE]",
   "desc": "kill a query",
   "params": [
     {

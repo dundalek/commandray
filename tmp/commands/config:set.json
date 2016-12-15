@@ -1,6 +1,6 @@
 {
   "name": "config:set",
-  "usage": "config:set KEY1=VALUE1 [KEY2=VALUE2 ...]",
+  "usage": "heroku config:set",
   "desc": "set one or more config vars",
   "params": [
     {

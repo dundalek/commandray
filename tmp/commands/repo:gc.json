@@ -1,6 +1,6 @@
 {
   "name": "repo:gc",
-  "usage": "repo:gc",
+  "usage": "heroku repo:gc",
   "desc": "run a git gc --aggressive on an application's repository",
   "params": [
     {

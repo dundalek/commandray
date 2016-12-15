@@ -1,6 +1,6 @@
 {
   "name": "redis:wait",
-  "usage": "redis:wait [DATABASE]",
+  "usage": "heroku redis:wait [DATABASE]",
   "desc": "wait for Redis instance to be available",
   "params": [
     {

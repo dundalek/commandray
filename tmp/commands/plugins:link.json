@@ -1,6 +1,6 @@
 {
   "name": "plugins:link",
-  "usage": "plugins:link [PATH]",
+  "usage": "heroku plugins:link [PATH]",
   "desc": "This is useful when developing plugins locally.",
   "params": [],
   "subcommands": [],

@@ -1,6 +1,6 @@
 {
   "name": "pg:reset",
-  "usage": "pg:reset DATABASE",
+  "usage": "heroku pg:reset [DATABASE]",
   "desc": "delete all data in DATABASE",
   "params": [
     {

@@ -1,6 +1,6 @@
 {
   "name": "orgs:open",
-  "usage": "orgs:open --org ORG",
+  "usage": "heroku orgs:open",
   "desc": "opens the org interface in a browser",
   "params": [
     {

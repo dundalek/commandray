@@ -1,6 +1,6 @@
 {
   "name": "version",
-  "usage": "version",
+  "usage": "heroku version",
   "desc": "display version",
   "params": [],
   "subcommands": [],

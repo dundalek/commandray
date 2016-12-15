@@ -1,6 +1,6 @@
 {
   "name": "members",
-  "usage": "members",
+  "usage": "heroku members",
   "desc": "manage membership in organization accounts",
   "params": [
     {

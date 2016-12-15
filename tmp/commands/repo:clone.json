@@ -1,6 +1,6 @@
 {
   "name": "repo:clone",
-  "usage": "repo:clone",
+  "usage": "heroku repo:clone",
   "desc": "sets the bare repo for immediate consumption",
   "params": [
     {

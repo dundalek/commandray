@@ -1,6 +1,6 @@
 {
   "name": "pg:backups:cancel",
-  "usage": "pg:backups:cancel [BACKUP_ID]",
+  "usage": "heroku pg:backups:cancel [BACKUP_ID]",
   "desc": "cancel an in-progress backup or restore (default newest)",
   "params": [
     {

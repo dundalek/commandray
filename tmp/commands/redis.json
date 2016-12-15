@@ -1,6 +1,6 @@
 {
   "name": "redis",
-  "usage": "redis",
+  "usage": "heroku redis:info [DATABASE]",
   "desc": "manage heroku redis instances",
   "params": [
     {

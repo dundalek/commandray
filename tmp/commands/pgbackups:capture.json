@@ -1,6 +1,6 @@
 {
   "name": "pgbackups:capture",
-  "usage": "pgbackups:capture [DATABASE]",
+  "usage": "heroku pgbackups:capture [DATABASE]",
   "desc": "capture a backup from a database id",
   "params": [
     {

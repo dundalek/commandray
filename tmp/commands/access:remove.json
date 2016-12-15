@@ -1,6 +1,6 @@
 {
   "name": "access:remove",
-  "usage": "access:remove EMAIL",
+  "usage": "heroku access:remove EMAIL",
   "desc": "Remove users from your app",
   "params": [
     {

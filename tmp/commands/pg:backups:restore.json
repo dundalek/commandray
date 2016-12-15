@@ -1,6 +1,6 @@
 {
   "name": "pg:backups:restore",
-  "usage": "pg:backups:restore [BACKUP] [DATABASE]",
+  "usage": "heroku pg:backups:restore [BACKUP] [DATABASE]",
   "desc": "restore a backup (default latest) to a database",
   "params": [
     {

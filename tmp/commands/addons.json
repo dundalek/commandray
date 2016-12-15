@@ -1,6 +1,6 @@
 {
   "name": "addons",
-  "usage": "addons",
+  "usage": "heroku addons [--all|--app APP]",
   "desc": "manage add-on resources",
   "params": [
     {

@@ -1,6 +1,6 @@
 {
   "name": "certs",
-  "usage": "certs",
+  "usage": "heroku certs",
   "desc": "manage ssl endpoints for an app",
   "params": [
     {

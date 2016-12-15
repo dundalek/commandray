@@ -1,6 +1,6 @@
 {
   "name": "redis:maintenance",
-  "usage": "redis:maintenance [DATABASE]",
+  "usage": "heroku redis:maintenance [DATABASE]",
   "desc": "manage maintenance windows",
   "params": [
     {

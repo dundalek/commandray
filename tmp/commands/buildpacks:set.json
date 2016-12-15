@@ -1,6 +1,6 @@
 {
   "name": "buildpacks:set",
-  "usage": "buildpacks:set BUILDPACK_URL",
+  "usage": "heroku buildpacks:set URL",
   "desc": "set new app buildpack, overwriting into list of buildpacks if neccessary",
   "params": [
     {

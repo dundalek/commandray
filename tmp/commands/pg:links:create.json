@@ -1,6 +1,6 @@
 {
   "name": "pg:links:create",
-  "usage": "pg:links:create REMOTE DATABASE",
+  "usage": "heroku pg:links:create REMOTE DATABASE",
   "desc": "create a link between data stores",
   "params": [
     {

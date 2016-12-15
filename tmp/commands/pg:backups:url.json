@@ -1,6 +1,6 @@
 {
   "name": "pg:backups:url",
-  "usage": "pg:backups:url [BACKUP_ID]",
+  "usage": "heroku pg:backups:url [BACKUP_ID]",
   "desc": "get secret but publicly accessible URL of a backup",
   "params": [
     {

@@ -1,6 +1,6 @@
 {
   "name": "pg:info",
-  "usage": "pg:info [DATABASE]",
+  "usage": "heroku pg:info [DATABASE]",
   "desc": "display database information",
   "params": [
     {

@@ -1,6 +1,6 @@
 {
   "name": "notifications",
-  "usage": "notifications",
+  "usage": "heroku notifications",
   "desc": "display notifications",
   "params": [
     {

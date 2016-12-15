@@ -1,6 +1,6 @@
 {
   "name": "spaces:peerings:destroy",
-  "usage": "spaces:peerings:destroy",
+  "usage": "heroku spaces:peerings:destroy",
   "desc": "destroys an active peering connection in a private space",
   "params": [
     {

@@ -1,6 +1,6 @@
 {
   "name": "domains:wait",
-  "usage": "domains:wait HOSTNAME",
+  "usage": "heroku domains:wait HOSTNAME",
   "desc": "wait for domain to be active for an app",
   "params": [
     {

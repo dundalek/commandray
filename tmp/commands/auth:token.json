@@ -1,6 +1,6 @@
 {
   "name": "auth:token",
-  "usage": "auth:token",
+  "usage": "heroku auth:token",
   "desc": "display your api token",
   "params": [],
   "subcommands": [],

@@ -1,6 +1,6 @@
 {
   "name": "apps",
-  "usage": "apps",
+  "usage": "heroku apps",
   "desc": "manage apps (create, destroy)",
   "params": [
     {

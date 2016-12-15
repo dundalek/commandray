@@ -1,6 +1,6 @@
 {
   "name": "certs:update",
-  "usage": "certs:update CRT KEY",
+  "usage": "heroku certs:update CRT KEY",
   "desc": "Update an SSL Endpoint on an app.",
   "params": [
     {

@@ -1,6 +1,6 @@
 {
   "name": "features:enable",
-  "usage": "features:enable FEATURE",
+  "usage": "heroku features:enable FEATURE",
   "desc": "enables an feature",
   "params": [
     {

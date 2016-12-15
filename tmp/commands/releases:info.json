@@ -1,6 +1,6 @@
 {
   "name": "releases:info",
-  "usage": "releases:info RELEASE",
+  "usage": "heroku releases:info [RELEASE]",
   "desc": "view detailed information for a release",
   "params": [
     {

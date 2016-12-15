@@ -1,6 +1,6 @@
 {
   "name": "pgbackups:restore",
-  "usage": "pgbackups:restore [<DATABASE> [BACKUP_ID|BACKUP_URL]]",
+  "usage": "heroku pgbackups:restore [<DATABASE> [BACKUP_ID|BACKUP_URL]]",
   "desc": "restore a backup to a database",
   "params": [],
   "subcommands": [],

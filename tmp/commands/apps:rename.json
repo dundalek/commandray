@@ -1,6 +1,6 @@
 {
   "name": "apps:rename",
-  "usage": "apps:rename NEWNAME --app APP",
+  "usage": "heroku apps:rename NEWNAME",
   "desc": "rename the app",
   "params": [
     {

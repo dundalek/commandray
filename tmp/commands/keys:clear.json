@@ -1,6 +1,6 @@
 {
   "name": "keys:clear",
-  "usage": "keys:clear",
+  "usage": "heroku keys:clear",
   "desc": "remove all authentication keys from the current user",
   "params": [],
   "subcommands": [],

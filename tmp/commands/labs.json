@@ -1,6 +1,6 @@
 {
   "name": "labs",
-  "usage": "labs",
+  "usage": "heroku labs",
   "desc": "manage optional features",
   "params": [
     {

@@ -1,6 +1,6 @@
 {
   "name": "buildpacks",
-  "usage": "buildpacks",
+  "usage": "heroku buildpacks",
   "desc": "manage the buildpack for an app",
   "params": [
     {

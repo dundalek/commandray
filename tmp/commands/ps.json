@@ -1,6 +1,6 @@
 {
   "name": "ps",
-  "usage": "ps",
+  "usage": "heroku ps [TYPE [TYPE ...]]",
   "desc": "manage dynos (dynos, workers)",
   "params": [
     {

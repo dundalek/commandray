@@ -1,6 +1,6 @@
 {
   "name": "addons:info",
-  "usage": "addons:info ADDON",
+  "usage": "heroku addons:info ADDON",
   "desc": "Show info about an add-on and its attachments.",
   "params": [
     {

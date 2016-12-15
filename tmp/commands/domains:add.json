@@ -1,6 +1,6 @@
 {
   "name": "domains:add",
-  "usage": "domains:add DOMAIN",
+  "usage": "heroku domains:add HOSTNAME",
   "desc": "add a custom domain to an app",
   "params": [
     {

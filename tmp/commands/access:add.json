@@ -1,6 +1,6 @@
 {
   "name": "access:add",
-  "usage": "access:add EMAIL",
+  "usage": "heroku access:add EMAIL",
   "desc": "Add new users to your app",
   "params": [
     {

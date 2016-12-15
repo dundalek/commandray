@@ -1,6 +1,6 @@
 {
   "name": "drains:add",
-  "usage": "drains:add URL",
+  "usage": "heroku drains:add URL",
   "desc": "adds a log drain to an app",
   "params": [
     {

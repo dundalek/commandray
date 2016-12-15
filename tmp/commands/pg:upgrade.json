@@ -1,6 +1,6 @@
 {
   "name": "pg:upgrade",
-  "usage": "pg:upgrade REPLICA",
+  "usage": "heroku pg:upgrade [DATABASE]",
   "desc": "unfollow a database and upgrade it to the latest stable PostgreSQL version",
   "params": [
     {

@@ -1,6 +1,6 @@
 {
   "name": "pipelines",
-  "usage": "pipelines",
+  "usage": "heroku pipelines:list",
   "desc": "manage collections of apps in pipelines",
   "params": [
     {

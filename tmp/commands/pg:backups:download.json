@@ -1,6 +1,6 @@
 {
   "name": "pg:backups:download",
-  "usage": "pg:backups:download [BACKUP_ID]",
+  "usage": "heroku pg:backups:download [BACKUP_ID]",
   "desc": "downloads database backup",
   "params": [
     {

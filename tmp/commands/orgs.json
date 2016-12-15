@@ -1,6 +1,6 @@
 {
   "name": "orgs",
-  "usage": "orgs",
+  "usage": "heroku orgs",
   "desc": "manage organization accounts",
   "params": [
     {

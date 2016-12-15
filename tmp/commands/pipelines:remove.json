@@ -1,6 +1,6 @@
 {
   "name": "pipelines:remove",
-  "usage": "pipelines:remove",
+  "usage": "heroku pipelines:remove",
   "desc": "remove this app from its pipeline",
   "params": [
     {

@@ -1,6 +1,6 @@
 {
   "name": "spaces:info",
-  "usage": "spaces:info",
+  "usage": "heroku spaces:info",
   "desc": "show info about a space",
   "params": [
     {

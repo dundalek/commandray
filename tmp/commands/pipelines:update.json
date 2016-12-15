@@ -1,6 +1,6 @@
 {
   "name": "pipelines:update",
-  "usage": "pipelines:update",
+  "usage": "heroku pipelines:update",
   "desc": "update this app's stage in a pipeline",
   "params": [
     {

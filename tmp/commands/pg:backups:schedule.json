@@ -1,6 +1,6 @@
 {
   "name": "pg:backups:schedule",
-  "usage": "pg:backups:schedule [DATABASE]",
+  "usage": "heroku pg:backups:schedule [DATABASE]",
   "desc": "schedule daily backups for given database",
   "params": [
     {

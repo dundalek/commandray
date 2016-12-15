@@ -1,6 +1,6 @@
 {
   "name": "addons:rename",
-  "usage": "addons:rename ADDON NEW_NAME",
+  "usage": "heroku addons:rename ADDON NEW_NAME",
   "desc": "Rename an add-on.",
   "params": [
     {

@@ -1,6 +1,6 @@
 {
   "name": "stack:set",
-  "usage": "stack:set STACK",
+  "usage": "heroku stack:set STACK",
   "desc": "set new app stack",
   "params": [
     {

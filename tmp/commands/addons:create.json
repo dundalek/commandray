@@ -1,6 +1,6 @@
 {
   "name": "addons:create",
-  "usage": "addons:create SERVICE:PLAN",
+  "usage": "heroku addons:create SERVICE:PLAN",
   "desc": "create an add-on resource",
   "params": [
     {

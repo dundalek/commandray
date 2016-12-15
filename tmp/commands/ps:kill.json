@@ -1,6 +1,6 @@
 {
   "name": "ps:kill",
-  "usage": "ps:kill DYNO",
+  "usage": "heroku ps:kill DYNO",
   "desc": "stop app dyno",
   "params": [
     {

@@ -1,6 +1,6 @@
 {
   "name": "releases",
-  "usage": "releases",
+  "usage": "heroku releases",
   "desc": "manage app releases",
   "params": [
     {

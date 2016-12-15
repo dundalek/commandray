@@ -1,6 +1,6 @@
 {
   "name": "maintenance",
-  "usage": "maintenance",
+  "usage": "heroku maintenance",
   "desc": "manage maintenance mode for an app",
   "params": [
     {

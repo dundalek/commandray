@@ -1,6 +1,6 @@
 {
   "name": "run:detached",
-  "usage": "run:detached COMMAND",
+  "usage": "heroku run:detached",
   "desc": "run a detached dyno, where output is sent to your logs",
   "params": [
     {

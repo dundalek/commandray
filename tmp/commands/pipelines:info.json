@@ -1,6 +1,6 @@
 {
   "name": "pipelines:info",
-  "usage": "pipelines:info PIPELINE",
+  "usage": "heroku pipelines:info PIPELINE",
   "desc": "show list of apps in a pipeline",
   "params": [
     {

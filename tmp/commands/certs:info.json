@@ -1,6 +1,6 @@
 {
   "name": "certs:info",
-  "usage": "certs:info",
+  "usage": "heroku certs:info",
   "desc": "Show certificate information for an ssl endpoint.",
   "params": [
     {

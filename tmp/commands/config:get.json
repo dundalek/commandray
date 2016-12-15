@@ -1,6 +1,6 @@
 {
   "name": "config:get",
-  "usage": "config:get KEY",
+  "usage": "heroku config:get KEY",
   "desc": "display a config value for an app",
   "params": [
     {

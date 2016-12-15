@@ -1,6 +1,6 @@
 {
   "name": "apps:errors",
-  "usage": "apps:errors",
+  "usage": "heroku apps:errors",
   "desc": "view app errors",
   "params": [
     {

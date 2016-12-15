@@ -1,6 +1,6 @@
 {
   "name": "spaces:wait",
-  "usage": "spaces:wait",
+  "usage": "heroku spaces:wait",
   "desc": "wait for a space to be created",
   "params": [
     {

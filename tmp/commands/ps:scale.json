@@ -1,6 +1,6 @@
 {
   "name": "ps:scale",
-  "usage": "ps:scale [DYNO1=AMOUNT1 [DYNO2=AMOUNT2 ...]]",
+  "usage": "heroku ps:scale",
   "desc": "scale dynos by the given amount",
   "params": [
     {

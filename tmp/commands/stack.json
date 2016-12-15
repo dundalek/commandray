@@ -1,6 +1,6 @@
 {
   "name": "stack",
-  "usage": "stack",
+  "usage": "heroku stack",
   "desc": "manage the stack for an app",
   "params": [
     {

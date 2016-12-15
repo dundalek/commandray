@@ -1,6 +1,6 @@
 {
   "name": "addons:detach",
-  "usage": "addons:detach ATTACHMENT_NAME",
+  "usage": "heroku addons:detach ATTACHMENT_NAME",
   "desc": "detach add-on resource from an app",
   "params": [
     {

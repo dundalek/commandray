@@ -1,6 +1,6 @@
 {
   "name": "redis:promote",
-  "usage": "redis:promote DATABASE",
+  "usage": "heroku redis:promote DATABASE",
   "desc": "sets DATABASE as your REDIS_URL",
   "params": [
     {

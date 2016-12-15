@@ -1,6 +1,6 @@
 {
   "name": "pipelines:create",
-  "usage": "pipelines:create [NAME]",
+  "usage": "heroku pipelines:create [NAME]",
   "desc": "create a new pipeline",
   "params": [
     {

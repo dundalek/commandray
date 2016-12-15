@@ -1,6 +1,6 @@
 {
   "name": "apps:join",
-  "usage": "apps:join --app APP",
+  "usage": "heroku apps:join",
   "desc": "add yourself to an organization app",
   "params": [
     {

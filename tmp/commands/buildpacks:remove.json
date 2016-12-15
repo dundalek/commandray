@@ -1,6 +1,6 @@
 {
   "name": "buildpacks:remove",
-  "usage": "buildpacks:remove [BUILDPACK_URL]",
+  "usage": "heroku buildpacks:remove [URL]",
   "desc": "remove a buildpack set on the app",
   "params": [
     {

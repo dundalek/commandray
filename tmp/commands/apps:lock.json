@@ -1,6 +1,6 @@
 {
   "name": "apps:lock",
-  "usage": "apps:lock --app APP",
+  "usage": "heroku apps:lock",
   "desc": "lock an organization app to restrict access",
   "params": [
     {

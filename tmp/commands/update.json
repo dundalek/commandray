@@ -1,6 +1,6 @@
 {
   "name": "update",
-  "usage": "update",
+  "usage": "heroku update [CHANNEL]",
   "desc": "update the heroku client",
   "params": [],
   "subcommands": [

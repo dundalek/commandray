@@ -1,6 +1,6 @@
 {
   "name": "redis:maxmemory",
-  "usage": "redis:maxmemory [DATABASE]",
+  "usage": "heroku redis:maxmemory [DATABASE]",
   "desc": "set the key eviction policy",
   "params": [
     {

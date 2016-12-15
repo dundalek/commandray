@@ -1,6 +1,6 @@
 {
   "name": "apps:fork",
-  "usage": "apps:fork",
+  "usage": "heroku apps:fork",
   "desc": "fork an existing app into a new one",
   "params": [
     {

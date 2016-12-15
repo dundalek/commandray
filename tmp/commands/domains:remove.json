@@ -1,6 +1,6 @@
 {
   "name": "domains:remove",
-  "usage": "domains:remove DOMAIN",
+  "usage": "heroku domains:remove HOSTNAME",
   "desc": "remove a custom domain from an app",
   "params": [
     {

@@ -1,6 +1,6 @@
 {
   "name": "pg:maintenance",
-  "usage": "pg:maintenance <info|run|window> <DATABASE>",
+  "usage": "heroku pg:maintenance [DATABASE]",
   "desc": "manage maintenance for <DATABASE>",
   "params": [
     {

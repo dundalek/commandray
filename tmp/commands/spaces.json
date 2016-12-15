@@ -1,6 +1,6 @@
 {
   "name": "spaces",
-  "usage": "spaces",
+  "usage": "heroku spaces",
   "desc": "manage heroku private spaces",
   "params": [
     {

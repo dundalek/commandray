@@ -1,6 +1,6 @@
 {
   "name": "apps:stacks",
-  "usage": "apps:stacks",
+  "usage": "heroku apps:stacks",
   "desc": "show the list of available stacks",
   "params": [
     {

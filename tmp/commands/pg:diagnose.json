@@ -1,6 +1,6 @@
 {
   "name": "pg:diagnose",
-  "usage": "pg:diagnose [DATABASE|REPORT_ID]",
+  "usage": "heroku pg:diagnose [DATABASE|REPORT_ID]",
   "desc": "run diagnostics report on DATABASE",
   "params": [
     {

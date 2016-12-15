@@ -1,6 +1,6 @@
 {
   "name": "pg:backups:capture",
-  "usage": "pg:backups:capture [DATABASE]",
+  "usage": "heroku pg:backups:capture [DATABASE]",
   "desc": "capture a new backup",
   "params": [
     {

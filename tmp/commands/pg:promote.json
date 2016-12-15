@@ -1,6 +1,6 @@
 {
   "name": "pg:promote",
-  "usage": "pg:promote DATABASE",
+  "usage": "heroku pg:promote DATABASE",
   "desc": "sets DATABASE as your DATABASE_URL",
   "params": [
     {

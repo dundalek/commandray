@@ -1,6 +1,6 @@
 {
   "name": "pg:wait",
-  "usage": "pg:wait [DATABASE]",
+  "usage": "heroku pg:wait [DATABASE]",
   "desc": "monitor database creation, exit when complete",
   "params": [
     {

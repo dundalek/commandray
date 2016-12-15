@@ -1,6 +1,6 @@
 {
   "name": "spaces:vpn:destroy",
-  "usage": "spaces:vpn:destroy",
+  "usage": "heroku spaces:vpn:destroy",
   "desc": "destroys VPN in a private space",
   "params": [
     {

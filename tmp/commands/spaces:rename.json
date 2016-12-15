@@ -1,6 +1,6 @@
 {
   "name": "spaces:rename",
-  "usage": "spaces:rename",
+  "usage": "heroku spaces:rename",
   "desc": "renames a space",
   "params": [
     {

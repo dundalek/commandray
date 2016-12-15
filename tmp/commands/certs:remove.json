@@ -1,6 +1,6 @@
 {
   "name": "certs:remove",
-  "usage": "certs:remove",
+  "usage": "heroku certs:remove",
   "desc": "Remove an SSL Endpoint from an app.",
   "params": [
     {

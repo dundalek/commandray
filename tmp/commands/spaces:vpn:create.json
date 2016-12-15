@@ -1,6 +1,6 @@
 {
   "name": "spaces:vpn:create",
-  "usage": "spaces:vpn:create",
+  "usage": "heroku spaces:vpn:create",
   "desc": "create VPN",
   "params": [
     {

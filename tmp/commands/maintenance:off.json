@@ -1,6 +1,6 @@
 {
   "name": "maintenance:off",
-  "usage": "maintenance:off",
+  "usage": "heroku maintenance:off",
   "desc": "take the app out of maintenance mode",
   "params": [
     {

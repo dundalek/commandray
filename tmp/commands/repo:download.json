@@ -1,6 +1,6 @@
 {
   "name": "repo:download",
-  "usage": "repo:download [FILENAME]",
+  "usage": "heroku repo:download [FILENAME]",
   "desc": "download the repo",
   "params": [
     {

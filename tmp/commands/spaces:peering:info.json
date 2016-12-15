@@ -1,6 +1,6 @@
 {
   "name": "spaces:peering:info",
-  "usage": "spaces:peering:info",
+  "usage": "heroku spaces:peering:info",
   "desc": "display the information necessary to initiate a peering connection",
   "params": [
     {

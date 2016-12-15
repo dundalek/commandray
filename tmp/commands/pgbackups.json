@@ -1,6 +1,6 @@
 {
   "name": "pgbackups",
-  "usage": "pgbackups",
+  "usage": "heroku pgbackups",
   "desc": "manage backups of heroku postgresql databases",
   "params": [],
   "subcommands": [

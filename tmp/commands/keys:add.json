@@ -1,6 +1,6 @@
 {
   "name": "keys:add",
-  "usage": "keys:add [KEY]",
+  "usage": "heroku keys:add [KEY]",
   "desc": "add a key for the current user",
   "params": [
     {

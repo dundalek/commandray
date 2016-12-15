@@ -1,6 +1,6 @@
 {
   "name": "logs",
-  "usage": "logs",
+  "usage": "heroku logs",
   "desc": "display logs for an app",
   "params": [
     {

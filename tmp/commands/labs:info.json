@@ -1,6 +1,6 @@
 {
   "name": "labs:info",
-  "usage": "labs:info FEATURE",
+  "usage": "heroku labs:info FEATURE",
   "desc": "displays additional information about FEATURE",
   "params": [
     {

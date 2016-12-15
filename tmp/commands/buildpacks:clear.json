@@ -1,6 +1,6 @@
 {
   "name": "buildpacks:clear",
-  "usage": "buildpacks:clear",
+  "usage": "heroku buildpacks:clear",
   "desc": "clear all buildpacks set on the app",
   "params": [
     {

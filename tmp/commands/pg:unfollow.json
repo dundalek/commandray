@@ -1,6 +1,6 @@
 {
   "name": "pg:unfollow",
-  "usage": "pg:unfollow REPLICA",
+  "usage": "heroku pg:unfollow DATABASE",
   "desc": "stop a replica from following and make it a read/write database",
   "params": [
     {

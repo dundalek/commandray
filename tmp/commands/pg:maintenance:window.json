@@ -1,6 +1,6 @@
 {
   "name": "pg:maintenance:window",
-  "usage": "pg:maintenance:window DATABASE WINDOW",
+  "usage": "heroku pg:maintenance:window DATABASE WINDOW",
   "desc": "set weekly maintenance window",
   "params": [
     {

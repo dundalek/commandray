@@ -1,6 +1,6 @@
 {
   "name": "apps:transfer",
-  "usage": "apps:transfer RECIPIENT",
+  "usage": "heroku apps:transfer RECIPIENT",
   "desc": "transfer applications to another user, organization or team",
   "params": [
     {

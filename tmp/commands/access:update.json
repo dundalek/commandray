@@ -1,6 +1,6 @@
 {
   "name": "access:update",
-  "usage": "access:update EMAIL",
+  "usage": "heroku access:update EMAIL",
   "desc": "Update existing collaborators in an org app",
   "params": [
     {

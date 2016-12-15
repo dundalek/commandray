@@ -1,6 +1,6 @@
 {
   "name": "git:remote",
-  "usage": "git:remote",
+  "usage": "heroku git:remote",
   "desc": "adds a git remote to an app repo",
   "params": [
     {

@@ -1,6 +1,6 @@
 {
   "name": "certs:add",
-  "usage": "certs:add CRT KEY",
+  "usage": "heroku certs:add CRT KEY",
   "desc": "Add an ssl endpoint to an app.",
   "params": [
     {

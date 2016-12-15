@@ -1,6 +1,6 @@
 {
   "name": "auth:whoami",
-  "usage": "auth:whoami",
+  "usage": "heroku auth:whoami",
   "desc": "display your heroku email address",
   "params": [],
   "subcommands": [],
