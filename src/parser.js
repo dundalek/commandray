@@ -35,19 +35,19 @@ export function parseParam(cmd) {
 // console.log(params);
 // console.log(params.map(parseParam));
 
-
-export function parseUsage(usage) {
+/* Transform command's usage line to a yargs format */
+export function transformUsage(usage) {
   return usage
-    .replace(/[<\[=]?([A-Z_]+)[>\]=]?/g, (a, b) => a === b ? `<${b}>` : a)
+    .replace(/[<\[=]?([A-Z][A-Z_0-9]*)[>\]=]?/g, (a, b) => a === b ? `<${b}>` : a)
     .replace(/\s*\.\.\.\]/g, '..]');
 }
 
 // const params = _(commands)
 //   .map(c => ({
-//     usage: parseUsage(c.usage),
-//     options: c.params.map(parseParam).reduce(_.assign, {}),
+//     usage: c.usage,
+//     parsed: transformUsage(c.usage),
 //   }))
-//   .sort()
+//   .filter(c => c.usage !== c.parsed)
 //   .value();
 //
 // console.log(JSON.stringify(params, null, 2));
@@ -108,7 +108,7 @@ export function unparse(parsed, options) {
 //   .filter(c => c.examples.length > 0)
 //   .map(cmd => {
 //     console.log('-- ' + cmd.name);
-//     const usage = parseUsage(cmd.usage);
+//     const usage = transformUsage(cmd.usage);
 //     const options = cmd.params.map(parseParam).reduce(_.assign, {});
 //     const examples = matchExamples(cmd.docs);
 //
@@ -154,7 +154,7 @@ export function unparse(parsed, options) {
 
 
 // const cmd = commands['apps:create'];
-// const usage = parseUsage(cmd.usage);
+// const usage = transformUsage(cmd.usage);
 // const options = cmd.params.map(parseParam).reduce(_.assign, {});
 // const examples = matchExamples(cmd.docs);
 //

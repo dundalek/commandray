@@ -1,4 +1,4 @@
-import { parseParam } from './parser';
+import { parseParam, transformUsage } from './parser';
 
 describe('parser', () => {
   describe('parseParam', () => {
@@ -41,5 +41,34 @@ describe('parser', () => {
        desc: 'overwrite existing add-on attachment with same name',
        default: null } });
     });
+  });
+
+  describe('transformUsage', () => {
+    it('adds angle brackets to param names', () => {
+      expect(transformUsage('addons:attach ADDON_NAME')).toEqual('addons:attach <ADDON_NAME>');
+    });
+    it('adds angle brackets to compound param names', () => {
+      expect(transformUsage('addons:create SERVICE:PLAN')).toEqual('addons:create <SERVICE>:<PLAN>');
+    });
+
+    it('normalizes optional parameters', () => {
+      expect(transformUsage('config:unset KEY1 [KEY2 ...]')).toEqual('config:unset <KEY1> [KEY2..]');
+    });
+
+    it('handles multiple parameters', () => {
+      expect(transformUsage('certs:key <CRT> <KEY> [KEY..]')).toEqual('certs:key <CRT> <KEY> [KEY..]');
+    });
+
+    it('keeps underscore in command name untouched', () => {
+      expect(transformUsage('repo:purge_cache')).toEqual('repo:purge_cache');
+    });
+
+    // needs revisiting
+    // it('handles key val params', () => {
+    //   expect(transformUsage('config:set KEY1=VALUE1 [KEY2=VALUE2 ...]')).toEqual('config:set <KEY1>=VALUE1 [KEY2=VALUE2..]');
+    // });
+    // it('handles choice params', () => {
+    //   expect(transformUsage('ps:type [TYPE | DYNO=TYPE [DYNO=TYPE ...]]')).toEqual('ps:type [TYPE | DYNO=<TYPE> [DYNO=<TYPE>..]]');
+    // });
   });
 });

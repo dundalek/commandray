@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import blessed from 'blessed';
 import { render } from 'react-blessed';
 import _ from 'lodash';
-import { parseUsage, parseParam, unparse } from './parser';
+import { transformUsage, parseParam, unparse } from './parser';
 
 const commands = require('./commands.json');
 const cmd = commands['apps:create'];
-const usage = parseUsage(cmd.usage);
+const usage = transformUsage(cmd.usage);
 const options = cmd.params.map(parseParam);//.reduce(_.assign, {});
 
 const stylesheet = {

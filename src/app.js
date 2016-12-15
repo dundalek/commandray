@@ -3,7 +3,7 @@ import blessed from 'blessed';
 import { render } from 'react-blessed';
 import _ from 'lodash';
 import robot from 'robotjs';
-import { parseUsage, parseParam, unparse } from './parser';
+import { transformUsage, parseParam, unparse } from './parser';
 
 // https://github.com/Yomguithereal/react-blessed/issues/24
 // mouse and enableKeys
