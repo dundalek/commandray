@@ -11,12 +11,14 @@ export default class CommandForm extends Component {
   }
 
   componentDidMount() {
-    this.refs.root.enableKeys();
-    this.refs.root.focus();
+    if (this.refs.root) {
+      this.refs.root.enableKeys();
+      this.refs.root.focus();
+    }
   }
 
   render() {
-    const options = this.props.cmd.params.map(parseParam);
+    const options = this.getOptions();
 
     const formOpts = {
       keys: true,
@@ -51,23 +53,13 @@ export default class CommandForm extends Component {
     }
 
     return (
-      <form {...formOpts} ref="root" height={options.length+3} width="100%-2"onKeypress={this.props.onKeypress}>
-        {_.flatten(options.map((option, i) => {
-          const name = Object.keys(option)[0];
-          const obj = option[name];
-
-          let label = [];
-          if (obj.alias) {
-            label.push(`-${obj.alias}`);
-          }
-          label.push(`--${name}`);
-          label = label.join(', ');
-
+      <form {...formOpts} ref="root" height={options.length+3} width="100%-2" onKeypress={this.props.onKeypress}>
+        {_.flatten(options.map(({ type, label, name }, i) => {
           return [
             <box class={{
               top: i + 1,
             }} key={`${name}-label`}>{label}</box>,
-            obj.type === 'boolean'
+            type === 'boolean'
             ? <checkbox class={{
               mouse: true,
               top: i + 1,
@@ -90,19 +82,54 @@ export default class CommandForm extends Component {
     );
   }
 
-  getCommand() {
-    const options = this.props.cmd.params.map(parseParam);
-    const vals = {};
-    options.forEach(option => {
-      const name = Object.keys(option)[0];
-      const obj = option[name];
+  getOptions() {
+    const { cmd } = this.props;
+    const options = cmd.params.map(param => {
+      const obj = parseParam(param);
+      const name = Object.keys(obj)[0];
+      const option = obj[name];
 
-      const val = this.refs[name].value;
-      vals[name] = val !== '' ? val : null;
+      let label = [];
+      if (option.alias) {
+        label.push(`-${option.alias}`);
+      }
+      label.push(`--${name}`);
+      label = label.join(', ');
+
+      return {
+        type: option.type,
+        name,
+        label,
+        option,
+      }
     });
 
-    const text = unparse(this.props.cmd, vals);
-    return ['heroku', this.props.cmd.name, text].join(' ');
+    const parts = cmd.usage.split(' ');
+    if (parts.length > 2) {
+      options.unshift({
+        type: 'usage',
+        label: parts.slice(2).join(' '),
+        name: '_',
+      });
+    }
+
+    return options;
+  }
+
+  getCommand() {
+    const { cmd } = this.props;
+    const options = this.getOptions();
+    const vals = {};
+    options.forEach(({ name }) => {
+      const val = this.refs[name].value;
+      vals[name] = val !== '' ? val : null;
+      if (name === '_' && val) {
+        vals[name] = [val];
+      }
+    });
+
+    const text = unparse(cmd, vals);
+    return cmd.usage.split(' ').slice(0, 2).concat([text]).join(' ');
   }
 
   _onSubmit = (ev) => {
