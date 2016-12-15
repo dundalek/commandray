@@ -1,14 +1,9 @@
 import React, { Component } from 'react';
-import blessed from 'blessed';
-import { render } from 'react-blessed';
 import _ from 'lodash';
 import robot from 'robotjs';
-import { parseParam, unparse } from './parser';
+import { parseParam, unparse } from '../parser';
 
-// https://github.com/Yomguithereal/react-blessed/issues/24
-// mouse and enableKeys
-
-const commands = require('../commands.json');
+const commands = require('../../commands.json');
 const items = [['','']].concat(_.map(commands, cmd => [cmd.name, cmd.desc || '']));
 
 const stylesheet = {
@@ -149,8 +144,17 @@ class Detail extends Component {
   }
 }
 
+class InnerBox extends Component {
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
+  }
+}
+
 const elementList = ['mylist', 'text'];
-class App extends Component {
+export default class App extends Component {
 
   constructor(props) {
     super(props);
@@ -269,24 +273,3 @@ class App extends Component {
     //  this.refs.mylist.select(idx);
   }
 }
-
-class InnerBox extends Component {
-  constructor(props) {
-    super(props);
-  }
-
-  render() {
-  }
-}
-
-const screen = blessed.screen({
-  autoPadding: true,
-  smartCSR: true,
-  title: 'react-blessed demo app'
-});
-
-screen.key(['q', 'C-c'], function(ch, key) {
-  process.exit(0);
-});
-
-const component = render(<App />, screen);
