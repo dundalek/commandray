@@ -1,6 +1,6 @@
 {
   "name": "addons:open",
-  "usage": "heroku addons:open ADDON",
+  "usage": "heroku addons:open ADDON_NAME",
   "desc": "open an add-on's dashboard in your browser",
   "params": [
     {

@@ -1,6 +1,6 @@
 {
   "name": "addons:downgrade",
-  "usage": "heroku addons:downgrade ADDON [PLAN]",
+  "usage": "heroku addons:downgrade ADDON_NAME ADDON_SERVICE:PLAN",
   "desc": "downgrade an existing add-on resource to PLAN",
   "params": [
     {

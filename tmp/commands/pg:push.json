@@ -1,6 +1,6 @@
 {
   "name": "pg:push",
-  "usage": "heroku pg:push SOURCE TARGET",
+  "usage": "heroku pg:push <SOURCE_DATABASE> <REMOTE_TARGET_DATABASE>",
   "desc": "push from SOURCE_DATABASE to REMOTE_TARGET_DATABASE",
   "params": [
     {

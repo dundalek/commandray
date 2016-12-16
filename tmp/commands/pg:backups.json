@@ -1,6 +1,6 @@
 {
   "name": "pg:backups",
-  "usage": "heroku pg:backups",
+  "usage": "heroku pg:backups [subcommand]",
   "desc": "interact with built-in backups. Without a subcommand, it lists all",
   "params": [
     {

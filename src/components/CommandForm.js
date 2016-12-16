@@ -95,6 +95,9 @@ export default class CommandForm extends Component {
       }
       label.push(`--${name}`);
       label = label.join(', ');
+      if (option.paramName) {
+        label += ' ' + option.paramName;
+      }
 
       return {
         type: option.type,

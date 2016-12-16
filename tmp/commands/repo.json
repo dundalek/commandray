@@ -1,6 +1,6 @@
 {
   "name": "repo",
-  "usage": "repo",
+  "usage": "heroku repo",
   "desc": "repository manipulation",
   "params": [],
   "subcommands": [

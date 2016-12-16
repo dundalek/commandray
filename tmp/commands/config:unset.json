@@ -1,6 +1,6 @@
 {
   "name": "config:unset",
-  "usage": "heroku config:unset",
+  "usage": "heroku config:unset KEY1 [KEY2 ...]",
   "desc": "unset one or more config vars",
   "params": [
     {

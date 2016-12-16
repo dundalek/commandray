@@ -1,6 +1,6 @@
 {
   "name": "rake",
-  "usage": "rake test",
+  "usage": "heroku rake test",
   "desc": "run tests",
   "params": [],
   "subcommands": [

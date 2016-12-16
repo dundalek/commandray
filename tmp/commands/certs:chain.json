@@ -1,6 +1,6 @@
 {
   "name": "certs:chain",
-  "usage": "heroku certs:chain",
+  "usage": "heroku certs:chain CRT [CRT ...]",
   "desc": "Print the ordered and complete chain for the given certificate.",
   "params": [
     {

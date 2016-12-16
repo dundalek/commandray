@@ -1,7 +1,7 @@
 {
   "addons": {
     "name": "addons",
-    "usage": "heroku addons [--all|--app APP]",
+    "usage": "heroku addons",
     "desc": "manage add-on resources",
     "docs": "Usage: heroku addons [--all|--app APP]\n\nlists your add-ons and attachments\n\n -A, --all           # show add-ons and attachments for all accessible apps\n -a, --app APP       # app to run command against\n -r, --remote REMOTE # git remote of app to run command against\n --json              # return add-ons in json format\n\nThe default filter applied depends on whether you are in a Heroku app\ndirectory. If so, the --app flag is implied. If not, the default of --all\nis implied. Explicitly providing either flag overrides the default\nbehavior.\n\nExamples:\n\n  $ heroku addons --all\n  $ heroku addons --app acme-inc-www\n\nOverview of Add-ons:\n\n  Add-ons are created with the `addons:create` command, providing a reference\n  to an add-on service (such as `heroku-postgresql`) or a service and plan\n  (such as `heroku-postgresql:hobby-dev`).\n\n  At creation, each add-on is given a globally unique name. In addition, each\n  add-on has at least one attachment alias to each application which uses the\n  add-on. In all cases, the owning application will be attached to the add-on.\n  An attachment alias is unique to its application, and is used as a prefix to\n  any environment variables it exports to the application.\n\n  In this example, a `heroku-postgresql` add-on is created and its given name\n  is `postgresql-deep-6913` with a default attachment alias of `DATABASE`:\n\n    $ heroku addons:create heroku-postgresql --app my-app\n    Creating postgresql-deep-6913... done, (free)\n    Adding postgresql-deep-6913 to my-app... done\n    Setting DATABASE_URL and restarting my-app... done, v5\n    Database has been created and is available\n\n    $ heroku addons --app my-app\n    Add-on                                     Plan       Price\n    ─────────────────────────────────────────  ─────────  ─────\n    heroku-postgresql (postgresql-deep-6913)   hobby-dev  free\n    └─ as DATABASE\n\n  The add-on name and, in some cases, the attachment alias can be specified by\n  the user. For instance, we can add a second database to the app, specifying\n  both these identifiers:\n\n    $ heroku addons:create heroku-postgresql --app my-app --name main-db --as PRIMARY_DB\n    Creating main-db... done, (free)\n    Adding main-db to my-app... done\n    Setting PRIMARY_DB_URL and restarting my-app... done, v6\n    Database has been created and is available\n\n    $ heroku addons --app my-app\n    Add-on                                     Plan       Price\n    ─────────────────────────────────────────  ─────────  ─────\n    heroku-postgresql (main-db)                hobby-dev  free\n    └─ as PRIMARY_DB\n\n    heroku-postgresql (postgresql-deep-6913)   hobby-dev  free\n    └─ as DATABASE\n\n  Attachment aliases can also be specified when making attachments:\n\n    $ heroku addons:attach main-db --app my-app --as ANOTHER_NAME\n    Attaching main-db as ANOTHER_NAME to my-app... done\n    Setting ANOTHER_NAME vars and restarting my-app... done, v7\n\n    $ heroku addons --app my-app\n    Add-on                                     Plan       Price\n    ─────────────────────────────────────────  ─────────  ─────\n    heroku-postgresql (main-db)                hobby-dev  free\n    ├─ as PRIMARY_DB\n    └─ as ANOTHER_NAME\n\n    heroku-postgresql (postgresql-deep-6913)   hobby-dev  free\n    └─ as DATABASE\n\n  For more information, read https://devcenter.heroku.com/articles/add-ons.\n\nAdditional commands, type \"heroku help COMMAND\" for more details:\n\n  addons:attach ADDON_NAME                        #  attach add-on resource to an app\n  addons:create SERVICE:PLAN                      #  create an add-on resource\n  addons:destroy ADDON_NAME [ADDON_NAME ...]      #  destroy add-on resources\n  addons:detach ATTACHMENT_NAME                   #  detach add-on resource from an app\n  addons:docs ADDON_NAME                          #  open an add-on's documentation in your browser\n  addons:downgrade ADDON_NAME ADDON_SERVICE:PLAN  #  downgrade an existing add-on resource to PLAN\n  addons:info ADDON                               #  Show info about an add-on and its attachments.\n  addons:open ADDON_NAME                          #  open an add-on's dashboard in your browser\n  addons:plans SERVICE                            #  list all available plans for an add-on service\n  addons:rename ADDON NEW_NAME                    #  Rename an add-on.\n  addons:services                                 #  list all available add-on services\n  addons:upgrade ADDON_NAME ADDON_SERVICE:PLAN    #  upgrade an existing add-on resource to PLAN\n  addons:wait ADDON                               #  Show provisioning status of the add-ons on the app\n\n",
     "params": [
@@ -147,7 +147,7 @@
   },
   "addons:destroy": {
     "name": "addons:destroy",
-    "usage": "heroku addons:destroy",
+    "usage": "heroku addons:destroy ADDON_NAME [ADDON_NAME ...]",
     "desc": "destroy add-on resources",
     "docs": "Usage: heroku addons:destroy\n\ndestroy add-on resources\n\n -a, --app APP         # app to run command against\n -c, --confirm CONFIRM\n -f, --force           # allow destruction even if connected to other apps\n -r, --remote REMOTE   # git remote of app to run command against\n\n",
     "params": [
@@ -187,7 +187,7 @@
   },
   "addons:docs": {
     "name": "addons:docs",
-    "usage": "heroku addons:docs ADDON",
+    "usage": "heroku addons:docs ADDON_NAME",
     "desc": "open an add-on's documentation in your browser",
     "docs": "Usage: heroku addons:docs ADDON\n\nopen an add-on's Dev Center documentation in your browser\n\n -a, --app APP       # app to run command against\n -r, --remote REMOTE # git remote of app to run command against\n --show-url          # show URL, do not open browser\n\n",
     "params": [
@@ -209,7 +209,7 @@
   },
   "addons:downgrade": {
     "name": "addons:downgrade",
-    "usage": "heroku addons:downgrade ADDON [PLAN]",
+    "usage": "heroku addons:downgrade ADDON_NAME ADDON_SERVICE:PLAN",
     "desc": "downgrade an existing add-on resource to PLAN",
     "docs": "Usage: heroku addons:downgrade ADDON [PLAN]\n\nchange add-on plan\n\n -a, --app APP       # app to run command against\n -r, --remote REMOTE # git remote of app to run command against\n\nSee available plans with `heroku addons:plans SERVICE`.\n\nNote that `heroku addons:upgrade` and `heroku addons:downgrade` are the same.\nEither one can be used to change an add-on plan up or down.\n\nhttps://devcenter.heroku.com/articles/managing-add-ons\n\nExamples:\n\n  Upgrade an add-on by service name:\n\n  $ heroku addons:upgrade heroku-redis:premium-2\n\n  Upgrade a specific add-on:\n\n  $ heroku addons:upgrade swimming-briskly-123 heroku-redis:premium-2\n\n",
     "params": [
@@ -248,7 +248,7 @@
   },
   "addons:open": {
     "name": "addons:open",
-    "usage": "heroku addons:open ADDON",
+    "usage": "heroku addons:open ADDON_NAME",
     "desc": "open an add-on's dashboard in your browser",
     "docs": "Usage: heroku addons:open ADDON\n\nopen an add-on's dashboard in your browser\n\n -a, --app APP       # app to run command against\n -r, --remote REMOTE # git remote of app to run command against\n --show-url          # show URL, do not open browser\n\n",
     "params": [
@@ -316,7 +316,7 @@
   },
   "addons:upgrade": {
     "name": "addons:upgrade",
-    "usage": "heroku addons:upgrade ADDON [PLAN]",
+    "usage": "heroku addons:upgrade ADDON_NAME ADDON_SERVICE:PLAN",
     "desc": "upgrade an existing add-on resource to PLAN",
     "docs": "Usage: heroku addons:upgrade ADDON [PLAN]\n\nchange add-on plan\n\n -a, --app APP       # app to run command against\n -r, --remote REMOTE # git remote of app to run command against\n\nSee available plans with `heroku addons:plans SERVICE`.\n\nNote that `heroku addons:upgrade` and `heroku addons:downgrade` are the same.\nEither one can be used to change an add-on plan up or down.\n\nhttps://devcenter.heroku.com/articles/managing-add-ons\n\nExamples:\n\n  Upgrade an add-on by service name:\n\n  $ heroku addons:upgrade heroku-redis:premium-2\n\n  Upgrade a specific add-on:\n\n  $ heroku addons:upgrade swimming-briskly-123 heroku-redis:premium-2\n\n",
     "params": [
@@ -456,7 +456,7 @@
   },
   "apps:create": {
     "name": "apps:create",
-    "usage": "heroku apps:create [APP]",
+    "usage": "heroku apps:create [NAME]",
     "desc": "create a new app",
     "docs": "Usage: heroku apps:create [APP]\n\ncreate a new app\n\n -b, --buildpack BUILDPACK # buildpack url to use for this app\n -n, --no-remote           # do not create a git remote\n -o, --org ORG             # organization to use\n -r, --remote REMOTE       # the git remote to create, default \"heroku\"\n -s, --stack STACK         # the stack to create the app on\n --addons ADDONS           # comma-delimited list of addons to install\n --region REGION           # specify region for the app to run in\n --space SPACE             # the private space to create the app in\n --ssh-git                 # use SSH git protocol for local git remote\n\nExamples:\n\n $ heroku apps:create\n Creating app... done, stack is cedar-14\n https://floating-dragon-42.heroku.com/ | https://git.heroku.com/floating-dragon-42.git\n\n # or just\n $ heroku create\n\n # specify a buildpack\n $ heroku apps:create --buildpack https://github.com/some/buildpack.git\n\n # specify a name\n $ heroku apps:create example\n\n # create a staging app\n $ heroku apps:create example-staging --remote staging\n\n # create an app in the eu region\n $ heroku apps:create --region eu\n\n",
     "params": [
@@ -718,7 +718,7 @@
   },
   "apps:open": {
     "name": "apps:open",
-    "usage": "heroku apps:open [PATH]",
+    "usage": "heroku apps:open",
     "desc": "open the app in a web browser",
     "docs": "Usage: heroku apps:open [PATH]\n\nopen the app in a web browser\n\n -a, --app APP       # app to run command against\n -r, --remote REMOTE # git remote of app to run command against\n\nExamples:\n\n  $ heroku open -a myapp\n  # opens https://myapp.herokuapp.com\n\n  $ heroku open -a myapp /foo\n  # opens https://myapp.herokuapp.com/foo\n\n",
     "params": [
@@ -829,7 +829,7 @@
   },
   "auth": {
     "name": "auth",
-    "usage": "auth",
+    "usage": "heroku auth",
     "desc": "authentication (login, logout)",
     "docs": "Additional commands, type \"heroku help COMMAND\" for more details:\n\n  auth:2fa           #  check 2fa status\n  auth:2fa:disable   #  disable two-factor authentication for your account\n  auth:2fa:enable    #  enable 2fa on your account\n  auth:2fa:generate  #  generates and replaces recovery codes\n  auth:login         #  log in with your heroku credentials\n  auth:logout        #  clear local authentication credentials\n  auth:token         #  display your api token\n  auth:whoami        #  display your heroku email address\n\n",
     "params": [],
@@ -1014,7 +1014,7 @@
   },
   "config:set": {
     "name": "config:set",
-    "usage": "heroku config:set",
+    "usage": "heroku config:set KEY1=VALUE1 [KEY2=VALUE2 ...]",
     "desc": "set one or more config vars",
     "docs": "Usage: heroku config:set\n\nset one or more config vars\n\n -a, --app APP       # app to run command against\n -r, --remote REMOTE # git remote of app to run command against\n\nExamples:\n\n $ heroku config:set RAILS_ENV=staging\n Setting config vars and restarting example... done, v10\n RAILS_ENV: staging\n\n $ heroku config:set RAILS_ENV=staging RACK_ENV=staging\n Setting config vars and restarting example... done, v11\n RAILS_ENV: staging\n RACK_ENV:  staging\n\n",
     "params": [
@@ -1035,7 +1035,7 @@
   },
   "config:unset": {
     "name": "config:unset",
-    "usage": "heroku config:unset",
+    "usage": "heroku config:unset KEY1 [KEY2 ...]",
     "desc": "unset one or more config vars",
     "docs": "Usage: heroku config:unset\n\nunset one or more config vars\n\n -a, --app APP       # app to run command against\n -r, --remote REMOTE # git remote of app to run command against\n\nExamples:\n\n $ heroku config:unset RAILS_ENV\n Unsetting RAILS_ENV and restarting example... done, v10\n\n $ heroku config:unset RAILS_ENV RACK_ENV\n Unsetting RAILS_ENV, RACK_ENV and restarting example... done, v10\n\n",
     "params": [
@@ -1294,7 +1294,7 @@
   },
   "ps:scale": {
     "name": "ps:scale",
-    "usage": "heroku ps:scale",
+    "usage": "heroku ps:scale [DYNO1=AMOUNT1 [DYNO2=AMOUNT2 ...]]",
     "desc": "scale dynos by the given amount",
     "docs": "Usage: heroku ps:scale\n\nscale dyno quantity up or down\n\n -a, --app APP       # app to run command against\n -r, --remote REMOTE # git remote of app to run command against\n\nAppending a size (eg. web=2:Standard-2X) allows simultaneous scaling and resizing.\n\nOmitting any arguments will display the app's current dyno formation, in a\nformat suitable for passing back into ps:scale.\n\nExamples:\n\n  $ heroku ps:scale web=3:Standard-2X worker+1\n  Scaling dynos... done, now running web at 3:Standard-2X, worker at 1:Standard-1X.\n\n  $ heroku ps:scale\n  web=3:Standard-2X worker=1:Standard-1X\n\n",
     "params": [
@@ -1315,7 +1315,7 @@
   },
   "ps:stop": {
     "name": "ps:stop",
-    "usage": "heroku ps:stop DYNO",
+    "usage": "heroku ps:stop DYNOS",
     "desc": "stop an app dyno",
     "docs": "Usage: heroku ps:stop DYNO\n\nstop app dyno\n\n -a, --app APP       # app to run command against\n -r, --remote REMOTE # git remote of app to run command against\n\nstop app dyno or dyno type\n\nExamples:\n\n  $ heroku ps:stop run.1828\n  Stopping run.1828 dyno... done\n\n  $ heroku ps:stop run\n  Stopping run dynos... done\n\n",
     "params": [
@@ -1336,7 +1336,7 @@
   },
   "ps:type": {
     "name": "ps:type",
-    "usage": "heroku ps:type",
+    "usage": "heroku ps:type [TYPE | DYNO=TYPE [DYNO=TYPE ...]]",
     "desc": "manage dyno types",
     "docs": "Usage: heroku ps:type\n\nmanage dyno sizes\n\n -a, --app APP       # app to run command against\n -r, --remote REMOTE # git remote of app to run command against\n\nCalled with no arguments shows the current dyno size.\n\nCalled with one argument sets the size.\nWhere SIZE is one of free|hobby|standard-1x|standard-2x|performance\n\nCalled with 1..n TYPE=SIZE arguments sets the quantity per type.\n\n",
     "params": [
@@ -1481,7 +1481,7 @@
   },
   "run:detached": {
     "name": "run:detached",
-    "usage": "heroku run:detached",
+    "usage": "heroku run:detached COMMAND",
     "desc": "run a detached dyno, where output is sent to your logs",
     "docs": "Usage: heroku run:detached\n\nrun a detached dyno, where output is sent to your logs\n\n -a, --app APP       # app to run command against\n -e, --env ENV       # environment variables to set (use ';' to split multiple vars)\n -r, --remote REMOTE # git remote of app to run command against\n -s, --size SIZE     # dyno size\n -t, --tail          # stream logs from the dyno\n\nExample:\n\n  $ heroku run:detached ls\n  Running ls on app [detached]... up, run.1\n  Run heroku logs -a app -p run.1 to view the output.\n\n",
     "params": [
@@ -1529,7 +1529,7 @@
   },
   "rake": {
     "name": "rake",
-    "usage": "rake test",
+    "usage": "heroku rake test",
     "desc": "run tests",
     "docs": "Alias: rake redirects to run:rake\nUsage: heroku run:rake COMMAND\n\n WARNING: `heroku run:rake` has been deprecated. Please use `heroku run rake` instead.\"\n\n remotely execute a rake command\n\nExample:\n\n $ heroku run:rake -T\n Running `rake -T` attached to terminal... up, run.1\n (in /app)\n rake test  # run tests\n\n",
     "params": [],
@@ -1688,7 +1688,7 @@
   },
   "buildpacks:add": {
     "name": "buildpacks:add",
-    "usage": "heroku buildpacks:add URL",
+    "usage": "heroku buildpacks:add BUILDPACK_URL",
     "desc": "add new app buildpack, inserting into list of buildpacks if neccessary",
     "docs": "Usage: heroku buildpacks:add URL\n\nadd new app buildpack, inserting into list of buildpacks if necessary\n\n -a, --app APP       # app to run command against\n -i, --index INDEX   # the 1-based index of the URL in the list of URLs\n -r, --remote REMOTE # git remote of app to run command against\n\nExample:\n\n $ heroku buildpacks:add -i 1 https://github.com/heroku/heroku-buildpack-ruby\n\n",
     "params": [
@@ -1730,7 +1730,7 @@
   },
   "buildpacks:remove": {
     "name": "buildpacks:remove",
-    "usage": "heroku buildpacks:remove [URL]",
+    "usage": "heroku buildpacks:remove [BUILDPACK_URL]",
     "desc": "remove a buildpack set on the app",
     "docs": "Usage: heroku buildpacks:remove [URL]\n\nremove a buildpack set on the app\n\n -a, --app APP       # app to run command against\n -i, --index INDEX   # the 1-based index of the URL to remove from the list of URLs\n -r, --remote REMOTE # git remote of app to run command against\n\n",
     "params": [
@@ -1752,7 +1752,7 @@
   },
   "buildpacks:set": {
     "name": "buildpacks:set",
-    "usage": "heroku buildpacks:set URL",
+    "usage": "heroku buildpacks:set BUILDPACK_URL",
     "desc": "set new app buildpack, overwriting into list of buildpacks if neccessary",
     "docs": "Usage: heroku buildpacks:set URL\n\nset new app buildpack, overwriting into list of buildpacks if necessary\n\n -a, --app APP       # app to run command against\n -i, --index INDEX   # the 1-based index of the URL in the list of URLs\n -r, --remote REMOTE # git remote of app to run command against\n\nExample:\n\n $ heroku buildpacks:set -i 1 https://github.com/heroku/heroku-buildpack-ruby\n\n",
     "params": [
@@ -1859,7 +1859,7 @@
   },
   "certs:chain": {
     "name": "certs:chain",
-    "usage": "heroku certs:chain",
+    "usage": "heroku certs:chain CRT [CRT ...]",
     "desc": "Print the ordered and complete chain for the given certificate.",
     "docs": "Usage: heroku certs:chain\n\nprint an ordered & complete chain for a certificate\n\n -a, --app APP       # app to run command against\n -r, --remote REMOTE # git remote of app to run command against\n\n",
     "params": [
@@ -1955,7 +1955,7 @@
   },
   "certs:key": {
     "name": "certs:key",
-    "usage": "heroku certs:key",
+    "usage": "heroku certs:key CRT KEY [KEY ...]",
     "desc": "Print the correct key for the given certificate.",
     "docs": "Usage: heroku certs:key\n\nprint the correct key for the given certificate\n\n -a, --app APP       # app to run command against\n -r, --remote REMOTE # git remote of app to run command against\n\nYou must pass one single certificate, and one or more keys.\nThe first key that signs the certificate will be printed back.\n\nExample:\n\n $ heroku certs:key example.com.crt example.com.key\n\n",
     "params": [
@@ -2219,7 +2219,7 @@
   },
   "git": {
     "name": "git",
-    "usage": "git",
+    "usage": "heroku git",
     "desc": "manage local git repository for app",
     "docs": "Additional commands, type \"heroku help COMMAND\" for more details:\n\n  git:clone [DIRECTORY]  #  clones a heroku app to your local machine at DIRECTORY (defaults to app name)\n  git:remote             #  adds a git remote to an app repo\n\n",
     "params": [],
@@ -2351,7 +2351,7 @@
   },
   "keys:remove": {
     "name": "keys:remove",
-    "usage": "heroku keys:remove KEY",
+    "usage": "heroku keys:remove [KEY]",
     "desc": "remove a key from the current user",
     "docs": "Usage: heroku keys:remove KEY\n\nremove an SSH key from the user\n\nExample:\n\n  $ heroku keys:remove email@example.com\n  Removing email@example.com SSH key... done\n\n",
     "params": [],
@@ -2530,7 +2530,7 @@
   },
   "login": {
     "name": "login",
-    "usage": "login",
+    "usage": "heroku login",
     "desc": "login with your Heroku credentials.",
     "docs": "Alias: login redirects to auth:login\nUsage: heroku auth:login\n\nlogin with your Heroku credentials.\n\n --sso               # login for enterprise users under SSO\n\n",
     "params": [
@@ -2690,7 +2690,7 @@
   },
   "members:set": {
     "name": "members:set",
-    "usage": "heroku members:set EMAIL",
+    "usage": "heroku members:set NAME",
     "desc": "change role of member in org",
     "docs": "Usage: heroku members:set EMAIL\n\nsets a members role in an organization or a team\n\n -o, --org ORG       # organization to use\n -r, --role ROLE     # member role (admin, collaborator, member, owner)\n -t, --team TEAM     # team to use\n\n",
     "params": [
@@ -2922,7 +2922,7 @@
   },
   "pg:backups": {
     "name": "pg:backups",
-    "usage": "heroku pg:backups",
+    "usage": "heroku pg:backups [subcommand]",
     "desc": "interact with built-in backups. Without a subcommand, it lists all",
     "docs": "Usage: heroku pg:backups\n\n -a, --app APP                 # app to run command against\n -r, --remote REMOTE           # git remote of app to run command against\n\n",
     "params": [
@@ -3164,7 +3164,7 @@
   },
   "pg:kill": {
     "name": "pg:kill",
-    "usage": "heroku pg:kill PID [DATABASE]",
+    "usage": "heroku pg:kill pid [DATABASE]",
     "desc": "kill a query",
     "docs": "Usage: heroku pg:kill PID [DATABASE]\n\nkill a query\n\n -a, --app APP       # app to run command against\n -f, --force\n -r, --remote REMOTE # git remote of app to run command against\n\n",
     "params": [
@@ -3200,7 +3200,7 @@
   },
   "pg:links": {
     "name": "pg:links",
-    "usage": "heroku pg:links [DATABASE]",
+    "usage": "heroku pg:links <create|destroy>",
     "desc": "create links between data stores.  Without a subcommand, it lists all",
     "docs": "Usage: heroku pg:links [DATABASE]\n\nlists all datbases and information on link\n\n -a, --app APP       # app to run command against\n -r, --remote REMOTE # git remote of app to run command against\n\n",
     "params": [
@@ -3258,7 +3258,7 @@
   },
   "pg:maintenance": {
     "name": "pg:maintenance",
-    "usage": "heroku pg:maintenance [DATABASE]",
+    "usage": "heroku pg:maintenance <info|run|window> <DATABASE>",
     "desc": "manage maintenance for <DATABASE>",
     "docs": "Usage: heroku pg:maintenance [DATABASE]\n\nshow current maintenance information\n\n -a, --app APP       # app to run command against\n -r, --remote REMOTE # git remote of app to run command against\n\n",
     "params": [
@@ -3370,7 +3370,7 @@
   },
   "pg:pull": {
     "name": "pg:pull",
-    "usage": "heroku pg:pull SOURCE TARGET",
+    "usage": "heroku pg:pull <REMOTE_SOURCE_DATABASE> <TARGET_DATABASE>",
     "desc": "pull from REMOTE_SOURCE_DATABASE to TARGET_DATABASE",
     "docs": "Usage: heroku pg:pull SOURCE TARGET\n\npull Heroku database into local or remote database\n\n -a, --app APP       # app to run command against\n -r, --remote REMOTE # git remote of app to run command against\n\nPull from SOURCE into TARGET. TARGET must not already exist.\n\nTo delete a local database run `dropdb TARGET`\n\nTARGET will be created locally if it's a database name or remotely if it's a fully qualified URL.\n\nExamples:\n\n  # pull Heroku DB named postgresql-swimmingly-100 into local DB mylocaldb\n  $ heroku pg:push postgresql-swimmingly-100 mylocaldb\n\n  # pull Heroku DB named postgresql-swimmingly-100 into remote DB at postgres://myhost/mydb\n  $ heroku pg:push postgresql-swimmingly-100 postgres://myhost/mydb\n\n",
     "params": [
@@ -3391,7 +3391,7 @@
   },
   "pg:push": {
     "name": "pg:push",
-    "usage": "heroku pg:push SOURCE TARGET",
+    "usage": "heroku pg:push <SOURCE_DATABASE> <REMOTE_TARGET_DATABASE>",
     "desc": "push from SOURCE_DATABASE to REMOTE_TARGET_DATABASE",
     "docs": "Usage: heroku pg:push SOURCE TARGET\n\npush local or remote into Heroku database\n\n -a, --app APP       # app to run command against\n -r, --remote REMOTE # git remote of app to run command against\n\nPush from SOURCE into TARGET. TARGET must not already exist.\n\nTo empty a Heroku database for import run 'heroku pg:reset'\n\nSOURCE must be either the name of a database existing on your localhost or the\nfully qualified URL of a remote database.\n\nExamples:\n\n  # push mylocaldb into a Heroku DB named postgresql-swimmingly-100\n  $ heroku pg:push mylocaldb postgresql-swimmingly-100\n\n  # push remote DB at postgres://myhost/mydb into a Heroku DB named postgresql-swimmingly-100\n  $ heroku pg:push postgres://myhost/mydb postgresql-swimmingly-100\n\n",
     "params": [
@@ -3860,7 +3860,7 @@
   },
   "plugins:install": {
     "name": "plugins:install",
-    "usage": "heroku plugins:install",
+    "usage": "heroku plugins:install NAME",
     "desc": "install a plugin",
     "docs": "Usage: heroku plugins:install\n\nInstalls a plugin into the CLI\n\nInstall a Heroku plugin\n\n  Example:\n  $ heroku plugins:install heroku-production-status\n\n",
     "params": [],
@@ -3882,7 +3882,7 @@
   },
   "plugins:uninstall": {
     "name": "plugins:uninstall",
-    "usage": "heroku plugins:uninstall NAME",
+    "usage": "heroku plugins:uninstall PLUGIN",
     "desc": "uninstall a plugin",
     "docs": "Usage: heroku plugins:uninstall NAME\n\nUninstalls a plugin from the CLI\n\nUninstalls a Heroku plugin\n\n  Example:\n  $ heroku plugins:uninstall heroku-production-status\n\n",
     "params": [],
@@ -4171,7 +4171,7 @@
   },
   "repo": {
     "name": "repo",
-    "usage": "repo",
+    "usage": "heroku repo",
     "desc": "repository manipulation",
     "docs": "Additional commands, type \"heroku help COMMAND\" for more details:\n\n  repo:clone                #  sets the bare repo for immediate consumption\n  repo:download [FILENAME]  #  download the repo\n  repo:gc                   #  run a git gc --aggressive on an application's repository\n  repo:purge_cache          #  deletes the contents the build cache in the repository\n  repo:reset                #  reset the repo\n\n",
     "params": [],

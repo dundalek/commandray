@@ -35,8 +35,9 @@ function extractPageExamples(str) {
 function getHerokuCommands() {
   const commands = {};
 
-  function loadCommand({ name : usage, desc }) {
-    const name = usage.split(' ')[0];
+  function loadCommand({ name, desc }) {
+    let usage = 'heroku ' + name;
+    name = name.split(' ')[0];
     if (name in commands) {
       return;
     }
@@ -50,8 +51,17 @@ function getHerokuCommands() {
 
     const firstLine = stdout.split(/\n\s*\n/)[0];
     if (firstLine && firstLine.startsWith('Usage:')) {
-      usage = firstLine.replace(/^Usage:/, '').trim();
+      const currentUsage = firstLine.replace(/^Usage:/, '').trim();
+      if (currentUsage.length > usage.length) {
+        usage = currentUsage;
+      }
     }
+    usage = usage
+      .replace('[--all|--app APP]', '')
+      .replace('--app APP', '')
+      .replace(/\[?--org ORG\]?/, '')
+      .replace(/\[?--role ROLE\]?/, '')
+      .trim();
 
     commands[name] = {
       name,

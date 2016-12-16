@@ -1,6 +1,6 @@
 {
   "name": "buildpacks:add",
-  "usage": "heroku buildpacks:add URL",
+  "usage": "heroku buildpacks:add BUILDPACK_URL",
   "desc": "add new app buildpack, inserting into list of buildpacks if neccessary",
   "params": [
     {

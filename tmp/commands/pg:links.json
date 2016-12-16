@@ -1,6 +1,6 @@
 {
   "name": "pg:links",
-  "usage": "heroku pg:links [DATABASE]",
+  "usage": "heroku pg:links <create|destroy>",
   "desc": "create links between data stores.  Without a subcommand, it lists all",
   "params": [
     {

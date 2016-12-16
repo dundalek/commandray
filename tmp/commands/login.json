@@ -1,6 +1,6 @@
 {
   "name": "login",
-  "usage": "login",
+  "usage": "heroku login",
   "desc": "login with your Heroku credentials.",
   "params": [
     {

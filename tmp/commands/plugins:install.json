@@ -1,6 +1,6 @@
 {
   "name": "plugins:install",
-  "usage": "heroku plugins:install",
+  "usage": "heroku plugins:install NAME",
   "desc": "install a plugin",
   "params": [],
   "subcommands": [],

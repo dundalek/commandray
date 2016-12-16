@@ -1,6 +1,6 @@
 {
   "name": "git",
-  "usage": "git",
+  "usage": "heroku git",
   "desc": "manage local git repository for app",
   "params": [],
   "subcommands": [

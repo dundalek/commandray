@@ -1,8 +1,8 @@
 import _ from 'lodash';
 import React, { Component } from 'react';
 import CommandForm from './CommandForm';
+import commands from '../commands';
 
-const commands = require('../../commands.json');
 const items = [['','']].concat(_.map(commands, cmd => [cmd.name, cmd.desc || '']));
 
 const stylesheet = {

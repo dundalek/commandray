@@ -1,6 +1,6 @@
 {
   "name": "plugins:uninstall",
-  "usage": "heroku plugins:uninstall NAME",
+  "usage": "heroku plugins:uninstall PLUGIN",
   "desc": "uninstall a plugin",
   "params": [],
   "subcommands": [],

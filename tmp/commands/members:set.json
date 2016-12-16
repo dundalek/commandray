@@ -1,6 +1,6 @@
 {
   "name": "members:set",
-  "usage": "heroku members:set EMAIL",
+  "usage": "heroku members:set NAME",
   "desc": "change role of member in org",
   "params": [
     {

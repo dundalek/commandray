@@ -1,6 +1,6 @@
 {
   "name": "ps:stop",
-  "usage": "heroku ps:stop DYNO",
+  "usage": "heroku ps:stop DYNOS",
   "desc": "stop an app dyno",
   "params": [
     {

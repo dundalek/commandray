@@ -1,6 +1,6 @@
 {
   "name": "addons:docs",
-  "usage": "heroku addons:docs ADDON",
+  "usage": "heroku addons:docs ADDON_NAME",
   "desc": "open an add-on's documentation in your browser",
   "params": [
     {
