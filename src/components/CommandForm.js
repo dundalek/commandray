@@ -7,6 +7,7 @@ export default class CommandForm extends Component {
     super(props);
     this.state = {
       text: '',
+      activeOption: '',
     };
   }
 
@@ -25,7 +26,6 @@ export default class CommandForm extends Component {
       left: 0,
       top: 0,
       width: '100%',
-      height: options.length + 5,
       bg: 'green',
     }
 
@@ -37,7 +37,6 @@ export default class CommandForm extends Component {
       //   left: 1,
       //   right: 1
       // },
-      top: options.length + 3,
       shrink: true,
       name: 'submit',
       content: 'submit',
@@ -53,8 +52,8 @@ export default class CommandForm extends Component {
     }
 
     return (
-      <form {...formOpts} ref="root" height={options.length+3} width="100%-2" onKeypress={this.props.onKeypress}>
-        {_.flatten(options.map(({ type, label, name }, i) => {
+      <form {...formOpts} height={options.length + 6} ref="root" onKeypress={this.props.onKeypress}>
+        {_.flatten(options.map(({ type, label, name, option }, i) => {
           return [
             <box class={{
               top: i + 1,
@@ -64,7 +63,7 @@ export default class CommandForm extends Component {
               mouse: true,
               top: i + 1,
               left: '50%',
-            }} onSetContent={this._onSubmit} ref={name} key={`${name}-input-checkbox`} />
+            }} onSetContent={this._onSubmit} onBlur={() => this.setActiveOption()} onFocus={() => this.setActiveOption(option)} ref={name} key={`${name}-input-checkbox`} />
             : <textbox class={{
               mouse: true,
               keys: true,
@@ -73,11 +72,12 @@ export default class CommandForm extends Component {
               left: '50%',
               width: '50%-1',
               underline: true,
-            }} onSetContent={this._onSubmit} ref={name} key={`${name}-input-textbox`} />
+            }} onSetContent={this._onSubmit} onBlur={() => this.setActiveOption()} onFocus={() => this.setActiveOption(option)} ref={name} key={`${name}-input-textbox`} />
           ];
         }))}
         <box top={options.length + 2}>{this.state.text}</box>
-        <button {...submitOpts} onPress={this._onExec}/>
+        <button {...submitOpts} top={options.length + 3} onPress={this._onExec}/>
+        <box top={options.length + 5}>{this.state.activeOption}</box>
       </form>
     );
   }
@@ -113,6 +113,7 @@ export default class CommandForm extends Component {
         type: 'usage',
         label: parts.slice(2).join(' '),
         name: '_',
+        option: {},
       });
     }
 
@@ -133,6 +134,11 @@ export default class CommandForm extends Component {
 
     const text = unparse(cmd, vals);
     return cmd.usage.split(' ').slice(0, 2).concat([text]).join(' ');
+  }
+
+  setActiveOption(option) {
+    const activeOption = option && option.desc || '';
+    this.setState({ activeOption });
   }
 
   _onSubmit = (ev) => {
