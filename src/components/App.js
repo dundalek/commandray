@@ -1,5 +1,6 @@
 import _ from 'lodash';
 import React, { Component } from 'react';
+import { Grid } from 'react-blessed-contrib';
 import CommandForm from './CommandForm';
 import commands from '../commands';
 
@@ -89,22 +90,19 @@ export default class App extends Component {
     }
 
     return (
-      <box label={`${this.state.selected} ${this.state.text}`}
-           border={{type: 'line'}}
-           style={{border: {fg: 'cyan'}}}>
-        {/* <list ref="mylist" style={stylesheet.list} items={items} mouse={true} keys={true} interactive={true} vi={true} /> */}
-        {this.state.showDetail
-          ? <CommandForm onKeypress={this._onDetailKeypress} onSelectCommand={this.props.onSelectCommand} cmd={cmd} />
-          : <listtable ref="mylist" style={stylesheet.listtable} data={filteredItems} mouse={true} keys={true} interactive={true} align="left" height="20%"
-           onSelect={this._onSelectEnter}
-           onSelectItem={this._onSelect}
-           onKeypress={this._onListKeypress}
-        />}
+      <Grid cols={1} rows={4} component="box">
+      {this.state.showDetail
+        ? <CommandForm  row={0} col={0} colSpan={1} rowSpan={2} onKeypress={this._onDetailKeypress} onSelectCommand={this.props.onSelectCommand} cmd={cmd} />
+        : <listtable ref="mylist" row={0} col={0} colSpan={1} rowSpan={2} style={stylesheet.listtable} data={filteredItems} mouse={true} keys={true} interactive={true} align="left" noCellBorders={true}
+             onSelect={this._onSelectEnter}
+             onSelectItem={this._onSelect}
+             onKeypress={this._onListKeypress}
+          />}
 
-        <box ref="text" height="80%-2" top="20%" width="100%-2" border={{type: 'line'}} style={{border: {fg: 'cyan'}, track: {fg: 'cyan'}}} scrollable={true} mouse={true} keys={true} alwaysScroll={true} scrollbar={{bg: 'blue'}} onKeypress={this._onKeypress}>
-        {doc}
+        <box ref="text" row={2} col={0} colSpan={1} rowSpan={2} border={{type: 'line'}} style={{border: {fg: 'cyan'}}} scrollable={true} mouse={true} keys={true} input={true} alwaysScroll={true} scrollbar={{ch: " ", inverse: true}} onKeypress={this._onKeypress}>
+          {doc}
         </box>
-      </box>
+      </Grid>
     );
   }
 
