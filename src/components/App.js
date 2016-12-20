@@ -1,6 +1,6 @@
 import _ from 'lodash';
 import React, { Component } from 'react';
-import { Grid } from 'react-blessed-contrib';
+import { Grid, Tree } from 'react-blessed-contrib';
 import CommandForm from './CommandForm';
 import commands from '../commands';
 
@@ -24,13 +24,33 @@ const stylesheet = {
   }
 };
 
-class InnerBox extends Component {
-  constructor(props) {
-    super(props);
-  }
+function buildCommandTree(commands) {
+  return _(commands)
+    .groupBy(v => v.name.split(':')[0])
+    .map((v, k) => {
+      return {
+        name: k,
+        children: v.map(n => ({ name: n.name }))
+      };
+    })
+    .value();
+}
 
-  render() {
-  }
+// const primaryTopics = _.keyBy(['addons', 'apps', 'auth', 'config', 'domains', 'logs', 'ps', 'releases', 'run']);
+// commandTree = [{
+//   name: 'Primary topics',
+//   extended: true,
+//   children: commandTree.filter(x => x.name in primaryTopics)
+// }, {
+//   name: 'Additional topics',
+//   extended: true,
+//   children: commandTree.filter(x => !(x.name in primaryTopics))
+// }];
+
+const explorer = {
+  name: '',
+  extended: true,
+  children: buildCommandTree(commands)
 }
 
 const elementList = ['mylist', 'text'];
@@ -48,6 +68,7 @@ export default class App extends Component {
   }
 
   componentDidMount() {
+    // this.refs.tree.setData(explorer);
     let c;
     c = this.refs[elementList[this.state.focused]]
     if (c) c.focus();
@@ -91,6 +112,16 @@ export default class App extends Component {
 
     return (
       <Grid cols={1} rows={4} component="box">
+      {/* <Tree ref="tree" row={0} col={0} rowSpan={2} colSpan={1} {...{
+        style: {
+          text: "red"
+        },
+        template: {
+          lines: true
+        },
+        label: 'Filesystem Tree',
+        "onSelect Item": (node) => { console.log(node) }
+      }}/> */}
       {this.state.showDetail
         ? <CommandForm  row={0} col={0} colSpan={1} rowSpan={2} onKeypress={this._onDetailKeypress} onSelectCommand={this.props.onSelectCommand} cmd={cmd} />
         : <listtable ref="mylist" row={0} col={0} colSpan={1} rowSpan={2} style={stylesheet.listtable} data={filteredItems} mouse={true} keys={true} interactive={true} align="left" noCellBorders={true}
