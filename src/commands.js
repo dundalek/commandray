@@ -1,6 +1,6 @@
 import _ from 'lodash';
-const herokuCommands = require('../commands.json');
-const dockerCommands = require('../commands-docker.json');
+const herokuCommands = require('../tmp/commands.json');
+const dockerCommands = require('../tmp/commands-docker.json');
 
 // handmade customizations can be here
 herokuCommands.run.usage = 'heroku run COMMAND';
