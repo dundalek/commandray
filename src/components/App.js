@@ -65,6 +65,12 @@ export default class App extends Component {
       showDetail: false,
     };
     this.preventEvent = 0;
+    // if (props.args[1] in commands) {
+    //   this.state.selected = _.findIndex(items, x => x[0] === props.args[1]);
+    //   this.state.showDetail = true;
+    // } else {
+    //   this.state.text = props.args.join(' ');
+    // }
   }
 
   componentDidMount() {
@@ -106,31 +112,36 @@ export default class App extends Component {
     let doc = '';
     if (item && item[0]) {
       cmd = commands[item[0]];
-      // doc = cmd.docs;
-      doc = JSON.stringify(_.omit(cmd, 'docs'), null, 2) + '\n\n' + cmd.docs;
+      doc = cmd.docs;
+      // doc = JSON.stringify(_.omit(cmd, 'docs'), null, 2) + '\n\n' + cmd.docs;
     }
+
+    const commandList = <Tree ref="tree" row={0} col={0} rowSpan={2} colSpan={1} {...{
+      style: {
+        text: "red"
+      },
+      template: {
+        lines: true
+      },
+      label: 'Filesystem Tree',
+      "onSelect Item": (node) => { console.log(node) }
+    }}/>
+
+    // const commandList = <listtable key="listtable" ref="mylist" row={0} col={0} colSpan={1} rowSpan={2} style={stylesheet.listtable} data={filteredItems} mouse={true} keys={true} interactive={true} align="left" noCellBorders={true} label={this.state.text}
+    //      onSelect={this._onSelectEnter}
+    //      onSelectItem={this._onSelect}
+    //      onKeypress={this._onListKeypress}
+    //   />
+
 
     return (
       <Grid cols={1} rows={4} component="box">
-      {/* <Tree ref="tree" row={0} col={0} rowSpan={2} colSpan={1} {...{
-        style: {
-          text: "red"
-        },
-        template: {
-          lines: true
-        },
-        label: 'Filesystem Tree',
-        "onSelect Item": (node) => { console.log(node) }
-      }}/> */}
+      {/*  */}
       {this.state.showDetail
-        ? <CommandForm  row={0} col={0} colSpan={1} rowSpan={2} onKeypress={this._onDetailKeypress} onSelectCommand={this.props.onSelectCommand} cmd={cmd} />
-        : <listtable ref="mylist" row={0} col={0} colSpan={1} rowSpan={2} style={stylesheet.listtable} data={filteredItems} mouse={true} keys={true} interactive={true} align="left" noCellBorders={true}
-             onSelect={this._onSelectEnter}
-             onSelectItem={this._onSelect}
-             onKeypress={this._onListKeypress}
-          />}
+        ? <CommandForm  key="CommandForm" row={0} col={0} colSpan={1} rowSpan={2} onKeypress={this._onDetailKeypress} onSelectCommand={this.props.onSelectCommand} cmd={cmd} args={this.props.args} />
+        : commandList}
 
-        <box ref="text" row={2} col={0} colSpan={1} rowSpan={2} border={{type: 'line'}} style={{border: {fg: 'cyan'}}} scrollable={true} mouse={true} keys={true} input={true} alwaysScroll={true} scrollbar={{ch: " ", inverse: true}} onKeypress={this._onKeypress}>
+        <box key="text" ref="text" row={2} col={0} colSpan={1} rowSpan={2} border={{type: 'line'}} style={{border: {fg: 'cyan'}}} scrollable={true} mouse={true} keys={true} input={true} alwaysScroll={true} scrollbar={{ch: " ", inverse: true}} onKeypress={this._onKeypress}>
           {doc}
         </box>
       </Grid>

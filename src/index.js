@@ -28,7 +28,7 @@ function handleSelectCommand(text) {
 }
 
 // Render React component into screen
-render(<App onSelectCommand={handleSelectCommand} />, screen);
+render(<App onSelectCommand={handleSelectCommand} args={process.argv.slice(2)} />, screen);
 
 // Don't overwrite the screen
 // console.log = function () { };

@@ -1,6 +1,6 @@
 import _ from 'lodash';
 import React, { Component } from 'react';
-import { parseParam, unparse } from '../parser';
+import { parseParam, unparse, parse } from '../parser';
 
 export default class CommandForm extends Component {
   constructor(props) {
@@ -9,6 +9,10 @@ export default class CommandForm extends Component {
       text: '',
       activeOption: '',
     };
+    if (props.args) {
+      // this.state.text = parse(props.cmd, props.args);
+      this.state.text = props.args.join(' ');
+    }
   }
 
   componentDidMount() {
