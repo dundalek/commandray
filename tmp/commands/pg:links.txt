@@ -1,7 +1,0 @@
-Usage: heroku pg:links [DATABASE]
-
-lists all datbases and information on link
-
- -a, --app APP       # app to run command against
- -r, --remote REMOTE # git remote of app to run command against
-

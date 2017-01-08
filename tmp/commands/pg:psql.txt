@@ -1,8 +1,0 @@
-Usage: heroku pg:psql [DATABASE]
-
-open a psql shell to the database
-
- -a, --app APP         # app to run command against
- -c, --command COMMAND # SQL command to run
- -r, --remote REMOTE   # git remote of app to run command against
-

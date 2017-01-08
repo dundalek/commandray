@@ -1,9 +1,0 @@
-Usage: heroku plugins:uninstall NAME
-
-Uninstalls a plugin from the CLI
-
-Uninstalls a Heroku plugin
-
-  Example:
-  $ heroku plugins:uninstall heroku-production-status
-

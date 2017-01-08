@@ -1,8 +1,0 @@
-Usage: heroku members:set EMAIL
-
-sets a members role in an organization or a team
-
- -o, --org ORG       # organization to use
- -r, --role ROLE     # member role (admin, collaborator, member, owner)
- -t, --team TEAM     # team to use
-

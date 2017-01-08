@@ -1,8 +1,0 @@
-{
-  "name": "local:run",
-  "usage": "heroku local:run",
-  "desc": "run a one-off command",
-  "params": [],
-  "subcommands": [],
-  "examples": []
-}

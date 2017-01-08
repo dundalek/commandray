@@ -1,8 +1,0 @@
-{
-  "name": "auth:2fa:disable",
-  "usage": "heroku auth:2fa:disable",
-  "desc": "disable two-factor authentication for your account",
-  "params": [],
-  "subcommands": [],
-  "examples": []
-}

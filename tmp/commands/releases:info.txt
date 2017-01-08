@@ -1,9 +1,0 @@
-Usage: heroku releases:info [RELEASE]
-
-view detailed information for a release
-
- -a, --app APP       # app to run command against
- -r, --remote REMOTE # git remote of app to run command against
- -s, --shell         # output in shell format
- --json              # output in json format
-

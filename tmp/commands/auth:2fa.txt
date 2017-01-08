@@ -1,4 +1,0 @@
-Usage: heroku auth:2fa
-
-check 2fa status
-

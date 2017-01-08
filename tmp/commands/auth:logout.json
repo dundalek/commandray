@@ -1,8 +1,0 @@
-{
-  "name": "auth:logout",
-  "usage": "heroku auth:logout",
-  "desc": "clear local authentication credentials",
-  "params": [],
-  "subcommands": [],
-  "examples": []
-}

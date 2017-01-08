@@ -1,7 +1,0 @@
-Alias: login redirects to auth:login
-Usage: heroku auth:login
-
-login with your Heroku credentials.
-
- --sso               # login for enterprise users under SSO
-

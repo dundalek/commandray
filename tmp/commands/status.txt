@@ -1,6 +1,0 @@
-Usage: heroku status
-
-display current status of Heroku platform
-
- --json              # output in json format
-

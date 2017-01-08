@@ -1,8 +1,0 @@
-{
-  "name": "auth:2fa",
-  "usage": "heroku auth:2fa",
-  "desc": "check 2fa status",
-  "params": [],
-  "subcommands": [],
-  "examples": []
-}

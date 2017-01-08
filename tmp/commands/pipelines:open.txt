@@ -1,7 +1,0 @@
-Usage: heroku pipelines:open PIPELINE
-
-open a pipeline in dashboard
-
-Example:
-  $ heroku pipelines:open example
-

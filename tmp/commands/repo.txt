@@ -1,8 +1,0 @@
-Additional commands, type "heroku help COMMAND" for more details:
-
-  repo:clone                #  sets the bare repo for immediate consumption
-  repo:download [FILENAME]  #  download the repo
-  repo:gc                   #  run a git gc --aggressive on an application's repository
-  repo:purge_cache          #  deletes the contents the build cache in the repository
-  repo:reset                #  reset the repo
-

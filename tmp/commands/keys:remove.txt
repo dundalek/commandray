@@ -1,9 +1,0 @@
-Usage: heroku keys:remove KEY
-
-remove an SSH key from the user
-
-Example:
-
-  $ heroku keys:remove email@example.com
-  Removing email@example.com SSH key... done
-

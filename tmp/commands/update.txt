@@ -1,8 +1,0 @@
-Usage: heroku update [CHANNEL]
-
-updates the Heroku CLI
-
-Additional commands, type "heroku help COMMAND" for more details:
-
-  update:beta  #  update to the latest beta client
-

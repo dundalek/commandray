@@ -1,7 +1,0 @@
-Usage: heroku pgbackups:restore [<DATABASE> [BACKUP_ID|BACKUP_URL]]
-
- restore a backup to a database
-
- if no DATABASE is specified, defaults to DATABASE_URL and latest backup
- if DATABASE is specified, but no BACKUP_ID, defaults to latest backup
-

@@ -1,8 +1,0 @@
-Usage: heroku addons:wait ADDON
-
-Show provisioning status of the add-ons on the app
-
- -a, --app APP                 # app to run command against
- -r, --remote REMOTE           # git remote of app to run command against
- --wait-interval WAIT-INTERVAL # how frequently to poll in seconds
-

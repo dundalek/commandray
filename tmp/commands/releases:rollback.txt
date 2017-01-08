@@ -1,9 +1,0 @@
-Usage: heroku releases:rollback [RELEASE]
-
-rollback to a previous release
-
- -a, --app APP       # app to run command against
- -r, --remote REMOTE # git remote of app to run command against
-
-If RELEASE is not specified, it will rollback one release
-

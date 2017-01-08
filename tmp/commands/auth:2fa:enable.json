@@ -1,8 +1,0 @@
-{
-  "name": "auth:2fa:enable",
-  "usage": "heroku auth:2fa:enable",
-  "desc": "enable 2fa on your account",
-  "params": [],
-  "subcommands": [],
-  "examples": []
-}

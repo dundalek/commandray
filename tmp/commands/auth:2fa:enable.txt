@@ -1,4 +1,0 @@
-Usage: heroku auth:2fa:enable
-
-enable 2fa on your account
-

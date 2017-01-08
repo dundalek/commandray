@@ -1,8 +1,0 @@
-Usage: heroku pipelines:destroy PIPELINE
-
-destroy a pipeline
-
-Example:
-  $ heroku pipelines:destroy example
-  Destroying example pipeline... done
-

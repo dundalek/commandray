@@ -1,6 +1,0 @@
-Usage: heroku addons:plans SERVICE
-
-list all available plans for an add-on services
-
- --json              # output in json format
-

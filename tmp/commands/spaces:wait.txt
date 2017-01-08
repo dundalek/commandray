@@ -1,9 +1,0 @@
-Usage: heroku spaces:wait
-
-wait for a space to be created
-
- -i, --interval INTERVAL # seconds to wait between poll intervals
- -s, --space SPACE       # space to get info of
- -t, --timeout TIMEOUT   # maximum number of seconds to wait
- --json                  # output in json format
-

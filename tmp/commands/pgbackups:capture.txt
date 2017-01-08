@@ -1,8 +1,0 @@
-Usage: heroku pgbackups:capture [DATABASE]
-
- capture a backup from a database id
-
- if no DATABASE is specified, defaults to DATABASE_URL
-
- -e, --expire  # if no slots are available, destroy the oldest manual backup to make room
-

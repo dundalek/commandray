@@ -1,8 +1,0 @@
-{
-  "name": "help",
-  "usage": "heroku help",
-  "desc": "list commands and display help",
-  "params": [],
-  "subcommands": [],
-  "examples": []
-}

@@ -1,8 +1,0 @@
-{
-  "name": "auth:token",
-  "usage": "heroku auth:token",
-  "desc": "display your api token",
-  "params": [],
-  "subcommands": [],
-  "examples": []
-}

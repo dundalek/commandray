@@ -1,7 +1,0 @@
-Usage: heroku members:remove EMAIL
-
-removes a user from an organization or a team
-
- -o, --org ORG       # organization to use
- -t, --team TEAM     # team to use
-

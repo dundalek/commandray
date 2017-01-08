@@ -1,9 +1,0 @@
-Usage: heroku certs:remove
-
-remove an SSL certificate from an app
-
- -a, --app APP       # app to run command against
- -r, --remote REMOTE # git remote of app to run command against
- --endpoint ENDPOINT # endpoint to remove
- --name NAME         # name to remove
-

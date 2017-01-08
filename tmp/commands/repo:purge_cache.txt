@@ -1,7 +1,0 @@
-Usage: heroku repo:purge_cache
-
-deletes the contents the build cache in the repository
-
- -a, --app APP       # app to run command against
- -r, --remote REMOTE # git remote of app to run command against
-

@@ -1,8 +1,0 @@
-Usage: heroku features:info FEATURE
-
-display information about a feature
-
- -a, --app APP       # app to run command against
- -r, --remote REMOTE # git remote of app to run command against
- --json              # output in json format
-

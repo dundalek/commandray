@@ -1,7 +1,0 @@
-Usage: heroku update:beta
-
- update to the latest beta client
-
- $ heroku update
- Updating... done, v1.2.3 updated to v2.3.4.pre
-

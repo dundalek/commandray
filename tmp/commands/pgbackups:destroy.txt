@@ -1,4 +1,0 @@
-Usage: heroku pgbackups:destroy BACKUP_ID
-
- destroys a backup
-

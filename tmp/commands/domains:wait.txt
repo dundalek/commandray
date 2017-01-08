@@ -1,7 +1,0 @@
-Usage: heroku domains:wait HOSTNAME
-
-wait for domain to be active for an app
-
- -a, --app APP       # app to run command against
- -r, --remote REMOTE # git remote of app to run command against
-

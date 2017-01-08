@@ -1,7 +1,0 @@
-Usage: heroku addons:rename ADDON NEW_NAME
-
-Rename an add-on.
-
- -a, --app APP       # app to run command against
- -r, --remote REMOTE # git remote of app to run command against
-

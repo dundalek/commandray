@@ -1,6 +1,0 @@
-Usage: heroku orgs:open
-
-open the organization interface in a browser window
-
- -o, --org ORG       # organization to use
-

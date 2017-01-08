@@ -1,4 +1,0 @@
-Usage: heroku auth:2fa:generate
-
-generates and replaces recovery codes
-

@@ -1,9 +1,0 @@
-Usage: heroku addons:destroy
-
-destroy add-on resources
-
- -a, --app APP         # app to run command against
- -c, --confirm CONFIRM
- -f, --force           # allow destruction even if connected to other apps
- -r, --remote REMOTE   # git remote of app to run command against
-

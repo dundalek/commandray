@@ -1,6 +1,0 @@
-Usage: heroku local:version
-
-display node-foreman version
-
-Display node-foreman version
-

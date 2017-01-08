@@ -1,6 +1,0 @@
-Usage: heroku apps:favorites
-
-list favorited apps
-
- --json              # output in json format
-

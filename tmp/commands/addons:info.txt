@@ -1,7 +1,0 @@
-Usage: heroku addons:info ADDON
-
-Show info about an add-on and its attachments.
-
- -a, --app APP       # app to run command against
- -r, --remote REMOTE # git remote of app to run command against
-
