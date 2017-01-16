@@ -1,8 +1,10 @@
+// @flow
+
 import _ from 'lodash';
 import yargs from 'yargs/yargs';
 
 /* Returns option in yargs object format from geroku line example */
-export function parseParam(cmd) {
+export function parseParam(cmd: Object): Param {
   const parts = cmd.name.split(',').map(x => x.trim());
   const short = (parts.filter(x => x.match(/^-[^-]/))[0] || '').replace(/^-+/, '');
   const longParts = parts.filter(x => x.match(/^--/))[0].replace(/^-+/, '').split(' ');
@@ -10,26 +12,26 @@ export function parseParam(cmd) {
 
   const paramName = longParts[1] || undefined;
   const type = (!!short && !long) || (long && !paramName) ? 'boolean' : 'string';
-  const name = long || short;
 
   const obj = {
+    name: long || short,
     alias: long ? short : undefined,
-    type,
-    desc: cmd.desc,
-    default: null,
+    summary: cmd.desc,
+    description: '',
+    schema: {
+      type,
+    },
   };
 
   if (paramName) {
-    obj.paramName = paramName;
+    (obj: Object).paramName = paramName;
   }
 
-  return {
-    [name]: obj,
-  };
+  return obj;
 }
 
 /* Transforms command's usage line to a yargs format */
-export function transformUsage(usage) {
+export function transformUsage(usage: string): string {
   return usage
     .replace(/[<\[=]?([A-Z][A-Z_0-9]*)[>\]=]?/g, (a, b) => a === b ? `<${b}>` : a)
     .replace(/\s*\.\.\.\]/g, '..]');
@@ -39,15 +41,15 @@ function formatOption(key) {
   return (key.length === 1 ? '-' : '--') + key;
 }
 
-export function parse(cmd, example) {
-  const usage = transformUsage(cmd.usage);
+export function parse(cmd: Command, example: string) {
+  // const usage = transformUsage(cmd.usage);
   const options = cmd.params.map(parseParam).reduce(_.assign, {});
-  const parsed = yargs().usage(usage, options).parse(example);
+  const parsed = yargs().options(options).parse(example);
   return parsed;
 }
 
 /* Serializes parsed command back into string */
-export function unparse(cmd, parsed) {
+export function unparse(cmd: Command, parsed: Object) {
   const options = cmd.params.map(parseParam).reduce(_.assign, {});
   const aliases = _.reduce(options, (result, val, key) => {
     if (val.alias) {

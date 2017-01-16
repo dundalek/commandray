@@ -1,0 +1,12 @@
+[include]
+src/
+
+[ignore]
+.*test.*
+.*/build/.*
+.*\.min\./.*
+.*/node_modules/fbjs/.*
+.*/node_modules/react-motion/.*
+
+[libs]
+src/types.js

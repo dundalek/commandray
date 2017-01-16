@@ -1,6 +1,6 @@
 import _ from 'lodash';
 import { parseParam, transformUsage, parse, unparse } from './parser';
-import commands from '../commands.json';
+import commands from '../tmp/commands.json';
 
 function testCommandUnparsing(name, example) {
   const cmd = commands[name];
