@@ -43,6 +43,18 @@ function parseSections(stdout) {
   return result;
 }
 
+function parseParam(x: string): Param {
+  const parts = x.trim().split(/   \s*/);
+  return {
+    name: parts[0],
+    summary: parts[1],
+    description: '',
+    schema: {
+      type: 'string',
+    }
+  };
+}
+
 function loadCommand({ name, summary }) {
   console.log(`Extracting docker ${name} ...`);
   const args = name.split(' ').concat(['--help'])
@@ -70,31 +82,24 @@ function loadCommand({ name, summary }) {
       summary: parts[1].trim(),
     };
   });
-  subcommands.forEach(loadCommand);
 
-  // TODO load subcommands
-
-  return [{
+  const c : Command = {
     name: 'docker ' + name,
     summary,
     // descX: usage.filter(x => x)[0],
     description: stdout,
     schema: {
       usage: usage[0],
-      params: options.map(x => {
-        x = x.trim().split(/   \s*/);
-        return {
-          name: x[0],
-          desc: x[1],
-        };
-      }),
+      params: options.map(parseParam),
     },
-    subcommands,
-  }];
+    examples: [],
+  }
+
+  return [c].concat(subcommands.map(loadCommand));
 }
 
 export function extract() {
   const stdout = spawnSync('docker', ['help']).stdout.toString('utf-8');
-  const commands = _.flatten(extractPageCommands(stdout).map(loadCommand));
+  const commands = _.flattenDeep(extractPageCommands(stdout).map(loadCommand));
   return commands;
 }
