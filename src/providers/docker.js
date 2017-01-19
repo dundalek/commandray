@@ -1,3 +1,4 @@
+// @flow
 import { spawnSync } from 'child_process';
 import fs from 'fs';
 import _ from 'lodash';
@@ -12,7 +13,7 @@ function extractPageCommands(stdout) {
   while (match = r.exec(stdout)) {
     commands.push({
       name: match[1].trim(),
-      desc: match[2],
+      summary: match[2],
     });
   }
 
@@ -42,10 +43,10 @@ function parseSections(stdout) {
   return result;
 }
 
-function loadCommand({ name, desc }) {
-  console.log(`Extracting ${name} ...`);
+function loadCommand({ name, summary }) {
+  console.log(`Extracting docker ${name} ...`);
   const args = name.split(' ').concat(['--help'])
-  const { stdout } = spawnSync('docker', args, { encoding: 'utf-8' });
+  const stdout = spawnSync('docker', args).stdout.toString('utf-8');
   if (!stdout) {
     return;
   }
@@ -66,38 +67,34 @@ function loadCommand({ name, desc }) {
     const parts = x.split(/\s\s\s+/);
     return {
       name: name + ' ' + parts[0].trim(),
-      desc: parts[1].trim(),
+      summary: parts[1].trim(),
     };
   });
   subcommands.forEach(loadCommand);
 
-  commands.push({
-    name,
-    desc,
+  // TODO load subcommands
+
+  return [{
+    name: 'docker ' + name,
+    summary,
     // descX: usage.filter(x => x)[0],
-    usage: usage[0],
-    params: options.map(x => {
-      x = x.trim().split(/   \s*/);
-      return {
-        name: x[0],
-        desc: x[1],
-      };
-    }),
-    docs: stdout,
+    description: stdout,
+    schema: {
+      usage: usage[0],
+      params: options.map(x => {
+        x = x.trim().split(/   \s*/);
+        return {
+          name: x[0],
+          desc: x[1],
+        };
+      }),
+    },
     subcommands,
-  });
+  }];
 }
 
-const { stdout } = spawnSync('docker', ['help'], { encoding: 'utf-8' });
-
-const commands = [];
-extractPageCommands(stdout).map(loadCommand);
-
-fs.writeFileSync('./commands-docker.json', JSON.stringify(commands, null, 2));
-// const commands = require('../commands.json');
-
-// write out copy as separate files for easier exploration
-_(commands).each((cmd) => {
-  fs.writeFileSync(`./tmp/commands-docker/${cmd.name}.txt`, cmd.docs);
-  fs.writeFileSync(`./tmp/commands-docker/${cmd.name}.json`, JSON.stringify({ ...cmd, docs: undefined }, null, 2));
-});
+export function extract() {
+  const stdout = spawnSync('docker', ['help']).stdout.toString('utf-8');
+  const commands = _.flatten(extractPageCommands(stdout).map(loadCommand));
+  return commands;
+}
