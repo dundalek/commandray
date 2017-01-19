@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --compilers babel-core/register --require src/test-helper.js **/*.test.js",
+    "test": "mocha --compilers babel-core/register --require src/test-helper.js 'src/**/*.test.js'",
     "start": "NODE_ENV=production babel-node src/index.js",
     "extract": "babel-node ./src/extract.js",
     "clean": "rimraf build",

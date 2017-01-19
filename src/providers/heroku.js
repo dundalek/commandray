@@ -3,6 +3,32 @@ import { spawnSync } from 'child_process';
 import fs from 'fs';
 import _ from 'lodash';
 
+export function parseParam(cmd: Object): Param {
+  const parts = cmd.name.split(',').map(x => x.trim());
+  const short = (parts.filter(x => x.match(/^-[^-]/))[0] || '').replace(/^-+/, '');
+  const longParts = parts.filter(x => x.match(/^--/))[0].replace(/^-+/, '').split(' ');
+  const long = longParts[0];
+
+  const paramName = longParts[1] || undefined;
+  const type = (!!short && !long) || (long && !paramName) ? 'boolean' : 'string';
+
+  const obj = {
+    name: long || short,
+    alias: long ? short : undefined,
+    summary: cmd.summary,
+    description: '',
+    schema: {
+      type,
+    },
+  };
+
+  if (paramName) {
+    (obj: Object).paramName = paramName;
+  }
+
+  return obj;
+}
+
 /* extracts commands/params from heroku help page */
 function extractPageCommands(stdout: string) {
   const commands = []
@@ -42,7 +68,7 @@ export function extract() {
     if (name in commands) {
       return;
     }
-    console.log(`Extracting ${name} ...`);
+    console.log(`Extracting heroku ${name} ...`);
     const stdout = spawnSync('heroku', ['help', name]).stdout.toString('utf-8');
     if (!stdout) {
       return;

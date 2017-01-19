@@ -1,3 +1,4 @@
+// @flow
 import { transformParam } from './explainshell';
 
 describe('explainshell transformParam', () => {
@@ -17,9 +18,15 @@ describe('explainshell transformParam', () => {
       ],
       "is_option": true,
       "explainshell_command": "0alias"
-    })).to.eql({ dir: { alias: 'd',
-     type: 'string',
-     desc: '<b>-d=DIR</b>, <b>--dir=DIR</b>\n       Install the script into directory DIR, rather than searching for a suitable directory in $PATH.'} });
+    })).to.eql({
+      alias: ['d'],
+      description: '',
+      name: 'dir',
+      schema: {
+        type: 'string',
+      },
+      summary: '<b>-d=DIR</b>, <b>--dir=DIR</b>\n       Install the script into directory DIR, rather than searching for a suitable directory in $PATH.'
+    });
   });
 
   it('takes options expecting argument as booleans', () => {
@@ -27,10 +34,14 @@ describe('explainshell transformParam', () => {
       expectsarg: false,
       long: [ '--option' ]
     })).to.eql({
-      option: {
+      name: 'option',
+      description: '',
+      summary: '',
+      alias: [],
+      schema: {
         type: 'boolean'
       }
-    })
+    });
   });
 
   it('takes options not expecting argument as strings', () => {
@@ -38,7 +49,11 @@ describe('explainshell transformParam', () => {
       expectsarg: true,
       long: [ '--option' ]
     })).to.eql({
-      option: {
+      name: 'option',
+      description: '',
+      summary: '',
+      alias: [],
+      schema: {
         type: 'string'
       }
     })
@@ -49,8 +64,11 @@ describe('explainshell transformParam', () => {
       short: [ '-o' ],
       long: [ '--option' ]
     })).to.eql({
-      option: {
-        alias: 'o',
+      name: 'option',
+      alias: ['o'],
+      description: '',
+      summary: '',
+      schema: {
         type: 'boolean'
       }
     })
@@ -60,7 +78,11 @@ describe('explainshell transformParam', () => {
     expect(transformParam({
       short: [ '-o' ]
     })).to.eql({
-      o: {
+      name: 'o',
+      description: '',
+      summary: '',
+      alias: [],
+      schema: {
         type: 'boolean'
       }
     })

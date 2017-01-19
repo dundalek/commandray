@@ -34,7 +34,7 @@ export function transformParam(obj: Object): Param {
   }
 
   if (obj.long && obj.long[0] && obj.short && obj.short[0]) {
-    ret.alias = obj.short[0].replace(/^--?/, '');
+    ret.alias = [obj.short[0].replace(/^--?/, '')];
   }
 
   return ret;

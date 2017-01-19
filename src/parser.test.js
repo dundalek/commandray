@@ -1,6 +1,7 @@
+// @flow
 import _ from 'lodash';
-import { parseParam, transformUsage, parse, unparse } from './parser';
-import commands from '../tmp/commands.json';
+import { transformUsage, parse, unparse } from './parser';
+const commands = _.keyBy(require('../tmp/commands.json'), 'name');
 
 function testCommandUnparsing(name, example) {
   const cmd = commands[name];
@@ -11,48 +12,6 @@ function testCommandUnparsing(name, example) {
 }
 
 describe('parser', () => {
-  describe('parseParam', () => {
-    it('parses simple boolean option', () => {
-      expect(parseParam({ name: '--all',
-      desc: 'view all notifications (not just the ones for the current app)' })).to.eql({ all:
-     { alias: '',
-       type: 'boolean',
-       desc: 'view all notifications (not just the ones for the current app)',
-       default: null } });
-    });
-
-    it('parses boolean option with short alias', () => {
-      expect(parseParam({name: '-A, --all', desc: 'show add-ons and attachments for all accessible apps'})).to.eql({
-        all: {
-          alias: 'A',
-          type: 'boolean',
-          desc: 'show add-ons and attachments for all accessible apps',
-          default: null
-        }
-      });
-    });
-
-    it('parses string options', () => {
-      expect(parseParam({ name: '-r, --remote REMOTE',
-    desc: 'git remote of app to run command against' })).to.eql({ remote:
-     { alias: 'r',
-       type: 'string',
-       paramName: 'REMOTE',
-       desc: 'git remote of app to run command against',
-       default: null } });
-    });
-
-    it('parses string option without alias', () => {
-      expect(parseParam({ name: '--confirm CONFIRM',
-    desc: 'overwrite existing add-on attachment with same name' })).to.eql({ confirm:
-     { alias: '',
-       type: 'string',
-       paramName: 'CONFIRM',
-       desc: 'overwrite existing add-on attachment with same name',
-       default: null } });
-    });
-  });
-
   describe('transformUsage', () => {
     it('adds angle brackets to param names', () => {
       expect(transformUsage('addons:attach ADDON_NAME')).to.eql('addons:attach <ADDON_NAME>');
@@ -85,27 +44,27 @@ describe('parser', () => {
   describe('unparse', () => {
     it('handles standard command', () => {
       const example = 'heroku addons:create heroku-postgresql --app my-app --name main-db --as PRIMARY_DB';
-      expect(testCommandUnparsing('addons:create', example)).to.eql(example);
+      expect(testCommandUnparsing('heroku addons:create', example)).to.eql(example);
     });
 
     // this is not a desired behavior but it works like this for now due to yargs limitations
     it('puts positional params first', () => {
-      expect(testCommandUnparsing('apps:open', 'heroku open -a myapp /foo')).to.eql('heroku open /foo -a myapp');
+      expect(testCommandUnparsing('heroku apps:open', 'heroku open -a myapp /foo')).to.eql('heroku open /foo -a myapp');
     });
 
     it('handles command without positional args', () => {
       const example = 'heroku spaces:create --space my-space --org my-org --region oregon';
-      expect(testCommandUnparsing('spaces:create', example)).to.eql(example);
+      expect(testCommandUnparsing('heroku spaces:create', example)).to.eql(example);
     });
 
     it('handles short options', () => {
       const example = 'heroku pipelines:update -s staging -a example-admin';
-      expect(testCommandUnparsing('pipelines:update', example)).to.eql(example);
+      expect(testCommandUnparsing('heroku pipelines:update', example)).to.eql(example);
     });
 
     it('handles boolean options', () => {
       const example = 'heroku apps:info --shell';
-      expect(testCommandUnparsing('apps:info', example)).to.eql(example);
+      expect(testCommandUnparsing('heroku apps:info', example)).to.eql(example);
     });
 
     // gets messed up now due to yargs limitation
