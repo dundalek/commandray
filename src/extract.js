@@ -1,94 +1,75 @@
-import { spawnSync } from 'child_process';
+import path from 'path';
 import fs from 'fs';
-import _ from 'lodash';
+import sqlite from 'sqlite';
+import JSONStream from 'JSONStream';
 
-/* extracts commands/params from heroku help page */
-function extractPageCommands(stdout) {
-  const commands = []
-  const r = /^\s+([a-z-][^#\n]*)#\s+(.+)$/mg;
-  let match;
+import { extract as extractHeroku } from './providers/heroku';
+import { extract as extractDocker } from './providers/docker';
+import { extract as extractExplainshell } from './providers/explainshell';
 
-  while (match = r.exec(stdout)) {
-    commands.push({
-      name: match[1].trim(),
-      desc: match[2],
-    });
-  }
-
-  return commands;
+async function waitForStream(stream) {
+  return await new Promise((resolve, reject) => {
+    stream.on('end', () => resolve());
+    stream.on('error', e => reject(e));
+  });
 }
 
-/* Extracts examples from help page  */
-function extractPageExamples(str) {
-  const examples = []
-  const r = /^\s*\$([^\n]+)$/mg;
-  let match;
+async function saveStreamToDb(stream, db) {
+  const stmt = await db.prepare("INSERT INTO commands (name, summary, description, schema, examples) VALUES (?, ?, ?, ?, ?)");
 
-  while (match = r.exec(str)) {
-    examples.push(match[1].trim());
-  }
+  stream.on('data', c => {
+    stmt.run(c.name, c.summary, c.description, JSON.stringify(c.schema), JSON.stringify(c.examples));
+  });
 
-  return _.uniq(examples);
+  await waitForStream(stream);
+  await stmt.finalize();
 }
 
-/* parses and saves all heroku commands */
-function getHerokuCommands() {
-  const commands = {};
+async function saveItemsToDb(items, db) {
+  const stmt = await db.prepare("INSERT INTO commands (name, summary, description, schema, examples) VALUES (?, ?, ?, ?, ?)");
 
-  function loadCommand({ name, desc }) {
-    let usage = 'heroku ' + name;
-    name = name.split(' ')[0];
-    if (name in commands) {
-      return;
-    }
-    console.log(`Extracting ${name} ...`);
-    const { stdout } = spawnSync('heroku', ['help', name], { encoding: 'utf-8' });
-    if (!stdout) {
-      return;
-    }
-    const children = extractPageCommands(stdout);
-    const subcommands = children.filter(({ name }) => name[0] !== '-');
+  await Promise.all(items.map(c => stmt.run(c.name, c.summary, c.description, JSON.stringify(c.schema), JSON.stringify(c.examples))));
 
-    const firstLine = stdout.split(/\n\s*\n/)[0];
-    if (firstLine && firstLine.startsWith('Usage:')) {
-      const currentUsage = firstLine.replace(/^Usage:/, '').trim();
-      if (currentUsage.length > usage.length) {
-        usage = currentUsage;
-      }
-    }
-    usage = usage
-      .replace('[--all|--app APP]', '')
-      .replace('--app APP', '')
-      .replace(/\[?--org ORG\]?/, '')
-      .replace(/\[?--role ROLE\]?/, '')
-      .trim();
-
-    commands[name] = {
-      name,
-      usage,
-      desc,
-      docs: stdout,
-      params: children.filter(({ name }) => name[0] === '-'),
-      subcommands,
-      examples: extractPageExamples(stdout),
-    };
-    subcommands.forEach(loadCommand);
-  }
-
-  // TODO add list from `heroku commands` for completeness
-
-  const { stdout } = spawnSync('heroku', ['help'], { encoding: 'utf-8' });
-  extractPageCommands(stdout).forEach(loadCommand);
-
-  return commands;
+  await stmt.finalize();
 }
 
-const commands = getHerokuCommands();
-fs.writeFileSync('./commands.json', JSON.stringify(commands, null, 2));
-// const commands = require('../commands.json');
+async function saveStreamToFile(stream, filename) {
+  stream
+    .pipe(JSONStream.stringify())
+    .pipe(fs.createWriteStream(filename, {encoding: 'utf-8'}));
 
-// write out copy as separate files for easier exploration
-_(commands).each((cmd, name) => {
-  fs.writeFileSync(`./tmp/commands/${name}.txt`, cmd.docs);
-  fs.writeFileSync(`./tmp/commands/${name}.json`, JSON.stringify({ ...cmd, docs: undefined }, null, 2));
-});
+  await waitForStream(stream);
+}
+
+const dbFile = path.join(__dirname, '../tmp/commands.db');
+const dbSchema = `
+CREATE TABLE commands (
+  id INTEGER PRIMARY KEY,
+  name TEXT,
+  summary TEXT,
+  description TEXT,
+  schema TEXT,
+  examples TEXT
+);`;
+
+async function main() {
+  try {
+    await fs.unlink(dbFile);
+  } catch (ignore) {}
+  const db = await sqlite.open(dbFile);
+  await db.run(dbSchema);
+
+  await saveItemsToDb(extractHeroku(), db);
+  await saveItemsToDb(extractDocker(), db);
+  await saveStreamToDb(await extractExplainshell(), db);
+
+  const { dbCount } = await db.get('SELECT count(*) as dbCount FROM commands;');
+  console.log(`Entries in db: ${dbCount}`);
+
+  // console.log(await db.all('SELECT id, name FROM commands LIMIT 10;'));
+
+  await db.close();
+  return 'done';
+}
+
+main().then(x => console.log(x)).catch(x => console.error(x));

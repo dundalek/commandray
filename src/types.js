@@ -2,11 +2,16 @@ declare type Command = {
   name: string,
   summary: string,
   description: string,
-  params: Param[], // params / arguments + somehow positional (or from synopsis)
+  schema: CommandSchema, // params / arguments + somehow positional (or from synopsis)
   examples: Example[],
-  source: Object, // e.g. from manual
+  source?: Object, // e.g. from manual
   // todo usage strings?
 };
+
+declare type CommandSchema = {
+  usage: string,
+  params: Param[],
+}
 
 declare type Param = {
   name: string, // long

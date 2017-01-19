@@ -1,8 +1,8 @@
-import { transform } from './extract.explainshell';
+import { transformParam } from './explainshell';
 
-describe('explainshell transform', () => {
+describe('explainshell transformParam', () => {
   it('parses simple boolean option', () => {
-    expect(transform({
+    expect(transformParam({
       "expectsarg": true,
       "short": [
         "-d"
@@ -23,7 +23,7 @@ describe('explainshell transform', () => {
   });
 
   it('takes options expecting argument as booleans', () => {
-    expect(transform({
+    expect(transformParam({
       expectsarg: false,
       long: [ '--option' ]
     })).to.eql({
@@ -34,7 +34,7 @@ describe('explainshell transform', () => {
   });
 
   it('takes options not expecting argument as strings', () => {
-    expect(transform({
+    expect(transformParam({
       expectsarg: true,
       long: [ '--option' ]
     })).to.eql({
@@ -45,7 +45,7 @@ describe('explainshell transform', () => {
   });
 
   it('considers short option as alias', () => {
-    expect(transform({
+    expect(transformParam({
       short: [ '-o' ],
       long: [ '--option' ]
     })).to.eql({
@@ -57,7 +57,7 @@ describe('explainshell transform', () => {
   });
 
   it('considers short option as name when long option not present', () => {
-    expect(transform({
+    expect(transformParam({
       short: [ '-o' ]
     })).to.eql({
       o: {

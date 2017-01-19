@@ -28,7 +28,7 @@
     "react-blessed-contrib": "^0.1.2",
     "react-motion": "^0.3.1",
     "robotjs": "^0.4.5",
-    "sqlite3": "^3.1.8",
+    "sqlite": "^2.2.4",
     "webpack": "^1.7.3",
     "webpack-dev-server": "^1.7.0",
     "yargs": "^6.5.0"
