@@ -10,13 +10,22 @@ export function nestItems(items, depth = 0, prefix='') {
         // leaf node, return as is
         return v[0];
       }
-      const ret = { name: prefix + k };
+      let ret = { name: prefix + k };
       if (v.length > 1) {
-        ret.children = nestItems(v, depth + 1, prefix + k + ' ');
+        const children = nestItems(v, depth + 1, prefix + k + ' ');
+        if (children.length === 1) {
+          ret = children[0];
+        } else {
+          ret.children = children;
+        }
       }
       return ret;
     })
     .value();
+  }
+  // if there is a single item make it a root
+  if (depth === 0 && result.length === 1 && result[0].children) {
+    result = result[0].children;
   }
   return _.orderBy(result, 'name');
 }

@@ -23,13 +23,15 @@ var root = {
 function mapChildren(children) {
   return _(children)
     .map((child) => {
+      const name = child.name_orig || child.name;
       const ret = {
         ...child,
-        name: child.id ? `${child.name_orig || child.name} (${child.id})` : (child.name_orig || child.name || child.basename),
+        name: child.id ? `${name} - ${child.id}` : name,
         extended: false,
       };
       if (child.children) {
         ret.children = mapChildren(child.children);
+        ret.name += ` (${ret.children.length})`;
       }
       return ret;
     })
@@ -60,19 +62,21 @@ async function loadChildren(self, cb) {
 
     children = _(children)
       .map((child) => {
+        const hasChildren = child.cnt && child.cnt > 1;
         return {
           ...child,
-          name: child.id ? `${child.name_clean || child.name} (${child.id})` : (child.name_clean || child.name || child.basename),
+          name: hasChildren ? `${child.basename} (${child.cnt})` : child.basename,
+          cmd: child.basename,
           extended: false,
-          children: (child.cnt && child.cnt > 1) ? { __placeholder__: { name: 'Loading...' } } : null,
+          children: hasChildren ? { __placeholder__: { name: 'Loading...' } } : null,
         };
       })
       // .keyBy((c) => c.id || c.name)
       .value();
   } else {
     const args = {
-      $cmd: self.name,
-      $cmdPrefix: self.name + ' %',
+      $cmd: self.cmd,
+      $cmdPrefix: self.cmd + ' %',
     };
 
     children = await db.all(`
@@ -81,14 +85,11 @@ async function loadChildren(self, cb) {
         name as name_orig,
         name_clean as name
       from commands
-      where name = $cmd or name like $cmdPrefix
+      where name_clean = $cmd or name_clean like $cmdPrefix
       order by name asc
     `, args);
 
     children = nestItems(children);
-    if (children.length === 1) {
-      children = children[0].children;
-    }
     children = mapChildren(children);
   }
 

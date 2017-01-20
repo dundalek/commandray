@@ -35,10 +35,22 @@ describe('util', () => {
         { name: 'a' },
         { name: 'a 1 e f' },
       ])).to.eql([
-        { name: 'a', children: [
-          { name: 'a' },
-          { name: 'a 1 e f' },
+        { name: 'a' },
+        { name: 'a 1 e f' },
+      ]);
+    });
+
+    it('does not nest single item groups', () => {
+      expect(nestItems([
+        { name: 'a b c 1' },
+        { name: 'a b c 2' },
+        { name: 'b' }
+      ])).to.eql([
+        { name: 'a b c', children: [
+          { name: 'a b c 1' },
+          { name: 'a b c 2' },
         ]},
+        { name: 'b' }
       ]);
     });
 
@@ -92,13 +104,11 @@ describe('util', () => {
         { name: 'a 1', someVal: 3 },
         { name: 'a 1 e f', test: 'a' },
       ])).to.eql([
-        { name: 'a', children: [
-          { name: 'a', customAttr: 1 },
-          { name: 'a 1', children: [
-            { name: 'a 1', someVal: 3 },
-            { name: 'a 1 e f', test: 'a' }
-          ]}
-        ]},
+        { name: 'a', customAttr: 1 },
+        { name: 'a 1', children: [
+          { name: 'a 1', someVal: 3 },
+          { name: 'a 1 e f', test: 'a' }
+        ]}
       ]);
     });
 

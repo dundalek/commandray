@@ -29,7 +29,7 @@ async function runInsertStatements(db, fn) {
     c.description,
     JSON.stringify(c.schema),
     JSON.stringify(c.examples),
-    c.name.replace(/:/g, ' ')
+    c.name.replace(/[-_:]/g, ' ')
   ));
 
   await stmt.finalize();
