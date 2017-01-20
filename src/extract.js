@@ -15,7 +15,13 @@ async function waitForStream(stream) {
 }
 
 async function saveStreamToDb(stream, db) {
+  // Optimizations - db can be corrupted if the system or app crashes
+  await db.run('PRAGMA synchronous = OFF'); // do not wait for OS to confirm data is synced to disk
+  await db.run('PRAGMA journal_mode = MEMORY'); // keep journal in memory instead of disk
+
   const stmt = await db.prepare("INSERT INTO commands (name, summary, description, schema, examples) VALUES (?, ?, ?, ?, ?)");
+
+  await db.run('BEGIN TRANSACTION');
 
   stream.on('data', c => {
     stmt.run(c.name, c.summary, c.description, JSON.stringify(c.schema), JSON.stringify(c.examples));
@@ -23,6 +29,8 @@ async function saveStreamToDb(stream, db) {
 
   await waitForStream(stream);
   await stmt.finalize();
+
+  await db.run('END TRANSACTION');
 }
 
 async function saveItemsToDb(items, db) {
