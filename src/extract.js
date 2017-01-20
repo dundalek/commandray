@@ -49,6 +49,10 @@ async function saveStreamToFile(stream, filename) {
   await waitForStream(stream);
 }
 
+async function saveItemsToFile(items, filename) {
+  await fs.writeFile(filename, JSON.stringify(items, null, 2));
+}
+
 const dbFile = path.join(__dirname, '../tmp/commands.db');
 const dbSchema = `
 CREATE TABLE commands (
@@ -67,7 +71,12 @@ async function main() {
   const db = await sqlite.open(dbFile);
   await db.run(dbSchema);
 
-  await saveItemsToDb(extractHeroku(), db);
+  const herokuCommands = extractHeroku();
+
+  // save as fixtures for tests
+  await saveItemsToFile(herokuCommands, path.join(__dirname, '../tmp/commands.json'));
+
+  await saveItemsToDb(herokuCommands, db);
   await saveItemsToDb(extractDocker(), db);
   await saveStreamToDb(await extractExplainshell(), db);
 
