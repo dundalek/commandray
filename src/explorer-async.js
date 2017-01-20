@@ -6,6 +6,7 @@ import React, {Component} from 'react';
 import blessed from 'blessed';
 import {render} from 'react-blessed';
 import { Grid, GridItem, Tree, Table } from 'react-blessed-contrib';
+import { nestItems } from './util';
 
 const dbFile = path.join(__dirname, '../tmp/commands.db');
 let db;
@@ -16,59 +17,82 @@ const promisify = func => (...args) => new Promise((resolve, reject) =>
 var root = {
   name: 'All commands',
   extended: true,
-  cmd: '',
+  root: true,
 };
+
+function mapChildren(children) {
+  return _(children)
+    .map((child) => {
+      const ret = {
+        ...child,
+        name: child.id ? `${child.name_orig || child.name} (${child.id})` : (child.name_orig || child.name || child.basename),
+        extended: false,
+      };
+      if (child.children) {
+        ret.children = mapChildren(child.children);
+      }
+      return ret;
+    })
+    // .keyBy((c) => c.id || c.name)
+    .value();
+}
 
 async function loadChildren(self, cb) {
   if (!db) {
     db = await sqlite.open(dbFile);
   }
 
-  var whereClause = '';
-  var args = {
-    $len: self.cmd ? self.cmd.length + 1 : 0
-  };
-  if (self.cmd) {
-    whereClause =  'where name = $cmd or name like $cmdPrefix';
-    args.$cmd = self.cmd
-    args.$cmdPrefix = self.cmd + ' %';
+  let children;
+
+  if (self.root) {
+    const args = {
+      $len: 0
+    };
+    children = await db.all(`
+      select
+        substr(name_clean, 0, case when instr(substr(name_clean, $len + 1), ' ') then instr(substr(name_clean, $len + 1), ' ') + $len else length(name_clean)+1 end) as basename,
+        count(*) as cnt
+      from commands
+      group by basename
+      order by cnt desc
+      limit 1000
+    `, args);
+
+    children = _(children)
+      .map((child) => {
+        return {
+          ...child,
+          name: child.id ? `${child.name_clean || child.name} (${child.id})` : (child.name_clean || child.name || child.basename),
+          extended: false,
+          children: (child.cnt && child.cnt > 1) ? { __placeholder__: { name: 'Loading...' } } : null,
+        };
+      })
+      // .keyBy((c) => c.id || c.name)
+      .value();
+  } else {
+    const args = {
+      $cmd: self.name,
+      $cmdPrefix: self.name + ' %',
+    };
+
+    children = await db.all(`
+      select
+        id,
+        name as name_orig,
+        name_clean as name
+      from commands
+      where name = $cmd or name like $cmdPrefix
+      order by name asc
+    `, args);
+
+    children = nestItems(children);
+    if (children.length === 1) {
+      children = children[0].children;
+    }
+    children = mapChildren(children);
   }
 
-  const children = await db.all(`
-    select
-      substr(name, 0, case when instr(substr(name, $len + 1), ' ') then instr(substr(name, $len + 1), ' ') + $len else length(name)+1 end) as basename,
-      count(*) as cnt
-    from commands
-    ${whereClause}
-    group by basename
-    order by cnt desc
-    limit 1000
-  `, args);
-
-  // console.log(children);
-
-  self.children = _(children)
-    .map((child) => {
-      if (child.cnt && child.cnt > 1) {
-        // If it's a directory we generate the child with the children generation function
-        return {
-          name: child.basename,
-          cmd: child.basename,
-          extended: false,
-          children: { __placeholder__: { name: 'Loading...' } }
-        };
-      } else {
-        // Otherwise children is not set (you can also set it to "{}" or "null" if you want)
-        return {
-          name: child.basename,
-          cmd: child.basename,
-          extended: false
-        };
-      }
-    })
-    .keyBy('name')
-    .value();
-
+  self.children = children;
   cb();
 }
 
@@ -117,21 +141,19 @@ class App extends Component {
   }
 
   _onSelect = async (node) => {
-    var data = `${node.name}\n\n`;
+    let data = `${node.name}\n\n`;
 
-    if (node.children) {
+    if (node.id) {
+      try {
+        const cmd = await db.get('select * from commands where id = ?', node.id);
+        data = JSON.stringify(cmd, null, 2);
+      } catch (e) {
+        data = e.toString();
+      }
+    } else if (node.children && node.children.__placeholder__) {
       loadChildren(node, this._reRender);
-    } else {
-      const cmd = await db.get('select * from commands where name = ?', node.cmd);
-      data = JSON.stringify(cmd, null, 2);
     }
 
-    try {
-      // Add results
-      // data += JSON.stringify(await promisify(fs.lstat)(path), null, 2);
-    } catch (e) {
-      data = e.toString();
-    }
     this.setState({ content: data });
   }
 }
@@ -144,43 +166,3 @@ screen.key([
 });
 
 render(<App screen={screen}/>, screen);
-
-// async function main() {
-//   db = await sqlite.open(dbFile);
-//
-//   const self = {
-//     cmd: 'heroku'
-//   };
-//
-//   var whereClause = '';
-//   var args = {
-//     $len: self.cmd ? self.cmd.length + 1 : 0
-//   };
-//   if (self.cmd) {
-//     whereClause =  'where name = $cmd or name like $cmdPrefix';
-//     args.$cmd = self.cmd
-//     args.$cmdPrefix = self.cmd + ' %';
-//   }
-//
-//   const children = await db.all(`
-//     select
-//       substr(name, 0, case when instr(substr(name, $len + 1), ' ') then instr(substr(name, $len + 1), ' ') + $len else length(name)+1 end) as basename,
-//       count(*) as cnt
-//     from commands
-//     ${whereClause}
-//     group by basename
-//     order by cnt desc
-//   `, args);
-//
-//   // const children = await db.all(`
-//   //   select
-//   //     substr($name, 0, case when instr(substr($name, $len+1), ' ') then instr(substr($name, $len+1), ' ') + $len else length($name)+1 end) as result;
-//   // `, {
-//   //   $name: 'heroku add a',
-//   //   $len: 'heroku add'.length + 1
-//   // });
-//
-//   console.log(children);
-// }
-//
-// main().then(x => console.log(x)).catch(x => console.error(x));

@@ -19,11 +19,18 @@ async function runInsertStatements(db, fn) {
   await db.run('PRAGMA synchronous = OFF'); // do not wait for OS to confirm data is synced to disk
   await db.run('PRAGMA journal_mode = MEMORY'); // keep journal in memory instead of disk
 
-  const stmt = await db.prepare("INSERT INTO commands (name, summary, description, schema, examples) VALUES (?, ?, ?, ?, ?)");
+  const stmt = await db.prepare("INSERT INTO commands (name, summary, description, schema, examples, name_clean) VALUES (?, ?, ?, ?, ?, ?)");
 
   await db.run('BEGIN TRANSACTION');
 
-  await fn((c) => stmt.run(c.name, c.summary, c.description, JSON.stringify(c.schema)));
+  await fn((c) => stmt.run(
+    c.name,
+    c.summary,
+    c.description,
+    JSON.stringify(c.schema),
+    JSON.stringify(c.examples),
+    c.name.replace(/:/g, ' ')
+  ));
 
   await stmt.finalize();
 
@@ -60,6 +67,7 @@ const dbFile = path.join(__dirname, '../tmp/commands.db');
 const dbSchema = `
 CREATE TABLE commands (
   id INTEGER PRIMARY KEY,
+  name_clean TEXT,
   name TEXT,
   summary TEXT,
   description TEXT,
