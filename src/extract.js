@@ -1,5 +1,5 @@
 import path from 'path';
-import fs from 'fs';
+import fs from 'mz/fs';
 import sqlite from 'sqlite';
 import JSONStream from 'JSONStream';
 
@@ -14,7 +14,7 @@ async function waitForStream(stream) {
   });
 }
 
-async function saveStreamToDb(stream, db) {
+async function runInsertStatements(db, fn) {
   // Optimizations - db can be corrupted if the system or app crashes
   await db.run('PRAGMA synchronous = OFF'); // do not wait for OS to confirm data is synced to disk
   await db.run('PRAGMA journal_mode = MEMORY'); // keep journal in memory instead of disk
@@ -23,22 +23,24 @@ async function saveStreamToDb(stream, db) {
 
   await db.run('BEGIN TRANSACTION');
 
-  stream.on('data', c => {
-    stmt.run(c.name, c.summary, c.description, JSON.stringify(c.schema), JSON.stringify(c.examples));
-  });
+  await fn((c) => stmt.run(c.name, c.summary, c.description, JSON.stringify(c.schema)));
 
-  await waitForStream(stream);
   await stmt.finalize();
 
   await db.run('END TRANSACTION');
 }
 
+async function saveStreamToDb(stream, db) {
+  await runInsertStatements(db, async (insert) => {
+    stream.on('data', insert);
+    await waitForStream(stream);
+  });
+}
+
 async function saveItemsToDb(items, db) {
-  const stmt = await db.prepare("INSERT INTO commands (name, summary, description, schema, examples) VALUES (?, ?, ?, ?, ?)");
-
-  await Promise.all(items.map(c => stmt.run(c.name, c.summary, c.description, JSON.stringify(c.schema), JSON.stringify(c.examples))));
-
-  await stmt.finalize();
+  await runInsertStatements(db, async (insert) => {
+    await Promise.all(items.map(insert));
+  });
 }
 
 async function saveStreamToFile(stream, filename) {
@@ -53,6 +55,7 @@ async function saveItemsToFile(items, filename) {
   await fs.writeFile(filename, JSON.stringify(items, null, 2));
 }
 
+const dbFileTmp = path.join(__dirname, '../tmp/commands.db.tmp');
 const dbFile = path.join(__dirname, '../tmp/commands.db');
 const dbSchema = `
 CREATE TABLE commands (
@@ -66,9 +69,9 @@ CREATE TABLE commands (
 
 async function main() {
   try {
-    await fs.unlink(dbFile);
+    await fs.unlink(dbFileTmp);
   } catch (ignore) {}
-  const db = await sqlite.open(dbFile);
+  const db = await sqlite.open(dbFileTmp);
   await db.run(dbSchema);
 
   const herokuCommands = extractHeroku();
@@ -86,6 +89,7 @@ async function main() {
   // console.log(await db.all('SELECT id, name FROM commands LIMIT 10;'));
 
   await db.close();
+  await fs.rename(dbFileTmp, dbFile);
   return 'done';
 }
 
