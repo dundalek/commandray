@@ -116,6 +116,10 @@ class App extends Component {
     });
     this.refs.tree.focus();
     loadChildren(root, this._reRender);
+    this.refs.tree.rows.on('select item', (item, idx) => {
+      const data = this.refs.tree.nodeLines[idx];
+      this._onSelect(data, idx);
+    })
   }
 
   render() {
@@ -129,7 +133,7 @@ class App extends Component {
             lines: true
           },
           label: 'Filesystem Tree',
-          onSelect: this._onSelect
+          onSelect: this._onEnter
         }}/>
         <box ref="table" row={0} col={1} rowSpan={1} colSpan={1} label="Informations">{this.state.content}</box>
       </Grid>
@@ -139,6 +143,23 @@ class App extends Component {
   _reRender = () => {
     this.refs.tree.setData(root);
     screen.render();
+  }
+
+  _onEnter = async (node) => {
+    let data = `${node.name}\n\n`;
+
+    if (node.id) {
+      try {
+        const cmd = await db.get('select * from commands where id = ?', node.id);
+        data = JSON.stringify(cmd, null, 2);
+      } catch (e) {
+        data = e.toString();
+      }
+    } else if (node.children && node.children.__placeholder__) {
+      loadChildren(node, this._reRender);
+    }
+
+    this.setState({ content: data });
   }
 
   _onSelect = async (node) => {
@@ -151,8 +172,6 @@ class App extends Component {
       } catch (e) {
         data = e.toString();
       }
-    } else if (node.children && node.children.__placeholder__) {
-      loadChildren(node, this._reRender);
     }
 
     this.setState({ content: data });
