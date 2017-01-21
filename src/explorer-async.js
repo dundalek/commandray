@@ -6,7 +6,7 @@ import React, {Component} from 'react';
 import blessed from 'blessed';
 import {render} from 'react-blessed';
 import { Grid, GridItem, Tree, Table } from 'react-blessed-contrib';
-import { nestItems } from './util';
+import { nestItems, truncate } from './util';
 
 const dbFile = path.join(__dirname, '../tmp/commands.db');
 let db;
@@ -20,18 +20,23 @@ var root = {
   root: true,
 };
 
+const PAD_SIZE = 25;
+
 function mapChildren(children) {
   return _(children)
     .map((child) => {
       const name = child.name_orig || child.name;
       const ret = {
         ...child,
-        name: child.id ? `${name} - ${child.id}` : name,
+        name: name, //child.id ? `${name} - ${child.id}` : name,
         extended: false,
       };
       if (child.children) {
         ret.children = mapChildren(child.children);
-        ret.name += ` (${ret.children.length})`;
+        ret.name = _.padEnd(truncate(ret.name, PAD_SIZE), PAD_SIZE) + ` (${ret.children.length})`;
+      }
+      if (child.summary) {
+        ret.name = _.padEnd(truncate(ret.name, PAD_SIZE), PAD_SIZE) + ' ' + ret.summary;
       }
       return ret;
     })
@@ -65,7 +70,7 @@ async function loadChildren(self, cb) {
         const hasChildren = child.cnt && child.cnt > 1;
         return {
           ...child,
-          name: hasChildren ? `${child.basename} (${child.cnt})` : child.basename,
+          name: hasChildren ? `${_.padEnd(truncate(child.basename, PAD_SIZE), PAD_SIZE)} (${child.cnt})` : child.basename,
           cmd: child.basename,
           extended: false,
           children: hasChildren ? { __placeholder__: { name: 'Loading...' } } : null,
@@ -83,7 +88,8 @@ async function loadChildren(self, cb) {
       select
         id,
         name as name_orig,
-        name_clean as name
+        name_clean as name,
+        summary
       from commands
       where name_clean = $cmd or name_clean like $cmdPrefix
       order by name asc

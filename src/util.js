@@ -29,3 +29,15 @@ export function nestItems(items, depth = 0, prefix='') {
   }
   return _.orderBy(result, 'name');
 }
+
+const omission = '…';
+export function truncate(str, len) {
+  str = str || '';
+  if (str.length <= len) {
+    return str;
+  }
+  len -= omission.length;
+  const startCount = Math.ceil(len/2);
+  const endCount = len - startCount;
+  return str.slice(0, startCount) + omission + str.slice(str.length - endCount);
+}

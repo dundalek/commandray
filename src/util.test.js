@@ -1,4 +1,4 @@
-import { nestItems } from './util';
+import { nestItems, truncate } from './util';
 
 describe('util', () => {
   describe('nestItems', () => {
@@ -111,6 +111,21 @@ describe('util', () => {
         ]}
       ]);
     });
-
   });
+
+  describe('truncate', () => {
+    it('truncates', () => {
+      expect(truncate('hello world', 7)).to.eql('hel…rld');
+      expect(truncate('abcde', 4)).to.eql('ab…e');
+      expect(truncate('abcd', 3)).to.eql('a…d');
+      expect(truncate('abcd', 2)).to.eql('a…');
+      expect(truncate('abcd', 1)).to.eql('…');
+      expect(truncate('abcd', 0)).to.eql('…');
+    });
+
+    it('does not touch short strings', () => {
+      expect(truncate('abc', 3)).to.eql('abc');
+      expect(truncate('abc', 5)).to.eql('abc');
+    });
+  })
 });
