@@ -9,7 +9,7 @@ import { Grid, GridItem, Tree, Table } from 'react-blessed-contrib';
 import { nestItems, truncate } from './util';
 
 const dbFile = path.join(__dirname, '../tmp/commands.db');
-let db;
+const dbPromise = sqlite.open(dbFile);
 
 const promisify = func => (...args) => new Promise((resolve, reject) =>
   func(...args, (err, result) => err ? reject(err) : resolve(result)));
@@ -44,70 +44,92 @@ function mapChildren(children) {
     .value();
 }
 
-async function loadChildren(self, cb) {
-  if (!db) {
-    db = await sqlite.open(dbFile);
-  }
+async function loadChildrenRoot() {
+  const db = await dbPromise;
 
-  let children;
+  const args = {
+    $len: 0
+  };
+  const children = await db.all(`
+    select
+      substr(name_clean, 0, case when instr(substr(name_clean, $len + 1), ' ') then instr(substr(name_clean, $len + 1), ' ') + $len else length(name_clean)+1 end) as basename,
+      count(*) as cnt
+    from commands
+    group by basename
+    order by cnt desc
+    limit 1000
+  `, args);
 
-  if (self.root) {
-    const args = {
-      $len: 0
-    };
-    children = await db.all(`
-      select
-        substr(name_clean, 0, case when instr(substr(name_clean, $len + 1), ' ') then instr(substr(name_clean, $len + 1), ' ') + $len else length(name_clean)+1 end) as basename,
-        count(*) as cnt
-      from commands
-      group by basename
-      order by cnt desc
-      limit 1000
-    `, args);
+  return _(children)
+    .map((child) => {
+      const hasChildren = child.cnt && child.cnt > 1;
+      return {
+        ...child,
+        name: hasChildren ? `${_.padEnd(truncate(child.basename, PAD_SIZE), PAD_SIZE)} (${child.cnt})` : child.basename,
+        cmd: child.basename,
+        extended: false,
+        children: hasChildren ? { __placeholder__: { name: 'Loading...' } } : null,
+      };
+    })
+    // .keyBy((c) => c.id || c.name)
+    .value();
+}
 
-    children = _(children)
-      .map((child) => {
-        const hasChildren = child.cnt && child.cnt > 1;
-        return {
-          ...child,
-          name: hasChildren ? `${_.padEnd(truncate(child.basename, PAD_SIZE), PAD_SIZE)} (${child.cnt})` : child.basename,
-          cmd: child.basename,
-          extended: false,
-          children: hasChildren ? { __placeholder__: { name: 'Loading...' } } : null,
-        };
-      })
-      // .keyBy((c) => c.id || c.name)
-      .value();
-  } else {
-    const args = {
-      $cmd: self.cmd,
-      $cmdPrefix: self.cmd + ' %',
-    };
+async function loadChildrenExpand(query) {
+  const db = await dbPromise;
+  const args = {
+    $cmd: query,
+    $cmdPrefix: query + ' %',
+  };
 
-    children = await db.all(`
-      select
-        id,
-        name as name_orig,
-        name_clean as name,
-        summary
-      from commands
-      where name_clean = $cmd or name_clean like $cmdPrefix
-      order by name asc
-    `, args);
+  let children = await db.all(`
+    select
+      id,
+      name as name_orig,
+      name_clean as name,
+      summary
+    from commands
+    where name_clean = $cmd or name_clean like $cmdPrefix
+    order by name asc
+  `, args);
 
-    children = nestItems(children);
-    children = mapChildren(children);
-  }
+  children = nestItems(children);
+  children = mapChildren(children);
 
-  self.children = children;
-  cb();
+  return children;
+}
+
+async function loadChildrenQuery(query) {
+  const db = await dbPromise;
+  const args = {
+    $cmd: query,
+    $cmdPrefix: query + '%', // todo fulltext
+  };
+
+  let children = await db.all(`
+    select
+      id,
+      name as name_orig,
+      name_clean as name,
+      summary
+    from commands
+    where name_clean = $cmd or name_clean like $cmdPrefix or name = $cmd or name like $cmdPrefix
+    order by name asc
+  `, args);
+
+  children = nestItems(children);
+  children = mapChildren(children);
+
+  return children;
 }
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      content: ''
+      content: '',
+      query: '',
+      root: root,
     }
   }
 
@@ -115,17 +137,21 @@ class App extends Component {
     this.props.screen.key(['tab'], (ch, key) => {
       const tree = this.refs.tree;
       const table = this.refs.table;
-      if(screen.focused == tree.rows)
-        table.focus();
-      else
+      if(table.screen.focused == table)
         tree.focus();
+      else
+        table.focus();
     });
     this.refs.tree.focus();
-    loadChildren(root, this._reRender);
+    loadChildrenRoot().then((children) => {
+      this.state.root.children = children;
+      this._reRender();
+    });
     this.refs.tree.rows.on('select item', (item, idx) => {
       const data = this.refs.tree.nodeLines[idx];
       this._onSelect(data, idx);
-    })
+    });
+    this.refs.tree.rows.on('keypress', this._onListKeypress);
   }
 
   render() {
@@ -138,7 +164,7 @@ class App extends Component {
           template: {
             lines: true
           },
-          label: 'Filesystem Tree',
+          label: this.state.query,
           onSelect: this._onEnter
         }}/>
         <box ref="table" row={0} col={1} rowSpan={1} colSpan={1} label="Informations">{this.state.content}</box>
@@ -146,9 +172,42 @@ class App extends Component {
     );
   }
 
+  _onListKeypress = async (ch, key) => {
+    let query = this.state.query;
+    ch = ch === ' ' ? ch : ch && ch.trim(); // do not allow other whitespace
+
+     if (key.name === 'backspace') {
+       query = this.state.query.slice(0, -1);
+     } else if (key.name === 'delete') {
+       query = '';
+     } else  if (ch) {
+      query += ch;
+     }
+
+     if (query !== this.state.query) {
+       this.setState({ query });
+       if (query === '') {
+         this.setState({ root: root });
+         _.defer(this._reRender);
+       } else if (query.length >= 3) {
+         const queryRoot = {
+           name: query,
+           cmd: query,
+           extended: true,
+         };
+         this.setState({ root: queryRoot });
+
+         loadChildrenQuery(query).then((children) => {
+           queryRoot.children = children;
+           this._reRender();
+         });
+       }
+     }
+  }
+
   _reRender = () => {
-    this.refs.tree.setData(root);
-    screen.render();
+    this.refs.tree.setData(this.state.root);
+    this.refs.tree.screen.render();
   }
 
   _onEnter = async (node) => {
@@ -156,16 +215,20 @@ class App extends Component {
 
     if (node.id) {
       try {
+        const db = await dbPromise;
         const cmd = await db.get('select * from commands where id = ?', node.id);
         data = JSON.stringify(cmd, null, 2);
       } catch (e) {
         data = e.toString();
       }
-    } else if (node.children && node.children.__placeholder__) {
-      loadChildren(node, this._reRender);
     }
 
     this.setState({ content: data });
+
+    if (node.children && node.children.__placeholder__) {
+      node.children = await loadChildrenExpand(node.cmd);
+      this._reRender();
+    }
   }
 
   _onSelect = async (node) => {
@@ -173,6 +236,7 @@ class App extends Component {
 
     if (node.id) {
       try {
+        const db = await dbPromise;
         const cmd = await db.get('select * from commands where id = ?', node.id);
         data = JSON.stringify(cmd, null, 2);
       } catch (e) {
