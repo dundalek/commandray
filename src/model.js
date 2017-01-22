@@ -136,5 +136,8 @@ export async function loadChildrenQuery(query) {
 
 export async function getCommandDetail(id) {
   const db = await dbPromise;
-  return await db.get('select * from commands where id = ?', id);
+  const cmd = await db.get('select * from commands where id = ?', id);
+  cmd.schema = JSON.parse(cmd.schema);
+  cmd.examples = JSON.parse(cmd.examples);
+  return cmd;
 }

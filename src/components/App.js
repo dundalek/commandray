@@ -39,9 +39,9 @@ export default class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      focused: 0,
-      showDetail: false,
-      content: ''
+      // focused: 0,
+      content: '',
+      cmd: null,
     };
     // if (props.args[1] in commands) {
     //   this.state.selected = _.findIndex(items, x => x[0] === props.args[1]);
@@ -53,37 +53,30 @@ export default class App extends Component {
 
   componentDidMount() {
     const screen = this.refs.text.screen;
-    screen.key(['tab'], (ch, key) => {
-      const tree = this.refs.tree;
-      const text = this.refs.text;
-      if(screen.focused == text)
-        tree.focus();
-      else
-        text.focus();
-    });
+    screen.key(['tab'], this._handleFocus);
     this.refs.tree.focus();
   }
 
-  componentDidUpdate() {
-    // if (!this.state.showDetail) {
-    //   let c;
-    //   c = this.refs.mylist;
-    //   if (c && this.state.selected !== 1) c.select(this.state.selected);
-    //   _.defer(() => {
-    //     c = this.refs[elementList[this.state.focused]];
-    //     if (c) c.focus();
-    //   });
-    // }
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.cmd && !this.state.cmd) {
+      _.defer(() => {
+        this.refs.tree.focus()
+        this.refs.text.screen.render();
+      });
+    } else if (!prevState.cmd && this.state.cmd) {
+      _.defer(() => {
+        this.refs.form.focus();
+        this.refs.text.screen.render();
+      });
+    }
   }
 
   render() {
+    const cmd = this.state.cmd;
     return (
       <Grid cols={1} rows={4} component="box">
-        {this.state.showDetail
-          ? <CommandForm  key="CommandForm" row={0} col={0} colSpan={1} rowSpan={2} onKeypress={this._onDetailKeypress} onSelectCommand={this.props.onSelectCommand} cmd={cmd} args={this.props.args} />
-          : <CommandTree ref="tree" row={0} col={0} rowSpan={2} colSpan={1} template={{ lines: true }} onEnter={this._onSelectEnter} onSelect={this._onSelect} />
-        }
-
+        <CommandForm  key="form" ref="form" row={0} col={0} colSpan={cmd ? 1 : 0} rowSpan={2} onKeypress={this._onDetailKeypress} onSelectCommand={this.props.onSelectCommand} cmd={this.state.cmd} />
+        <CommandTree key="tree" ref="tree" row={0} col={0} colSpan={cmd ? 0 : 1} rowSpan={2}  template={{ lines: true }} onEnter={this._onSelectEnter} onSelect={this._onSelect} />
         <box key="text" ref="text" row={2} col={0} colSpan={1} rowSpan={2} border={{type: 'line'}} style={{border: {fg: 'cyan'}}} scrollable={true} mouse={true} keys={true} input={true} alwaysScroll={true} scrollbar={{ch: " ", inverse: true}}>
           {this.state.content}
         </box>
@@ -93,13 +86,15 @@ export default class App extends Component {
 
   _onDetailKeypress = (ch, key) => {
     if (key.name === 'escape') {
-      this.setState({ showDetail: false, focused: 0 });
+      this.setState({ cmd: null });
     }
   }
 
-  _onSelectEnter = () => {
-    // this.preventEvent = 2;
-    // this.setState({ showDetail: true, focused: 1 });
+  _onSelectEnter = async (node) => {
+    if (node.id) {
+      const cmd = await getCommandDetail(node.id);
+      this.setState({ cmd });
+    }
   }
 
   _onSelect = async (node) => {
@@ -116,5 +111,15 @@ export default class App extends Component {
     }
 
     this.setState({ content });
+  }
+
+  _handleFocus = (ch, key) => {
+    const text = this.refs.text;
+    const screen = text.screen;
+    if (screen.focused == text) {
+      this.refs[this.state.cmd ? 'form' : 'tree'].focus();
+    } else {
+      text.focus();
+    }
   }
 }

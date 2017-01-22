@@ -1,36 +1,40 @@
 import _ from 'lodash';
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { parseParam, unparse, parse } from '../parser';
 
 export default class CommandForm extends Component {
+  static propTypes = {
+    cmd: PropTypes.object,
+    args: PropTypes.object,
+    onSelectCommand: PropTypes.func.isRequired,
+  }
+
   constructor(props) {
     super(props);
     this.state = {
       text: '',
-      activeOption: '',
+      activeParam: null,
     };
-    if (props.args) {
-      // this.state.text = parse(props.cmd, props.args);
-      this.state.text = props.args.join(' ');
-    }
+    // if (props.args) {
+    //   // this.state.text = parse(props.cmd, props.args);
+    //   this.state.text = props.args.join(' ');
+    // }
   }
 
   componentDidMount() {
-    if (this.refs.root) {
-      this.refs.root.enableKeys();
-      this.refs.root.focus();
-    }
+    this.refs.root.enableKeys();
   }
 
   render() {
-    const options = this.getOptions();
-
     const formOpts = {
+      ...this.props,
       keys: true,
-      left: 0,
-      top: 0,
-      width: '100%',
+      // left: 0,
+      // top: 0,
+      // width: '100%',
       bg: 'green',
+      border: {type: 'line'},
+      style: {border: {fg: 'cyan'}}
     }
 
     const submitOpts = {
@@ -55,9 +59,24 @@ export default class CommandForm extends Component {
       }
     }
 
+    const params = this.props.cmd ? this.props.cmd.schema.params : [];
+    const summary = this.state.activeParam && this.state.activeParam.summary || '';
     return (
-      <form {...formOpts} height={options.length + 6} ref="root" onKeypress={this.props.onKeypress}>
-        {_.flatten(options.map(({ type, label, name, option }, i) => {
+      <form key={this.props.cmd ? this.props.cmd.name : null} {...formOpts} ref="root" onKeypress={this.props.onKeypress}>
+        {_.flatten(params.map((param, i) => {
+          const { name } = param;
+          const type = param.schema.type;
+
+          let label = [];
+          if (param.alias && param.alias[0]) {
+            label.push(`-${param.alias[0]}`);
+          }
+          label.push(`--${name}`);
+          label = label.join(', ');
+          // if (param.paramName) {
+          //   label += ' ' + option.paramName;
+          // }
+
           return [
             <box class={{
               top: i + 1,
@@ -67,7 +86,7 @@ export default class CommandForm extends Component {
               mouse: true,
               top: i + 1,
               left: '50%',
-            }} onSetContent={this._onSubmit} onBlur={() => this.setActiveOption()} onFocus={() => this.setActiveOption(option)} ref={name} key={`${name}-input-checkbox`} />
+            }} onSetContent={this._onSubmit} onBlur={() => this.setActiveParam()} onFocus={() => this.setActiveParam(param)} ref={`${name}-input`} key={`${name}-input-checkbox`} />
             : <textbox class={{
               mouse: true,
               keys: true,
@@ -76,60 +95,59 @@ export default class CommandForm extends Component {
               left: '50%',
               width: '50%-1',
               underline: true,
-            }} onSetContent={this._onSubmit} onBlur={() => this.setActiveOption()} onFocus={() => this.setActiveOption(option)} ref={name} key={`${name}-input-textbox`} />
+            }} onSetContent={this._onSubmit} onBlur={() => this.setActiveParam()} onFocus={() => this.setActiveParam(param)} ref={`${name}-input`} key={`${name}-input-textbox`} />
           ];
         }))}
-        <box top={options.length + 2}>{this.state.text}</box>
-        <button {...submitOpts} top={options.length + 3} onPress={this._onExec}/>
-        <box top={options.length + 5}>{this.state.activeOption}</box>
+        <box key="text" top={params.length + 2}>{this.state.text}</box>
+        <button key="submit" {...submitOpts} top={params.length + 3} onPress={this._onExec}/>
+        <box key="summary" top={params.length + 5}>{summary}</box>
       </form>
     );
   }
 
-  getOptions() {
-    const { cmd } = this.props;
-    const options = cmd.params.map(param => {
-      const obj = parseParam(param);
-      const name = Object.keys(obj)[0];
-      const option = obj[name];
-
-      let label = [];
-      if (option.alias) {
-        label.push(`-${option.alias}`);
-      }
-      label.push(`--${name}`);
-      label = label.join(', ');
-      if (option.paramName) {
-        label += ' ' + option.paramName;
-      }
-
-      return {
-        type: option.type,
-        name,
-        label,
-        option,
-      }
-    });
-
-    const parts = cmd.usage.split(' ');
-    if (parts.length > 2) {
-      options.unshift({
-        type: 'usage',
-        label: parts.slice(2).join(' '),
-        name: '_',
-        option: {},
-      });
-    }
-
-    return options;
-  }
+  // getOptions() {
+  //   const { cmd } = this.props;
+  //   const options = cmd.schema.params.map((param: Param) => {
+  //     const obj = parseParam(param);
+  //     const name = Object.keys(obj)[0];
+  //     const option = obj[name];
+  //
+  //     let label = [];
+  //     if (option.alias) {
+  //       label.push(`-${option.alias}`);
+  //     }
+  //     label.push(`--${name}`);
+  //     label = label.join(', ');
+  //     if (option.paramName) {
+  //       label += ' ' + option.paramName;
+  //     }
+  //
+  //     return {
+  //       type: option.type,
+  //       name,
+  //       label,
+  //       option,
+  //     }
+  //   });
+  //
+  //   const parts = cmd.usage.split(' ');
+  //   if (parts.length > 2) {
+  //     options.unshift({
+  //       type: 'usage',
+  //       label: parts.slice(2).join(' '),
+  //       name: '_',
+  //       option: {},
+  //     });
+  //   }
+  //
+  //   return options;
+  // }
 
   getCommand() {
     const { cmd } = this.props;
-    const options = this.getOptions();
     const vals = {};
-    options.forEach(({ name }) => {
-      const val = this.refs[name].value;
+    cmd.schema.params.forEach(({ name }) => {
+      const val = this.refs[`${name}-input`].value;
       vals[name] = val !== '' ? val : null;
       if (name === '_' && val) {
         vals[name] = [val];
@@ -137,12 +155,11 @@ export default class CommandForm extends Component {
     });
 
     const text = unparse(cmd, vals);
-    return cmd.usage.split(' ').slice(0, 2).concat([text]).join(' ');
+    return `${cmd.name} ${text}`;
   }
 
-  setActiveOption(option) {
-    const activeOption = option && option.desc || '';
-    this.setState({ activeOption });
+  setActiveParam(activeParam) {
+    this.setState({ activeParam });
   }
 
   _onSubmit = (ev) => {
@@ -150,10 +167,13 @@ export default class CommandForm extends Component {
     if (text !== this.state.text) {
       this.setState({ text });
     }
-
   }
 
   _onExec = (ev) => {
     this.props.onSelectCommand(this.getCommand());
+  }
+
+  focus() {
+    this.refs.root.focus();
   }
 }
