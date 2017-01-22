@@ -1,9 +1,14 @@
 import _ from 'lodash';
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { Tree } from 'react-blessed-contrib';
 import { getRootNode, getQueryNode, loadChildrenExpand } from '../model';
 
 export default class CommandTree extends Component {
+  static propTypes = {
+    onEnter: PropTypes.func.isRequired,
+    onSelect: PropTypes.func.isRequired,
+  }
+
   constructor() {
     super();
     this.state = {
