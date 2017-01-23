@@ -96,7 +96,7 @@ export function extract() {
       description: stdout,
       schema: {
         usage,
-        params: children.filter(({ name }) => name[0] === '-'),
+        params: children.filter(({ name }) => name[0] === '-').map(parseParam),
       },
       // subcommands,
       examples: extractPageExamples(stdout),

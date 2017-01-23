@@ -2,6 +2,7 @@
 import { spawnSync } from 'child_process';
 import fs from 'fs';
 import _ from 'lodash';
+import { parseParam } from './heroku';
 
 /* extracts commands/params from heroku help page */
 function extractPageCommands(stdout) {
@@ -43,16 +44,12 @@ function parseSections(stdout) {
   return result;
 }
 
-function parseParam(x: string): Param {
+function parseParamDocker(x: string): Param {
   const parts = x.trim().split(/   \s*/);
-  return {
+  return parseParam({
     name: parts[0],
     summary: parts[1],
-    description: '',
-    schema: {
-      type: 'string',
-    }
-  };
+  });
 }
 
 function loadCommand({ name, summary }) {
@@ -90,7 +87,7 @@ function loadCommand({ name, summary }) {
     description: stdout,
     schema: {
       usage: usage[0],
-      params: options.map(parseParam),
+      params: options.map(parseParamDocker),
     },
     examples: [],
   }

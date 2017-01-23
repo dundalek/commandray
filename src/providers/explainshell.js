@@ -71,8 +71,13 @@ export async function extract() {
     .stream()
     .pipe(mapStream(async (data, cb) => {
       console.log(`Extracting ${data.name} ...`);
-      const c = await transformCommand(data);
-      cb(null, c);
+      if (data.name.match(/^docker/)) {
+        // drop docker commands from explainshell since we have more accurate source
+        cb();
+      } else {
+        const c = await transformCommand(data);
+        cb(null, c);
+      }
     }))
     .on('end', () => {
       db.close();
