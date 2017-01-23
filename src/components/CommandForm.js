@@ -59,20 +59,32 @@ export default class CommandForm extends Component {
       }
     }
 
-    const params = this.props.cmd ? this.props.cmd.schema.params : [];
+    let params: Param[] = this.props.cmd ? this.props.cmd.schema.params : [];
+    params = [{
+      name: '_',
+      label: this.props.cmd && (this.props.cmd.schema.usage || this.props.cmd.name),
+      summary: 'Positional command line arguments',
+      description: '',
+      schema: {
+        type: 'string',
+      },
+    }, ...params];
     const summary = this.state.activeParam && this.state.activeParam.summary || '';
     return (
       <form key={this.props.cmd ? this.props.cmd.name : null} {...formOpts} ref="root" onKeypress={this.props.onKeypress}>
-        {_.flatten(params.map((param, i) => {
+        {params.map((param, i) => {
           const { name } = param;
           const type = param.schema.type;
 
-          let label = [];
-          if (param.alias && param.alias[0]) {
-            label.push(`-${param.alias[0]}`);
+          let label = param.label;
+          if (!label) {
+            label = [];
+            if (param.alias && param.alias[0]) {
+              label.push(`-${param.alias[0]}`);
+            }
+            label.push(`--${name}`);
+            label = label.join(', ');
           }
-          label.push(`--${name}`);
-          label = label.join(', ');
           // if (param.paramName) {
           //   label += ' ' + option.paramName;
           // }
@@ -97,7 +109,7 @@ export default class CommandForm extends Component {
               underline: true,
             }} onSetContent={this._onSubmit} onBlur={() => this.setActiveParam()} onFocus={() => this.setActiveParam(param)} ref={`${name}-input`} key={`${name}-input-textbox`} />
           ];
-        }))}
+        })}
         <box key="text" top={params.length + 2}>{this.state.text}</box>
         <button key="submit" {...submitOpts} top={params.length + 3} onPress={this._onExec}/>
         <box key="summary" top={params.length + 5}>{summary}</box>
@@ -105,54 +117,17 @@ export default class CommandForm extends Component {
     );
   }
 
-  // getOptions() {
-  //   const { cmd } = this.props;
-  //   const options = cmd.schema.params.map((param: Param) => {
-  //     const obj = parseParam(param);
-  //     const name = Object.keys(obj)[0];
-  //     const option = obj[name];
-  //
-  //     let label = [];
-  //     if (option.alias) {
-  //       label.push(`-${option.alias}`);
-  //     }
-  //     label.push(`--${name}`);
-  //     label = label.join(', ');
-  //     if (option.paramName) {
-  //       label += ' ' + option.paramName;
-  //     }
-  //
-  //     return {
-  //       type: option.type,
-  //       name,
-  //       label,
-  //       option,
-  //     }
-  //   });
-  //
-  //   const parts = cmd.usage.split(' ');
-  //   if (parts.length > 2) {
-  //     options.unshift({
-  //       type: 'usage',
-  //       label: parts.slice(2).join(' '),
-  //       name: '_',
-  //       option: {},
-  //     });
-  //   }
-  //
-  //   return options;
-  // }
-
   getCommand() {
     const { cmd } = this.props;
     const vals = {};
     cmd.schema.params.forEach(({ name }) => {
       const val = this.refs[`${name}-input`].value;
       vals[name] = val !== '' ? val : null;
-      if (name === '_' && val) {
-        vals[name] = [val];
-      }
     });
+    const val = this.refs['_-input'].value;
+    if (val) {
+      vals._ = [val];
+    }
 
     const text = unparse(cmd, vals);
     return `${cmd.name} ${text}`;
