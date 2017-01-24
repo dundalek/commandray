@@ -141,3 +141,17 @@ export async function getCommandDetail(id) {
   cmd.examples = JSON.parse(cmd.examples);
   return cmd;
 }
+
+export async function getCommandByArgs(args) {
+  let cmd = null;
+  const db = await dbPromise;
+  for (let i = 1; i <= args.length; i += 1) {
+    let result = await db.get('select id from commands where name = ?;', args.slice(0, i).join(' '));
+    if (result && result.id) {
+      cmd = result.id;
+    } else if (i > 1) {
+      break;
+    }
+  }
+  return cmd ? await getCommandDetail(cmd) : null;
+}

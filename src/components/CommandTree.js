@@ -9,10 +9,10 @@ export default class CommandTree extends Component {
     onSelect: PropTypes.func.isRequired,
   }
 
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
-      query: '',
+      query: props.query || '',
       root: { name: 'Loading...' }
     }
   }
@@ -21,13 +21,28 @@ export default class CommandTree extends Component {
     const { tree } = this.refs;
     tree.rows.on('select item', this._onSelect);
     tree.rows.on('keypress', this._onListKeypress);
-    getRootNode().then(this._reRender);
+    this.loadQuery(this.state.query);
+  }
+
+  componentWillUpdate(nextProps, nextState) {
+    if (nextProps.query !== this.props.query) {
+      this.setState({ query: nextProps.query });
+      this.loadQuery(nextProps.query);
+    }
   }
 
   render() {
     return (
       <Tree {...this.props} ref="tree" label={this.state.query} onSelect={this._onEnter} />
     );
+  }
+
+  async loadQuery(query) {
+    if (query === '') {
+      this._reRender(await getRootNode());
+    } else if (query.length >= 2) {
+      this._reRender(await getQueryNode(query));
+    }
   }
 
   _onListKeypress = async (ch, key) => {
@@ -44,11 +59,7 @@ export default class CommandTree extends Component {
 
      if (query !== this.state.query) {
        this.setState({ query });
-       if (query === '') {
-         this._reRender(await getRootNode());
-       } else if (query.length >= 3) {
-         this._reRender(await getQueryNode(query));
-       }
+       this.loadQuery(query);
      }
   }
 

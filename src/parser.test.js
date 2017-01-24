@@ -49,7 +49,7 @@ describe('parser', () => {
 
     // this is not a desired behavior but it works like this for now due to yargs limitations
     it('puts positional params first', () => {
-      expect(testCommandUnparsing('heroku apps:open', 'heroku open -a myapp /foo')).to.eql('heroku open /foo -a myapp');
+      expect(testCommandUnparsing('heroku apps:open', 'heroku apps:open -a myapp /foo')).to.eql('heroku apps:open /foo -a myapp');
     });
 
     it('handles command without positional args', () => {
@@ -72,6 +72,17 @@ describe('parser', () => {
     //   const example = 'heroku run -s hobby -- myscript.sh -a arg1 -s arg2';
     //   expect(testCommandUnparsing('run', example)).to.eql(example);
     // });
+  });
 
-  })
+  describe('parse', () => {
+    it('removes command name from args', () => {
+      const actual = parse(commands['heroku spaces:create'], 'heroku spaces:create --space my-space --org my-org --region oregon');
+      expect(actual._).to.eql([]);
+    });
+
+    it('keeps positional arguments', () => {
+      const actual = parse(commands['heroku spaces:create'], 'heroku spaces:create --space my-space --org my-org --region oregon myarg');
+      expect(actual._).to.eql(['myarg']);
+    });
+  });
 });

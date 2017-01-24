@@ -33,6 +33,10 @@ export function parse(cmd: Command, example: string) {
   // const usage = transformUsage(cmd.usage);
   const options = cmd.schema.params.map(transformParam).reduce(_.assign, {});
   const parsed = yargs().options(options).parse(example);
+  const parts = cmd.name.split(' ');
+  if (_.isEqual(parts, (parsed._ || []).slice(0, parts.length))) {
+    parsed._ = parsed._.slice(parts.length);
+  }
   return parsed;
 }
 
@@ -64,5 +68,5 @@ export function unparse(cmd: Command, parsed: Object) {
     }
 
   });
-  return (parsed._ || []).concat(tokens).join(' ');
+  return [cmd.name].concat(parsed._ || [], tokens).join(' ');
 }

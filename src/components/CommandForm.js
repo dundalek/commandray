@@ -1,11 +1,20 @@
 import _ from 'lodash';
 import React, { Component, PropTypes } from 'react';
 import { parseParam, unparse, parse } from '../parser';
+import blessed from 'blessed';
+
+blessed.widget.checkbox.prototype.setValue = function(value) {
+  if (value) {
+    this.check();
+  } else {
+    this.uncheck();
+  }
+}
 
 export default class CommandForm extends Component {
   static propTypes = {
     cmd: PropTypes.object,
-    args: PropTypes.object,
+    args: PropTypes.array,
     onSelectCommand: PropTypes.func.isRequired,
   }
 
@@ -14,15 +23,25 @@ export default class CommandForm extends Component {
     this.state = {
       text: '',
       activeParam: null,
+      values: {},
     };
-    // if (props.args) {
-    //   // this.state.text = parse(props.cmd, props.args);
-    //   this.state.text = props.args.join(' ');
-    // }
+    if (props.cmd && props.args) {
+      this.state.values = parse(props.cmd, props.args);
+    }
   }
 
   componentDidMount() {
     this.refs.root.enableKeys();
+  }
+
+  componentWillUpdate(nextProps, nextState) {
+    if (this.props.cmd !== nextProps.cmd || this.props.args !== nextProps.args) {
+      let values = {};
+      if (nextProps.cmd) {
+        values = parse(nextProps.cmd, nextProps.args);
+      }
+      this.setState({ values });
+    }
   }
 
   render() {
@@ -70,6 +89,10 @@ export default class CommandForm extends Component {
       },
     }, ...params];
     const summary = this.state.activeParam && this.state.activeParam.summary || '';
+    let text = this.state.text;
+    if (this.props.cmd) {
+      text = this.getCommand();
+    }
     return (
       <form key={this.props.cmd ? this.props.cmd.name : null} {...formOpts} ref="root" onKeypress={this.props.onKeypress}>
         {params.map((param, i) => {
@@ -98,6 +121,7 @@ export default class CommandForm extends Component {
               mouse: true,
               top: i + 1,
               left: '50%',
+              value: !!this.state.values[name],
             }} onSetContent={this._onSubmit} onBlur={() => this.setActiveParam()} onFocus={() => this.setActiveParam(param)} ref={`${name}-input`} key={`${name}-input-checkbox`} />
             : <textbox class={{
               mouse: true,
@@ -107,10 +131,11 @@ export default class CommandForm extends Component {
               left: '50%',
               width: '50%-1',
               underline: true,
+              value: this.state.values[name] ? `${this.state.values[name]}` : '',
             }} onSetContent={this._onSubmit} onBlur={() => this.setActiveParam()} onFocus={() => this.setActiveParam(param)} ref={`${name}-input`} key={`${name}-input-textbox`} />
           ];
         })}
-        <box key="text" top={params.length + 2}>{this.state.text}</box>
+        <box key="text" top={params.length + 2}>{text}</box>
         <button key="submit" {...submitOpts} top={params.length + 3} onPress={this._onExec}/>
         <box key="summary" top={params.length + 5}>{summary}</box>
       </form>
@@ -119,28 +144,39 @@ export default class CommandForm extends Component {
 
   getCommand() {
     const { cmd } = this.props;
-    const vals = {};
-    cmd.schema.params.forEach(({ name }) => {
-      const val = this.refs[`${name}-input`].value;
-      vals[name] = val !== '' ? val : null;
-    });
-    const val = this.refs['_-input'].value;
-    if (val) {
-      vals._ = [val];
-    }
-
-    const text = unparse(cmd, vals);
-    return `${cmd.name} ${text}`;
+    return unparse(cmd, this.state.values);
   }
 
   setActiveParam(activeParam) {
     this.setState({ activeParam });
   }
 
-  _onSubmit = (ev) => {
-    const text = this.getCommand();
-    if (text !== this.state.text) {
-      this.setState({ text });
+  _onSubmit = (evs) => {
+    const { activeParam } = this.state;
+
+    if (activeParam) {
+      const name = activeParam.name;
+      let val = this.refs[`${name}-input`].value;
+      val = val !== '' ? val : null;
+      if (name === '_' && val) {
+        val = [val];
+      }
+
+      const nextValues = {};
+      nextValues[name] = val;
+      if (activeParam.alias) {
+        const alias = typeof activeParam.alias === 'string' ? [activeParam.alias] : activeParam.alias;
+        alias.forEach(a => nextValues[a] = val);
+      }
+      // update directly and not via setState because re-redering messes up inputs' internal state
+      this.state.values = {
+        ...this.state.values,
+        ...nextValues,
+      };
+      const text = this.getCommand();
+      if (text !== this.state.text) {
+        this.setState({ text });
+      }
     }
   }
 

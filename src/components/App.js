@@ -1,9 +1,9 @@
 import _ from 'lodash';
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { Grid, Tree } from 'react-blessed-contrib';
 import CommandForm from './CommandForm';
 import CommandTree from './CommandTree';
-import { getCommandDetail } from '../model';
+import { getCommandDetail, getCommandByArgs } from '../model';
 
 const stylesheet = {
   list: {
@@ -35,20 +35,24 @@ const stylesheet = {
 // }];
 
 export default class App extends Component {
+  static propTypes = {
+    args: PropTypes.array,
+    onSelectCommand: PropTypes.func.isRequired,
+  }
 
   constructor(props) {
     super(props);
     this.state = {
-      // focused: 0,
       content: '',
       cmd: null,
+      args: props.args,
+      query: props.args.join(' '),
     };
-    // if (props.args[1] in commands) {
-    //   this.state.selected = _.findIndex(items, x => x[0] === props.args[1]);
-    //   this.state.showDetail = true;
-    // } else {
-    //   this.state.text = props.args.join(' ');
-    // }
+    if (props.args && props.args.length > 0) {
+      getCommandByArgs(props.args).then((cmd) => {
+        this.setState({ cmd, query: cmd.name });
+      });
+    }
   }
 
   componentDidMount() {
@@ -75,8 +79,8 @@ export default class App extends Component {
     const cmd = this.state.cmd;
     return (
       <Grid cols={1} rows={4} component="box">
-        <CommandForm  key="form" ref="form" row={0} col={0} colSpan={cmd ? 1 : 0} rowSpan={2} onKeypress={this._onDetailKeypress} onSelectCommand={this.props.onSelectCommand} cmd={this.state.cmd} />
-        <CommandTree key="tree" ref="tree" row={0} col={0} colSpan={cmd ? 0 : 1} rowSpan={2}  template={{ lines: true }} onEnter={this._onSelectEnter} onSelect={this._onSelect} />
+        <CommandForm  key="form" ref="form" row={0} col={0} colSpan={cmd ? 1 : 0} rowSpan={2} onKeypress={this._onDetailKeypress} onSelectCommand={this.props.onSelectCommand} cmd={this.state.cmd} args={this.state.args} />
+        <CommandTree key="tree" ref="tree" row={0} col={0} colSpan={cmd ? 0 : 1} rowSpan={2}  template={{ lines: true }} query={this.state.query} onEnter={this._onSelectEnter} onSelect={this._onSelect} />
         <box key="text" ref="text" row={2} col={0} colSpan={1} rowSpan={2} border={{type: 'line'}} style={{border: {fg: 'cyan'}}} scrollable={true} mouse={true} keys={true} input={true} alwaysScroll={true} scrollbar={{ch: " ", inverse: true}}>
           {this.state.content}
         </box>
@@ -86,7 +90,7 @@ export default class App extends Component {
 
   _onDetailKeypress = (ch, key) => {
     if (key.name === 'escape') {
-      this.setState({ cmd: null });
+      this.setState({ cmd: null, args: [] });
     }
   }
 
