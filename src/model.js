@@ -161,15 +161,16 @@ export async function loadNpmScripts() {
     const children = _.map(pkg.scripts, (val, key) => {
       const cmd = `npm run ${key}`;
       return {
-        name: _.padEnd(cmd, 25) + ' ' + val,
+        name: cmd,
         cmd,
+        summary: val,
         executable: true,
       };
     });
 
     return {
       name: 'Npm scripts',
-      children,
+      children: mapChildren(children),
       extended: true,
     }
   } catch (ignore) {}
@@ -190,6 +191,7 @@ export async function loadMakeTargets() {
             return {
               name: cmd,
               cmd,
+              summary: '',
               executable: true,
             };
           })
@@ -214,8 +216,9 @@ export async function loadRakeTasks() {
         const parts = line.split('#');
         const cmd = parts[0].trim();
         return {
-          name: _.padEnd(cmd, 25) + ' ' + parts[1].trim(),
+          name: cmd,
           cmd,
+          summary: parts[1].trim(),
           executable: true,
         };
       });
@@ -223,7 +226,7 @@ export async function loadRakeTasks() {
       return {
         name: 'Rake tasks',
         extended: true,
-        children,
+        children: mapChildren(children),
       };
     }
   } catch (ignore) {}
