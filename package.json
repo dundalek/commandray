@@ -5,6 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "mocha --compilers babel-core/register --require src/test-helper.js 'src/**/*.test.js'",
+    "build": "babel ./src --out-dir ./dist",
+    "prepublish": "npm run build",
     "start": "NODE_ENV=production babel-node src/index.js",
     "extract": "babel-node ./src/extract.js",
     "clean": "rimraf build",
