@@ -17,6 +17,7 @@ export async function getRootNode() {
   if (!root) {
     const sources = (await Promise.all([
       loadNpmScripts(),
+      loadRakeTasks(),
       loadMakeTargets(),
       getAllCommandsNode(),
     ])).filter(x => x);
@@ -200,6 +201,30 @@ export async function loadMakeTargets() {
           children,
         };
       }
+    }
+  } catch (ignore) {}
+  return null;
+}
+
+export async function loadRakeTasks() {
+  try {
+    const stdout = (await streamToString(spawn('rake', ['--tasks']).stdout)).trim();
+    if (stdout) {
+      const children = stdout.split('\n').map((line) => {
+        const parts = line.split('#');
+        const cmd = parts[0].trim();
+        return {
+          name: _.padEnd(cmd, 25) + ' ' + parts[1].trim(),
+          cmd,
+          executable: true,
+        };
+      });
+
+      return {
+        name: 'Rake tasks',
+        extended: true,
+        children,
+      };
     }
   } catch (ignore) {}
   return null;
