@@ -1,8 +1,9 @@
+import { spawn } from 'child_process';
 import path from 'path';
 import fs from 'mz/fs';
 import _ from 'lodash';
 import sqlite from 'sqlite';
-import { nestItems, truncate } from './util';
+import { nestItems, truncate, streamToString } from './util';
 
 const dbFile = path.join(__dirname, '../tmp/commands.db');
 const dbPromise = sqlite.open(dbFile);
@@ -16,6 +17,7 @@ export async function getRootNode() {
   if (!root) {
     const sources = (await Promise.all([
       loadNpmScripts(),
+      loadMakeTargets(),
       getAllCommandsNode(),
     ])).filter(x => x);
     if (sources.length > 1) {
@@ -168,6 +170,36 @@ export async function loadNpmScripts() {
       name: 'Npm scripts',
       children,
       extended: true,
+    }
+  } catch (ignore) {}
+  return null;
+}
+
+export async function loadMakeTargets() {
+  try {
+    if (await fs.exists('Makefile')) {
+      // http://unix.stackexchange.com/a/230050
+      let targets = (await streamToString(spawn('bash', ['-c', "make -qp | awk -F':' '/^[a-zA-Z0-9][^$#\/\t=]*:([^=]|$)/ {split($1,A,/ /);for(i in A)print A[i]}'"]).stdout)).trim();
+      if (targets) {
+        const children = _(targets.trim().split('\n'))
+          .uniq()
+          .sortBy()
+          .map(c => {
+            const cmd = `make ${c}`;
+            return {
+              name: cmd,
+              cmd,
+              executable: true,
+            };
+          })
+          .value();
+
+        return {
+          name: 'Make targets',
+          extended: true,
+          children,
+        };
+      }
     }
   } catch (ignore) {}
   return null;

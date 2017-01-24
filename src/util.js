@@ -41,3 +41,14 @@ export function truncate(str, len) {
   const endCount = len - startCount;
   return str.slice(0, startCount) + omission + str.slice(str.length - endCount);
 }
+
+export function streamToString(stream) {
+  return new Promise((resolve, reject) => {
+    const chunks = [];
+    stream.on('data', (chunk) => {
+      chunks.push(chunk.toString());
+    });
+    stream.on('end', () => resolve(chunks.join('')));
+    stream.on('error', e => reject(e));
+  })
+}

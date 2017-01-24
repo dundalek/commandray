@@ -2,19 +2,9 @@
 import { spawn } from 'child_process';
 import { MongoClient } from 'mongodb';
 import mapStream from 'map-stream';
+import { streamToString } from '../util';
 
 var url = 'mongodb://localhost:27017/explainshell';
-
-function streamToString(stream) {
-  return new Promise((resolve, reject) => {
-    const chunks = [];
-    stream.on('data', (chunk) => {
-      chunks.push(chunk.toString());
-    });
-    stream.on('end', () => resolve(chunks.join('')));
-    stream.on('error', e => reject(e));
-  })
-}
 
 export function transformParam(obj: Object): Param {
   const name = ((obj.long && obj.long[0]) || (obj.short && obj.short[0])).replace(/^--?/, '');
