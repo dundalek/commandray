@@ -1,4 +1,5 @@
 import path from 'path';
+import fs from 'mz/fs';
 import _ from 'lodash';
 import sqlite from 'sqlite';
 import { nestItems, truncate } from './util';
@@ -9,17 +10,34 @@ const dbPromise = sqlite.open(dbFile);
 const promisify = func => (...args) => new Promise((resolve, reject) =>
   func(...args, (err, result) => err ? reject(err) : resolve(result)));
 
-const root = {
-  name: 'All commands',
-  extended: true,
-};
+let root = null;
 
 export async function getRootNode() {
-  if (!root.children) {
-    root.children = await loadChildrenRoot();
+  if (!root) {
+    const sources = (await Promise.all([
+      loadNpmScripts(),
+      getAllCommandsNode(),
+    ])).filter(x => x);
+    if (sources.length > 1) {
+      root = {
+        name: '',
+        children: sources,
+        extended: true,
+      }
+    } else {
+      root = sources[0];
+    }
   }
 
   return root;
+}
+
+async function getAllCommandsNode() {
+  return {
+    name: 'All commands',
+    extended: true,
+    children: await loadChildrenRoot()
+  };
 }
 
 export async function getQueryNode(query) {
@@ -132,6 +150,27 @@ export async function loadChildrenQuery(query) {
   children = mapChildren(children);
 
   return children;
+}
+
+export async function loadNpmScripts() {
+  try {
+    const pkg = JSON.parse(await fs.readFile('package.json', 'utf-8'));
+    const children = _.map(pkg.scripts, (val, key) => {
+      const cmd = `npm run ${key}`;
+      return {
+        name: _.padEnd(cmd, 25) + ' ' + val,
+        cmd,
+        executable: true,
+      };
+    });
+
+    return {
+      name: 'Npm scripts',
+      children,
+      extended: true,
+    }
+  } catch (ignore) {}
+  return null;
 }
 
 export async function getCommandDetail(id) {

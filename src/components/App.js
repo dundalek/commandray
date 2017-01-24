@@ -98,6 +98,8 @@ export default class App extends Component {
     if (node.id) {
       const cmd = await getCommandDetail(node.id);
       this.setState({ cmd });
+    } else if (node.executable) {
+      this.props.onSelectCommand(node.cmd);
     }
   }
 
