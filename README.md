@@ -88,8 +88,10 @@ GUI
 - [ ] Bottom bar showing keyboard shortcuts
 
 Backend
+- [ ] Add full-text search
 - [ ] Improved parser (probably similar to docopt)
 - [ ] Explore other kinds of command invocation like APIs or RPCs
+- [ ] Find a way how to distribute command db or generate it automatically
 - [ ] Support curated recipes / bookmarks
 - [ ] Read shell history and offer recent or most used commands
 
