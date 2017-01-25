@@ -38,6 +38,9 @@ async function runInsertStatements(db, fn) {
 }
 
 async function saveStreamToDb(stream, db) {
+  if (!stream) {
+    return;
+  }
   await runInsertStatements(db, async (insert) => {
     stream.on('data', insert);
     await waitForStream(stream);

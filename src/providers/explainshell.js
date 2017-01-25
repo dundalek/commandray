@@ -51,7 +51,12 @@ export async function transformCommand(data: Object): Promise<Command> {
 }
 
 export async function extract() {
-  const db = await MongoClient.connect(url);
+  try {
+    const db = await MongoClient.connect(url);
+  } catch (e) {
+    console.log('Cannot connect to MongoDB, explainshell commands wil not be available.');
+    return null;
+  }
   const collection = db.collection('manpage');
   const cursor = collection
     .find({})
