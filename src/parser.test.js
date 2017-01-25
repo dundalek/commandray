@@ -1,7 +1,7 @@
 // @flow
 import _ from 'lodash';
 import { transformUsage, parse, unparse } from './parser';
-const commands = _.keyBy(require('../tmp/commands.json'), 'name');
+const commands = _.keyBy(require('../data/commands.json'), 'name');
 
 function testCommandUnparsing(name, example) {
   const cmd = commands[name];

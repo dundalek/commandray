@@ -88,7 +88,7 @@ async function main() {
   const herokuCommands = extractHeroku();
 
   // save as fixtures for tests
-  await saveItemsToFile(herokuCommands, path.join(__dirname, '../tmp/commands.json'));
+  await saveItemsToFile(herokuCommands, path.join(__dirname, '../data/commands.json'));
 
   await saveItemsToDb(herokuCommands, db);
   await saveItemsToDb(extractDocker(), db);
