@@ -45,7 +45,7 @@
     "mongodb": "^2.2.22",
     "mz": "^2.6.0",
     "react": "^0.14.0-rc1",
-    "react-blessed": "^0.1.4",
+    "react-blessed": "^0.1.8",
     "react-blessed-contrib": "^0.1.2",
     "robotjs": "^0.4.5",
     "sqlite": "^2.2.4",

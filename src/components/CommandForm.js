@@ -3,14 +3,6 @@ import React, { Component, PropTypes } from 'react';
 import { parseParam, unparse, parse } from '../parser';
 import blessed from 'blessed';
 
-blessed.widget.checkbox.prototype.setValue = function(value) {
-  if (value) {
-    this.check();
-  } else {
-    this.uncheck();
-  }
-}
-
 export default class CommandForm extends Component {
   static propTypes = {
     cmd: PropTypes.object,
@@ -121,7 +113,7 @@ export default class CommandForm extends Component {
               mouse: true,
               top: i + 1,
               left: '50%',
-              value: !!this.state.values[name],
+              checked: !!this.state.values[name],
             }} onSetContent={this._onSubmit} onBlur={() => this.setActiveParam()} onFocus={() => this.setActiveParam(param)} ref={`${name}-input`} key={`${name}-input-checkbox`} />
             : <textbox class={{
               mouse: true,
