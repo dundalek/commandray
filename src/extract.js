@@ -101,7 +101,7 @@ async function main() {
 
   await db.close();
   await fs.rename(dbFileTmp, dbFile);
-  return 'done';
+  return 'Done';
 }
 
 main().then(x => console.log(x)).catch(x => console.error(x));

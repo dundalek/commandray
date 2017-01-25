@@ -96,10 +96,11 @@ function loadCommand({ name, summary }) {
 }
 
 export function extract() {
+  let stdout;
   try {
-    const stdout = spawnSync('docker', ['help']).stdout.toString('utf-8');
+    stdout = spawnSync('docker', ['help']).stdout.toString('utf-8');
   } catch (e) {
-    console.log('Docker command not available. Install it first.');
+    console.error('Docker command not available. Install it first.');
     return [];
   }
   const commands = _.flattenDeep(extractPageCommands(stdout).map(loadCommand));

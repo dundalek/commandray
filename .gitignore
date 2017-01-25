@@ -5,4 +5,5 @@ yarn.lock
 npm-debug.log
 tmp
 dist
-data/commands.db
+data
+!data/README.md

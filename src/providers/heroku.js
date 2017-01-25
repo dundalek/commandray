@@ -106,10 +106,11 @@ export function extract() {
 
   // TODO add list from `heroku commands` for completeness
 
+  let stdout;
   try {
-    const stdout = spawnSync('heroku', ['help']).stdout.toString('utf-8');
+    stdout = spawnSync('heroku', ['help']).stdout.toString('utf-8');
   } catch (e) {
-    console.log('Heroku command not available. Install it first.');
+    console.error('Heroku command not available. Install it first.');
     return [];
   }
   extractPageCommands(stdout).forEach(loadCommand);

@@ -54,7 +54,7 @@ export async function extract() {
   try {
     const db = await MongoClient.connect(url);
   } catch (e) {
-    console.log('Cannot connect to MongoDB, explainshell commands wil not be available.');
+    console.error('Cannot connect to MongoDB, explainshell commands wil not be available.');
     return null;
   }
   const collection = db.collection('manpage');

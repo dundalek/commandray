@@ -4,4 +4,5 @@ build
 yarn.lock
 npm-debug.log
 tmp
-data/commands.db
+data
+!data/README.md
