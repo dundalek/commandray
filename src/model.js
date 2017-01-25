@@ -5,7 +5,7 @@ import _ from 'lodash';
 import sqlite from 'sqlite';
 import { nestItems, truncate, streamToString } from './util';
 
-const dbFile = path.join(__dirname, '../tmp/commands.db');
+const dbFile = path.join(__dirname, '../data/commands.db');
 const dbPromise = sqlite.open(dbFile);
 
 const promisify = func => (...args) => new Promise((resolve, reject) =>
@@ -88,7 +88,7 @@ async function loadChildrenRoot() {
       count(*) as cnt
     from commands
     group by basename
-    order by cnt desc
+    order by basename asc
     limit 1000
   `, args);
 

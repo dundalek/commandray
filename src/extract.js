@@ -62,8 +62,8 @@ async function saveItemsToFile(items, filename) {
   await fs.writeFile(filename, JSON.stringify(items, null, 2));
 }
 
-const dbFileTmp = path.join(__dirname, '../tmp/commands.db.tmp');
-const dbFile = path.join(__dirname, '../tmp/commands.db');
+const dbFileTmp = path.join(__dirname, '../data/commands.db.tmp');
+const dbFile = path.join(__dirname, '../data/commands.db');
 const dbSchema = `
 CREATE TABLE commands (
   id INTEGER PRIMARY KEY,

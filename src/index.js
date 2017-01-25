@@ -8,7 +8,7 @@ import App from './components/App';
 const screen = blessed.screen({
   autoPadding: true,
   smartCSR: true,
-  title: 'React Blessed Hot Motion'
+  title: 'CommandRay'
 });
 
 // Let user quit the app
