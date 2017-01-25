@@ -1,6 +1,6 @@
 {
   "name": "commandray",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "CommandRay is a graphical command-line tool to discover and execute commands more efficiently",
   "keywords": [
     "command",
