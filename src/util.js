@@ -1,3 +1,5 @@
+import fs from 'mz/fs';
+import path from 'path';
 import _ from 'lodash';
 
 export function nestItems(items, depth = 0, prefix='') {
@@ -51,4 +53,16 @@ export function streamToString(stream) {
     stream.on('end', () => resolve(chunks.join('')));
     stream.on('error', e => reject(e));
   })
+}
+
+export function generateHierarchyFilenames(dir: string, filenames: array<string>) {
+  const parts = path.resolve(dir).split(path.sep);
+
+  return _(_.rangeRight(2, parts.length + 1).map((i) => {
+    const p =  parts.slice(0, i).join(path.sep);
+    return filenames.map(f => path.join(p, f));
+  }))
+    .flatten()
+    .filter()
+    .value();
 }

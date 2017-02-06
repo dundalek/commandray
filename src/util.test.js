@@ -1,4 +1,4 @@
-import { nestItems, truncate } from './util';
+import { nestItems, truncate, generateHierarchyFilenames } from './util';
 
 describe('util', () => {
   describe('nestItems', () => {
@@ -127,5 +127,16 @@ describe('util', () => {
       expect(truncate('abc', 3)).to.eql('abc');
       expect(truncate('abc', 5)).to.eql('abc');
     });
-  })
+  });
+
+  describe('generateHierarchyFilenames', () => {
+    it('generates files', () => {
+      expect(generateHierarchyFilenames('/home/me', ['COMMANDS.md', '.COMMANDS.md'])).to.eql([
+        '/home/me/COMMANDS.md',
+        '/home/me/.COMMANDS.md',
+        '/home/COMMANDS.md',
+        '/home/.COMMANDS.md',
+      ]);
+    });
+  });
 });

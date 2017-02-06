@@ -3,8 +3,9 @@ import { spawn } from 'child_process';
 import path from 'path';
 import fs from 'mz/fs';
 import _ from 'lodash';
-import sqlite from 'sqlite';
-import { nestItems, truncate, streamToString } from './util';
+import sqlite from 'sqlite/legacy';
+import kmdoc from 'kmdoc';
+import { nestItems, truncate, streamToString, generateHierarchyFilenames } from './util';
 
 const dbFile = path.join(__dirname, '../data/commands.db');
 const dbPromise = sqlite.open(dbFile);
@@ -20,6 +21,7 @@ export async function getRootNode() {
       loadNpmScripts(),
       loadRakeTasks(),
       loadMakeTargets(),
+      loadCommandRecipes(),
       getAllCommandsNode(),
     ])).filter(x => x);
     if (sources.length > 1) {
@@ -232,6 +234,31 @@ export async function loadRakeTasks() {
     }
   } catch (ignore) {}
   return null;
+}
+
+export async function loadCommandRecipes() {
+  try {
+    const files = (await Promise.all(generateHierarchyFilenames('.', ['COMMANDS.md', '.COMMANDS.md'])
+      .map(async (f) => (await fs.exists(f)) && f))).filter(x => x);
+
+    // TODO handle hierarchy
+    const children = await Promise.all(files.map(async (f) => {
+      const kmd = kmdoc.create();
+      kmd.defsIdx = {};
+      return kmd.parse(await fs.readFile(f, 'utf-8')).definitions.map(d => ({
+        name: d.definition,
+        summary: d.name,
+        cmd: d.definition,
+        executable: true,
+      }));
+    }));
+
+    return {
+      name: 'COMMANDS.md',
+      extended: false,
+      children: mapChildren(_.flatten(children)),
+    };
+  } catch (ignore) {}
 }
 
 export async function getCommandDetail(id: number) {
