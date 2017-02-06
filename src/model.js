@@ -1,3 +1,4 @@
+// @flow
 import { spawn } from 'child_process';
 import path from 'path';
 import fs from 'mz/fs';
@@ -43,7 +44,7 @@ async function getAllCommandsNode() {
   };
 }
 
-export async function getQueryNode(query) {
+export async function getQueryNode(query: string) {
   return {
     name: query,
     cmd: query,
@@ -107,7 +108,7 @@ async function loadChildrenRoot() {
     .value();
 }
 
-export async function loadChildrenExpand(query) {
+export async function loadChildrenExpand(query: string) {
   const db = await dbPromise;
   const args = {
     $cmd: query,
@@ -131,7 +132,7 @@ export async function loadChildrenExpand(query) {
   return children;
 }
 
-export async function loadChildrenQuery(query) {
+export async function loadChildrenQuery(query: string) {
   const db = await dbPromise;
   const args = {
     $cmd: query,
@@ -233,7 +234,7 @@ export async function loadRakeTasks() {
   return null;
 }
 
-export async function getCommandDetail(id) {
+export async function getCommandDetail(id: number) {
   const db = await dbPromise;
   const cmd = await db.get('select * from commands where id = ?', id);
   cmd.schema = JSON.parse(cmd.schema);
@@ -241,7 +242,7 @@ export async function getCommandDetail(id) {
   return cmd;
 }
 
-export async function getCommandByArgs(args) {
+export async function getCommandByArgs(args: Array<string>) {
   let cmd = null;
   const db = await dbPromise;
   for (let i = 1; i <= args.length; i += 1) {
