@@ -16,6 +16,13 @@ commandray-extract
 
 Built-in parser supports heroku and docker commands. Other commands are supported via [explainshell](https://github.com/idank/explainshell), refer to detailed instructions how to set it up below.
 
+Add keyboard shortcut for bash by adding
+```
+bind '"\C- ": "\C-a commandray \C-j"'
+```
+to `~/.bashrc` which binds Ctrl-space to run commandray.
+
+
 ## Use
 
 You can use `commandray` or the `ic` alias (as in **I**nteractive **C**ommand). This will open up the list of all available commands.
